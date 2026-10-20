@@ -1,0 +1,1049 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exceptions និងការគ្រប់គ្រងកំហុស &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/exceptions.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Classes និង Object-Oriented Programming" href="classes_oop.html" />
+    <link rel="prev" title="Modules និង Packages" href="modules_packages.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/exceptions.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="Exceptions និងការគ្រប់គ្រងកំហុស">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/exceptions.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exceptions និងការគ្រប់គ្រងកំហុស">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules_packages.html">Modules និង Packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exceptions និងការគ្រប់គ្រងកំហុស</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#syntax-error">Syntax Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exception">Exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#traceback">ការអាន Traceback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#try-except"><code class="docutils literal notranslate"><span class="pre">try</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#object-exception">ចាប់យក Object នៃ Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-except">ចាប់យក Exception ច្រើន</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#else-clause"><code class="docutils literal notranslate"><span class="pre">else</span></code> Clause</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-hierarchy">ឋានានុក្រម Exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#except">កំហុសធ្ងន់ធ្ងរ — <code class="docutils literal notranslate"><span class="pre">except:</span></code> ទទេ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-raise">ការបញ្ចេញ Exception (<code class="docutils literal notranslate"><span class="pre">raise</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-chaining">Exception Chaining</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#raise-from"><code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">...</span> <span class="pre">from</span> <span class="pre">...</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-exceptions">Exception ផ្ទាល់ខ្លួន</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finally"><code class="docutils literal notranslate"><span class="pre">finally</span></code> — សកម្មភាពសម្អាត</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#finally-return">ឥរិយាបថពិសេសរបស់ <code class="docutils literal notranslate"><span class="pre">finally</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#with-predefined-clean-up-actions"><code class="docutils literal notranslate"><span class="pre">with</span></code> — Predefined Clean-up Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptiongroup-except"><code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> និង <code class="docutils literal notranslate"><span class="pre">except*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-notes">ការបន្ថែមចំណាំទៅ Exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assert"><code class="docutils literal notranslate"><span class="pre">assert</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions-best-practices">ការអនុវត្តល្អបំផុត</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classes_oop.html">Classes និង Object-Oriented Programming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Exceptions និងការគ្រប់គ្រងកំហុស</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/exceptions.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="exceptions">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/errors.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/library/exceptions.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/reference/simple_stmts.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>Exceptions និងការគ្រប់គ្រងកំហុស<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<p>Python មានកំហុសពីរប្រភេទខុសគ្នាដាច់ស្រឡះ៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 76.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រភេទ</p></th>
+<th class="head"><p>កើតឡើងពេលណា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Syntax Error</strong></p></td>
+<td><p>ពេល <strong>parse</strong> កូដ — មុនដំណើរការ។ កម្មវិធីមិនចាប់ផ្ដើមទេ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Exception</strong></p></td>
+<td><p>ពេល <strong>ដំណើរការ</strong> (runtime) — ទោះបីជាវាក្យសម្ពន្ធត្រឹមត្រូវក៏ដោយ</p></td>
+</tr>
+</tbody>
+</table>
+<section id="syntax-error">
+<span id="syntax-errors"></span><h2>Syntax Error<a class="headerlink" href="#syntax-error" title="Link to this heading"></a></h2>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
+<span class="w">    </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="w">               </span><span class="pm">^^^^^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានបិទ</span>
+  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានបិទ</span>
+<span class="w">          </span><span class="pm">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">unterminated string literal (detected at line 1)</span>
+</pre></div>
+</div>
+<p>Python បង្ហាញ <strong>ទីតាំងជាក់លាក់</strong> ដែលវារកឃើញបញ្ហា ដោយប្រើសញ្ញា <code class="docutils literal notranslate"><span class="pre">^</span></code>
+ចង្អុលទៅកន្លែងខុស។</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Python 3.10+ មានសារ SyntaxError លម្អិតណាស់ — វាអាចចង្អុលបង្ហាញ
+វង់ក្រចកដែលមិនបានបិទ ការខ្វះ indentation និងកំហុស f-string។
+សូម <strong>អានសារកំហុសទាំងមូល</strong> មិនមែនតែបន្ទាត់ចុងក្រោយទេ។</p>
+</div>
+</section>
+<section id="exception">
+<span id="exceptions-basics"></span><h2>Exception<a class="headerlink" href="#exception" title="Link to this heading"></a></h2>
+<p>Exception គឺជា <strong>object</strong> ដែល Python បង្កើតនៅពេលមានអ្វីខុសកំឡុងពេល
+ដំណើរការ។ បើមិនបានចាប់យក (handle) កម្មវិធីនឹងឈប់ ហើយបោះពុម្ព
+<strong>traceback</strong>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: 'abc'</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">undefined_name</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">NameError</span>: <span class="n">name 'undefined_name' is not defined</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">][</span><span class="mi">10</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+</pre></div>
+</div>
+<section id="traceback">
+<span id="reading-traceback"></span><h3>ការអាន Traceback<a class="headerlink" href="#traceback" title="Link to this heading"></a></h3>
+<p>Traceback អាន <strong>ពីលើចុះក្រោម</strong> — បង្ហាញជាមុនថាការហៅបានឆ្លងកាត់
+អនុគមន៍ណាខ្លះ រួចបញ្ចប់ដោយកំហុសជាក់ស្ដែងនៅ <strong>បន្ទាត់ចុងក្រោយ</strong>៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):        ← ចាប់ផ្ដើម
+  File "app.py", line 42, in handle      ← កម្រិតខាងក្រៅបំផុត
+    result = process(data)
+  File "core.py", line 17, in process    ← កម្រិតខាងក្នុង
+    return parse(value)
+  File "core.py", line 9, in parse       ← កន្លែងកំហុសកើតឡើង
+    return int(value)
+ValueError: invalid literal for int()    ← ប្រភេទកំហុស + សារ
+        with base 10: 'hello'
+</pre></div>
+</div>
+<p><strong>លំដាប់សម្រាប់អាន៖</strong></p>
+<ol class="arabic simple">
+<li><p>អាន <strong>បន្ទាត់ចុងក្រោយ</strong> ជាមុន — វាប្រាប់ប្រភេទកំហុស និងមូលហេតុ។</p></li>
+<li><p>បន្ទាប់មកអាន <strong>frame ចុងក្រោយ</strong> (បន្ទាត់មុនចុងក្រោយ) — វាប្រាប់
+ឯកសារ លេខបន្ទាត់ និងអនុគមន៍ដែលកំហុសកើតឡើង។</p></li>
+<li><p>បើត្រូវការយល់បរិបទ សូមអានឡើងលើ។</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">(most</span> <span class="pre">recent</span> <span class="pre">call</span> <span class="pre">last)</span></code> មានន័យថា frame <strong>ចុងក្រោយ</strong> គឺជាការហៅ
+<strong>ថ្មីបំផុត</strong>។ នេះផ្ទុយពីភាសាខ្លះដែលរាយពីក្នុងចេញក្រៅ។</p>
+</div>
+</section>
+</section>
+<section id="try-except">
+<span id="id3"></span><h2><code class="docutils literal notranslate"><span class="pre">try</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-except" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""ចែកលេខដោយដោះស្រាយការចែកនឹងសូន្យ។"""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនអាចចែកនឹងសូន្យបានទេ"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">5.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">មិនអាចចែកនឹងសូន្យបានទេ</span>
+</pre></div>
+</div>
+<p>រចនាសម្ព័ន្ធពេញលេញ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">risky_operation</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">SomeError</span><span class="p">:</span>
+    <span class="n">handle_it</span><span class="p">()</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">OtherError</span><span class="p">,</span> <span class="n">AnotherError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="n">handle_multiple</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">runs_only_if_no_exception</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">always_runs</span><span class="p">()</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 82.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ផ្នែក</p></th>
+<th class="head"><p>ពេលណាដំណើរការ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">try</span></code></p></td>
+<td><p>កូដដែលអាចបញ្ចេញ exception</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">except</span></code></p></td>
+<td><p>តែនៅពេលមាន exception ដែល <strong>ត្រូវគ្នា</strong> កើតឡើង</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">else</span></code></p></td>
+<td><p>តែនៅពេល <strong>គ្មាន</strong> exception កើតឡើងក្នុង <code class="docutils literal notranslate"><span class="pre">try</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">finally</span></code></p></td>
+<td><p><strong>ជានិច្ច</strong> — សូម្បីតែមាន <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>
+ឬ exception ដែលមិនបានចាប់យក</p></td>
+</tr>
+</tbody>
+</table>
+<section id="object-exception">
+<span id="catching-object"></span><h3>ចាប់យក Object នៃ Exception<a class="headerlink" href="#object-exception" title="Link to this heading"></a></h3>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">as</span></code> ដើម្បីទទួល exception object ផ្ទាល់៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">ValueError</span>
+<span class="go">invalid literal for int() with base 10: 'abc'</span>
+<span class="go">("invalid literal for int() with base 10: 'abc'",)</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-except">
+<span id="id4"></span><h3>ចាប់យក Exception ច្រើន<a class="headerlink" href="#multiple-except" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="s2">"0"</span>          <span class="c1"># សាកល្បងជាមួយ "abc" ដើម្បីឃើញសាខា ValueError</span>
+
+<span class="c1"># វិធី ១ — clause ដាច់ដោយឡែក (ល្អបំផុត ព្រោះដោះស្រាយខុសគ្នា)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">value</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនមែនជាលេខទេ"</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនអាចចែកនឹងសូន្យទេ"</span><span class="p">)</span>
+
+<span class="c1"># វិធី ២ — tuple (ពេលដោះស្រាយដូចគ្នា)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">value</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">ZeroDivisionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"កំហុសទិន្នន័យ: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">except</span></code> clause ត្រូវបានសាកល្បង <strong>ពីលើចុះក្រោម</strong> ហើយតែមួយគត់
+ដែលត្រូវគ្នានឹងដំណើរការ។ ដូច្នេះដាក់ clause <strong>ជាក់លាក់</strong> នៅខាងលើ
+និង clause <strong>ទូទៅ</strong> នៅខាងក្រោម។</p>
+</div>
+</section>
+<section id="else-clause">
+<span id="id5"></span><h3><code class="docutils literal notranslate"><span class="pre">else</span></code> Clause<a class="headerlink" href="#else-clause" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">else</span></code> ដំណើរការតែនៅពេល <strong>គ្មាន</strong> exception។ វាល្អជាងការដាក់កូដ
+ក្នុង <code class="docutils literal notranslate"><span class="pre">try</span></code> ព្រោះវាច្បាស់ថាកូដណាដែលអាចបរាជ័យ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="s2">"42"</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="c1"># ❌ មិនច្បាស់ — convert() ក៏អាចបញ្ចេញ ValueError ដែរ</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>      <span class="c1"># បើ convert បរាជ័យ នឹងត្រូវចាប់យកដូចគ្នា</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទិន្នន័យមិនត្រឹមត្រូវ"</span><span class="p">)</span>
+
+<span class="c1"># ✅ ច្បាស់លាស់</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទិន្នន័យមិនត្រឹមត្រូវ"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>      <span class="c1"># ដំណើរការតែពេល int() ជោគជ័យ</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំដាក់កូដដែល <strong>មិនអាច</strong> បរាជ័យក្នុង <code class="docutils literal notranslate"><span class="pre">try</span></code> block។ <code class="docutils literal notranslate"><span class="pre">try</span></code> គួររុំព័ទ្ធ
+តែបន្ទាត់ដែលអ្នករំពឹងថាអាចបញ្ចេញ exception ប៉ុណ្ណោះ។</p>
+</div>
+</section>
+</section>
+<section id="exception-hierarchy">
+<span id="id6"></span><h2>ឋានានុក្រម Exception<a class="headerlink" href="#exception-hierarchy" title="Link to this heading"></a></h2>
+<p>Exception ទាំងអស់បន្តពូជ (inherit) ពី <code class="docutils literal notranslate"><span class="pre">BaseException</span></code>។ ការយល់ដឹងអំពីឋានានុក្រម
+សំខាន់ណាស់ ព្រោះ <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">X</span></code> ចាប់យក <strong>X និង subclass ទាំងអស់របស់វា</strong>។</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BaseException
+ +-- SystemExit                 ← sys.exit()
+ +-- KeyboardInterrupt          ← Control-C
+ +-- GeneratorExit
+ +-- BaseExceptionGroup
+ +-- Exception                  ← កំហុស "ធម្មតា" ទាំងអស់
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      |    +-- FloatingPointError
+      |    +-- OverflowError
+      |    +-- ZeroDivisionError
+      +-- AssertionError
+      +-- AttributeError
+      +-- BufferError
+      +-- EOFError
+      +-- ExceptionGroup
+      +-- ImportError
+      |    +-- ModuleNotFoundError
+      +-- LookupError
+      |    +-- IndexError
+      |    +-- KeyError
+      +-- MemoryError
+      +-- NameError
+      |    +-- UnboundLocalError
+      +-- OSError                (ហៅផងដែរ IOError, EnvironmentError)
+      |    +-- FileNotFoundError
+      |    +-- FileExistsError
+      |    +-- PermissionError
+      |    +-- IsADirectoryError
+      |    +-- NotADirectoryError
+      |    +-- TimeoutError
+      |    +-- ConnectionError
+      |         +-- ConnectionRefusedError
+      |         +-- ConnectionResetError
+      +-- RecursionError
+      +-- ReferenceError
+      +-- RuntimeError
+      |    +-- NotImplementedError
+      +-- SyntaxError
+      |    +-- IndentationError
+      |         +-- TabError
+      +-- SystemError
+      +-- TypeError
+      +-- ValueError
+      |    +-- UnicodeError
+      |         +-- UnicodeDecodeError
+      |         +-- UnicodeEncodeError
+      +-- Warning
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">LookupError</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="ne">ArithmeticError</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span>   <span class="c1"># ❗ ទេ</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>``KeyboardInterrupt`` និង ``SystemExit`` មិនមែនជា subclass នៃ
+``Exception`` ទេ</strong> — ពួកវាបន្តពូជពី <code class="docutils literal notranslate"><span class="pre">BaseException</span></code> ដោយផ្ទាល់។
+នេះគឺដោយចេតនា៖ ដើម្បីឱ្យ <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span></code> មិនស្រូបយក
+Control-C ឬ <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code>។</p>
+</div>
+<section id="except">
+<span id="bare-except"></span><h3>កំហុសធ្ងន់ធ្ងរ — <code class="docutils literal notranslate"><span class="pre">except:</span></code> ទទេ<a class="headerlink" href="#except" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ គ្រោះថ្នាក់បំផុត</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>            <span class="c1"># ចាប់យក BaseException ទាំងអស់</span>
+    <span class="k">pass</span>
+
+<span class="c1"># ❌ ក៏មិនល្អដែរ</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># ចាប់យកកំហុសធម្មតាទាំងអស់</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>បញ្ហា៖</p>
+<ul class="simple">
+<li><p>វាលាក់ <strong>កំហុសកម្មវិធីពិត</strong> (<code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, <code class="docutils literal notranslate"><span class="pre">NameError</span></code>, <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>)
+ដែលអ្នកគួរដឹង។</p></li>
+<li><p>វាស្រូប <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> ធ្វើឱ្យអ្នកមិនអាចបញ្ឈប់កម្មវិធីដោយ
+Control-C (ករណី <code class="docutils literal notranslate"><span class="pre">except:</span></code> ទទេ)។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pass</span></code> ដោយគ្មានការកត់ត្រា = កំហុសបាត់ដោយស្ងាត់។</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ ចាប់យកតែអ្វីដែលអ្នកដឹងពីរបៀបដោះស្រាយ</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">PermissionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"មិនអាចអានឯកសារកំណត់រចនាសម្ព័ន្ធ: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">use_defaults</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>បើអ្នក <strong>ត្រូវតែ</strong> ចាប់យក exception ទូទៅ សូម៖</p>
+<ol class="arabic simple">
+<li><p>កត់ត្រាវា (<code class="docutils literal notranslate"><span class="pre">logging.exception(...)</span></code> រួមទាំង traceback)</p></li>
+<li><p>បញ្ចេញឡើងវិញ ឬបំលែងទៅ exception ដែលមានន័យ</p></li>
+<li><p>កុំប្រើ <code class="docutils literal notranslate"><span class="pre">pass</span></code> ដោយគ្មានមូលហេតុ</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="exception-raise">
+<span id="raising"></span><h2>ការបញ្ចេញ Exception (<code class="docutils literal notranslate"><span class="pre">raise</span></code>)<a class="headerlink" href="#exception-raise" title="Link to this heading"></a></h2>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"តម្លៃមិនត្រឹមត្រូវ"</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">តម្លៃមិនត្រឹមត្រូវ</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="ne">RuntimeError</span>          <span class="c1"># គ្មានសារ</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">RuntimeError</span>
+</pre></div>
+</div>
+<p><strong>បញ្ចេញឡើងវិញ (re-raise)</strong> — កត់ត្រា រួចបណ្ដោយឱ្យកំហុសបន្ត៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"ទិន្នន័យខូច: </span><span class="si">%r</span><span class="s2">"</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
+    <span class="k">raise</span>                        <span class="c1"># បញ្ចេញ exception ដើមឡើងវិញ</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">raise</span></code> ដោយគ្មាន argument ក្នុង <code class="docutils literal notranslate"><span class="pre">except</span></code> block បញ្ចេញ exception
+បច្ចុប្បន្នឡើងវិញ ដោយរក្សា traceback ដើមទាំងស្រុង។</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>អ្នកក៏អាចបញ្ចេញ exception ពី class បានដែរ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exc</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"ខុស"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="n">exc</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">ខុស</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="exception-chaining">
+<span id="chaining"></span><h2>Exception Chaining<a class="headerlink" href="#exception-chaining" title="Link to this heading"></a></h2>
+<p>នៅពេល exception កើតឡើងក្នុង <code class="docutils literal notranslate"><span class="pre">except</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">finally</span></code> block Python
+ភ្ជាប់វាទៅ exception ដើមដោយស្វ័យប្រវត្តិ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"បរាជ័យក្នុងការគណនា"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+
+<span class="gt">During handling of the above exception, another exception occurred:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">RuntimeError</span>: <span class="n">បរាជ័យក្នុងការគណនា</span>
+</pre></div>
+</div>
+<section id="raise-from">
+<span id="id7"></span><h3><code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">...</span> <span class="pre">from</span> <span class="pre">...</span></code><a class="headerlink" href="#raise-from" title="Link to this heading"></a></h3>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">from</span></code> ដើម្បីបញ្ជាក់ចេតនាច្បាស់លាស់៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>វាក្យសម្ពន្ធ</p></th>
+<th class="head"><p>អត្ថន័យ និងលទ្ធផល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">New</span> <span class="pre">from</span> <span class="pre">exc</span></code></p></td>
+<td><p>កំណត់ <code class="docutils literal notranslate"><span class="pre">__cause__</span> <span class="pre">=</span> <span class="pre">exc</span></code> · បោះពុម្ព <em>&quot;The above exception was the direct cause of…&quot;</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">New</span></code> (ក្នុង <code class="docutils literal notranslate"><span class="pre">except</span></code>)</p></td>
+<td><p>កំណត់ <code class="docutils literal notranslate"><span class="pre">__context__</span> <span class="pre">=</span> <span class="pre">exc</span></code> · បោះពុម្ព <em>&quot;During handling of the above exception, another exception occurred…&quot;</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">New</span> <span class="pre">from</span> <span class="pre">None</span></code></p></td>
+<td><p><strong>លុប</strong> ការភ្ជាប់ទាំងស្រុង · បង្ហាញតែ exception ថ្មី</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="c1"># បំលែងកំហុសប្រព័ន្ធទៅជាកំហុសកម្មវិធីដែលមានន័យ</span>
+        <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"មិនអាចផ្ទុក </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"មូលហេតុដើម"</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"បរាជ័យ"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+<span class="gp">...</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">មូលហេតុដើម</span>
+
+<span class="gt">The above exception was the direct cause of the following exception:</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">RuntimeError</span>: <span class="n">បរាជ័យ</span>
+</pre></div>
+</div>
+<p><strong>លុបការភ្ជាប់</strong> ដោយ <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">None</span></code> — មានប្រយោជន៍ពេលលម្អិតខាងក្នុង
+មិនសំខាន់សម្រាប់អ្នកប្រើ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"លម្អិតផ្ទៃក្នុង"</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"សំណើមិនត្រឹមត្រូវ"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+<span class="gp">...</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">RuntimeError</span>: <span class="n">សំណើមិនត្រឹមត្រូវ</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="custom-exceptions">
+<span id="id8"></span><h2>Exception ផ្ទាល់ខ្លួន<a class="headerlink" href="#custom-exceptions" title="Link to this heading"></a></h2>
+<p>បង្កើត exception ផ្ទាល់ខ្លួនដោយបន្តពូជពី <code class="docutils literal notranslate"><span class="pre">Exception</span></code>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AppError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""មូលដ្ឋានសម្រាប់កំហុសទាំងអស់របស់កម្មវិធី។"""</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidationError</span><span class="p">(</span><span class="n">AppError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""ទិន្នន័យមិនត្រឹមត្រូវ។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">field</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NotFoundError</span><span class="p">(</span><span class="n">AppError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""រកធាតុមិនឃើញ។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">entity</span><span class="si">}</span><span class="s2"> '</span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">' មិនមានទេ"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entity</span> <span class="o">=</span> <span class="n">entity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">identifier</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">"email"</span><span class="p">,</span> <span class="s2">"ត្រូវមាន @"</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="s2">"-&gt;"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">email -&gt; ត្រូវមាន @</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="n">NotFoundError</span><span class="p">(</span><span class="s2">"User"</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="n">AppError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>        <span class="c1"># ចាប់យកតាម class មេ</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">NotFoundError : User '42' មិនមានទេ</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>អនុសញ្ញា៖</strong></p>
+<ul class="simple">
+<li><p>បញ្ចប់ឈ្មោះដោយ <code class="docutils literal notranslate"><span class="pre">Error</span></code> បើវាតំណាងឱ្យកំហុស។</p></li>
+<li><p>បង្កើត <strong>class មេមួយ</strong> សម្រាប់បណ្ណាល័យ/កម្មវិធីរបស់អ្នក
+(<code class="docutils literal notranslate"><span class="pre">AppError</span></code>) រួចបន្តពូជពីវា។ នេះអនុញ្ញាតឱ្យអ្នកប្រើចាប់យក
+កំហុសទាំងអស់របស់អ្នកដោយ <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">AppError</span></code>។</p></li>
+<li><p>បន្តពូជពី <code class="docutils literal notranslate"><span class="pre">Exception</span></code> — <strong>កុំ</strong> បន្តពូជពី <code class="docutils literal notranslate"><span class="pre">BaseException</span></code>។</p></li>
+</ul>
+</div>
+</section>
+<section id="finally">
+<span id="id9"></span><h2><code class="docutils literal notranslate"><span class="pre">finally</span></code> — សកម្មភាពសម្អាត<a class="headerlink" href="#finally" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">finally</span></code> block ដំណើរការ <strong>ជានិច្ច</strong> មិនថាមានអ្វីកើតឡើងក៏ដោយ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="gp">... </span>    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"ចែកនឹងសូន្យ!"</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"លទ្ធផលគឺ"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"ដំណើរការ finally"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">លទ្ធផលគឺ 2.0</span>
+<span class="go">ដំណើរការ finally</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">ចែកនឹងសូន្យ!</span>
+<span class="go">ដំណើរការ finally</span>
+</pre></div>
+</div>
+<section id="finally-return">
+<span id="id10"></span><h3>ឥរិយាបថពិសេសរបស់ <code class="docutils literal notranslate"><span class="pre">finally</span></code><a class="headerlink" href="#finally-return" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">finally</span></code> ដំណើរការសូម្បីតែនៅពេលមាន <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">continue</span></code>
+ក្នុង <code class="docutils literal notranslate"><span class="pre">try</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">"ពី try"</span>
+<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"finally ដំណើរការមុន return"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">()</span>
+<span class="go">finally ដំណើរការមុន return</span>
+<span class="go">'ពី try'</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>បើ <code class="docutils literal notranslate"><span class="pre">finally</span></code> block មាន <code class="docutils literal notranslate"><span class="pre">return</span></code> វា <strong>បដិសេធ</strong> តម្លៃត្រឡប់ពី <code class="docutils literal notranslate"><span class="pre">try</span></code>
+ឬ <code class="docutils literal notranslate"><span class="pre">except</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="mi">2</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="p">()</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>នេះជាកំហុសងាយធ្វើ។ <strong>កុំដាក់ ``return`` ក្នុង ``finally``</strong>។</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">finally</span></code> ក៏ដំណើរការដែរនៅពេល <code class="docutils literal notranslate"><span class="pre">try</span></code> block មានរង្វិលជុំដែល
+<code class="docutils literal notranslate"><span class="pre">break</span></code> ចេញ ឬនៅពេល exception ត្រូវបានបញ្ចេញឡើងវិញ។ នេះហើយ
+ជាមូលហេតុដែលវាសមស្របសម្រាប់ការបិទធនធាន។</p>
+</div>
+</section>
+</section>
+<section id="with-predefined-clean-up-actions">
+<span id="exceptions-with-statement"></span><h2><code class="docutils literal notranslate"><span class="pre">with</span></code> — Predefined Clean-up Actions<a class="headerlink" href="#with-predefined-clean-up-actions" title="Link to this heading"></a></h2>
+<p>object ខ្លះត្រូវការសម្អាតជានិច្ច ទោះបីជាប្រើជោគជ័យក៏ដោយ។ <code class="docutils literal notranslate"><span class="pre">with</span></code>
+ធ្វើវាដោយស្វ័យប្រវត្តិ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>          <span class="c1"># បិទរួចហើយ ទោះបីជាគ្មាន finally</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">with</span></code> គឺជាការប្រើ <strong>context manager</strong>។ វាស្មើនឹង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>object ដែលគាំទ្រ <code class="docutils literal notranslate"><span class="pre">with</span></code> ត្រូវមាន <code class="docutils literal notranslate"><span class="pre">__enter__()</span></code> និង <code class="docutils literal notranslate"><span class="pre">__exit__()</span></code>។
+ឧទាហរណ៍ក្នុងបណ្ណាល័យស្តង់ដារ៖ file objects, <code class="docutils literal notranslate"><span class="pre">threading.Lock</span></code>,
+<code class="docutils literal notranslate"><span class="pre">decimal.localcontext()</span></code>, <code class="docutils literal notranslate"><span class="pre">contextlib.suppress()</span></code>, database
+connections និងច្រើនទៀត។</p>
+<p>សូមមើលជំពូក <a class="reference internal" href="file_handling.html"><span class="doc">ការគ្រប់គ្រងឯកសារ</span></a> សម្រាប់ការប្រើជាមួយឯកសារ។</p>
+</div>
+<p><strong>បង្កើត context manager ផ្ទាល់ខ្លួន</strong> ដោយ <code class="docutils literal notranslate"><span class="pre">contextlib.contextmanager</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">timed</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">yield</span>
+<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">timed</span><span class="p">(</span><span class="s2">"រង្វិលជុំ"</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100_000</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">រង្វិលជុំ: ... ms</span>
+</pre></div>
+</div>
+</section>
+<section id="exceptiongroup-except">
+<span id="exception-groups"></span><h2><code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> និង <code class="docutils literal notranslate"><span class="pre">except*</span></code><a class="headerlink" href="#exceptiongroup-except" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.11.</span></p>
+</div>
+<p>បើមានកំហុស <strong>ច្រើនក្នុងពេលតែមួយ</strong> (ឧ. ក្នុង concurrency ឬការផ្ទៀងផ្ទាត់
+ច្រើនវាល (field)) អ្នកអាចបញ្ចេញពួកវាជាក្រុម៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">fields</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>        <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="n">ExceptionGroup</span><span class="p">(</span><span class="s2">"ការផ្ទៀងផ្ទាត់បរាជ័យ"</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">validate</span><span class="p">({</span><span class="s2">"a"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="s2">"y"</span><span class="p">})</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">  | ExceptionGroup</span>: <span class="n">ការផ្ទៀងផ្ទាត់បរាជ័យ (2 sub-exceptions)</span>
+<span class="x">  +-+---------------- 1 ----------------</span>
+<span class="x">    | Traceback (most recent call last):</span>
+<span class="x">    | ...</span>
+<span class="x">    | ValueError: invalid literal for int() with base 10: 'x'</span>
+<span class="x">    +---------------- 2 ----------------</span>
+<span class="x">    | Traceback (most recent call last):</span>
+<span class="x">    | ...</span>
+<span class="x">    | ValueError: invalid literal for int() with base 10: 'y'</span>
+<span class="x">    +------------------------------------</span>
+</pre></div>
+</div>
+<p><strong>``except*``</strong> ចាប់យកតែ exception ដែលត្រូវគ្នាពីក្រុម៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">validate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">except</span><span class="o">*</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">eg</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">err</span> <span class="ow">in</span> <span class="n">eg</span><span class="o">.</span><span class="n">exceptions</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"តម្លៃខុស:"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="k">except</span><span class="o">*</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">eg</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ប្រភេទខុស:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">exceptions</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>ភាពខុសគ្នារវាង <code class="docutils literal notranslate"><span class="pre">except</span></code> និង <code class="docutils literal notranslate"><span class="pre">except*</span></code>៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>ឥរិយាបថ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">T</span></code></p></td>
+<td><p>ចាប់យក group <strong>ទាំងមូល</strong> បើ group ខ្លួនឯងត្រូវគ្នា</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">except*</span> <span class="pre">T</span></code></p></td>
+<td><p><strong>បំបែក</strong> group ហើយចាប់យកតែ exception ដែលជា <code class="docutils literal notranslate"><span class="pre">T</span></code>។
+សល់នៅក្នុង group ត្រូវបានបញ្ចេញបន្ត</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">except*</span></code> clause ច្រើនអាចដំណើរការសម្រាប់ group តែមួយ។</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> បន្តពូជពី <code class="docutils literal notranslate"><span class="pre">Exception</span></code> ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span></code>
+ចាប់យកវាបាន។ <code class="docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code> បន្តពូជពី <code class="docutils literal notranslate"><span class="pre">BaseException</span></code>
+សម្រាប់ករណីដែលមាន <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> ជាដើម។</p>
+</div>
+</section>
+<section id="exception-notes">
+<span id="id11"></span><h2>ការបន្ថែមចំណាំទៅ Exception<a class="headerlink" href="#exception-notes" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.11.</span></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">add_note()</span></code> បន្ថែមបរិបទដោយមិនប្ដូរប្រភេទ ឬសារដើម៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">err</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"តម្លៃខុស"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="s2">"កើតឡើងពេលផ្ទុកឯកសារ config.yaml"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="s2">"បន្ទាត់ ៤២"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="n">err</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">តម្លៃខុស</span>
+<span class="x">កើតឡើងពេលផ្ទុកឯកសារ config.yaml</span>
+<span class="x">បន្ទាត់ ៤២</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">__notes__</span>
+<span class="go">['កើតឡើងពេលផ្ទុកឯកសារ config.yaml', 'បន្ទាត់ ៤២']</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">add_note()</span></code> មានប្រយោជន៍ជាងការបញ្ចេញ exception ថ្មី ព្រោះវារក្សា
+traceback និងប្រភេទដើមទាំងស្រុង ហើយចំណាំលេចឡើងនៅក្នុង traceback
+ដោយស្វ័យប្រវត្តិ។</p>
+</div>
+</section>
+<section id="assert">
+<span id="id12"></span><h2><code class="docutils literal notranslate"><span class="pre">assert</span></code><a class="headerlink" href="#assert" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">assert</span></code> បញ្ចេញ <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> បើលក្ខខណ្ឌមិនពិត៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">nums</span><span class="p">,</span> <span class="s2">"បញ្ជីមិនអាចទទេទេ"</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">average</span><span class="p">([])</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">AssertionError</span>: <span class="n">បញ្ជីមិនអាចទទេទេ</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">assert</span></code> គឺសម្រាប់ <strong>ការត្រួតពិនិត្យខាងក្នុង</strong> (invariant) មិនមែន
+សម្រាប់ផ្ទៀងផ្ទាត់ទិន្នន័យពីអ្នកប្រើទេ។ មូលហេតុ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-O<span class="w"> </span>app.py<span class="w">     </span><span class="c1"># -O ដក assert ទាំងអស់ចេញ!</span>
+</pre></div>
+</div>
+<p>សម្រាប់ទិន្នន័យខាងក្រៅ ប្រើ <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">ValueError(...)</span></code> ជំនួសវិញ។</p>
+</div>
+</section>
+<section id="exceptions-best-practices">
+<span id="id13"></span><h2>ការអនុវត្តល្អបំផុត<a class="headerlink" href="#exceptions-best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>ចាប់យកជាក់លាក់</strong> — ចាប់យកតែប្រភេទដែលអ្នកដឹងពីរបៀបដោះស្រាយ។
+កុំប្រើ <code class="docutils literal notranslate"><span class="pre">except:</span></code> ទទេ ឬ <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception:</span> <span class="pre">pass</span></code>។</p></li>
+<li><p><strong>រុំ ``try`` ឱ្យតូច</strong> — តែបន្ទាត់ដែលអាចបរាជ័យ។</p></li>
+<li><p><strong>ប្រើ ``else``</strong> ដើម្បីញែកកូដដែលមិនអាចបរាជ័យចេញពី <code class="docutils literal notranslate"><span class="pre">try</span></code>។</p></li>
+<li><p><strong>ប្រើ ``with``</strong> សម្រាប់ធនធាន ជំនួស <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">finally</span></code> ដោយដៃ។</p></li>
+<li><p><strong>បញ្ចេញ exception ជាក់លាក់</strong> — <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">ValueError(&quot;…&quot;)</span></code> ល្អជាង
+<code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">Exception(&quot;…&quot;)</span></code>។</p></li>
+<li><p><strong>ប្រើ ``raise ... from exc``</strong> ដើម្បីរក្សាប្រវត្តិកំហុស។</p></li>
+<li><p><strong>កុំប្រើ exception សម្រាប់ control flow</strong> ធម្មតា។ ប៉ុន្តែសម្រាប់
+Python ករណី &quot;EAFP&quot; (ដំណើរការ រួចដោះស្រាយកំហុស) ជារឿយៗល្អជាង
+&quot;LBYL&quot; (ពិនិត្យមុន)។</p></li>
+<li><p><strong>កំណត់ exception ផ្ទាល់ខ្លួន</strong> សម្រាប់បណ្ណាល័យរបស់អ្នក ដោយមាន
+class មេតែមួយ។</p></li>
+<li><p><strong>កត់ត្រា</strong> exception ដែលអ្នកចាប់យក — ប្រើ <code class="docutils literal notranslate"><span class="pre">logging.exception()</span></code>។</p></li>
+<li><p><strong>កុំលាក់កំហុស</strong> — បើអ្នកមិនអាចដោះស្រាយ សូមបញ្ចេញឡើងវិញ។</p></li>
+</ol>
+</section>
+<section id="exceptions-summary">
+<span id="id14"></span><h2>សង្ខេប<a class="headerlink" href="#exceptions-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>គោលគំនិត</p></th>
+<th class="head"><p>សង្ខេប</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SyntaxError</p></td>
+<td><p>កំហុសវាក្យសម្ពន្ធ — កើតមុនដំណើរការ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Exception</p></td>
+<td><p>object កើតឡើងពេលដំណើរការ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>/<code class="docutils literal notranslate"><span class="pre">finally</span></code></p></td>
+<td><p>ចាប់យក ដោះស្រាយ និងសម្អាត</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">raise</span></code></p></td>
+<td><p>បញ្ចេញ exception។ <code class="docutils literal notranslate"><span class="pre">raise</span></code> ទទេ = បញ្ចេញឡើងវិញ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">X</span> <span class="pre">from</span> <span class="pre">Y</span></code></p></td>
+<td><p>ភ្ជាប់ exception ដោយចេតនា (<code class="docutils literal notranslate"><span class="pre">__cause__</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">None</span></code></p></td>
+<td><p>លុបការភ្ជាប់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">finally</span></code></p></td>
+<td><p>ដំណើរការជានិច្ច — សម្រាប់សម្អាត</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">with</span></code></p></td>
+<td><p>សម្អាតស្វ័យប្រវត្តិតាម context manager</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> / <code class="docutils literal notranslate"><span class="pre">except*</span></code></p></td>
+<td><p>កំហុសច្រើនក្នុងពេលតែមួយ (3.11+)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">add_note()</span></code></p></td>
+<td><p>បន្ថែមបរិបទដោយមិនប្ដូរ exception (3.11+)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">assert</span></code></p></td>
+<td><p>ត្រួតពិនិត្យខាងក្នុង — ត្រូវបានដកចេញដោយ <code class="docutils literal notranslate"><span class="pre">-O</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">Errors and Exceptions</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html">Built-in Exceptions</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">Exception hierarchy</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/contextlib.html">contextlib — Utilities for with-statement contexts</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/logging.html">logging — Logging facility</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0654/">PEP 654 — Exception Groups and except*</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules_packages.html" class="btn btn-neutral float-left" title="Modules និង Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classes_oop.html" class="btn btn-neutral float-right" title="Classes និង Object-Oriented Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

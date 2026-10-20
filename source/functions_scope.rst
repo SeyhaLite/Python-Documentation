@@ -7,9 +7,9 @@
    ``Doc/reference/compound_stmts.rst`` ·
    `ឯកសារផ្លូវការ <https://docs.python.org/3/tutorial/controlflow.html#defining-functions>`_
 
-###############################
+#######################################
 អនុគមន៍ និងវិសាលភាពអថេរ
-###############################
+#######################################
 
 .. _defining-functions:
 
@@ -319,8 +319,8 @@ Keyword Argument
 .. code-block:: pycon
 
    >>> create_user(name="សុខា", 25, "ភ្នំពេញ")   # keyword មុន positional
-   Traceback (most recent call last):
-     ...
+     File "<stdin>", line 1
+       ...
    SyntaxError: positional argument follows keyword argument
 
    >>> create_user("សុខា", 25, "ភ្នំពេញ", name="ដារ៉ា")

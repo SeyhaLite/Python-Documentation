@@ -1,8 +1,8 @@
 .. _khmer-python-docs:
 
-###############################
+#######################################
 ឯកសារ Python ជាភាសាខ្មែរ
-###############################
+#######################################
 
 .. admonition:: កំណែ Python ដែលឯកសារនេះយោង
    :class: note
@@ -70,6 +70,18 @@
      - :doc:`file_handling` — ការគ្រប់គ្រងឯកសារ
      - ✅ បញ្ចប់
      - ``tutorial/inputoutput.rst``, ``library/pathlib.rst``, ``library/json.rst``, ``library/os.rst``
+   * - ៧
+     - :doc:`modules_packages` — Modules និង Packages
+     - ✅ បញ្ចប់
+     - ``tutorial/modules.rst``, ``reference/import.rst``, ``library/sys.rst``, ``library/importlib.rst``
+   * - ៨
+     - :doc:`exceptions` — Exceptions និងការគ្រប់គ្រងកំហុស
+     - ✅ បញ្ចប់
+     - ``tutorial/errors.rst``, ``library/exceptions.rst``, ``library/contextlib.rst``
+   * - ៩
+     - :doc:`classes_oop` — Classes និង OOP
+     - ✅ បញ្ចប់
+     - ``tutorial/classes.rst``, ``reference/datamodel.rst``, ``library/dataclasses.rst``, ``library/abc.rst``
 
 .. list-table:: ជំពូកដែលគ្រោងទុក (មិនទាន់បានសរសេរ)
    :header-rows: 1
@@ -78,15 +90,6 @@
    * - លេខ
      - ជំពូក
      - ស្ថានភាព
-   * - ៧
-     - Modules និង Packages
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
-   * - ៨
-     - Exceptions និងការគ្រប់គ្រងកំហុស
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
-   * - ៩
-     - Classes និង Object-Oriented Programming
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
    * - ១០
      - Iterators និង Generators
      - ⬜ មិនទាន់ចាប់ផ្ដើម
@@ -109,7 +112,7 @@
 .. warning::
 
    សូមកុំយល់ថាឯកសារ Python ទាំងមូលត្រូវបានបកប្រែរួចហើយ។ បច្ចុប្បន្នមានតែ
-   **៦ ជំពូកមូលដ្ឋានគ្រឹះ** ប៉ុណ្ណោះដែលបានបញ្ចប់ ហើយផ្នែកធំនៃឯកសារផ្លូវការ
+   **៩ ជំពូក** ប៉ុណ្ណោះដែលបានបញ្ចប់ ហើយផ្នែកធំនៃឯកសារផ្លូវការ
    (Library Reference, Language Reference, C API) មិនទាន់ត្រូវបានប៉ះពាល់ទេ។
 
 ----
@@ -127,6 +130,9 @@
    control_flow
    functions_scope
    file_handling
+   modules_packages
+   exceptions
+   classes_oop
 
 .. toctree::
    :maxdepth: 1

@@ -7,9 +7,9 @@
    ``Doc/library/pathlib.rst``, ``Doc/library/json.rst``, ``Doc/library/os.rst`` ·
    `ឯកសារផ្លូវការ <https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files>`_
 
-##########################
+##################################
 ការគ្រប់គ្រងឯកសារ
-##########################
+##################################
 
 .. _open:
 
@@ -118,7 +118,7 @@ Text Mode និង Binary Mode
    បើអ្នកអានឯកសារ binary (ដូចជា JPEG) ក្នុង text mode ទិន្នន័យនឹង **ខូច**។
    ប្រើ ``"rb"`` ជានិច្ចសម្រាប់ឯកសារដែលមិនមែនជាអត្ថបទ។
 
-.. _with-statement:
+.. _files-with-statement:
 
 ពាក្យបញ្ជា ``with`` — វិធីត្រឹមត្រូវ
 ====================================
@@ -755,7 +755,7 @@ JSON គឺជាទម្រង់ស្តង់ដារសម្រាប់
 
 ---
 
-.. _best-practices:
+.. _files-best-practices:
 
 ការអនុវត្តល្អបំផុត — សង្ខេប
 ===============================

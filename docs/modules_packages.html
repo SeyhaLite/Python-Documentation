@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules និង Packages &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/modules_packages.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions និងការគ្រប់គ្រងកំហុស" href="exceptions.html" />
+    <link rel="prev" title="ការគ្រប់គ្រងឯកសារ" href="file_handling.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/modules_packages.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="Modules និង Packages">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/modules_packages.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Modules និង Packages">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules និង Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module">តើ Module ជាអ្វី?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import">ការនាំចូល (Import)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-mechanics">អ្វីកើតឡើងពេល <code class="docutils literal notranslate"><span class="pre">import</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namespace-module">Namespace របស់ Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#if-name-main"><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-search-path-sys-path">Module Search Path (<code class="docutils literal notranslate"><span class="pre">sys.path</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pycache-compiled-modules"><code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> — Compiled Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dir">អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">dir()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packages">Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#package">ការនាំចូលពី Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#init-py">តួនាទីរបស់ <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#relative-import">Relative Import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#all-import"><code class="docutils literal notranslate"><span class="pre">__all__</span></code> និង <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#namespace-package">Namespace Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reloading">ការផ្ទុក Module ឡើងវិញ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circular-import">Circular Import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-best-practices">ការអនុវត្តល្អបំផុត</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions និងការគ្រប់គ្រងកំហុស</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes_oop.html">Classes និង Object-Oriented Programming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modules និង Packages</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/modules_packages.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="modules-packages">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/modules.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/reference/import.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/library/sys.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/library/importlib.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>Modules និង Packages<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<p>នៅពេលកម្មវិធីរបស់អ្នកវែងឡើង ការដាក់កូដទាំងអស់ក្នុងឯកសារតែមួយធ្វើឱ្យវា
+ពិបាកថែទាំ។ Python ដោះស្រាយបញ្ហានេះដោយ <strong>module</strong> និង <strong>package</strong>។</p>
+<section id="module">
+<span id="what-is-module"></span><h2>តើ Module ជាអ្វី?<a class="headerlink" href="#module" title="Link to this heading"></a></h2>
+<p><strong>Module</strong> គឺជាឯកសារ <code class="docutils literal notranslate"><span class="pre">.py</span></code> មួយដែលមានកូដ Python។ ឈ្មោះឯកសារ (ដក
+<code class="docutils literal notranslate"><span class="pre">.py</span></code> ចេញ) ក្លាយជាឈ្មោះ module។</p>
+<p>ឧទាហរណ៍ បង្កើតឯកសារ <code class="docutils literal notranslate"><span class="pre">greetings.py</span></code>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""ម៉ូឌុលសាកល្បង — ផ្ដល់ពាក្យសួស្ដីជាច្រើនភាសា។"""</span>
+
+<span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s2">"km"</span>
+
+<span class="n">_TRANSLATIONS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"km"</span><span class="p">:</span> <span class="s2">"សួស្ដី"</span><span class="p">,</span>
+    <span class="s2">"en"</span><span class="p">:</span> <span class="s2">"Hello"</span><span class="p">,</span>
+    <span class="s2">"ja"</span><span class="p">:</span> <span class="s2">"こんにちは"</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""ត្រឡប់ពាក្យសួស្ដីសម្រាប់មនុស្សម្នាក់។"""</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">_TRANSLATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lang</span> <span class="ow">or</span> <span class="n">DEFAULT_LANGUAGE</span><span class="p">,</span> <span class="n">_TRANSLATIONS</span><span class="p">[</span><span class="s2">"en"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">supported_languages</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""ត្រឡប់បញ្ជីភាសាដែលគាំទ្រ។"""</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_TRANSLATIONS</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="import">
+<span id="importing"></span><h2>ការនាំចូល (Import)<a class="headerlink" href="#import" title="Link to this heading"></a></h2>
+<p>មានវិធីនាំចូលបួនយ៉ាង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ១. នាំចូល module ទាំងមូល — ចូលដំណើរការតាមឈ្មោះ module</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">))</span>
+
+<span class="c1"># ២. នាំចូលធាតុជាក់លាក់</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span><span class="p">,</span> <span class="n">supported_languages</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">"ដារ៉ា"</span><span class="p">))</span>
+
+<span class="c1"># ៣. នាំចូលដោយដាក់ឈ្មោះហៅក្រៅ (alias)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gr</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុភា"</span><span class="p">))</span>
+
+<span class="c1"># ៤. នាំចូលទាំងអស់ — ⚠ មិនណែនាំ</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="go">'សួស្ដី, សុខា!'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">DEFAULT_LANGUAGE</span>
+<span class="go">'km'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">supported_languages</span><span class="p">()</span>
+<span class="go">['en', 'ja', 'km']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="go">'greetings'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">'ម៉ូឌុលសាកល្បង — ផ្ដល់ពាក្យសួស្ដីជាច្រើនភាសា។'</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>កុំប្រើ ``from module import *``</strong> លើកលែងតែក្នុង REPL ឬកូដសាកល្បង។
+វាបញ្ចូលឈ្មោះដែលអ្នកមិនដឹងទៅក្នុង namespace របស់អ្នក ហើយអាច
+<strong>បិទបាំង</strong> (shadow) ឈ្មោះដែលមានស្រាប់ ធ្វើឱ្យ bug ពិបាករក។</p>
+<p>បើ module កំណត់ <code class="docutils literal notranslate"><span class="pre">__all__</span></code> វានឹងកំណត់ថាឈ្មោះណាត្រូវបាននាំចេញ
+(មើលផ្នែក <a class="reference internal" href="#all-variable"><span class="std std-ref">__all__ និង import *</span></a>)។</p>
+</div>
+<section id="import-mechanics">
+<span id="id3"></span><h3>អ្វីកើតឡើងពេល <code class="docutils literal notranslate"><span class="pre">import</span></code>?<a class="headerlink" href="#import-mechanics" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Python ស្វែងរក module នៅក្នុង <strong>module search path</strong> (<code class="docutils literal notranslate"><span class="pre">sys.path</span></code>)។</p></li>
+<li><p>បើរកឃើញ វាដំណើរការកូដក្នុងឯកសារ <strong>ម្ដងគត់</strong> ហើយបង្កើត module object។</p></li>
+<li><p>Module object ត្រូវបានរក្សាទុកក្នុង <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code> ជា cache។</p></li>
+<li><p>ឈ្មោះ module ត្រូវបានភ្ជាប់ក្នុង namespace បច្ចុប្បន្ន។</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Module ត្រូវបានដំណើរការ <strong>តែម្ដងគត់</strong>។ ការ <code class="docutils literal notranslate"><span class="pre">import</span></code> លើកទីពីរ
+យកពី cache មិនមែនដំណើរការឯកសារម្ដងទៀតទេ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>           <span class="c1"># លើកទីពីរ — គ្មានការដំណើរការឡើងវិញ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s2">"greetings"</span><span class="p">]</span> <span class="ow">is</span> <span class="n">greetings</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>ដូច្នេះកូដកម្រិត module (ការកំណត់អថេរ, <code class="docutils literal notranslate"><span class="pre">print</span></code>, ការភ្ជាប់បណ្ដាញ)
+ដំណើរការតែម្ដង។ នេះជាមូលហេតុដែលគេដាក់ការកំណត់រចនាសម្ព័ន្ធ
+(configuration) នៅកម្រិត module។</p>
+</div>
+</section>
+<section id="namespace-module">
+<span id="module-namespace"></span><h3>Namespace របស់ Module<a class="headerlink" href="#namespace-module" title="Link to this heading"></a></h3>
+<p>Module គឺជា <strong>object</strong> ដែលមាន attribute។ អថេរ អនុគមន៍ និង class ទាំងអស់
+ក្នុងឯកសារក្លាយជា attribute របស់វា៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)]</span>
+<span class="go">['DEFAULT_LANGUAGE', 'greet', 'supported_languages']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s2">"en"</span>     <span class="c1"># attribute អាចកែប្រែបាន</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="go">'Hello, សុខា!'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ឈ្មោះដែលចាប់ផ្ដើមដោយ underscore ត្រូវបានចាត់ទុកជា <strong>ផ្ទៃក្នុង</strong>។
+នៅក្នុងឧទាហរណ៍ខាងលើ <code class="docutils literal notranslate"><span class="pre">_TRANSLATIONS</span></code> មិនលេចឡើងក្នុង <code class="docutils literal notranslate"><span class="pre">dir()</span></code>
+ព្រោះយើងត្រងវាចេញ — ប៉ុន្តែវានៅតែអាចចូលដំណើរការបាន។
+នេះគឺជា <strong>អនុសញ្ញា</strong> មិនមែនការហាមឃាត់ទេ។</p>
+</div>
+</section>
+</section>
+<section id="if-name-main">
+<span id="main-guard"></span><h2><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code><a class="headerlink" href="#if-name-main" title="Link to this heading"></a></h2>
+<p>Python កំណត់អថេរ <code class="docutils literal notranslate"><span class="pre">__name__</span></code> ដោយស្វ័យប្រវត្តិ៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>របៀបដំណើរការ</p></th>
+<th class="head"><p>តម្លៃ <code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">greetings.py</span></code> (ដំណើរការផ្ទាល់)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">greetings</span></code> (នាំចូល)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;greetings&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>នេះអនុញ្ញាតឱ្យឯកសារមួយដំណើរការជា <strong>កម្មវិធី</strong> ផង និងជា <strong>បណ្ណាល័យ</strong>
+ផង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># greetings.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">_TRANSLATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lang</span> <span class="ow">or</span> <span class="n">DEFAULT_LANGUAGE</span><span class="p">,</span> <span class="n">_TRANSLATIONS</span><span class="p">[</span><span class="s2">"en"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_self_test</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"សួស្ដី, សុខា!"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"self-test passed"</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="c1"># ដំណើរការតែពេលចាក់ `python3 greetings.py` ប៉ុណ្ណោះ</span>
+    <span class="n">_self_test</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">"ពិភពលោក"</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>greetings.py
+<span class="go">self-test passed</span>
+<span class="go">សួស្ដី, ពិភពលោក!</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>ដាក់ការពារនេះជានិច្ច</strong> ក្នុងឯកសារដែលអាចដំណើរការបានទាំងពីរយ៉ាង។
+បើគ្មានវា កូដសាកល្បងរបស់អ្នកនឹងដំណើរការរាល់ពេលដែលមានអ្នក
+<code class="docutils literal notranslate"><span class="pre">import</span></code> module នោះ។</p>
+</div>
+</section>
+<section id="module-search-path-sys-path">
+<span id="sys-path"></span><h2>Module Search Path (<code class="docutils literal notranslate"><span class="pre">sys.path</span></code>)<a class="headerlink" href="#module-search-path-sys-path" title="Link to this heading"></a></h2>
+<p>នៅពេលអ្នក <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">x</span></code> Python ស្វែងរក <code class="docutils literal notranslate"><span class="pre">x</span></code> តាមលំដាប់នេះ៖</p>
+<ol class="arabic simple">
+<li><p>Module ដែលមានស្រាប់ក្នុង <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code> (cache)</p></li>
+<li><p>Built-in module (បង្កប់ក្នុង interpreter)</p></li>
+<li><p>ថតនីមួយៗក្នុង <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>៖</p>
+<ol class="loweralpha simple">
+<li><p>ថតដែលមាន script ដែលកំពុងដំណើរការ (ឬថតបច្ចុប្បន្នក្នុង REPL)</p></li>
+<li><p>អថេរបរិស្ថាន <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></p></li>
+<li><p>ថតលំនាំដើមនៃការដំឡើង Python</p></li>
+</ol>
+</li>
+</ol>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>      <span class="c1"># បញ្ជីនៃខ្សែអក្សរ (ផ្លូវថត)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"/tmp/my_libs"</span><span class="p">)</span> <span class="c1"># អាចបន្ថែមដោយផ្ទាល់ (មិនណែនាំ)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"/tmp/my_libs"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំកែ <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> ក្នុងកូដកម្មវិធី លើកលែងតែចាំបាច់ពិតប្រាកដ។
+វិធីល្អជាងគឺ៖</p>
+<ul class="simple">
+<li><p>ដាក់ project របស់អ្នកជា <strong>package</strong> ដែលអាចដំឡើងបាន
+(មាន <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>) ហើយដំឡើងជា editable
+(<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>)</p></li>
+<li><p>ប្រើ <strong>virtual environment</strong></p></li>
+<li><p>កំណត់ <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> ក្នុងបរិស្ថាន មិនមែនក្នុងកូដ</p></li>
+</ul>
+</div>
+</section>
+<section id="pycache-compiled-modules">
+<span id="pycache"></span><h2><code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> — Compiled Modules<a class="headerlink" href="#pycache-compiled-modules" title="Link to this heading"></a></h2>
+<p>Python បកប្រែកូដប្រភពទៅជា <strong>bytecode</strong> ហើយរក្សាទុកវាក្នុងថត
+<code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> ជាឯកសារ <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> ដើម្បីឱ្យការនាំចូលលើកក្រោយលឿន៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>project/
+├── greetings.py
+└── __pycache__/
+    └── greetings.cpython-315.pyc
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>ឈ្មោះមានលេខកំណែ (<code class="docutils literal notranslate"><span class="pre">cpython-315</span></code>) ដូច្នេះ Python កំណែផ្សេងគ្នា
+អាចនៅជាមួយគ្នាបាន។</p></li>
+<li><p>Python ពិនិត្យ <strong>ម៉ោងកែប្រែ</strong> នៃឯកសារប្រភព។ បើឯកសារប្រភពថ្មីជាង
+វាបកប្រែឡើងវិញដោយស្វ័យប្រវត្តិ។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.pyc</span></code> ធ្វើឱ្យការ <strong>នាំចូល</strong> លឿន ប៉ុន្តែមិនធ្វើឱ្យកម្មវិធី <strong>ដំណើរការ</strong>
+លឿនទេ។</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ដាក់ <code class="docutils literal notranslate"><span class="pre">__pycache__/</span></code> ក្នុង <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>។ កុំ commit វា។</p>
+</div>
+</section>
+<section id="dir">
+<span id="dir-function"></span><h2>អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">dir()</span></code><a class="headerlink" href="#dir" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">dir()</span></code> រាយឈ្មោះដែល module កំណត់៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)]</span>
+<span class="go">['DEFAULT_LANGUAGE', 'greet', 'supported_languages']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"_TRANSLATIONS"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>      <span class="c1"># ឈ្មោះផ្ទៃក្នុងក៏នៅតែមាន</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"__file__"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>           <span class="c1"># attribute ពិសេសរបស់ module</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"greetings"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span>           <span class="c1"># dir() គ្មាន argument = namespace បច្ចុប្បន្ន</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">builtins</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">builtins</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">150</span>       <span class="c1"># ឈ្មោះ built-in ទាំងអស់</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">ឧបករណ៍ស្វែងយល់ module</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឧបករណ៍</p></th>
+<th class="head"><p>ការប្រើប្រាស់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dir(mod)</span></code></p></td>
+<td><p>រាយឈ្មោះទាំងអស់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mod.__doc__</span></code></p></td>
+<td><p>docstring របស់ module</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mod.__file__</span></code></p></td>
+<td><p>ផ្លូវឯកសារប្រភព</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vars(mod)</span></code></p></td>
+<td><p>namespace ជា <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">help(mod)</span></code></p></td>
+<td><p>ឯកសារពេញលេញ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inspect.getsource(mod.fn)</span></code></p></td>
+<td><p>កូដប្រភពនៃអនុគមន៍</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mod.__all__</span></code></p></td>
+<td><p>ឈ្មោះសាធារណៈដែលកំណត់ដោយអ្នកសរសេរ (បើមាន)</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="packages">
+<span id="id4"></span><h2>Packages<a class="headerlink" href="#packages" title="Link to this heading"></a></h2>
+<p><strong>Package</strong> គឺជា module ដែលមានរចនាសម្ព័ន្ធ — វាជា <strong>ថត</strong> ដែលមាន
+ឯកសារ <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>។</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>shop/                          ← package កម្រិតខ្ពស់
+├── __init__.py
+├── cart.py                    ← module
+├── models/                    ← sub-package
+│   ├── __init__.py
+│   ├── product.py
+│   └── order.py
+└── payments/
+    ├── __init__.py
+    ├── stripe_provider.py
+    └── tests/
+        ├── __init__.py
+        └── test_stripe.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> ធ្វើឱ្យ Python ចាត់ទុកថតនោះជា package។
+វាអាច <strong>ទទេ</strong> ក៏បាន។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> ដំណើរការនៅពេល package ត្រូវបាននាំចូល។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">models</span></code> និង <code class="docutils literal notranslate"><span class="pre">payments</span></code> គឺជា <strong>sub-package</strong>។</p></li>
+</ul>
+<section id="package">
+<span id="package-imports"></span><h3>ការនាំចូលពី Package<a class="headerlink" href="#package" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># នាំចូល module ពេញលេញ</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shop.models.product</span>
+<span class="n">shop</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+
+<span class="c1"># នាំចូលធាតុជាក់លាក់</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shop.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
+<span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+
+<span class="c1"># នាំចូល module ពី package</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shop.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
+<span class="n">product</span><span class="o">.</span><span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+
+<span class="c1"># ជាមួយ alias</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shop.payments</span><span class="w"> </span><span class="kn">import</span> <span class="n">stripe_provider</span> <span class="k">as</span> <span class="n">stripe</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">shop.models.product</span></code> ដំណើរការ <code class="docutils literal notranslate"><span class="pre">shop/__init__.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">shop/models/__init__.py</span></code> <strong>និង</strong> <code class="docutils literal notranslate"><span class="pre">shop/models/product.py</span></code> តាមលំដាប់។</p>
+</div>
+</section>
+<section id="init-py">
+<span id="id5"></span><h3>តួនាទីរបស់ <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code><a class="headerlink" href="#init-py" title="Link to this heading"></a></h3>
+<p>វាអាចធ្វើបានបីយ៉ាង៖</p>
+<p><strong>១. ទទេ</strong> — គ្រាន់តែសម្គាល់ថតជា package៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/__init__.py  (ទទេ)</span>
+</pre></div>
+</div>
+<p><strong>២. លើកកម្ពស់ API សាមញ្ញ</strong> — ដើម្បីឱ្យអ្នកប្រើមិនចាំបាច់វាយផ្លូវវែង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/__init__.py</span>
+<span class="sd">"""បណ្ណាល័យហាងលក់ទំនិញអនឡាញ។"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.cart</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cart</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Cart"</span><span class="p">,</span> <span class="s2">"Product"</span><span class="p">,</span> <span class="s2">"Order"</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"1.4.0"</span>
+</pre></div>
+</div>
+<p>ឥឡូវអ្នកប្រើអាចសរសេរ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">shop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cart</span><span class="p">,</span> <span class="n">Product</span>        <span class="c1"># ខ្លី ជាជាង</span>
+<span class="c1"># from shop.models.product import Product</span>
+</pre></div>
+</div>
+<p><strong>៣. ធ្វើការកំណត់រចនាសម្ព័ន្ធ</strong> — ប៉ុន្តែចៀសវាងកូដធ្ងន់ៗ ព្រោះវាដំណើរការ
+រាល់ពេលនាំចូល។</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំដាក់កូដដែលមាន <strong>side effect</strong> ធ្ងន់ធ្ងរ (ភ្ជាប់ database, ហៅ API,
+អានឯកសារធំ) ក្នុង <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>។ វានឹងដំណើរការរាល់ពេលដែលមានអ្នក
+<code class="docutils literal notranslate"><span class="pre">import</span></code> អ្វីមួយពី package នោះ។</p>
+</div>
+</section>
+</section>
+<section id="relative-import">
+<span id="relative-imports"></span><h2>Relative Import<a class="headerlink" href="#relative-import" title="Link to this heading"></a></h2>
+<p>នៅ <strong>ក្នុង</strong> package អ្នកអាចប្រើចុចដើម្បីយោងទៅ module ជិតខាង៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 76.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>វាក្យសម្ពន្ធ</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">.</span> <span class="pre">import</span> <span class="pre">x</span></code></p></td>
+<td><p>module <code class="docutils literal notranslate"><span class="pre">x</span></code> ក្នុង package បច្ចុប្បន្ន</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">.mod</span> <span class="pre">import</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">y</span></code> ពី <code class="docutils literal notranslate"><span class="pre">mod</span></code> ក្នុង package បច្ចុប្បន្ន</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">..</span> <span class="pre">import</span> <span class="pre">z</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">z</span></code> ពី package <strong>មេ</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">..other</span> <span class="pre">import</span> <span class="pre">w</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">w</span></code> ពី <code class="docutils literal notranslate"><span class="pre">other</span></code> ក្នុង package មេ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...deep</span> <span class="pre">import</span> <span class="pre">v</span></code></p></td>
+<td><p>ឡើងបីកម្រិត (កម្រប្រើ — ស្មុគស្មាញពេក)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/payments/stripe_provider.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..models.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>        <span class="c1"># absolute សម្រាប់ cross-package</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>                    <span class="c1"># relative សម្រាប់ module ជិតខាង</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Relative import <strong>ដំណើរការតែក្នុង package</strong> ប៉ុណ្ណោះ។ បើអ្នកដំណើរការ
+ឯកសារដោយផ្ទាល់ (<code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">stripe_provider.py</span></code>) អ្នកនឹងទទួល៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ImportError: attempted relative import with no known parent package
+</pre></div>
+</div>
+<p>ដំណោះស្រាយ៖ ដំណើរការជា module ពីឫស project៖
+<code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">shop.payments.stripe_provider</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>សម្រាប់គម្រោងធំ ស្ទីលដែលណែនាំ (PEP 8) គឺប្រើ <strong>absolute import</strong>
+ជាលំនាំដើម ហើយប្រើ relative import តែនៅពេលវាធ្វើឱ្យកូដអានងាយជាង
+ពិតប្រាកដ។</p>
+</div>
+</section>
+<section id="all-import">
+<span id="all-variable"></span><h2><code class="docutils literal notranslate"><span class="pre">__all__</span></code> និង <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code><a class="headerlink" href="#all-import" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">__all__</span></code> គឺជាបញ្ជីឈ្មោះដែលកំណត់ថាអ្វីត្រូវបាននាំចេញនៅពេលមាន
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">*</span></code>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/models/__init__.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">_internal_helper</span>     <span class="c1"># ផ្ទៃក្នុង</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Product"</span><span class="p">,</span> <span class="s2">"Order"</span><span class="p">]</span>            <span class="c1"># មិនរួម _internal_helper</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">shop.models</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Product</span>          <span class="c1"># ✅ មាន</span>
+<span class="go">&lt;class 'shop.models.product.Product'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_internal_helper</span> <span class="c1"># ❌ មិនត្រូវបាននាំចេញ</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">NameError</span>: <span class="n">name '_internal_helper' is not defined</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">__all__</span></code> ក៏ជា <strong>ឯកសារ</strong> នៃ API សាធារណៈរបស់ package ផងដែរ —
+ឧបករណ៍ lint និង IDE ប្រើវា។</p>
+</section>
+<section id="namespace-package">
+<span id="namespace-packages"></span><h2>Namespace Package<a class="headerlink" href="#namespace-package" title="Link to this heading"></a></h2>
+<p>បើថតមួយ <strong>គ្មាន</strong> <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> Python 3.3+ នៅតែអាចនាំចូលវាជា
+<em>namespace package</em>។ វាអនុញ្ញាតឱ្យ package មួយរីករាលដាលលើថតច្រើន
+(ឬ distribution ច្រើន)៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/libs-a/shared/plugins/one.py      ← គ្មាន __init__.py ណាមួយ
+/libs-b/shared/plugins/two.py
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"/libs-a"</span><span class="p">,</span> <span class="s2">"/libs-b"</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">shared.plugins.one</span><span class="o">,</span><span class="w"> </span><span class="nn">shared.plugins.two</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shared</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span class="n">__path__</span>          <span class="c1"># មានផ្លូវច្រើន</span>
+<span class="go">_NamespacePath(['/libs-a/shared/plugins', '/libs-b/shared/plugins'])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>សម្រាប់ package ធម្មតា សូមប្រើ <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> (regular package)។
+Namespace package មានប្រយោជន៍តែសម្រាប់ករណីពិសេសដូចជា plugin
+ecosystem ដែល distribution ផ្សេងគ្នាត្រូវចែករំលែក namespace តែមួយ។</p>
+</div>
+</section>
+<section id="reloading">
+<span id="id6"></span><h2>ការផ្ទុក Module ឡើងវិញ<a class="headerlink" href="#reloading" title="Link to this heading"></a></h2>
+<p>Python cache module ក្នុង <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code> ដូច្នេះការកែឯកសារប្រភព
+<strong>មិន</strong> មានឥទ្ធិពលលើ session ដែលកំពុងដំណើរការទេ។ ដើម្បីផ្ទុកឡើងវិញ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span><span class="o">,</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>
+<span class="go">&lt;module 'greetings' from '.../greetings.py'&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">reload()</span></code> មានគ្រោះថ្នាក់។ វាដំណើរការឯកសារឡើងវិញក្នុង namespace
+ដើម ប៉ុន្តែ <strong>object ចាស់ដែលបាននាំចេញរួចហើយនៅតែចង្អុលទៅកំណែចាស់</strong>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span>      <span class="c1"># ចាប់យកអនុគមន៍ចាស់</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>  <span class="c1"># ផ្ទុកឡើងវិញ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>                     <span class="c1"># នៅតែប្រើកំណែចាស់!</span>
+<span class="go">'សួស្ដី, សុខា!'</span>
+</pre></div>
+</div>
+<p>កុំពឹងផ្អែកលើ <code class="docutils literal notranslate"><span class="pre">reload()</span></code> ក្នុងកូដផលិតកម្ម។ ចាប់ផ្ដើង interpreter
+ឡើងវិញវិញ ឬប្រើ auto-reload របស់ framework។</p>
+</div>
+</section>
+<section id="circular-import">
+<span id="circular-imports"></span><h2>Circular Import<a class="headerlink" href="#circular-import" title="Link to this heading"></a></h2>
+<p>កំហុសទូទៅបំផុតក្នុងការរៀបចំ module៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">b</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_b</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">helper_a</span><span class="p">():</span> <span class="k">return</span> <span class="s2">"a"</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># b.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_a</span>          <span class="c1"># ❌ ត្រឡប់ទៅ a វិញ</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">helper_b</span><span class="p">():</span> <span class="k">return</span> <span class="s2">"b"</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">a</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ImportError</span>: <span class="n">cannot import name 'helper_a' from partially initialized module 'a' (most likely due to a circular import)</span>
+</pre></div>
+</div>
+<p><strong>វិធីដោះស្រាយ៖</strong></p>
+<ol class="arabic">
+<li><p><strong>រៀបចំរចនាសម្ព័ន្ធឡើងវិញ</strong> — ដកកូដដែលចែករំលែកទៅ module ទីបី
+(ឧ. <code class="docutils literal notranslate"><span class="pre">common.py</span></code>) ដែល <code class="docutils literal notranslate"><span class="pre">a</span></code> និង <code class="docutils literal notranslate"><span class="pre">b</span></code> ទាំងពីរនាំចូល។</p></li>
+<li><p><strong>នាំចូលយឺត</strong> — ផ្លាស់ទី <code class="docutils literal notranslate"><span class="pre">import</span></code> ទៅក្នុងអនុគមន៍៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># b.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">helper_b</span><span class="p">():</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">a</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_a</span>       <span class="c1"># នាំចូលពេលហៅ មិនមែនពេលផ្ទុក</span>
+    <span class="k">return</span> <span class="n">helper_a</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>ប្រើ type annotation ជាខ្សែអក្សរ</strong> សម្រាប់បញ្ហាដែលកើតពី type hints តែប៉ុណ្ណោះ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>   <span class="c1"># ឬ ប្រើ "ClassName" ជាខ្សែអក្សរ</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15: </span><code class="docutils literal notranslate"><span class="pre">lazy</span> <span class="pre">import</span></code> (PEP 810) ពន្យារការផ្ទុក module រហូតដល់ឈ្មោះត្រូវបាន
+ប្រើពិតប្រាកដ។ វាជួយកាត់បន្ថយពេលចាប់ផ្ដើម និងអាចដោះស្រាយ circular
+import ខ្លះបាន៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">lazy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>      <span class="c1"># មិនផ្ទុក numpy ទេ រហូតដល់ np ត្រូវបានប្រើ</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="modules-best-practices">
+<span id="id7"></span><h2>ការអនុវត្តល្អបំផុត<a class="headerlink" href="#modules-best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>ដាក់ ``import`` នៅផ្នែកខាងលើ</strong> នៃឯកសារ បន្ទាប់ពី module docstring។</p></li>
+<li><p><strong>លំដាប់</strong> (PEP 8)៖ (១) standard library (២) ភាគីទីបី (៣) កូដផ្ទៃក្នុង
+project។ ញែកក្រុមដោយបន្ទាត់ទទេ។</p></li>
+<li><p><strong>មួយ module មួយបន្ទាត់</strong> សម្រាប់ <code class="docutils literal notranslate"><span class="pre">import</span></code>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="c1"># ❌ (អនុញ្ញាតសម្រាប់ from-import ប៉ុណ្ណោះ)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>ប្រើឈ្មោះ module ពេញលេញ</strong> ក្នុងកូដ លើកលែងតែឈ្មោះវែងពេក
+(<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> ជាអនុសញ្ញាទទួលស្គាល់)។</p></li>
+<li><p><strong>កុំប្រើ ``import *``</strong> ក្នុងកូដផលិតកម្ម។</p></li>
+<li><p><strong>កំណត់ API សាធារណៈ</strong> ដោយ <code class="docutils literal notranslate"><span class="pre">__all__</span></code> និង underscore សម្រាប់ផ្ទៃក្នុង។</p></li>
+<li><p><strong>ចៀសវាង circular import</strong> ដោយរចនា layering ច្បាស់លាស់។</p></li>
+<li><p><strong>ដាក់ ``if __name__ == &quot;__main__&quot;:``</strong> សម្រាប់កូដដែលដំណើរការផ្ទាល់។</p></li>
+<li><p><strong>Module តូចៗ ដែលមានទំនួលខុសត្រូវតែមួយ</strong> ល្អជាង module ធំមួយ។</p></li>
+</ol>
+</section>
+<section id="modules-summary">
+<span id="id8"></span><h2>សង្ខេប<a class="headerlink" href="#modules-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>គោលគំនិត</p></th>
+<th class="head"><p>សង្ខេប</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Module</p></td>
+<td><p>ឯកសារ <code class="docutils literal notranslate"><span class="pre">.py</span></code> មួយ។ <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">x</span></code> ដំណើរការវាម្ដង ហើយ cache ក្នុង <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Package</p></td>
+<td><p>ថតដែលមាន <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> (ឬ namespace package ដែលគ្មាន)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code> ពេលដំណើរការផ្ទាល់; ឈ្មោះ module ពេលនាំចូល</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></td>
+<td><p>ដំណើរការពេល package ត្រូវបាននាំចូល។ អាចទទេ ឬលើកកម្ពស់ API</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__all__</span></code></p></td>
+<td><p>កំណត់ឈ្មោះសាធារណៈសម្រាប់ <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> និងជាឯកសារ API</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sys.path</span></code></p></td>
+<td><p>លំដាប់ថតដែល Python ស្វែងរក module</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__pycache__</span></code></p></td>
+<td><p>bytecode cache។ ដាក់ក្នុង <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Relative import</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">.</span> <span class="pre">import</span> <span class="pre">x</span></code> — ដំណើរការតែក្នុង package</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">importlib.reload</span></code></p></td>
+<td><p>ផ្ទុកឡើងវិញ — មានគ្រោះថ្នាក់ កុំប្រើក្នុងផលិតកម្ម</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">Modules</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/import.html">The Import System</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/sys.html">sys — System-specific parameters and functions</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/importlib.html">importlib — The implementation of import</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0008/#imports">PEP 8 — Imports</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0420/">PEP 420 — Namespace Packages</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0810/">PEP 810 — Lazy Imports</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="file_handling.html" class="btn btn-neutral float-left" title="ការគ្រប់គ្រងឯកសារ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions និងការគ្រប់គ្រងកំហុស" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

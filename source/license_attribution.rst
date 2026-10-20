@@ -1,8 +1,8 @@
 .. _license-attribution:
 
-############################
+####################################
 ប្រភព និងអាជ្ញាបណ្ណ
-############################
+####################################
 
 .. container:: src-note
 
@@ -56,6 +56,12 @@
      - ``tutorial/controlflow.rst``, ``tutorial/classes.rst`` (ផ្នែក *Python Scopes and Namespaces*)
    * - :doc:`file_handling`
      - ``tutorial/inputoutput.rst``, ``library/functions.rst``, ``library/pathlib.rst``, ``library/json.rst``, ``library/os.rst``, ``library/csv.rst``
+   * - :doc:`modules_packages`
+     - ``tutorial/modules.rst``, ``reference/import.rst``, ``library/sys.rst``, ``library/importlib.rst``
+   * - :doc:`exceptions`
+     - ``tutorial/errors.rst``, ``library/exceptions.rst``, ``library/contextlib.rst``, ``reference/simple_stmts.rst``
+   * - :doc:`classes_oop`
+     - ``tutorial/classes.rst``, ``reference/datamodel.rst``, ``library/dataclasses.rst``, ``library/abc.rst``
 
 .. _copyright:
 

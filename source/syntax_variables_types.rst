@@ -7,9 +7,9 @@
    ``Doc/library/keyword.rst`` ·
    `ឯកសារផ្លូវការ <https://docs.python.org/3/library/stdtypes.html>`_
 
-##################################################
+##########################################################
 វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ
-##################################################
+##########################################################
 
 .. _comments:
 
@@ -134,8 +134,8 @@ Statement និងការបំបែកបន្ទាត់
    >>> ឈ្មោះ = "សុភា"          # ត្រឹមត្រូវ — Python 3 អនុញ្ញាត Unicode
 
    >>> 2nd_place = "silver"    # ❌ ចាប់ផ្ដើមដោយលេខ
-   Traceback (most recent call last):
-     ...
+     File "<stdin>", line 1
+       ...
    SyntaxError: invalid decimal literal
 
 .. tip::
@@ -1024,7 +1024,7 @@ object ថ្មី៖
    >>> id(x) == id(y)
    True
 
-.. _summary:
+.. _syntax-summary:
 
 សង្ខេប
 ======

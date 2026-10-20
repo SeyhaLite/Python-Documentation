@@ -1,0 +1,1191 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes និង Object-Oriented Programming &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/classes_oop.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ប្រភព និងអាជ្ញាបណ្ណ" href="license_attribution.html" />
+    <link rel="prev" title="Exceptions និងការគ្រប់គ្រងកំហុស" href="exceptions.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/classes_oop.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="Classes និង Object-Oriented Programming">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/classes_oop.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Classes និង Object-Oriented Programming">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules_packages.html">Modules និង Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions និងការគ្រប់គ្រងកំហុស</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Classes និង Object-Oriented Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#oop">គោលគំនិត OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class">Class ដំបូងរបស់អ្នក</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#self">តើ <code class="docutils literal notranslate"><span class="pre">self</span></code> ជាអ្វី?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#init-constructor"><code class="docutils literal notranslate"><span class="pre">__init__</span></code> មិនមែនជា constructor ទេ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#class-attribute-instance-attribute">Class Attribute និង Instance Attribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#class-attribute-mutable">អន្ទាក់ — Class Attribute ជា Mutable</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#method">ប្រភេទ Method ទាំងបី</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#property"><code class="docutils literal notranslate"><span class="pre">&#64;property</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inheritance">Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#polymorphism-duck-typing">Polymorphism និង Duck Typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#super"><code class="docutils literal notranslate"><span class="pre">super()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#private-attribute-name-mangling">Private Attribute និង Name Mangling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-methods-dunder">Special Methods (Dunder)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slots"><code class="docutils literal notranslate"><span class="pre">__slots__</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dataclasses"><code class="docutils literal notranslate"><span class="pre">dataclasses</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abstract-base-class-abc">Abstract Base Class (<code class="docutils literal notranslate"><span class="pre">abc</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#composition-inheritance">Composition ធៀបនឹង Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generic-class-pep-695">Generic Class (PEP 695)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes-best-practices">ការអនុវត្តល្អបំផុត</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes-summary">សង្ខេប</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Classes និង Object-Oriented Programming</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/classes_oop.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="classes-oop">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/classes.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/reference/datamodel.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/library/dataclasses.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/library/abc.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="classes-object-oriented-programming">
+<h1>Classes និង Object-Oriented Programming<a class="headerlink" href="#classes-object-oriented-programming" title="Link to this heading"></a></h1>
+<section id="oop">
+<span id="oop-concepts"></span><h2>គោលគំនិត OOP<a class="headerlink" href="#oop" title="Link to this heading"></a></h2>
+<p>Object-Oriented Programming ផ្អែកលើគំនិតចំនួនបួន៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 76.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>គោលគំនិត</p></th>
+<th class="head"><p>អត្ថន័យក្នុង Python</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Encapsulation</strong></p></td>
+<td><p>រុំទិន្នន័យ និងអាកប្បកិរិយាទុកក្នុង object មួយ។ Python ប្រើអនុសញ្ញា <code class="docutils literal notranslate"><span class="pre">_name</span></code> មិនមែនការហាមឃាត់ពិតទេ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Abstraction</strong></p></td>
+<td><p>លាក់ភាពស្មុគស្មាញខាងក្នុង បង្ហាញតែ interface។ អនុវត្តតាមរយៈ method សាធារណៈ និង special methods</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Inheritance</strong></p></td>
+<td><p>class ថ្មីបន្តពូជពី class មានស្រាប់ ទទួលបាន attribute និង method របស់វា</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Polymorphism</strong></p></td>
+<td><p>object ប្រភេទផ្សេងគ្នាឆ្លើយតបទៅនឹង interface ដូចគ្នា។ Python សម្រេចបានតាម <em>duck typing</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="class">
+<span id="first-class"></span><h2>Class ដំបូងរបស់អ្នក<a class="headerlink" href="#class" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""តំណាងឱ្យទំនិញមួយក្នុងហាង។"""</span>
+
+    <span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.10</span>                     <span class="c1"># class attribute</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""បង្កើតផលិតផលថ្មី។"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>                <span class="c1"># instance attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sold</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_with_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""ត្រឡប់តម្លៃរួមពន្ធ។"""</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tax_rate</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">sell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""កត់ត្រាការលក់។"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sold</span> <span class="o">+=</span> <span class="n">quantity</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sold</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Product(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="si">!r}</span><span class="s2">)"</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">book</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ Python"</span><span class="p">,</span> <span class="mf">12.50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">book</span>
+<span class="go">Product('សៀវភៅ Python', 12.5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">book</span><span class="o">.</span><span class="n">name</span>
+<span class="go">'សៀវភៅ Python'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">book</span><span class="o">.</span><span class="n">total_with_tax</span><span class="p">()</span>
+<span class="go">13.75</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">book</span><span class="o">.</span><span class="n">sell</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Product</span><span class="o">.</span><span class="n">tax_rate</span>
+<span class="go">0.1</span>
+</pre></div>
+</div>
+<section id="self">
+<span id="id2"></span><h3>តើ <code class="docutils literal notranslate"><span class="pre">self</span></code> ជាអ្វី?<a class="headerlink" href="#self" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">self</span></code> គឺជា <strong>instance បច្ចុប្បន្ន</strong>។ Python បញ្ជូនវាដោយស្វ័យប្រវត្តិ
+នៅពេលអ្នកហៅ method លើ object មួយ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">book</span><span class="o">.</span><span class="n">total_with_tax</span><span class="p">()</span>          <span class="c1"># Python បញ្ជូន book ជា self</span>
+<span class="go">13.75</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Product</span><span class="o">.</span><span class="n">total_with_tax</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>   <span class="c1"># ស្មើគ្នាទាំងស្រុង</span>
+<span class="go">13.75</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">book</span><span class="o">.</span><span class="n">total_with_tax</span><span class="o">.</span><span class="vm">__func__</span> <span class="ow">is</span> <span class="n">Product</span><span class="o">.</span><span class="n">total_with_tax</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code> គ្រាន់តែជា <strong>អនុសញ្ញា</strong> — អ្នកអាចដាក់ឈ្មោះផ្សេងបាន
+ប៉ុន្តែកុំធ្វើ។</p></li>
+<li><p>parameter ដំបូងរបស់ <strong>instance method ទាំងអស់</strong> ត្រូវតែជា <code class="docutils literal notranslate"><span class="pre">self</span></code>
+(ទោះបីជាអ្នកមិនប្រើវាក៏ដោយ)។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">book.method()</span></code> = <code class="docutils literal notranslate"><span class="pre">Class.method(book)</span></code>។ នេះហៅថា <strong>bound method</strong>។</p></li>
+</ul>
+</div>
+</section>
+<section id="init-constructor">
+<span id="init-vs-new"></span><h3><code class="docutils literal notranslate"><span class="pre">__init__</span></code> មិនមែនជា constructor ទេ<a class="headerlink" href="#init-constructor" title="Link to this heading"></a></h3>
+<p>ជាបច្ចេកទេស <code class="docutils literal notranslate"><span class="pre">__new__</span></code> បង្កើត object ហើយ <code class="docutils literal notranslate"><span class="pre">__init__</span></code> <strong>កំណត់តម្លៃដំបូង</strong>
+(initialize) វា។ ក្នុងការអនុវត្តជាក់ស្ដែង អ្នកប្រើ <code class="docutils literal notranslate"><span class="pre">__init__</span></code> ជានិច្ច។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Trace</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"1. __new__ បង្កើត object"</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"2. __init__ កំណត់តម្លៃដំបូង"</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Trace</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">1. __new__ បង្កើត object</span>
+<span class="go">2. __init__ កំណត់តម្លៃដំបូង</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="class-attribute-instance-attribute">
+<span id="class-vs-instance"></span><h2>Class Attribute និង Instance Attribute<a class="headerlink" href="#class-attribute-instance-attribute" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Class attribute · Instance attribute</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>កំណត់នៅ</p></td>
+<td><p>ក្នុងខ្លួន class (កម្រិតខាងក្រៅ method) · ក្នុង <code class="docutils literal notranslate"><span class="pre">__init__</span></code> ជា <code class="docutils literal notranslate"><span class="pre">self.x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ចែករំលែក</p></td>
+<td><p>ដោយ <strong>instance ទាំងអស់</strong> · ដោយ instance <strong>មួយៗ</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ចូលដំណើរការ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Product.tax_rate</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">book.tax_rate</span></code> · <code class="docutils literal notranslate"><span class="pre">book.name</span></code> តែប៉ុណ្ណោះ</p></td>
+</tr>
+<tr class="row-odd"><td><p>ប្រើសម្រាប់</p></td>
+<td><p>ថេរ ឬលំនាំដើមដែលចែករំលែក · ទិន្នន័យរបស់ object នីមួយៗ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">"B"</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">tax_rate</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">tax_rate</span>          <span class="c1"># ចែករំលែកតម្លៃដូចគ្នា</span>
+<span class="go">(0.1, 0.1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Product</span><span class="o">.</span><span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.2</span>          <span class="c1"># ផ្លាស់ប្ដូរសម្រាប់ **ទាំងអស់**</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">tax_rate</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">tax_rate</span>
+<span class="go">(0.2, 0.2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.05</span>               <span class="c1"># ⚠ បង្កើត **instance** attribute ថ្មី</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">tax_rate</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">tax_rate</span>          <span class="c1"># b មិនផ្លាស់ប្ដូរទេ</span>
+<span class="go">(0.05, 0.2)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ការ <strong>អាន</strong> <code class="docutils literal notranslate"><span class="pre">a.tax_rate</span></code> ស្វែងរកតាមលំដាប់៖ instance → class →
+class មេ។ ការ <strong>សរសេរ</strong> <code class="docutils literal notranslate"><span class="pre">a.tax_rate</span> <span class="pre">=</span> <span class="pre">x</span></code> តែងតែបង្កើត instance
+attribute (លើកលែងតែ class attribute នោះជា descriptor ដូចជា
+<code class="docutils literal notranslate"><span class="pre">property</span></code>)។</p>
+</div>
+<section id="class-attribute-mutable">
+<span id="mutable-class-attr"></span><h3>អន្ទាក់ — Class Attribute ជា Mutable<a class="headerlink" href="#class-attribute-mutable" title="Link to this heading"></a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">BadTeam</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">members</span> <span class="o">=</span> <span class="p">[]</span>                    <span class="c1"># ❌ ចែករំលែករវាង instance ទាំងអស់</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t1</span> <span class="o">=</span> <span class="n">BadTeam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t2</span> <span class="o">=</span> <span class="n">BadTeam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t2</span><span class="o">.</span><span class="n">members</span>                          <span class="c1"># ❗ សុខា លេចឡើងក្នុង t2</span>
+<span class="go">['សុខា']</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">GoodTeam</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">members</span> <span class="o">=</span> <span class="p">[]</span>           <span class="c1"># ✅ instance attribute</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">GoodTeam</span><span class="p">(),</span> <span class="n">GoodTeam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g2</span><span class="o">.</span><span class="n">members</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំប្រើ object <strong>mutable</strong> (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>) ជា class
+attribute លើកលែងតែអ្នក <strong>ចង់</strong> ឱ្យវាចែករំលែក។ នេះជាកំហុសដូចគ្នា
+នឹង <em>mutable default argument</em> (មើលជំពូក <a class="reference internal" href="functions_scope.html"><span class="doc">អនុគមន៍ និងវិសាលភាពអថេរ</span></a>)។</p>
+</div>
+</section>
+</section>
+<section id="method">
+<span id="methods"></span><h2>ប្រភេទ Method ទាំងបី<a class="headerlink" href="#method" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Temperature</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""សីតុណ្ហភាពជា Celsius។"""</span>
+
+    <span class="n">instances</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">celsius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">celsius</span> <span class="o">=</span> <span class="n">celsius</span>
+        <span class="n">Temperature</span><span class="o">.</span><span class="n">instances</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># --- instance method: ទទួល self -------------------------------</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_fahrenheit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
+
+    <span class="c1"># --- class method: ទទួល cls ---------------------------------</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_fahrenheit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">((</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instances</span>
+
+    <span class="c1"># --- static method: មិនទទួលអ្វីសោះ -------------------------</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_freezing</span><span class="p">(</span><span class="n">celsius</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">celsius</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Temperature</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">to_fahrenheit</span><span class="p">()</span>
+<span class="go">77.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hot</span> <span class="o">=</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">from_fahrenheit</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>    <span class="c1"># alternative constructor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">hot</span><span class="o">.</span><span class="n">celsius</span><span class="p">)</span>
+<span class="go">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Temperature</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Temperature</span><span class="o">.</span><span class="n">is_freezing</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>               <span class="c1"># ហៅលើ class បាន</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">is_freezing</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>                         <span class="c1"># ហៅលើ instance ក៏បាន</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 30.0%" />
+<col style="width: 48.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រភេទ</p></th>
+<th class="head"><p>Parameter ដំបូង</p></th>
+<th class="head"><p>ប្រើពេលណា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>instance method</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></td>
+<td><p>ត្រូវការទិន្នន័យរបស់ object</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cls</span></code></p></td>
+<td><p>alternative constructor · ប្រតិបត្តិការលើ class ទាំងមូល · គោរព inheritance</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code></p></td>
+<td><p>គ្មាន</p></td>
+<td><p>អនុគមន៍ជំនួយដែលស្ថិតក្នុង namespace របស់ class តែមិនត្រូវការ <code class="docutils literal notranslate"><span class="pre">self</span></code>/<code class="docutils literal notranslate"><span class="pre">cls</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>បើ method មិនប្រើ <code class="docutils literal notranslate"><span class="pre">self</span></code> ទេ វាគួរតែជា <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> ឬអនុគមន៍
+ធម្មតានៅកម្រិត module។ IDE និង linter នឹងព្រមានអ្នកអំពីរឿងនេះ។</p>
+</div>
+</section>
+<section id="property">
+<span id="id3"></span><h2><code class="docutils literal notranslate"><span class="pre">&#64;property</span></code><a class="headerlink" href="#property" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">property</span></code> អនុញ្ញាតឱ្យអ្នកប្រើ <strong>វាក្យសម្ពន្ធ attribute</strong> ប៉ុន្តែដំណើរការ
+<strong>method</strong> នៅពីក្រោយ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""គណនីធនាគារដែលមានការពារមិនឱ្យដកលើសសមតុល្យ។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">balance</span>          <span class="c1"># ផ្ទៃក្នុង</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""សមតុល្យ — អានបានតែប៉ុណ្ណោះ។"""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+
+    <span class="nd">@balance</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"សមតុល្យមិនអាចអវិជ្ជមានទេ"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_overdrawn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""គណនាតម្លៃថ្មីរាល់ពេលហៅ។"""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">&lt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">balance</span>              <span class="c1"># អាន — ហៅ getter</span>
+<span class="go">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">250</span>        <span class="c1"># សរសេរ — ហៅ setter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">balance</span>
+<span class="go">250</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">សមតុល្យមិនអាចអវិជ្ជមានទេ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">is_overdrawn</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> មានប្រយោជន៍ព្រោះអ្នកអាច <strong>ចាប់ផ្ដើមពី attribute ធម្មតា</strong>
+ហើយបំលែងវាទៅជា property ภายหลัง <strong>ដោយមិនបំបែកកូដអ្នកប្រើ</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># កំណែ ១</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">r</span>
+
+<span class="c1"># កំណែ ២ — បន្ថែមការផ្ទៀងផ្ទាត់ ដោយមិនប្ដូរ API</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">r</span>          <span class="c1"># ហៅ setter</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span>
+
+    <span class="nd">@radius</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"កាំត្រូវតែវិជ្ជមាន"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="inheritance">
+<span id="id4"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Class មេ។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"subclass ត្រូវអនុវត្ត method នេះ"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> និយាយថា៖ </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Class កូន — បន្តពូជពី Animal។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Gav!"</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Meow"</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Puppy</span><span class="p">(</span><span class="n">Dog</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""កូនចៅជាន់ទីពីរ។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">weeks_old</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>         <span class="c1"># ហៅ __init__ របស់ class មេ</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weeks_old</span> <span class="o">=</span> <span class="n">weeks_old</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rex</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">"Rex"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rex</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>          <span class="c1"># ប្រើ method ពី Animal</span>
+<span class="go">'Rex និយាយថា៖ Gav!'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Cat</span><span class="p">(</span><span class="s2">"Mimi"</span><span class="p">)</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>  <span class="c1"># ប្រើ speak របស់ Cat</span>
+<span class="go">'Mimi និយាយថា៖ Meow'</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s2">"Bob"</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">weeks_old</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span>      <span class="c1"># name មកពី super().__init__()</span>
+<span class="go">(8, 'Bob')</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Puppy</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Dog</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Animal</span><span class="p">)</span>
+<span class="go">(True, True, True)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Puppy</span><span class="p">,</span> <span class="n">Dog</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Dog</span><span class="p">,</span> <span class="n">Cat</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<section id="polymorphism-duck-typing">
+<span id="polymorphism"></span><h3>Polymorphism និង Duck Typing<a class="headerlink" href="#polymorphism-duck-typing" title="Link to this heading"></a></h3>
+<p>កូដដែលដំណើរការលើ object ណាក៏បានដែលមាន method ត្រឹមត្រូវ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">announce</span><span class="p">(</span><span class="n">animals</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">animals</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">introduce</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">announce</span><span class="p">([</span><span class="n">Dog</span><span class="p">(</span><span class="s2">"Rex"</span><span class="p">),</span> <span class="n">Cat</span><span class="p">(</span><span class="s2">"Mimi"</span><span class="p">)])</span>
+<span class="go">Rex និយាយថា៖ Gav!</span>
+<span class="go">Mimi និយាយថា៖ Meow</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python ប្រើ <strong>duck typing</strong> — &quot;បើវាដើរដូចទា ហើយស្រែកដូចទា
+វាគឺជាទា&quot;។ អ្នកមិនចាំបាច់ប្រកាស interface ឬបន្តពូជពី class ជាក់លាក់
+ទេ — គ្រាន់តែមាន method ដែលត្រូវការគឺគ្រប់គ្រាន់។</p>
+<p>បើអ្នកចង់បានការត្រួតពិនិត្យជាក់ស្ដែង ប្រើ <code class="docutils literal notranslate"><span class="pre">abc.ABC</span></code>
+(មើលផ្នែក <a class="reference internal" href="#abstract-base"><span class="std std-ref">Abstract Base Class (abc)</span></a>)។</p>
+</div>
+</section>
+<section id="super">
+<span id="id5"></span><h3><code class="docutils literal notranslate"><span class="pre">super()</span></code><a class="headerlink" href="#super" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">super()</span></code> ផ្ដល់ការចូលដំណើរការទៅ method របស់ class មេ។ វាសំខាន់ណាស់
+ក្នុង multiple inheritance ព្រោះវាដើរតាម <strong>MRO</strong> មិនមែនត្រឹមតែ class មេ
+ដំបូងទេ។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">who</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">"A"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">who</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">"B"</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">who</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">who</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">"C"</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">who</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">who</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">"D"</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">who</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="p">()</span><span class="o">.</span><span class="n">who</span><span class="p">()</span>
+<span class="go">'DBCA'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">D</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">]</span>
+<span class="go">['D', 'B', 'C', 'A', 'object']</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>លទ្ធផល <code class="docutils literal notranslate"><span class="pre">'DBCA'</span></code> បង្ហាញថា <code class="docutils literal notranslate"><span class="pre">super()</span></code> ក្នុង <code class="docutils literal notranslate"><span class="pre">B</span></code> ហៅ <strong>``C``</strong>
+មិនមែន <code class="docutils literal notranslate"><span class="pre">A</span></code> ទេ — ព្រោះ MRO របស់ <code class="docutils literal notranslate"><span class="pre">D</span></code> គឺ <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">→</span> <span class="pre">B</span> <span class="pre">→</span> <span class="pre">C</span> <span class="pre">→</span> <span class="pre">A</span> <span class="pre">→</span> <span class="pre">object</span></code>។
+នេះហៅថា <strong>C3 linearization</strong> ហើយវារับประกันថា method នីមួយៗ
+ដំណើរការតែម្ដងគត់។</p>
+</div>
+</section>
+</section>
+<section id="private-attribute-name-mangling">
+<span id="private"></span><h2>Private Attribute និង Name Mangling<a class="headerlink" href="#private-attribute-name-mangling" title="Link to this heading"></a></h2>
+<p>Python <strong>មិនមាន</strong> private ពិតទេ។ វាប្រើអនុសញ្ញា៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឈ្មោះ</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>សាធារណៈ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">_name</span></code></p></td>
+<td><p>ផ្ទៃក្នុង — អនុសញ្ញាប៉ុណ្ណោះ។ មិនត្រូវបាននាំចេញដោយ <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">m</span> <span class="pre">import</span> <span class="pre">*</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__name</span></code></p></td>
+<td><p><strong>name mangling</strong> — Python ប្ដូរវាទៅ <code class="docutils literal notranslate"><span class="pre">_ClassName__name</span></code> ដើម្បីចៀសវាងជម្លោះក្នុង inheritance</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></td>
+<td><p><em>dunder</em> — ឈ្មោះពិសេសដែល Python កំណត់។ <strong>កុំបង្កើតថ្មីដោយខ្លួនឯង</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Vault</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">public</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_internal</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">__secret</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vault</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">public</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">_internal</span>          <span class="c1"># ទាំងពីរចូលដំណើរការបាន</span>
+<span class="go">(1, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">__secret</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">AttributeError</span>: <span class="n">'Vault' object has no attribute '__secret'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">_Vault__secret</span>               <span class="c1"># ឈ្មោះពិតបន្ទាប់ពី mangling</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">__name</span></code> មិនមែនជា <strong>សុវត្ថិភាព</strong> ទេ — វាគ្រាន់តែជាការការពារ
+<strong>ជម្លោះឈ្មោះ</strong> ក្នុង inheritance។ ប្រើ <code class="docutils literal notranslate"><span class="pre">_name</span></code> សម្រាប់ផ្ទៃក្នុង
+ធម្មតា ហើយប្រើ <code class="docutils literal notranslate"><span class="pre">__name</span></code> តែនៅពេលអ្នកដឹងច្បាស់ថាត្រូវការ mangling។</p>
+</div>
+</section>
+<section id="special-methods-dunder">
+<span id="dunder-methods"></span><h2>Special Methods (Dunder)<a class="headerlink" href="#special-methods-dunder" title="Link to this heading"></a></h2>
+<p>Special methods អនុញ្ញាតឱ្យ object របស់អ្នកដំណើរការជាមួយវាក្យសម្ពន្ធ
+របស់ Python (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">len()</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">with</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">print</span></code>)។</p>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">ក្រុមសំខាន់ៗ</span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 30.0%" />
+<col style="width: 44.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>ត្រូវបានហៅដោយ</p></th>
+<th class="head"><p>ឧទាហរណ៍</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">...)</span></code></p></td>
+<td><p>ការបង្កើត object</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Point(1,</span> <span class="pre">2)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__repr__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">repr()</span></code>, REPL echo</p></td>
+<td><p>គួរតែជាកូដដែលអាចបង្កើត object ឡើងវិញបាន</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__str__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str()</span></code>, <code class="docutils literal notranslate"><span class="pre">print()</span></code>, f-string</p></td>
+<td><p>សម្រាប់អ្នកអាន</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code> បើមិនអាចប្រៀបធៀប</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__lt__</span></code>, <code class="docutils literal notranslate"><span class="pre">__le__</span></code>, <code class="docutils literal notranslate"><span class="pre">__gt__</span></code>, <code class="docutils literal notranslate"><span class="pre">__ge__</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>ឬប្រើ <code class="docutils literal notranslate"><span class="pre">functools.total_ordering</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__hash__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hash()</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> key</p></td>
+<td><p>object ដែល <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> ត្រូវមាន <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> ដែលស្របគ្នា</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__len__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">len()</span></code></p></td>
+<td><p>ត្រូវត្រឡប់ <code class="docutils literal notranslate"><span class="pre">int</span></code> ≥ 0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj[key]</span></code>, slicing</p></td>
+<td><p>ផ្ដល់ iteration ដោយស្វ័យប្រវត្តិបើប្រើ index គត់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">value)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj[key]</span> <span class="pre">=</span> <span class="pre">value</span></code></p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__contains__(self,</span> <span class="pre">item)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">obj</span></code></p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code> / <code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">obj</span></code></p></td>
+<td><p>មើលជំពូក <em>Iterators និង Generators</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__call__(self,</span> <span class="pre">...)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj(...)</span></code></p></td>
+<td><p>ធ្វើឱ្យ object ហៅបានដូចអនុគមន៍</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__enter__(self)</span></code> / <code class="docutils literal notranslate"><span class="pre">__exit__(self,</span> <span class="pre">...)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">obj:</span></code></p></td>
+<td><p>context manager</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">other)</span></code> ជាដើម</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>operator overloading</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__bool__(self)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">obj:</span></code></p></td>
+<td><p>បើគ្មាន Python ប្រើ <code class="docutils literal notranslate"><span class="pre">__len__</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""វ៉ិចទ័រ ២ មាត្រដែលគាំទ្រប្រមាណវិធីគណនា។"""</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Vector(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Vector</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">NotImplemented</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scalar</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">scalar</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">scalar</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__abs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">Vector(4, 6)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="go">Vector(3, 6)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">5.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="s2">"not a vector"</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                      <span class="c1"># __getitem__ ផ្ដល់ iteration</span>
+<span class="go">[1, 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">Vector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="nb">bool</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">(False, True)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">({</span><span class="n">a</span><span class="p">,</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)})</span>       <span class="c1"># __hash__ + __eq__ ស្របគ្នា</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">__repr__</span></code> vs <code class="docutils literal notranslate"><span class="pre">__str__</span></code>៖</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__repr__</span></code> សម្រាប់ <strong>អ្នកអភិវឌ្ឍន៍</strong> — គួរតែជា
+<code class="docutils literal notranslate"><span class="pre">Vector(1,</span> <span class="pre">2)</span></code> (កូដដែលអាច <code class="docutils literal notranslate"><span class="pre">eval</span></code> ឡើងវិញបាន)។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__</span></code> សម្រាប់ <strong>អ្នកប្រើ</strong>។ បើអ្នកកំណត់តែ <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>
+Python ប្រើវាសម្រាប់ <code class="docutils literal notranslate"><span class="pre">str()</span></code> ដែរ។</p></li>
+</ul>
+</div>
+</section>
+<section id="slots">
+<span id="id6"></span><h2><code class="docutils literal notranslate"><span class="pre">__slots__</span></code><a class="headerlink" href="#slots" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">__slots__</span></code> កំណត់ attribute ដែលអនុញ្ញាត ហើយជៀសវាង <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>
+ក្នុង instance នីមួយៗ — សន្សំអង្គចងចាំ និងលឿនជាង៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Fixed</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">Fixed</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">a</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">3</span>                      <span class="c1"># ❌ មិនអនុញ្ញាត</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">AttributeError</span>: <span class="n">'Fixed' object has no attribute 'c' and no __dict__ for setting new attributes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"__dict__"</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ដែនកំណត់នៃ <code class="docutils literal notranslate"><span class="pre">__slots__</span></code>៖</p>
+<ul class="simple">
+<li><p>មិនអាចបន្ថែម attribute ថ្មីក្រោយពេលបង្កើត។</p></li>
+<li><p>មិនគាំទ្រ <code class="docutils literal notranslate"><span class="pre">weakref</span></code> លើកលែងតែដាក់ <code class="docutils literal notranslate"><span class="pre">&quot;__weakref__&quot;</span></code> ក្នុង <code class="docutils literal notranslate"><span class="pre">__slots__</span></code>។</p></li>
+<li><p>subclass ដែល <strong>មិន</strong> កំណត់ <code class="docutils literal notranslate"><span class="pre">__slots__</span></code> នឹងមាន <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> វិញ
+ដូច្នេះអត្ថប្រយោជន៍ត្រូវបានបាត់បង់។</p></li>
+</ul>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">__slots__</span></code> តែនៅពេលអ្នកបង្កើត <strong>instance រាប់លាន</strong> ឬចង់
+ការពារកំហុសឈ្មោះ attribute។ សម្រាប់ class ធម្មតា កុំប្រើ។</p>
+</div>
+</section>
+<section id="dataclasses">
+<span id="id7"></span><h2><code class="docutils literal notranslate"><span class="pre">dataclasses</span></code><a class="headerlink" href="#dataclasses" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> បង្កើត <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> និង method
+ផ្សេងទៀតដោយស្វ័យប្រវត្តិ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Order</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""ការបញ្ជាទិញ។"""</span>
+
+    <span class="n">order_id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">customer</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">paid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"សុខា"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="s2">"ប៊ិក"</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span>
+<span class="go">Order(order_id=1, customer='សុខា', items=['សៀវភៅ', 'ប៊ិក'], paid=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">==</span> <span class="n">Order</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"សុខា"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="s2">"ប៊ិក"</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">total</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Parameter សំខាន់ៗនៃ <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code></span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">frozen=True</span></code></p></td>
+<td><p>immutable — ការផ្ដល់តម្លៃបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">FrozenInstanceError</span></code>។ បង្កើត <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> ដោយស្វ័យប្រវត្តិ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">order=True</span></code></p></td>
+<td><p>បង្កើត <code class="docutils literal notranslate"><span class="pre">__lt__</span></code>, <code class="docutils literal notranslate"><span class="pre">__le__</span></code>, <code class="docutils literal notranslate"><span class="pre">__gt__</span></code>, <code class="docutils literal notranslate"><span class="pre">__ge__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slots=True</span></code></p></td>
+<td><p>បង្កើត <code class="docutils literal notranslate"><span class="pre">__slots__</span></code> (Python 3.10+)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kw_only=True</span></code></p></td>
+<td><p>តម្រូវឱ្យបញ្ជូន argument ជា keyword (Python 3.10+)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eq=False</span></code></p></td>
+<td><p>មិនបង្កើត <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> (រក្សា <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> ដើម)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">field(default_factory=…)</span></code></p></td>
+<td><p><strong>ចាំបាច់</strong> សម្រាប់តម្លៃលំនាំដើម mutable</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំសរសេរ <code class="docutils literal notranslate"><span class="pre">items:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">[]</span></code> ក្នុង dataclass — Python នឹងបញ្ចេញ
+<code class="docutils literal notranslate"><span class="pre">ValueError</span></code>។ ប្រើ <code class="docutils literal notranslate"><span class="pre">field(default_factory=list)</span></code>។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@dataclass</span>
+<span class="gp">... </span><span class="k">class</span><span class="w"> </span><span class="nc">Broken</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">...</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">mutable default &lt;class 'list'&gt; for field items is not allowed...</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">slots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+<span class="gp">... </span>    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">dataclasses.FrozenInstanceError</span>: <span class="n">cannot assign to field 'x'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">([</span><span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+<span class="go">[Point(x=1, y=2), Point(x=1, y=5), Point(x=2, y=1)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="n">p</span><span class="p">,</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>              <span class="c1"># frozen → hashable</span>
+<span class="go">{Point(x=1, y=2)}</span>
+</pre></div>
+</div>
+</section>
+<section id="abstract-base-class-abc">
+<span id="abstract-base"></span><h2>Abstract Base Class (<code class="docutils literal notranslate"><span class="pre">abc</span></code>)<a class="headerlink" href="#abstract-base-class-abc" title="Link to this heading"></a></h2>
+<p>បើអ្នកចង់ <strong>បង្ខំ</strong> ឱ្យ subclass អនុវត្ត method ជាក់លាក់ ប្រើ <code class="docutils literal notranslate"><span class="pre">abc</span></code>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""រូបរាង — មិនអាចបង្កើតដោយផ្ទាល់បានទេ។"""</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""ត្រឡប់ផ្ទៃក្រឡា។"""</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""ត្រឡប់បរិមាត្រ។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: area=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Square</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">=</span> <span class="n">side</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Shape</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">Can't instantiate abstract class Shape without an implementation for abstract methods 'area', 'perimeter'</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="go">'Square: area=9.00'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Square</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">Shape</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> (ដូចក្នុងឧទាហរណ៍ <code class="docutils literal notranslate"><span class="pre">Animal</span></code> ខាងលើ) ផ្ដល់
+កំហុសតែនៅពេល <strong>ហៅ</strong> method ប៉ុណ្ណោះ។ <code class="docutils literal notranslate"><span class="pre">&#64;abstractmethod</span></code> ផ្ដល់កំហុស
+នៅពេល <strong>បង្កើត</strong> object — លឿនជាង និងច្បាស់ជាង។</p>
+</div>
+</section>
+<section id="composition-inheritance">
+<span id="composition"></span><h2>Composition ធៀបនឹង Inheritance<a class="headerlink" href="#composition-inheritance" title="Link to this heading"></a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>ចូលចិត្ត composition ជាង inheritance</strong> (&quot;favor composition over
+inheritance&quot;)។</p>
+<ul class="simple">
+<li><p><strong>Inheritance</strong> = &quot;is-a&quot; — <code class="docutils literal notranslate"><span class="pre">Dog</span></code> គឺជា <code class="docutils literal notranslate"><span class="pre">Animal</span></code></p></li>
+<li><p><strong>Composition</strong> = &quot;has-a&quot; — <code class="docutils literal notranslate"><span class="pre">Car</span></code> មាន <code class="docutils literal notranslate"><span class="pre">Engine</span></code></p></li>
+</ul>
+<p>Inheritance ជ្រៅពេកបង្កើត <em>tight coupling</em> ដែលពិបាកផ្លាស់ប្ដូរ។
+Composition ធ្វើឱ្យផ្នែកនីមួយៗអាចសាកល្បង និងជំនួសបានងាយ។</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ inheritance ជ្រៅពេក</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FlyingSwimmingElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">,</span> <span class="n">Boat</span><span class="p">,</span> <span class="n">Drone</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="c1"># ✅ composition</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="n">Engine</span><span class="p">,</span> <span class="n">gps</span><span class="p">:</span> <span class="n">GPS</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">engine</span>          <span class="c1"># has-a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gps</span> <span class="o">=</span> <span class="n">gps</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="generic-class-pep-695">
+<span id="type-params"></span><h2>Generic Class (PEP 695)<a class="headerlink" href="#generic-class-pep-695" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.12.</span></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Stack ដែលមាន type parameter។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">)</span>
+
+
+<span class="nb">type</span> <span class="n">Number</span> <span class="o">=</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span>          <span class="c1"># type alias (PEP 695)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">:</span> <span class="n">Stack</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">"ក"</span><span class="p">);</span> <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">"ខ"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="go">'ខ'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>វាក្យសម្ពន្ធ <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Stack[T]:</span></code> ខ្លីជាងទម្រង់ចាស់ដែលត្រូវ
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">typing</span> <span class="pre">import</span> <span class="pre">Generic,</span> <span class="pre">TypeVar</span></code>។ ទម្រង់ចាស់នៅតែដំណើរការ។
+សូមមើលជំពូក <em>Type Hints</em> (មិនទាន់បានសរសេរ)។</p>
+</div>
+</section>
+<section id="classes-best-practices">
+<span id="id8"></span><h2>ការអនុវត្តល្អបំផុត<a class="headerlink" href="#classes-best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>ចាប់ផ្ដើមសាមញ្ញ</strong> — ប្រើ function និង module ជាមុនសិន។
+បង្កើត class តែនៅពេលអ្នកត្រូវការ <strong>ទិន្នន័យ + អាកប្បកិរិយា</strong> ជាប់គ្នា។</p></li>
+<li><p><strong>ប្រើ ``&#64;dataclass``</strong> សម្រាប់ class ដែលផ្ទុកទិន្នន័យភាគច្រើន។</p></li>
+<li><p><strong>កំណត់ ``__repr__``</strong> សម្រាប់ class ទាំងអស់ — វាធ្វើឱ្យ debug ងាយណាស់។</p></li>
+<li><p><strong>ប្រើ ``self.x`` ជានិច្ច</strong> ក្នុង method — កុំសរសេរ <code class="docutils literal notranslate"><span class="pre">x</span></code> ដោយផ្ទាល់
+(វានឹងបង្កើតអថេរ local មិនមែន attribute ទេ)។</p></li>
+<li><p><strong>កុំប្រើ mutable class attribute</strong> ជាលំនាំដើម។</p></li>
+<li><p><strong>រាក់ inheritance</strong> — ១–២ ជាន់គឺគ្រប់គ្រាន់ភាគច្រើន។</p></li>
+<li><p><strong>ហៅ ``super().__init__()``</strong> នៅពេល override <code class="docutils literal notranslate"><span class="pre">__init__</span></code>។</p></li>
+<li><p><strong>ប្រើ ``&#64;property``</strong> ជំនួស getter/setter ដែលសរសេរដោយដៃ។</p></li>
+<li><p><strong>អនុវត្ត ``__eq__`` និង ``__hash__`` ជាគូ</strong> — បើ object អាចស្មើគ្នា
+វាត្រូវតែ hash ដូចគ្នាដែរ មិនដូច្នោះទេ <code class="docutils literal notranslate"><span class="pre">set</span></code>/<code class="docutils literal notranslate"><span class="pre">dict</span></code> នឹងខូច។</p></li>
+<li><p><strong>ប្រើ ``NotImplemented``</strong> (មិនមែន <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>) ក្នុង
+<code class="docutils literal notranslate"><span class="pre">__eq__</span></code> បើប្រភេទមិនត្រូវគ្នា — នេះអនុញ្ញាតឱ្យ Python សាកល្បង
+reflected operation។</p></li>
+</ol>
+</section>
+<section id="classes-summary">
+<span id="id9"></span><h2>សង្ខេប<a class="headerlink" href="#classes-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>គោលគំនិត</p></th>
+<th class="head"><p>សង្ខេប</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">X:</span></code></p></td>
+<td><p>កំណត់ class។ <code class="docutils literal notranslate"><span class="pre">X(...)</span></code> បង្កើត instance</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> / <code class="docutils literal notranslate"><span class="pre">self</span></code></p></td>
+<td><p>កំណត់តម្លៃដំបូង · instance បច្ចុប្បន្ន (បញ្ជូនស្វ័យប្រវត្តិ)</p></td>
+</tr>
+<tr class="row-even"><td><p>Class vs instance attribute</p></td>
+<td><p>ចែករំលែក · របស់ object នីមួយៗ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> / <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code></p></td>
+<td><p>ទទួល <code class="docutils literal notranslate"><span class="pre">cls</span></code> · មិនទទួលអ្វី</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;property</span></code></p></td>
+<td><p>attribute syntax ដែលដំណើរការ method</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inheritance</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Sub(Base):</span></code> · <code class="docutils literal notranslate"><span class="pre">super()</span></code> ហៅ method របស់ class មេ</p></td>
+</tr>
+<tr class="row-even"><td><p>MRO</p></td>
+<td><p>លំដាប់ស្វែងរក attribute · <code class="docutils literal notranslate"><span class="pre">Class.__mro__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">_x</span></code> / <code class="docutils literal notranslate"><span class="pre">__x</span></code></p></td>
+<td><p>ផ្ទៃក្នុង (អនុសញ្ញា) · name mangling</p></td>
+</tr>
+<tr class="row-even"><td><p>Dunder methods</p></td>
+<td><p>ភ្ជាប់ object ទៅនឹងវាក្យសម្ពន្ធ Python</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__slots__</span></code></p></td>
+<td><p>សន្សំអង្គចងចាំ · កំណត់ attribute ដែលអនុញ្ញាត</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code></p></td>
+<td><p>បង្កើត <code class="docutils literal notranslate"><span class="pre">__init__</span></code>/<code class="docutils literal notranslate"><span class="pre">__repr__</span></code>/<code class="docutils literal notranslate"><span class="pre">__eq__</span></code> ស្វ័យប្រវត្តិ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">abc.ABC</span></code></p></td>
+<td><p>បង្ខំឱ្យ subclass អនុវត្ត abstract method</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">Classes</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html">Data model</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">Special method names</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">dataclasses — Data Classes</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/abc.html">abc — Abstract Base Classes</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.total_ordering">functools.total_ordering</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0008/#class-names">PEP 8 — Class naming</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0695/">PEP 695 — Type Parameter Syntax</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="exceptions.html" class="btn btn-neutral float-left" title="Exceptions និងការគ្រប់គ្រងកំហុស" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license_attribution.html" class="btn btn-neutral float-right" title="ប្រភព និងអាជ្ញាបណ្ណ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

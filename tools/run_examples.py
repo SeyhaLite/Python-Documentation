@@ -37,6 +37,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "source"
+# the chapters demonstrate real modules (greetings.py, the shop package)
+EXAMPLE_MODULES = SOURCE / "_code"
 
 # interpreter to verify against — defaults to the newest python3 on PATH
 DEFAULT_PY = sys.executable
@@ -179,12 +181,28 @@ def dedent_block(body: str) -> str:
 # --------------------------------------------------------------------------- #
 # pycon parsing / matching
 # --------------------------------------------------------------------------- #
+def _ends_compound_statement(raw_lines: list[str], pos: int) -> bool:
+    """True when the bare ``...`` at *pos* is the empty REPL line that closes a
+    compound statement, rather than an ellipsis in the expected output.
+
+    It closes the statement when the next non-blank line starts a new ``>>>``
+    example (or the block ends). Otherwise the following lines document output,
+    so ``...`` is an output wildcard.
+    """
+    for nxt in raw_lines[pos + 1:]:
+        if not nxt.strip():
+            continue
+        return nxt.startswith(">>>")
+    return True
+
+
 def parse_pycon(block: str) -> list[tuple[str, list[str]]]:
     """Split a pycon block into [(source, expected_lines), ...]."""
     examples: list[tuple[list[str], list[str]]] = []
     src: list[str] = []
     exp: list[str] = []
-    for raw in block.split("\n"):
+    raw_lines = block.split("\n")
+    for pos, raw in enumerate(raw_lines):
         if raw.startswith(">>> "):
             if src:
                 examples.append((src, exp))
@@ -196,7 +214,7 @@ def parse_pycon(block: str) -> list[tuple[str, list[str]]]:
         elif raw.startswith("... ") or raw.strip() == "...":
             if raw.startswith("... "):
                 src.append(raw[4:])
-            elif src and (src[-1].startswith(" ") or src[-1].rstrip().endswith(":")):
+            elif src and _ends_compound_statement(raw_lines, pos):
                 pass                      # empty REPL line ending a block
             else:
                 exp.append("...")          # ellipsis inside expected output
@@ -235,34 +253,44 @@ def wildcard_match(expected: str, actual: str) -> bool:
 
 
 def match_lines(expected: list[str], actual: list[str]) -> bool:
-    """Match expected lines against actual lines; bare `...` eats 1+ lines."""
-    e = [x.strip() for x in expected if x.strip() != "" or True]
+    """Match expected lines against actual lines.
+
+    A bare ``...`` in the expected output absorbs zero or more actual lines
+    (so it works both for elided traceback frames and for the empty REPL line
+    that closes a compound statement). Inside any other expected line, ``...``
+    matches an arbitrary substring.
+    """
+    e = [x.strip() for x in expected]
     a = [x.rstrip() for x in actual]
+
+    # collapse runs of wildcards/blank lines into a single wildcard
+    collapsed: list[str] = []
+    for item in e:
+        if item in {"...", ""} and collapsed and collapsed[-1] in {"...", ""}:
+            continue
+        collapsed.append(item)
+    e = collapsed
+
     ei = ai = 0
     while ei < len(e):
-        if e[ei].strip() == "...":
-            # wildcard line: must consume at least one actual line unless the
-            # remainder already matches
+        if e[ei] == "..." or e[ei] == "":
             ei += 1
             if ei >= len(e):
-                return ai < len(a) or ai == len(a)
-            # advance ai until the next expected line matches
-            matched = False
-            while ai < len(a):
-                ai += 1
-                if ai < len(a) and wildcard_match(e[ei], a[ai]):
-                    matched = True
+                return True                      # trailing wildcard absorbs all
+            found = -1
+            for k in range(ai, len(a)):
+                if wildcard_match(e[ei], a[k]):
+                    found = k
                     break
-            if not matched:
+            if found < 0:
                 return False
+            ai = found + 1
             ei += 1
-            ai += 1
             continue
         if ai >= len(a) or not wildcard_match(e[ei], a[ai]):
             return False
         ei += 1
         ai += 1
-    # trailing actual output that was not expected
     while ai < len(a) and a[ai].strip() == "":
         ai += 1
     return ai == len(a)
@@ -287,6 +315,12 @@ def run_pycon(block: str, namespace: dict) -> tuple[bool, str]:
             with redirect_stdout(buf):
                 code = compile(source, "<pycon>", "single")
                 exec(code, namespace)
+        except SyntaxError:
+            # a real REPL shows the source line, a caret and the message,
+            # with no "Traceback" header (it is a compile-time failure)
+            tb = traceback.format_exc().splitlines()
+            cut = next((i for i, l in enumerate(tb) if 'File "<pycon>"' in l), 0)
+            err_text = [l.replace("<pycon>", "<stdin>") for l in tb[cut:]]
         except Exception:
             tb = traceback.format_exc().splitlines()
             # drop the runner's own frames, keep the REPL-style output
@@ -295,6 +329,7 @@ def run_pycon(block: str, namespace: dict) -> tuple[bool, str]:
                 err_text = ["Traceback (most recent call last):"] + tb[-2:]
             else:
                 err_text = ["Traceback (most recent call last):"] + tb[cut:]
+            err_text = [l.replace("<pycon>", "<stdin>") for l in err_text]
         got = buf.getvalue().splitlines() + err_text
         if not match_lines(expected, got):
             problems.append(
@@ -314,6 +349,7 @@ def run_python_block(block: str, namespace: dict) -> tuple[bool, str]:
     except Exception:
         tb = traceback.format_exc().splitlines()
         cut = next((i for i, l in enumerate(tb) if 'File "<python-block>"' in l), 0)
+        tb = [l.replace("<python-block>", "<stdin>") for l in tb]
         return False, "  raised:\n    " + "\n    ".join(tb[cut:])
     return True, ""
 
@@ -344,6 +380,8 @@ def main() -> int:
     # file examples create/remove real files — do it in a scratch directory
     workdir = tempfile.mkdtemp(prefix="khmer-docs-examples-")
     os.chdir(workdir)
+    # so `import greetings` / `from shop import Cart` resolve to the real files
+    sys.path.insert(0, str(EXAMPLE_MODULES))
     ver = subprocess.run([py, "-V"], capture_output=True, text=True).stdout.strip()
     print(f"verifying against: {py}  ({ver})\n")
 

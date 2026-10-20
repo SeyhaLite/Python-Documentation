@@ -3,9 +3,9 @@
 ឯកសារបង្រៀនភាសា **Python** ជាភាសាខ្មែរ ដែលសរសេរឡើងវិញដោយយោងតាម
 ឯកសារផ្លូវការរបស់ CPython (ថត `Doc/`).
 
-> **ស្ថានភាព៖ កំពុងអភិវឌ្ឍ។** បច្ចុប្បន្នមានតែ **៦ ជំពូកមូលដ្ឋានគ្រឹះ**
-> ប៉ុណ្ណោះដែលបានបញ្ចប់។ ឯកសារ Python ទាំងមូល **មិនទាន់** ត្រូវបាន
-> បកប្រែទេ។
+> **ស្ថានភាព៖ កំពុងអភិវឌ្ឍ។** បច្ចុប្បន្នមាន **៩ ជំពូក** ដែលបានបញ្ចប់
+> (៦ មូលដ្ឋានគ្រឹះ + Modules/Packages + Exceptions + Classes/OOP)។
+> ឯកសារ Python ទាំងមូល **មិនទាន់** ត្រូវបានបកប្រែទេ។
 
 - **កំណែ Python គោលដៅ៖** 3.15 (stable ចេញថ្ងៃ ៩ តុលា ២០២៦)
 - **ឯកសារបានផ្ទៀងផ្ទាត់លើ៖** CPython 3.15.0
@@ -24,9 +24,9 @@
 | ៤ | លក្ខខណ្ឌ និងរង្វិលជុំ | `source/control_flow.rst` | ✅ |
 | ៥ | អនុគមន៍ និងវិសាលភាពអថេរ | `source/functions_scope.rst` | ✅ |
 | ៦ | ការគ្រប់គ្រងឯកសារ | `source/file_handling.rst` | ✅ |
-| ៧ | Modules និង Packages | — | ⬜ |
-| ៨ | Exceptions | — | ⬜ |
-| ៩ | Classes និង OOP | — | ⬜ |
+| ៧ | Modules និង Packages | `source/modules_packages.rst` | ✅ |
+| ៨ | Exceptions និងការគ្រប់គ្រងកំហុស | `source/exceptions.rst` | ✅ |
+| ៩ | Classes និង Object-Oriented Programming | `source/classes_oop.rst` | ✅ |
 | ១០ | Iterators និង Generators | — | ⬜ |
 | ១១ | Decorators | — | ⬜ |
 | ១២ | Type Hints | — | ⬜ |
@@ -55,8 +55,11 @@ Python-Documentation/
 │   ├── control_flow.rst
 │   ├── functions_scope.rst
 │   ├── file_handling.rst
+│   ├── modules_packages.rst
+│   ├── exceptions.rst
+│   ├── classes_oop.rst
 │   ├── license_attribution.rst
-│   ├── _code/               # ឯកសារ .py ពិតដែល literalinclude យោងទៅ
+│   ├── _code/               # ឯកសារ .py ពិត (literalinclude + module សម្រាប់ឧទាហរណ៍ import)
 │   ├── _static/khmer.css    # ពុម្ពអក្សរខ្មែរ + palette light/dark
 │   ├── _templates/          # layout.html, breadcrumbs.html
 │   └── _extra/robots.txt
