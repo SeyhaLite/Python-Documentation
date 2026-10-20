@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Environments និង Packages &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/virtual_environments.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Testing, Debugging និង Best Practices" href="testing_debugging.html" />
+    <link rel="prev" title="Standard Library" href="standard_library.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/virtual_environments.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="Virtual Environments និង Packages">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/virtual_environments.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Virtual Environments និង Packages">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules_packages.html">Modules និង Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions និងការគ្រប់គ្រងកំហុស</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes_oop.html">Classes និង Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iterators_generators.html">Iterators និង Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type_hints.html">Type Hints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard_library.html">Standard Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Virtual Environments និង Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-environment">ហេតុអ្វីត្រូវការ Virtual Environment?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-venv">ការបង្កើត Virtual Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activate">ការធ្វើឱ្យសកម្ម (Activate)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#venv-structure">រចនាសម្ព័ន្ធនៃ Virtual Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pip-package"><code class="docutils literal notranslate"><span class="pre">pip</span></code> — ការគ្រប់គ្រង Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-specifier">Version Specifier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements-txt"><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyproject-toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-problems">បញ្ហាទូទៅ និងដំណោះស្រាយ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pep-668-externally-managed-environment">PEP 668 — <code class="docutils literal notranslate"><span class="pre">externally-managed-environment</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modern-tools">ឧបករណ៍ទំនើប</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#venv-best-practices">ការអនុវត្តល្អបំផុត</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#venv-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing_debugging.html">Testing, Debugging និង Best Practices</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Virtual Environments និង Packages</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/virtual_environments.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="virtual-environments">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/venv.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/library/venv.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/installing/index.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/using/cmdline.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="virtual-environments-packages">
+<h1>Virtual Environments និង Packages<a class="headerlink" href="#virtual-environments-packages" title="Link to this heading"></a></h1>
+<section id="virtual-environment">
+<span id="why-venv"></span><h2>ហេតុអ្វីត្រូវការ Virtual Environment?<a class="headerlink" href="#virtual-environment" title="Link to this heading"></a></h2>
+<p>កម្មវិធី Python ជាច្រើនប្រើ package ដែលមិនមែនជាផ្នែកនៃបណ្ណាល័យស្តង់ដារ។
+ជួនកាលកម្មវិធីពីរត្រូវការ <strong>កំណែខុសគ្នា</strong> នៃបណ្ណាល័យដូចគ្នា៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>កម្មវិធី A  →  ត្រូវការ requests 2.28
+កម្មវិធី B  →  ត្រូវការ requests 2.32
+</pre></div>
+</div>
+<p>បើអ្នកដំឡើងទាំងពីរក្នុង Python តែមួយ វានឹង <strong>ប៉ះទង្គិចគ្នា</strong>។</p>
+<p><strong>Virtual environment</strong> គឺជាថតដាច់ដោយឡែកមួយដែលមានការដំឡើង Python
+ផ្ទាល់ខ្លួន និង package ផ្ទាល់ខ្លួន។ កម្មវិធីនីមួយៗអាចមាន environment
+របស់វា ដោយមិនរំខានគ្នា។</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">អត្ថប្រយោជន៍</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អត្ថប្រយោជន៍</p></th>
+<th class="head"><p>ការពន្យល់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ដាច់ស្រឡះ</p></td>
+<td><p>គម្រោងនីមួយៗមាន dependency ផ្ទាល់ខ្លួន មិនប៉ះទង្គិចគ្នា</p></td>
+</tr>
+<tr class="row-odd"><td><p>ស្អាត</p></td>
+<td><p>មិនបំពុល Python របស់ប្រព័ន្ធ</p></td>
+</tr>
+<tr class="row-even"><td><p>អាចធ្វើម្ដងទៀតបាន</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> អនុញ្ញាតឱ្យអ្នកផ្សេងដំឡើងដូចគ្នា</p></td>
+</tr>
+<tr class="row-odd"><td><p>មិនត្រូវការសិទ្ធិ admin</p></td>
+<td><p>មិនចាំបាច់ <code class="docutils literal notranslate"><span class="pre">sudo</span></code> ដើម្បីដំឡើង package</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="creating-venv">
+<span id="id2"></span><h2>ការបង្កើត Virtual Environment<a class="headerlink" href="#creating-venv" title="Link to this heading"></a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project
+<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">venv</span></code> ដំណើរការម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">venv</span></code> ជា script។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.venv</span></code> គឺជាឈ្មោះថត។ អនុសញ្ញាទូទៅគឺ <code class="docutils literal notranslate"><span class="pre">.venv</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">venv</span></code>។</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>ប្រើ <strong>interpreter ជាក់លាក់</strong> បើអ្នកចង់បានកំណែជាក់លាក់៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3.15<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w">     </span><span class="c1"># environment សម្រាប់ Python 3.15</span>
+<span class="gp">$ </span>py<span class="w"> </span>-3.13<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w">       </span><span class="c1"># Windows — ជ្រើសរើសកំណែ</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">venv</span></code> ដំឡើងកំណែ Python ដែល <strong>បានដំណើរការពាក្យបញ្ជា</strong> នោះ។</p>
+</div>
+</section>
+<section id="activate">
+<span id="activating"></span><h2>ការធ្វើឱ្យសកម្ម (Activate)<a class="headerlink" href="#activate" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រព័ន្ធ / Shell</p></th>
+<th class="head"><p>ពាក្យបញ្ជា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Linux / macOS (bash, zsh)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Linux / macOS (fish)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate.fish</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Linux / macOS (csh/tcsh)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate.csh</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows (Command Prompt)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.venv\\Scripts\\activate.bat</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows (PowerShell)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.venv\\Scripts\\Activate.ps1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>--version
+<span class="go">Python 3.15.0</span>
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>which<span class="w"> </span>python
+<span class="go">/home/user/my-project/.venv/bin/python</span>
+</pre></div>
+</div>
+<p>សញ្ញា <code class="docutils literal notranslate"><span class="pre">(.venv)</span></code> នៅមុខ prompt បញ្ជាក់ថា environment កំពុងសកម្ម។</p>
+<p><strong>បិទ (deactivate)៖</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>deactivate
+<span class="gp">$</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>អ្នក <strong>មិនចាំបាច់</strong> activate ទេ — អ្នកអាចហៅ interpreter ដោយផ្ទាល់៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>.venv/bin/python<span class="w"> </span>app.py
+<span class="gp">$ </span>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>នេះមានប្រយោជន៍ក្នុង script ឬ CI ដែលការ activate មិនងាយស្រួល។</p>
+</div>
+<section id="venv-structure">
+<span id="id3"></span><h3>រចនាសម្ព័ន្ធនៃ Virtual Environment<a class="headerlink" href="#venv-structure" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.venv/
+├── bin/                    (Windows: Scripts\)
+│   ├── python  →  python3.15
+│   ├── pip
+│   └── activate
+├── include/
+├── lib/
+│   └── python3.15/
+│       └── site-packages/  ← package របស់អ្នកនៅទីនេះ
+└── pyvenv.cfg              ← កំណត់រចនាសម្ព័ន្ធ
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>ដាក់ ``.venv/`` ក្នុង ``.gitignore``</strong>។ កុំ commit environment ទេ —
+វាធំ អាស្រ័យលើប្រព័ន្ធ និងអាចបង្កើតឡើងវិញបានពី
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>។</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># .gitignore
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="pip-package">
+<span id="pip"></span><h2><code class="docutils literal notranslate"><span class="pre">pip</span></code> — ការគ្រប់គ្រង Package<a class="headerlink" href="#pip-package" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> គឺជាឧបករណ៍ដំឡើង package ស្តង់ដារ ដែលមកជាមួយ Python។</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ពាក្យបញ្ជា</p></th>
+<th class="head"><p>ការប្រើប្រាស់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">requests</span></code></p></td>
+<td><p>ដំឡើងកំណែចុងក្រោយ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;requests==2.32.3&quot;</span></code></p></td>
+<td><p>ដំឡើងកំណែជាក់លាក់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;requests&gt;=2.31,&lt;3&quot;</span></code></p></td>
+<td><p>ដំឡើងក្នុងជួរកំណែ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">requests</span></code></p></td>
+<td><p>ធ្វើបច្ចុប្បន្នភាព</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">requests</span></code></p></td>
+<td><p>ដកចេញ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code></p></td>
+<td><p>រាយ package ទាំងអស់ដែលបានដំឡើង</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--outdated</span></code></p></td>
+<td><p>រាយ package ដែលមានកំណែថ្មីជាង</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">show</span> <span class="pre">requests</span></code></p></td>
+<td><p>ព័ត៌មានលម្អិតអំពី package មួយ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span></code></p></td>
+<td><p>បញ្ចេញជាទម្រង់ <code class="docutils literal notranslate"><span class="pre">name==version</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></td>
+<td><p>ដំឡើងពីឯកសារ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">check</span></code></p></td>
+<td><p>ពិនិត្យ dependency ដែលបែកបាក់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">download</span> <span class="pre">pkg</span> <span class="pre">-d</span> <span class="pre">./wheels</span></code></p></td>
+<td><p>ទាញយកដោយមិនដំឡើង</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>requests
+<span class="go">Collecting requests</span>
+<span class="go">  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)</span>
+<span class="go">Collecting charset-normalizer&lt;4,&gt;=2 (from requests)</span>
+<span class="go">  Downloading charset_normalizer-3.4.0-py3-none-any.whl.metadata (34 kB)</span>
+<span class="go">...</span>
+<span class="go">Successfully installed requests-2.32.3 urllib3-2.2.3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> ដំឡើង <strong>dependency ដោយស្វ័យប្រវត្តិ</strong>។ ក្នុងឧទាហរណ៍ខាងលើ
+<code class="docutils literal notranslate"><span class="pre">requests</span></code> ទាញយក <code class="docutils literal notranslate"><span class="pre">charset-normalizer</span></code>, <code class="docutils literal notranslate"><span class="pre">idna</span></code>, <code class="docutils literal notranslate"><span class="pre">certifi</span></code> និង
+<code class="docutils literal notranslate"><span class="pre">urllib3</span></code> ផងដែរ។</p>
+</div>
+<section id="version-specifier">
+<span id="version-specifiers"></span><h3>Version Specifier<a class="headerlink" href="#version-specifier" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 76.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Specifier</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==2.32.3</span></code></p></td>
+<td><p>កំណែជាក់លាក់នេះតែប៉ុណ្ណោះ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=2.32.0</span></code></p></td>
+<td><p>គ្រប់កំណែ លើកលែងកំណែនេះ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=2.31</span></code></p></td>
+<td><p>កំណែនេះ ឬថ្មីជាង</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;2.31</span></code></p></td>
+<td><p>ថ្មីជាងដាច់ខាត</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;3</span></code></p></td>
+<td><p>ចាស់ជាងដាច់ខាត</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=2.32.3</span></code></p></td>
+<td><p>កំណែនេះ ឬចាស់ជាង</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~=2.32</span></code></p></td>
+<td><p><em>compatible release</em> — ស្មើ <code class="docutils literal notranslate"><span class="pre">&gt;=2.32,</span> <span class="pre">==2.*</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">===2.32.3</span></code></p></td>
+<td><p>ផ្គូផ្គងខ្សែអក្សរដាច់ខាត (កម្រប្រើ)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Semantic versioning</strong> (<code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR.PATCH</span></code>) គឺជា <strong>អនុសញ្ញា</strong>
+មិនមែនជាការធានាទេ។ Package អាចបំបែក API ក្នុងកំណែ patch។
+សម្រាប់កម្មវិធីផលិតកម្ម សូម <strong>ខ្ទាស់កំណែ</strong> (pin) ឱ្យជាក់លាក់។</p>
+</div>
+</section>
+</section>
+<section id="requirements-txt">
+<span id="requirements"></span><h2><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code><a class="headerlink" href="#requirements-txt" title="Link to this heading"></a></h2>
+<p>វិធីសាមញ្ញបំផុតដើម្បីកត់ត្រា dependency៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>កត់ត្រា<span class="w"> </span>environment<span class="w"> </span>បច្ចុប្បន្ន
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+
+<span class="gp"># </span>ដំឡើងឡើងវិញនៅកន្លែងផ្សេង
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p><strong>ទម្រង់ឯកសារ៖</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># requirements.txt
+# ---- runtime ----
+requests==2.32.3
+click&gt;=8.1,&lt;9
+pydantic~=2.9
+
+# ---- development ----
+-r requirements-dev.txt
+
+# ---- ពី git ----
+git+https://github.com/user/repo.git@v1.2.3#egg=mypackage
+
+# ---- ឯកសារ wheel ក្នុងស្រុក ----
+./wheels/custom-1.0-py3-none-any.whl
+</pre></div>
+</div>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">ភាពខុសគ្នារវាងឯកសារពីរប្រភេទ</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>គោលបំណង</p></td>
+<td><p>កំណត់ environment ជាក់លាក់</p></td>
+<td><p>ប្រកាស metadata និង dependency របស់ package</p></td>
+</tr>
+<tr class="row-odd"><td><p>កំណែ</p></td>
+<td><p>ជាធម្មតាខ្ទាស់ជាក់លាក់ (<code class="docutils literal notranslate"><span class="pre">==</span></code>)</p></td>
+<td><p>ជាធម្មតាជួរ (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">~=</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>បង្កើតដោយ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span></code></p></td>
+<td><p>អ្នកសរសេរដោយដៃ</p></td>
+</tr>
+<tr class="row-odd"><td><p>ប្រើសម្រាប់</p></td>
+<td><p>deployment, CI</p></td>
+<td><p>ការចែកចាយ library, គម្រោងទំនើប</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>សម្រាប់គម្រោងផលិតកម្ម អនុវត្តល្អគឺមាន <strong>ពីរឯកសារ</strong>៖</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.in</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> — dependency ដែលអ្នកត្រូវការ
+(ជួរកំណែ)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> — លទ្ធផលដែលបានខ្ទាស់ជាក់លាក់
+(បង្កើតដោយ <code class="docutils literal notranslate"><span class="pre">pip-compile</span></code> ពី <code class="docutils literal notranslate"><span class="pre">pip-tools</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">compile</span></code>)</p></li>
+</ul>
+</div>
+</section>
+<section id="pyproject-toml">
+<span id="pyproject"></span><h2><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#pyproject-toml" title="Link to this heading"></a></h2>
+<p>ឯកសារកំណត់រចនាសម្ព័ន្ធស្តង់ដារសម្រាប់គម្រោង Python (PEP 518, 621)៖</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"hatchling"</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"hatchling.build"</span>
+
+<span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-app"</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1.4.0"</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"កម្មវិធីឧទាហរណ៍"</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"README.md"</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=3.12"</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"MIT"</span><span class="w"> </span><span class="p">}</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"Sokha"</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"sokha@example.com"</span><span class="w"> </span><span class="p">}]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"requests&gt;=2.31,&lt;3"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"click&gt;=8.1"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">[project.optional-dependencies]</span>
+<span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"pytest&gt;=8.0"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"ruff&gt;=0.6"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"mypy&gt;=1.11"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">[project.scripts]</span>
+<span class="n">my-app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_app.cli:main"</span>
+
+<span class="k">[tool.ruff]</span>
+<span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"py312"</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ដំឡើងគម្រោងជា<span class="w"> </span>editable<span class="w"> </span><span class="o">(</span>កូដផ្លាស់ប្ដូរភ្លាម<span class="w"> </span>មិនចាំបាច់ដំឡើងម្ដងទៀត<span class="o">)</span>
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+
+<span class="gp"># </span>ដំឡើងរួមទាំង<span class="w"> </span>optional<span class="w"> </span>dependency
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[dev]"</span>
+</pre></div>
+</div>
+</section>
+<section id="common-problems">
+<span id="id4"></span><h2>បញ្ហាទូទៅ និងដំណោះស្រាយ<a class="headerlink" href="#common-problems" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>បញ្ហា</p></th>
+<th class="head"><p>ដំណោះស្រាយ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> ទោះបីបានដំឡើង</p></td>
+<td><p>អ្នកកំពុងប្រើ interpreter ខុស។ ពិនិត្យ <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">sys.executable</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">error:</span> <span class="pre">externally-managed-environment</span></code></p></td>
+<td><p>PEP 668 — distribution បានហាមដំឡើងទៅ system Python។ <strong>ប្រើ venv</strong> ឬ <code class="docutils literal notranslate"><span class="pre">pipx</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code> ពេល <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code></p></td>
+<td><p>កុំប្រើ <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span></code>។ បង្កើត venv វិញ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prompt មិនបង្ហាញ <code class="docutils literal notranslate"><span class="pre">(.venv)</span></code></p></td>
+<td><p>Activate មិនបានជោគជ័យ ឬ prompt របស់អ្នកមិនគាំទ្រ។ ពិនិត្យ <code class="docutils literal notranslate"><span class="pre">sys.prefix</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Dependency ប៉ះទង្គិចគ្នា</p></td>
+<td><p>ដំណើរការ <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">check</span></code> ហើយពិនិត្យជួរកំណែ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span></code> យឺត</p></td>
+<td><p>ប្រើ <code class="docutils literal notranslate"><span class="pre">--no-cache-dir</span></code> ឬឧបករណ៍ទំនើបដូចជា <code class="docutils literal notranslate"><span class="pre">uv</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Activate បរាជ័យលើ Windows PowerShell</p></td>
+<td><p>ការកំណត់ ExecutionPolicy — ដំណើរការ <code class="docutils literal notranslate"><span class="pre">Set-ExecutionPolicy</span> <span class="pre">-Scope</span> <span class="pre">CurrentUser</span> <span class="pre">RemoteSigned</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ពិនិត្យថាអ្នកកំពុងប្រើ interpreter ណា</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span> <span class="o">!=</span> <span class="s2">""</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span> <span class="o">==</span> <span class="n">sys</span><span class="o">.</span><span class="n">base_prefix</span>      <span class="c1"># False = ក្នុង virtual environment</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">sys.prefix</span> <span class="pre">!=</span> <span class="pre">sys.base_prefix</span></code> គឺជាវិធីដែល <strong>អាចទុកចិត្តបាន</strong>
+ដើម្បីពិនិត្យថាអ្នកកំពុងស្ថិតក្នុង virtual environment។</p>
+</div>
+<section id="pep-668-externally-managed-environment">
+<span id="pep668"></span><h3>PEP 668 — <code class="docutils literal notranslate"><span class="pre">externally-managed-environment</span></code><a class="headerlink" href="#pep-668-externally-managed-environment" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.11.</span></p>
+</div>
+<p>Distribution Linux ជាច្រើន (Debian 12+, Ubuntu 23.04+, Fedora 38+) បាន
+សម្គាល់ Python របស់ប្រព័ន្ធថា <strong>គ្រប់គ្រងដោយខាងក្រៅ</strong>។ នេះមានន័យថា
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> ទៅប្រព័ន្ធនឹងបរាជ័យ៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>error: externally-managed-environment
+× This environment is externally managed
+╰─&gt; To install Python packages system-wide, try apt install python3-xyz...
+</pre></div>
+</div>
+<p><strong>នេះគឺជាការការពារ មិនមែនជាកំហុសទេ។</strong> ឧបករណ៍ប្រព័ន្ធជាច្រើនពឹងផ្អែក
+លើ Python របស់ប្រព័ន្ធ ហើយ <code class="docutils literal notranslate"><span class="pre">pip</span></code> អាចបំបែកវា។</p>
+<p>ដំណោះស្រាយត្រឹមត្រូវ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="m">១</span>.<span class="w"> </span>Virtual<span class="w"> </span>environment<span class="w"> </span><span class="o">(</span>ណែនាំសម្រាប់គម្រោង<span class="o">)</span>
+<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>requests
+
+<span class="gp"># </span><span class="m">២</span>.<span class="w"> </span>pipx<span class="w"> </span><span class="o">(</span>ណែនាំសម្រាប់ឧបករណ៍<span class="w"> </span>CLI<span class="o">)</span>
+<span class="gp">$ </span>pipx<span class="w"> </span>install<span class="w"> </span>black
+
+<span class="gp"># </span><span class="m">៣</span>.<span class="w"> </span>apt<span class="w"> </span><span class="o">(</span>សម្រាប់<span class="w"> </span>package<span class="w"> </span>ប្រព័ន្ធ<span class="o">)</span>
+<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-requests
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំប្រើ <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--break-system-packages</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span></code>
+លើកលែងតែអ្នកយល់ច្បាស់ពីផលវិបាក។ វាអាចបំផ្លាញឧបករណ៍ប្រព័ន្ធ។</p>
+</div>
+</section>
+</section>
+<section id="modern-tools">
+<span id="id5"></span><h2>ឧបករណ៍ទំនើប<a class="headerlink" href="#modern-tools" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឧបករណ៍</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>uv</strong></p></td>
+<td><p>ឧបករណ៍គ្រប់គ្រងគម្រោង និង package សរសេរជា Rust។ លឿនជាង <code class="docutils literal notranslate"><span class="pre">pip</span></code> ច្រើនដង អាចជំនួស <code class="docutils literal notranslate"><span class="pre">venv</span></code>, <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">pip-tools</span></code>, <code class="docutils literal notranslate"><span class="pre">pyenv</span></code>។ <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">venv</span></code>, <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span></code>, <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>pipx</strong></p></td>
+<td><p>ដំឡើងឧបករណ៍ CLI ក្នុង environment ដាច់ដោយឡែក។ <code class="docutils literal notranslate"><span class="pre">pipx</span> <span class="pre">install</span> <span class="pre">black</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>poetry</strong></p></td>
+<td><p>គ្រប់គ្រង dependency + build + publish។ ប្រើ <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> និង lock file</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>pdm</strong></p></td>
+<td><p>ដូច poetry ប៉ុន្តែអនុវត្តតាម PEP 582</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>pip-tools</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pip-compile</span></code> បង្កើត <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> ដែលបានខ្ទាស់ពី <code class="docutils literal notranslate"><span class="pre">.in</span></code> file</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>conda / mamba</strong></p></td>
+<td><p>សម្រាប់វិទ្យាសាស្ត្រទិន្នន័យ — គ្រប់គ្រងទាំង package មិនមែន Python</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>pyenv</strong></p></td>
+<td><p>គ្រប់គ្រង <strong>កំណែ Python</strong> ច្រើន (មិនមែន package)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>សម្រាប់អ្នកចាប់ផ្ដើម <code class="docutils literal notranslate"><span class="pre">venv</span></code> + <code class="docutils literal notranslate"><span class="pre">pip</span></code> គឺគ្រប់គ្រាន់។ នៅពេលគម្រោងធំឡើង
+សូមពិចារណា <code class="docutils literal notranslate"><span class="pre">uv</span></code> (លឿន និងសាមញ្ញ) ឬ <code class="docutils literal notranslate"><span class="pre">poetry</span></code> (lock file និង
+dependency resolution ខ្លាំង)។</p>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span></code> អាចបង្កើត environment និងដំឡើង package ក្នុងពាក្យបញ្ជាតែមួយ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>venv<span class="w">                     </span><span class="c1"># បង្កើត .venv</span>
+<span class="gp">$ </span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="w">     </span><span class="c1"># ដំឡើង</span>
+<span class="gp">$ </span>uv<span class="w"> </span>run<span class="w"> </span>app.py<span class="w">               </span><span class="c1"># ដំណើរការក្នុង environment</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="venv-best-practices">
+<span id="id6"></span><h2>ការអនុវត្តល្អបំផុត<a class="headerlink" href="#venv-best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>បង្កើត virtual environment សម្រាប់គម្រោងនីមួយៗ</strong> — គ្មានករណីលើកលែង។</p></li>
+<li><p><strong>ដាក់ ``.venv/`` ក្នុង ``.gitignore``</strong> — commit តែ
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>។</p></li>
+<li><p><strong>ខ្ទាស់កំណែ</strong> សម្រាប់ deployment (<code class="docutils literal notranslate"><span class="pre">==</span></code>) ប្រើជួរ (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">~=</span></code>)
+សម្រាប់ library។</p></li>
+<li><p><strong>កុំប្រើ ``sudo pip``</strong> ឬ <code class="docutils literal notranslate"><span class="pre">--break-system-packages</span></code>។</p></li>
+<li><p><strong>ដំណើរការ ``pip check``</strong> ក្នុង CI ដើម្បីរក dependency បែកបាក់។</p></li>
+<li><p><strong>ប្រើ lock file</strong> (<code class="docutils literal notranslate"><span class="pre">uv.lock</span></code>, <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>, <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>
+ដែលបាន compile) ដើម្បីធានាការដំឡើងដូចគ្នាគ្រប់ទីកន្លែង។</p></li>
+<li><p><strong>ញែក dev dependency</strong> ពី runtime dependency
+(<code class="docutils literal notranslate"><span class="pre">[project.optional-dependencies]</span> <span class="pre">dev</span> <span class="pre">=</span> <span class="pre">[...]</span></code>)។</p></li>
+<li><p><strong>ដំឡើងឡើងវិញពីសូន្យ</strong> ជាការសាកល្បង — បើ <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span></code>
+មិនដំណើរការលើ machine ស្អាត នោះគម្រោងរបស់អ្នកមិនអាចធ្វើម្ដងទៀតបានទេ។</p></li>
+<li><p><strong>ធ្វើបច្ចុប្បន្នភាពជាទៀងទាត់</strong> — <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--outdated</span></code>។</p></li>
+</ol>
+</section>
+<section id="venv-summary">
+<span id="id7"></span><h2>សង្ខេប<a class="headerlink" href="#venv-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ពាក្យបញ្ជា</p></th>
+<th class="head"><p>ការប្រើប្រាស់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">.venv</span></code></p></td>
+<td><p>បង្កើត environment</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code></p></td>
+<td><p>ធ្វើឱ្យសកម្ម (Unix/macOS)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.venv\\Scripts\\activate</span></code></p></td>
+<td><p>ធ្វើឱ្យសកម្ម (Windows)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deactivate</span></code></p></td>
+<td><p>បិទ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pkg==1.2.3</span></code></p></td>
+<td><p>ដំឡើងកំណែជាក់លាក់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">&gt;</span> <span class="pre">requirements.txt</span></code></p></td>
+<td><p>កត់ត្រា environment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></td>
+<td><p>ស្ដារ environment</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></p></td>
+<td><p>ដំឡើងគម្រោងខ្លួនឯងជា editable</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">check</span></code></p></td>
+<td><p>ពិនិត្យ dependency បែកបាក់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sys.prefix</span> <span class="pre">!=</span> <span class="pre">sys.base_prefix</span></code></p></td>
+<td><p>ពិនិត្យថាស្ថិតក្នុង venv</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">Virtual Environments and Packages</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/venv.html">venv — Creation of virtual environments</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/installing/index.html">Installing Python Modules</a></p></li>
+<li><p><a class="reference external" href="https://pip.pypa.io/">pip documentation</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/">PyPI — Python Package Index</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0405/">PEP 405 — Python Virtual Environments</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0518/">PEP 517/518 — pyproject.toml</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0621/">PEP 621 — Project metadata in pyproject.toml</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0668/">PEP 668 — Externally Managed Environments</a></p></li>
+<li><p><a class="reference external" href="https://docs.astral.sh/uv/">uv documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="standard_library.html" class="btn btn-neutral float-left" title="Standard Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="testing_debugging.html" class="btn btn-neutral float-right" title="Testing, Debugging និង Best Practices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
