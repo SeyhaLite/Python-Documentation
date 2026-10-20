@@ -582,7 +582,7 @@ Method របស់ ``list``
    * - ``reverse()``
      - ត្រឡប់លំដាប់នៅនឹងកន្លែង
    * - ``copy()``
-     - ចម្លងតื้น (shallow copy)
+     - ចម្លងរាក់ (shallow copy)
 
 .. code-block:: pycon
 
@@ -1051,7 +1051,7 @@ Method របស់ ``dict``
    * - ``d.clear()``
      - លុបគូទាំងអស់
    * - ``d.copy()``
-     - ចម្លងតื้น
+     - ចម្លងរាក់
    * - ``d | other``
      - បញ្ចូលគ្នាជា dict ថ្មី (Python 3.9+)
    * - ``d |= other``

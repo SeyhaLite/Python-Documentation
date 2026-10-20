@@ -109,6 +109,18 @@ RENAME = {
     "syntax_variables_types.rst": {
         "summary": "syntax-summary",
     },
+    "decorators.rst": {
+        "best-practices": "decorators-best-practices",
+        "summary": "decorators-summary",
+    },
+    "type_hints.rst": {
+        "best-practices": "typehints-best-practices",
+        "summary": "typehints-summary",
+    },
+    "iterators_generators.rst": {
+        "summary": "iterators-summary",
+        "best-practices": "iterators-best-practices",
+    },
 }
 
 

@@ -320,7 +320,7 @@ Class Attribute និង Instance Attribute
 .. note::
 
    ``@property`` មានប្រយោជន៍ព្រោះអ្នកអាច **ចាប់ផ្ដើមពី attribute ធម្មតា**
-   ហើយបំលែងវាទៅជា property ภายหลัง **ដោយមិនបំបែកកូដអ្នកប្រើ**៖
+   ហើយបំលែងវាទៅជា property នៅពេលក្រោយ **ដោយមិនបំបែកកូដអ្នកប្រើ**៖
 
    .. code-block:: python
 
@@ -461,7 +461,7 @@ Polymorphism និង Duck Typing
 
    លទ្ធផល ``'DBCA'`` បង្ហាញថា ``super()`` ក្នុង ``B`` ហៅ **``C``**
    មិនមែន ``A`` ទេ — ព្រោះ MRO របស់ ``D`` គឺ ``D → B → C → A → object``។
-   នេះហៅថា **C3 linearization** ហើយវារับประกันថា method នីមួយៗ
+   នេះហៅថា **C3 linearization** ហើយវាធានាថា method នីមួយៗ
    ដំណើរការតែម្ដងគត់។
 
 .. _private:

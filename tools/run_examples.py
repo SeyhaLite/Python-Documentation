@@ -83,6 +83,11 @@ print(repr(greet(42)))
             "'សួស្ដី 42! '"
         ),
     ),
+    (
+        "PEP 649: inspect.signature keeps real annotations through wraps",
+        "import functools\nimport inspect\nimport typing\nfrom typing import ParamSpec, TypeVar\n\nP = ParamSpec('P')\nR = TypeVar('R')\n\n\ndef logged(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        return func(*args, **kwargs)\n    return wrapper\n\n\n@logged\ndef divide(a: int, b: int) -> float:\n    return a / b\n\n\ndef greet(name: str, times: int = 1) -> str:\n    return f'hi {name}'\n\n\nprint(inspect.signature(divide))\nprint(inspect.signature(greet))\nprint(greet.__annotations__)\nprint(typing.get_origin(int | str))\nprint(typing.get_args(dict[str, int]))",
+        "(a: int, b: int) -> float\n(name: str, times: int = 1) -> str\n{'name': <class 'str'>, 'times': <class 'int'>, 'return': <class 'str'>}\n<class 'typing.Union'>\n(<class 'str'>, <class 'int'>)",
+    ),
 ]
 
 
