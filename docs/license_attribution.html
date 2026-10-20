@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ប្រភព និងអាជ្ញាបណ្ណ &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/license_attribution.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="ការគ្រប់គ្រងឯកសារ" href="file_handling.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/license_attribution.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="ប្រភព និងអាជ្ញាបណ្ណ">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/license_attribution.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ប្រភព និងអាជ្ញាបណ្ណ">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ប្រភព និងអាជ្ញាបណ្ណ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sources">ប្រភពមាតិកា</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#copyright">សិទ្ធិអ្នកនិពន្ធ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">អាជ្ញាបណ្ណ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes">សង្ខេបអំពីការផ្លាស់ប្ដូរ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trademark">Trademark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fonts">ពុម្ពអក្សរ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#third-party">ឧបករណ៍ភាគីទីបី</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reuse">ការប្រើប្រាស់ឡើងវិញ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disclaimer">ការបដិសេធការទទួលខុសត្រូវ</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ប្រភព និងអាជ្ញាបណ្ណ</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/license_attribution.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="license-attribution">
+<span id="id1"></span><h1>ប្រភព និងអាជ្ញាបណ្ណ<a class="headerlink" href="#license-attribution" title="Link to this heading"></a></h1>
+<div class="src-note docutils container">
+<p>ទំព័រនេះពន្យល់អំពីប្រភពនៃមាតិកា សិទ្ធិអ្នកនិពន្ធ និងលក្ខខណ្ឌនៃ
+ការប្រើប្រាស់ឡើងវិញ។</p>
+</div>
+<section id="sources">
+<span id="id2"></span><h2>ប្រភពមាតិកា<a class="headerlink" href="#sources" title="Link to this heading"></a></h2>
+<p>មាតិកានៃគម្រោងនេះត្រូវបានសរសេរឡើងវិញជាភាសាខ្មែរ ដោយយោងតាម
+ឯកសារផ្លូវការរបស់គម្រោង Python៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រភព</p></th>
+<th class="head"><p>URL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ឯកសារផ្លូវការ Python 3</p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3/">https://docs.python.org/3/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Source repository (ថត <code class="docutils literal notranslate"><span class="pre">Doc/</span></code>)</p></td>
+<td><p><a class="reference external" href="https://github.com/python/cpython/tree/main/Doc">https://github.com/python/cpython/tree/main/Doc</a></p></td>
+</tr>
+<tr class="row-even"><td><p>The Python Tutorial</p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3/tutorial/index.html">https://docs.python.org/3/tutorial/index.html</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Python Setup and Usage</p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3/using/index.html">https://docs.python.org/3/using/index.html</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Python Library Reference</p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3/library/index.html">https://docs.python.org/3/library/index.html</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>The Python Language Reference</p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3/reference/index.html">https://docs.python.org/3/reference/index.html</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>ឯកសារជាក់លាក់ដែលបានប្រើជាមូលដ្ឋានសម្រាប់ជំពូកនីមួយៗ៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ជំពូកខ្មែរ</p></th>
+<th class="head"><p>ឯកសារដើមក្នុង CPython <code class="docutils literal notranslate"><span class="pre">Doc/</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="getting_started.html"><span class="doc">ចាប់ផ្ដើម និងការដំឡើង Python</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/appetite.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">tutorial/interpreter.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">using/unix.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">using/windows.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">using/mac.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">using/cmdline.rst</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="syntax_variables_types.html"><span class="doc">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/introduction.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">reference/lexical_analysis.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/stdtypes.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/keyword.rst</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="strings_collections.html"><span class="doc">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/datastructures.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">tutorial/introduction.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">tutorial/inputoutput.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/stdtypes.rst</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="control_flow.html"><span class="doc">លក្ខខណ្ឌ និងរង្វិលជុំ</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/controlflow.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">reference/simple_stmts.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">reference/compound_stmts.rst</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions_scope.html"><span class="doc">អនុគមន៍ និងវិសាលភាពអថេរ</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/controlflow.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">tutorial/classes.rst</span></code> (ផ្នែក <em>Python Scopes and Namespaces</em>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="file_handling.html"><span class="doc">ការគ្រប់គ្រងឯកសារ</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/inputoutput.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/functions.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/pathlib.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/json.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/os.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/csv.rst</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="copyright">
+<span id="id3"></span><h2>សិទ្ធិអ្នកនិពន្ធ<a class="headerlink" href="#copyright" title="Link to this heading"></a></h2>
+<p>ឯកសារដើម និង Python រក្សាសិទ្ធិដោយ៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Copyright © 2001 Python Software Foundation. All rights reserved.
+Copyright © 2000 BeOpen.com. All rights reserved.
+Copyright © 1995-2000 Corporation for National Research Initiatives.
+    All rights reserved.
+Copyright © 1991-1995 Stichting Mathematisch Centrum. All rights reserved.
+</pre></div>
+</div>
+<p>ប្រភព៖ <a class="reference external" href="https://docs.python.org/3/copyright.html">Copyright</a> និង
+<a class="reference external" href="https://docs.python.org/3/license.html">History and License</a>
+ក្នុងឯកសារផ្លូវការ។</p>
+</section>
+<section id="license">
+<span id="id5"></span><h2>អាជ្ញាបណ្ណ<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p><strong>មាតិកាឯកសារ</strong> រក្សាសិទ្ធិក្រោម <strong>PSF License Version 2</strong>។ អាជ្ញាបណ្ណនេះ
+អនុញ្ញាតឱ្យ៖</p>
+<ul class="simple">
+<li><p>ចម្លង និងចែកចាយ</p></li>
+<li><p>វិភាគ សាកល្បង និងបង្ហាញជាសាធារណៈ</p></li>
+<li><p><strong>បង្កើត derivative work</strong> (កំណែបកប្រែ ឬការសរសេរឡើងវិញ)</p></li>
+<li><p>ប្រើប្រាស់ក្នុងគោលបំណងពាណិជ្ជកម្ម</p></li>
+</ul>
+<p>លក្ខខណ្ឌសំខាន់ពីរដែលគម្រោងនេះអនុវត្តតាម៖</p>
+<ol class="arabic simple">
+<li><p><strong>រក្សាសេចក្ដីជូនដំណឹងសិទ្ធិ</strong> — &quot;Copyright © 2001 Python Software
+Foundation; All Rights Reserved&quot; ត្រូវបានរក្សាទុកក្នុងឯកសារ <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>
+និងក្នុងការកំណត់រចនាសម្ព័ន្ធគេហទំព័រ។</p></li>
+<li><p><strong>បញ្ជាក់សង្ខេបអំពីការផ្លាស់ប្ដូរ</strong> — មើលផ្នែកខាងក្រោម។</p></li>
+</ol>
+<p>ឯកសារអាជ្ញាបណ្ណពេញលេញស្ថិតនៅ <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> នៅឫសនៃ repository។</p>
+</section>
+<section id="changes">
+<span id="id6"></span><h2>សង្ខេបអំពីការផ្លាស់ប្ដូរ<a class="headerlink" href="#changes" title="Link to this heading"></a></h2>
+<p>តាមលក្ខខណ្ឌទី ៣ នៃ PSF License Version 2 ការផ្លាស់ប្ដូរដូចខាងក្រោមត្រូវ
+បានធ្វើឡើងចំពោះឯកសារដើម៖</p>
+<ol class="arabic simple">
+<li><p><strong>ភាសា</strong> — មាតិកាទាំងអស់ត្រូវបានសរសេរឡើងវិញជាភាសាខ្មែរ។
+នេះ <strong>មិនមែន</strong> ជាការបកប្រែដោយម៉ាស៊ីន ឬការចម្លងអត្ថបទអង់គ្លេស
+មកបកប្រែពាក្យម្ដងមួយៗទេ។ ការពន្យល់ និងឧទាហរណ៍ត្រូវបានសរសេរ
+ឡើងវិញដើម្បីឱ្យសមស្របនឹងអ្នកអានខ្មែរ។</p></li>
+<li><p><strong>វិសាលភាពត្រូវបានកាត់បន្ថយ</strong> — មានតែជំពូកដែលរាយក្នុង
+<a class="reference internal" href="index.html#status"><span class="std std-ref">ស្ថានភាពនៃការបកប្រែ</span></a> ប៉ុណ្ណោះដែលមាន។ Library Reference, Language Reference,
+C API, Extending/Embedding និង What's New មិនទាន់ត្រូវបានប៉ះពាល់ទេ។</p></li>
+<li><p><strong>ឧទាហរណ៍កូដត្រូវបានសរសេរឡើងវិញ</strong> — ឧទាហរណ៍ទាំងអស់ត្រូវបាន
+បង្កើតឡើងដោយគម្រោងនេះ ហើយត្រូវបានដំណើរការផ្ទៀងផ្ទាត់លើ
+CPython 3.15.0 ដើម្បីធានាថាវាដំណើរការពិតប្រាកដ។</p></li>
+<li><p><strong>រចនាសម្ព័ន្ធត្រូវបានរៀបចំឡើងវិញ</strong> — មាតិកាត្រូវបានរៀបចំជាជំពូក
+៦ ដែលខុសពីការបែងចែករបស់ឯកសារដើម។</p></li>
+<li><p><strong>មិនបកប្រែកូដ</strong> — ពាក្យគន្លឹះ Python, ឈ្មោះ function, class, module,
+parameter និង API ទាំងអស់នៅដូចដើមជាភាសាអង់គ្លេស។</p></li>
+<li><p><strong>ការបន្ថែមមូលដ្ឋាន</strong> — ការពន្យល់បន្ថែមអំពីអក្សរខ្មែរ (encoding,
+<code class="docutils literal notranslate"><span class="pre">len()</span></code>, <code class="docutils literal notranslate"><span class="pre">isnumeric()</span></code>) ត្រូវបានបន្ថែមដោយសារពួកវាពាក់ព័ន្ធ
+ជាពិសេសសម្រាប់អ្នកអានខ្មែរ។</p></li>
+<li><p><strong>ការរៀបចំគេហទំព័រ</strong> — Sphinx configuration, stylesheet
+(<code class="docutils literal notranslate"><span class="pre">source/_static/khmer.css</span></code>), templates, ការផ្ទុកពុម្ពអក្សរខ្មែរ និង
+ប៊ូតុងប្ដូរពណ៌ គឺជាការងារដើមរបស់គម្រោងនេះ រក្សាសិទ្ធិក្រោម
+MIT License (មើល <code class="docutils literal notranslate"><span class="pre">LICENSE-CODE</span></code>)។</p></li>
+</ol>
+</section>
+<section id="trademark">
+<span id="trademarks"></span><h2>Trademark<a class="headerlink" href="#trademark" title="Link to this heading"></a></h2>
+<p><strong>Python</strong> និងរូបសញ្ញា Python គឺជា trademark ឬ registered trademark របស់
+Python Software Foundation។ អាជ្ញាបណ្ណ PSF <strong>មិន</strong> ផ្ដល់សិទ្ធិប្រើ trademark
+ដើម្បីគាំទ្រ ឬផ្សព្វផ្សាយផលិតផលនោះទេ។</p>
+<p>គម្រោងនេះ៖</p>
+<ul class="simple">
+<li><p>គឺជាការងារសហគមន៍ឯករាជ្យ</p></li>
+<li><p><strong>មិន</strong> ទទួលបានការអនុម័ត ឬឧបត្ថម្ភពី PSF</p></li>
+<li><p><strong>មិន</strong> ប្រើរូបសញ្ញា Python ជា logo របស់គេហទំព័រ</p></li>
+<li><p>ប្រើឈ្មោះ &quot;Python&quot; តែដើម្បីសំដៅលើភាសាកម្មវិធីប៉ុណ្ណោះ (descriptive use)</p></li>
+</ul>
+</section>
+<section id="fonts">
+<span id="id7"></span><h2>ពុម្ពអក្សរ<a class="headerlink" href="#fonts" title="Link to this heading"></a></h2>
+<p>ពុម្ពអក្សរខ្មែរដែលប្រើក្នុងគេហទំព័រនេះ៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ពុម្ពអក្សរ</p></th>
+<th class="head"><p>អាជ្ញាបណ្ណ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Noto Sans Khmer</strong></p></td>
+<td><p>SIL Open Font License 1.1 — Copyright The Noto Project Authors</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Noto Serif Khmer</strong></p></td>
+<td><p>SIL Open Font License 1.1 — Copyright The Noto Project Authors</p></td>
+</tr>
+</tbody>
+</table>
+<p>ពុម្ពអក្សរទាំងនេះត្រូវបានផ្ទុកពី Google Fonts ហើយ <strong>មិនត្រូវបានចែកចាយ
+ឡើងវិញ</strong> ក្នុង repository នេះទេ។ SIL Open Font License 1.1 អនុញ្ញាតឱ្យ
+ប្រើដោយឥតគិតថ្លៃក្នុងគម្រោងណាក៏បាន រួមទាំងពាណិជ្ជកម្ម។</p>
+<p>ព័ត៌មានបន្ថែម៖ <a class="reference external" href="https://openfontlicense.org/">https://openfontlicense.org/</a> ·
+<a class="reference external" href="https://fonts.google.com/noto/specimen/Noto+Sans+Khmer">https://fonts.google.com/noto/specimen/Noto+Sans+Khmer</a></p>
+<p>Fallback fonts ដែលបានកំណត់ក្នុង CSS (<code class="docutils literal notranslate"><span class="pre">Khmer</span> <span class="pre">OS</span> <span class="pre">Battambang</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Khmer</span> <span class="pre">OS</span> <span class="pre">System</span></code>, <code class="docutils literal notranslate"><span class="pre">Khmer</span> <span class="pre">OS</span></code>) គឺជាពុម្ពអក្សររបស់ប្រព័ន្ធ
+ដែលមិនត្រូវបានចែកចាយដោយគម្រោងនេះទេ។</p>
+</section>
+<section id="third-party">
+<span id="id8"></span><h2>ឧបករណ៍ភាគីទីបី<a class="headerlink" href="#third-party" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 22.0%" />
+<col style="width: 48.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឧបករណ៍</p></th>
+<th class="head"><p>អាជ្ញាបណ្ណ</p></th>
+<th class="head"><p>ការប្រើប្រាស់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a></p></td>
+<td><p>BSD-2-Clause</p></td>
+<td><p>ឧបករណ៍សាងសង់ឯកសារ</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/readthedocs/sphinx_rtd_theme">sphinx_rtd_theme</a></p></td>
+<td><p>MIT</p></td>
+<td><p>Theme របស់ Read the Docs</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/executablebooks/sphinx-copybutton">sphinx-copybutton</a></p></td>
+<td><p>MIT</p></td>
+<td><p>ប៊ូតុងចម្លងកូដ</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/jdillard/sphinx-sitemap">sphinx-sitemap</a></p></td>
+<td><p>MIT</p></td>
+<td><p>បង្កើត <code class="docutils literal notranslate"><span class="pre">sitemap.xml</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://readthedocs.org/">Read the Docs</a></p></td>
+<td><p>MIT</p></td>
+<td><p>ការបង្ហោះ (hosting)</p></td>
+</tr>
+</tbody>
+</table>
+<p>អាជ្ញាបណ្ណពេញលេញនៃឧបករណ៍ទាំងនេះស្ថិតនៅក្នុង package នីមួយៗ
+ហើយមិនត្រូវបានចែកចាយឡើងវិញនៅទីនេះទេ។</p>
+</section>
+<section id="reuse">
+<span id="id9"></span><h2>ការប្រើប្រាស់ឡើងវិញ<a class="headerlink" href="#reuse" title="Link to this heading"></a></h2>
+<p>អ្នកអាច៖</p>
+<ul class="simple">
+<li><p>អាន និងចែករំលែកមាតិកានេះដោយឥតគិតថ្លៃ</p></li>
+<li><p>កែប្រែ និងបង្កើត derivative work</p></li>
+<li><p>ប្រើក្នុងគោលបំណងអប់រំ ឬពាណិជ្ជកម្ម</p></li>
+</ul>
+<p>លក្ខខណ្ឌ៖</p>
+<ul class="simple">
+<li><p>រក្សាសេចក្ដីជូនដំណឹងសិទ្ធិរបស់ PSF</p></li>
+<li><p>រក្សាឯកសារ <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> និង <code class="docutils literal notranslate"><span class="pre">LICENSE-CODE</span></code></p></li>
+<li><p>បញ្ជាក់សង្ខេបអំពីការផ្លាស់ប្ដូរដែលអ្នកបានធ្វើ</p></li>
+</ul>
+</section>
+<section id="disclaimer">
+<span id="id10"></span><h2>ការបដិសេធការទទួលខុសត្រូវ<a class="headerlink" href="#disclaimer" title="Link to this heading"></a></h2>
+<p>យោងតាមលក្ខខណ្ឌទី ៤ និង ៥ នៃ PSF License Version 2 មាតិកានេះត្រូវបាន
+ផ្ដល់ជូន <strong>&quot;AS IS&quot;</strong> ដោយគ្មានការធានាណាមួយ ច្បាស់លាស់ ឬបង្កប់។
+មិនមានការទទួលខុសត្រូវចំពោះការខូចខាតណាមួយឡើយ។</p>
+<p>បើអ្នករកឃើញកំហុសបច្ចេកទេសក្នុងមាតិកាខ្មែរ សូមបើក issue នៅ
+<a class="reference external" href="https://github.com/SeyhaLite/Python-Documentation/issues">https://github.com/SeyhaLite/Python-Documentation/issues</a> ។</p>
+<p>បើអ្នករកឃើញកំហុសក្នុង <strong>Python ខ្លួនឯង</strong> សូមរាយការណ៍ទៅ
+<a class="reference external" href="https://github.com/python/cpython/issues">https://github.com/python/cpython/issues</a> ។</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="file_handling.html" class="btn btn-neutral float-left" title="ការគ្រប់គ្រងឯកសារ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

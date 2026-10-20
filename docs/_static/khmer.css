@@ -1,0 +1,942 @@
+/* ==========================================================================
+   khmer.css — Khmer typography + light/dark palette for sphinx_rtd_theme.
+
+   Design stays stock Read the Docs: no layout changes, no decorative
+   elements. Only fonts, palettes and contrast fixes.
+
+   * Dark is the DEFAULT (html without [data-theme], or data-theme="dark").
+   * Light is opted into with html[data-theme="light"].
+   * Every colour pair used below reaches at least 4.5:1 contrast for normal
+     text (verified by tools/check_contrast.py).
+   * Selectors are prefixed with `html` to beat the theme's specificity;
+     !important is used only where RTD itself uses high-specificity
+     :not() chains or inline styles.
+   ========================================================================== */
+
+/* ------------------------------------------------------------ fonts ------ */
+:root {
+  --kh-sans: "Noto Sans Khmer", "Khmer OS Battambang", "Khmer OS System",
+             "Khmer OS", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --kh-serif: "Noto Serif Khmer", "Noto Sans Khmer", "Khmer OS Battambang",
+              Georgia, serif;
+  --kh-mono: ui-monospace, "SFMono-Regular", "DejaVu Sans Mono", Menlo,
+             Consolas, monospace;
+}
+
+body,
+.wy-nav-side,
+.wy-nav-top,
+.wy-menu-vertical,
+.wy-breadcrumbs,
+.rst-content,
+.rst-content .admonition-title,
+.btn,
+input[type="text"],
+input[type="search"],
+#search-results p,
+.wy-form input {
+  font-family: var(--kh-sans);
+}
+
+h1, h2, h3, h4, h5, h6,
+.rst-content h1, .rst-content h2, .rst-content h3,
+.rst-content h4, .rst-content h5, .rst-content h6,
+.rst-content .toc-backref,
+.wy-side-nav-search .icon-home,
+.rst-content .toctree-wrapper > p.caption,
+.wy-menu-vertical p.caption {
+  font-family: var(--kh-serif);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Khmer needs generous line-height: subscripts (ជើង) and vowel marks are cut
+   off otherwise. */
+.rst-content p,
+.rst-content li,
+.rst-content td,
+.rst-content th,
+.rst-content blockquote,
+.rst-content .admonition-title,
+.wy-menu-vertical a,
+.wy-breadcrumbs {
+  line-height: 1.85;
+}
+
+.rst-content pre,
+.rst-content code,
+.rst-content tt,
+.rst-content kbd,
+.highlight pre {
+  line-height: 1.6;
+}
+
+.wy-menu-vertical a { word-break: break-word; line-height: 1.6; }
+
+/* slightly wider content column for Khmer text */
+.wy-nav-content { max-width: 920px; }
+
+/* source attribution note shown under each page title */
+html .rst-content .src-note {
+  font-size: 12.5px;
+  color: var(--kh-muted);
+  margin: -8px 0 24px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--kh-border);
+  line-height: 1.8;
+}
+html .rst-content .src-note p { margin: 0; }
+html .rst-content .src-note a {
+  color: var(--kh-muted);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+html .rst-content .src-note a:hover { color: var(--kh-link-hover); }
+
+/* ==========================================================================
+   DARK PALETTE (default)
+   ========================================================================== */
+html,
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --kh-page-bg:        #14161a;
+  --kh-sidebar-bg:     #1f2328;
+  --kh-navheader-bg:   #1f2328;
+  --kh-navheader-fg:    #eef1f6;   /* 13.95:1 on navheader-bg */
+  --kh-navheader-hover: #a6d3f2;   /*  9.95:1 on navheader-bg */
+  --kh-navheader-muted: #9aa4b0;   /*  6.25:1 on navheader-bg */
+  --kh-card-bg:        #1c2027;
+  --kh-thead-bg:       #232830;
+  --kh-stripe-bg:      #1a1e24;
+  --kh-chip-bg:        #262b33;
+  --kh-chip-fg:        #dfe3ea;
+  --kh-chip-border:    #3a414d;
+  --kh-text:           #d9dde4;
+  --kh-heading:        #eef1f6;
+  --kh-muted:          #9aa4b0;
+  --kh-link:           #7db8e0;
+  --kh-link-hover:     #a6d3f2;
+  --kh-visited:        #a79ad6;
+  --kh-border:         #343b45;
+  --kh-border-soft:    #2f343d;
+
+  --kh-code-bg:        #1c2027;
+  --kh-code-fg:        #d6deeb;
+  --kh-literal-fg:     #e8a9a0;
+
+  --kh-nav-fg:         #c7cdd6;
+  --kh-nav-hover-bg:   #2a3038;
+  --kh-nav-current-bg: #14161a;
+  --kh-nav-current-fg: #eef1f6;
+  --kh-nav-sub-bg:     #232830;
+  --kh-nav-caption:    #9aa4b0;
+
+  --kh-input-bg:       #14161a;
+  --kh-input-fg:       #d9dde4;
+  --kh-input-border:   #5d6875;   /* 3.19:1 on input-bg (WCAG 1.4.11) */
+  --kh-input-ph:       #8b949e;
+
+  --kh-btn-bg:         #232830;
+  --kh-btn-fg:         #d9dde4;
+  --kh-btn-border:     #6e7a8a;   /* >=3:1 on btn-bg (WCAG 1.4.11) */
+  --kh-btn-hover-bg:   #2c323b;
+
+  --kh-mark-bg:        #5c4d13;
+  --kh-mark-fg:        #ffe9a8;
+
+  --kh-scrollbar:      #343b45;
+  --kh-scrollbar-hover:#4a5260;
+
+  /* Pygments tokens on dark */
+  --py-c:    #98a1ac;  --py-cm:   #98a1ac;  --py-c1:   #98a1ac;
+  --py-cs:   #98a1ac;  --py-cp:   #f0b072;  --py-cpf:  #98a1ac;
+  --py-ch:   #98a1ac;  --py-cd:   #98a1ac;
+  --py-k:    #ff9fb5;  --py-kc:   #ff9fb5;  --py-kd:   #ff9fb5;
+  --py-kn:   #ff9fb5;  --py-kp:   #ff9fb5;  --py-kr:   #ff9fb5;
+  --py-kt:   #ffdf9f;  --py-ow:   #ff9fb5;
+  --py-s:    #a5d6a7;  --py-sa:   #a5d6a7;  --py-sb:   #a5d6a7;
+  --py-sc:   #a5d6a7;  --py-dl:   #a5d6a7;  --py-s2:   #a5d6a7;
+  --py-sh:   #a5d6a7;  --py-sx:   #a5d6a7;  --py-s1:   #a5d6a7;
+  --py-sd:   #93c9a0;  --py-se:   #ffd28a;  --py-si:   #ffb27a;
+  --py-sr:   #9fdcff;  --py-ss:   #ff9fb5;
+  --py-m:    #9fdcff;  --py-mb:   #9fdcff;  --py-mf:   #9fdcff;
+  --py-mh:   #9fdcff;  --py-mi:   #9fdcff;  --py-il:   #9fdcff;
+  --py-mo:   #9fdcff;
+  --py-n:    #d6deeb;  --py-na:   #82cfff;  --py-nb:   #ffdf9f;
+  --py-bp:   #ffdf9f;  --py-nc:   #eef1f6;  --py-no:   #ffd28a;
+  --py-nd:   #82cfff;  --py-ni:   #d6deeb;  --py-ne:   #ffa198;
+  --py-nf:   #82cfff;  --py-fm:   #82cfff;  --py-nl:   #d6deeb;
+  --py-nn:   #eef1f6;  --py-nx:   #d6deeb;  --py-py:   #d6deeb;
+  --py-nt:   #7ee787;  --py-nv:   #d6deeb;  --py-vc:   #d6deeb;
+  --py-vg:   #d6deeb;  --py-vi:   #d6deeb;  --py-vm:   #d6deeb;
+  --py-o:    #c9d1d9;  --py-p:    #d6deeb;  --py-w:    #b9c0c9;
+  --py-err:  #ffa198;  --py-gr:   #ffa198;  --py-gt:   #ffa198;
+  --py-gd:   #ffa198;  --py-gi:   #7ee787;  --py-gh:   #eef1f6;
+  --py-gp:   #eef1f6;  --py-gu:   #eef1f6;  --py-go:   #b9c0c9;
+  --py-hll-bg: #2c3143;
+
+  /* admonitions: dark body, coloured title */
+  --ad-note-bg:   #16222c; --ad-note-t:   #1f4e70; --ad-note-f:   #eaf4fc;
+  --ad-warn-bg:   #2a2118; --ad-warn-t:   #8a5212; --ad-warn-f:   #fff4e5;
+  --ad-danger-bg: #2b1a1d; --ad-danger-t: #8f2530; --ad-danger-f: #ffecee;
+  --ad-tip-bg:    #16261e; --ad-tip-t:    #1f6f43; --ad-tip-f:    #eafaf1;
+  --ad-seealso-bg:#1e2030; --ad-seealso-t:#4a4f7a; --ad-seealso-f:#eef0fb;
+  --ad-gen-bg:    #1d222a; --ad-gen-t:    #4a5560; --ad-gen-f:    #f2f5f8;
+  --ad-todo-bg:   #221e2b; --ad-todo-t:   #5a4a7a; --ad-todo-f:   #f3effb;
+}
+
+/* ==========================================================================
+   LIGHT PALETTE
+   ========================================================================== */
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --kh-page-bg:        #fcfcfc;
+  --kh-sidebar-bg:     #343131;
+  --kh-navheader-bg:   #2c3e50;
+  --kh-navheader-fg:    #eef1f6;   /* 9.70:1 on navheader-bg */
+  --kh-navheader-hover: #a6d3f2;   /* 6.91:1 on navheader-bg */
+  --kh-navheader-muted: #c3ccd6;   /* 6.76:1 on navheader-bg */
+  --kh-card-bg:        #ffffff;
+  --kh-thead-bg:       #e6eaef;
+  --kh-stripe-bg:      #f6f8fa;
+  --kh-chip-bg:        #eef1f5;
+  --kh-chip-fg:        #1f2328;
+  --kh-chip-border:    #cfd6de;
+  --kh-text:           #24292f;
+  --kh-heading:        #0d1117;
+  --kh-muted:          #596069;
+  --kh-link:           #1f6391;
+  --kh-link-hover:     #12496a;
+  --kh-visited:        #5f4b9e;
+  --kh-border:         #d6dbe1;
+  --kh-border-soft:    #e3e7ec;
+
+  --kh-code-bg:        #f6f8fa;
+  --kh-code-fg:        #24292f;
+  --kh-literal-fg:     #a03428;
+
+  --kh-nav-fg:         #d9d9d9;
+  --kh-nav-hover-bg:   #4e4a4a;
+  --kh-nav-current-bg: #fcfcfc;
+  --kh-nav-current-fg: #24292f;
+  --kh-nav-sub-bg:     #c9c9c9;
+  --kh-nav-caption:    #b3b3b3;
+
+  --kh-input-bg:       #ffffff;
+  --kh-input-fg:       #24292f;
+  --kh-input-border:   #8b949e;   /* 3.08:1 on input-bg (WCAG 1.4.11) */
+  --kh-input-ph:       #596069;
+
+  --kh-btn-bg:         #f3f6f6;
+  --kh-btn-fg:         #24292f;
+  --kh-btn-border:     #7d8794;   /* 3.35:1 on btn-bg (WCAG 1.4.11) */
+  --kh-btn-hover-bg:   #e2e8e8;
+
+  --kh-mark-bg:        #fff3b0;
+  --kh-mark-fg:        #24292f;
+
+  --kh-scrollbar:      #4e4a4a;
+  --kh-scrollbar-hover:#6b6666;
+
+  /* Pygments tokens on light */
+  --py-c:    #57606a;  --py-cm:   #57606a;  --py-c1:   #57606a;
+  --py-cs:   #57606a;  --py-cp:   #8a5a00;  --py-cpf:  #57606a;
+  --py-ch:   #57606a;  --py-cd:   #57606a;
+  --py-k:    #9a1f96;  --py-kc:   #9a1f96;  --py-kd:   #9a1f96;
+  --py-kn:   #9a1f96;  --py-kp:   #9a1f96;  --py-kr:   #9a1f96;
+  --py-kt:   #8a5a00;  --py-ow:   #9a1f96;
+  --py-s:    #0a6640;  --py-sa:   #0a6640;  --py-sb:   #0a6640;
+  --py-sc:   #0a6640;  --py-dl:   #0a6640;  --py-s2:   #0a6640;
+  --py-sh:   #0a6640;  --py-sx:   #0a6640;  --py-s1:   #0a6640;
+  --py-sd:   #3f7a5c;  --py-se:   #8a5a00;  --py-si:   #a04a00;
+  --py-sr:   #0b5cad;  --py-ss:   #9a1f96;
+  --py-m:    #0b5cad;  --py-mb:   #0b5cad;  --py-mf:   #0b5cad;
+  --py-mh:   #0b5cad;  --py-mi:   #0b5cad;  --py-il:   #0b5cad;
+  --py-mo:   #0b5cad;
+  --py-n:    #24292f;  --py-na:   #0b5cad;  --py-nb:   #8a5a00;
+  --py-bp:   #8a5a00;  --py-nc:   #0d1117;  --py-no:   #8a5a00;
+  --py-nd:   #0b5cad;  --py-ni:   #24292f;  --py-ne:   #b3261e;
+  --py-nf:   #0b5cad;  --py-fm:   #0b5cad;  --py-nl:   #24292f;
+  --py-nn:   #0d1117;  --py-nx:   #24292f;  --py-py:   #24292f;
+  --py-nt:   #0a6640;  --py-nv:   #24292f;  --py-vc:   #24292f;
+  --py-vg:   #24292f;  --py-vi:   #24292f;  --py-vm:   #24292f;
+  --py-o:    #24292f;  --py-p:    #24292f;  --py-w:    #57606a;
+  --py-err:  #b3261e;  --py-gr:   #b3261e;  --py-gt:   #b3261e;
+  --py-gd:   #82071e;  --py-gi:   #0a6640;  --py-gh:   #0d1117;
+  --py-gp:   #0d1117;  --py-gu:   #0d1117;  --py-go:   #57606a;
+  --py-hll-bg: #d9e3ee;
+
+  --ad-note-bg:   #eaf4fb; --ad-note-t:   #2b7bb0; --ad-note-f:   #ffffff;
+  --ad-warn-bg:   #fff6e6; --ad-warn-t:   #a5610a; --ad-warn-f:   #ffffff;
+  --ad-danger-bg: #ffefee; --ad-danger-t: #a52119; --ad-danger-f: #ffffff;
+  --ad-tip-bg:    #eafaf1; --ad-tip-t:    #1a7f4b; --ad-tip-f:    #ffffff;
+  --ad-seealso-bg:#eef0fb; --ad-seealso-t:#464e88; --ad-seealso-f:#ffffff;
+  --ad-gen-bg:    #f2f5f8; --ad-gen-t:    #4a5560; --ad-gen-f:    #ffffff;
+  --ad-todo-bg:   #f4effc; --ad-todo-t:   #62478f; --ad-todo-f:   #ffffff;
+}
+
+/* ==========================================================================
+   Page & content
+   ========================================================================== */
+html body { background: var(--kh-page-bg); color: var(--kh-text); }
+
+html .wy-nav-content-wrap { background: var(--kh-page-bg); }
+html .wy-nav-content { background: var(--kh-page-bg); }
+html .rst-content { color: var(--kh-text); }
+html .wy-nav-content hr { border-color: var(--kh-border-soft); }
+html .rst-content hr { border-color: var(--kh-border-soft); }
+
+/* mobile top bar */
+html .wy-nav-top { background: var(--kh-navheader-bg); }
+html .wy-nav-top a,
+html .wy-nav-top i { color: var(--kh-navheader-fg); }
+
+/* headings */
+html .rst-content h1,
+html .rst-content h2,
+html .rst-content h3,
+html .rst-content h4,
+html .rst-content h5,
+html .rst-content h6,
+html h1, html h2, html h3, html h4, html h5, html h6 {
+  color: var(--kh-heading);
+}
+html .rst-content h2 { border-bottom-color: var(--kh-border-soft); }
+html .rst-content .headerlink { color: var(--kh-muted); }
+html .rst-content .headerlink:hover { color: var(--kh-link-hover); }
+html .rst-content .toc-backref { color: var(--kh-heading); }
+html .rst-content .rubric { color: var(--kh-heading); }
+
+/* links */
+html a { color: var(--kh-link); }
+html a:hover { color: var(--kh-link-hover); }
+html a:visited { color: var(--kh-visited); }
+html .rst-content a { color: var(--kh-link); }
+html .rst-content a:hover { color: var(--kh-link-hover); }
+html .rst-content a:visited { color: var(--kh-visited); }
+html .rst-content a:visited code,
+html .rst-content a:visited tt { color: var(--kh-link-hover); }
+/* footnote / citation back-references must not look purple */
+html .rst-content .footnote-reference a,
+html .rst-content .citation-reference a { color: var(--kh-link); }
+
+/* breadcrumbs + "Edit on GitHub" */
+html .wy-breadcrumbs { color: var(--kh-muted); }
+html .wy-breadcrumbs li.wy-breadcrumbs-aside a { color: var(--kh-muted); }
+html .wy-breadcrumbs li.wy-breadcrumbs-aside a:hover { color: var(--kh-link-hover); }
+html .wy-breadcrumbs li a { color: var(--kh-link); }
+html .wy-breadcrumbs li.wy-breadcrumbs-aside a.fa::before { color: var(--kh-muted); }
+
+/* ==========================================================================
+   Inline chips: code / tt / kbd / guilabel / file / samp / menuselection
+   RTD uses high-specificity :not() chains — !important is required here.
+   ========================================================================== */
+html .rst-content code,
+html .rst-content tt,
+html .rst-content kbd,
+html .rst-content samp,
+html code, html tt, html kbd, html samp {
+  background: var(--kh-chip-bg) !important;
+  border: 1px solid var(--kh-chip-border) !important;
+  color: var(--kh-chip-fg) !important;
+  font-family: var(--kh-mono);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+html .rst-content code.literal,
+html .rst-content tt.literal,
+html .rst-content code.xref.literal,
+html .rst-content a code.literal {
+  color: var(--kh-literal-fg) !important;
+}
+
+html .rst-content kbd,
+html kbd.docutils {
+  box-shadow: none !important;
+  font-weight: 600;
+}
+
+html .rst-content .guilabel,
+html .rst-content .menuselection,
+html .rst-content .file,
+html .rst-content .samp,
+html .rst-content span.guilabel,
+html .rst-content span.menuselection {
+  background: var(--kh-chip-bg) !important;
+  border: 1px solid var(--kh-chip-border) !important;
+  color: var(--kh-chip-fg) !important;
+  border-radius: 3px;
+  padding: 0 4px;
+  font-family: var(--kh-sans);
+  font-weight: 500;
+}
+
+html .rst-content .versionmodified,
+html .rst-content .deprecated {
+  color: var(--kh-muted);
+}
+
+/* ==========================================================================
+   Code blocks + Pygments tokens
+   ========================================================================== */
+html .rst-content div[class^="highlight"],
+html .rst-content div[class*=" highlight"],
+html .highlight,
+html .rst-content pre.literal-block,
+html .rst-content .highlight pre,
+html div.highlight {
+  background: var(--kh-code-bg) !important;
+  border: 1px solid var(--kh-border) !important;
+  border-radius: 4px;
+}
+
+html .highlight pre,
+html .rst-content pre.literal-block {
+  color: var(--kh-code-fg);
+  background: transparent;
+  font-family: var(--kh-mono);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+html .rst-content div[class^="highlight"] pre { white-space: pre; }
+
+html .highlight .hll { background-color: var(--py-hll-bg); display: block; }
+
+html .highlight .c   { color: var(--py-c); }
+html .highlight .ch  { color: var(--py-ch); }
+html .highlight .cm  { color: var(--py-cm); }
+html .highlight .cp  { color: var(--py-cp); }
+html .highlight .cpf { color: var(--py-cpf); }
+html .highlight .c1  { color: var(--py-c1); }
+html .highlight .cs  { color: var(--py-cs); }
+html .highlight .cd  { color: var(--py-cd); }
+html .highlight .k   { color: var(--py-k); }
+html .highlight .kc  { color: var(--py-kc); }
+html .highlight .kd  { color: var(--py-kd); }
+html .highlight .kn  { color: var(--py-kn); }
+html .highlight .kp  { color: var(--py-kp); }
+html .highlight .kr  { color: var(--py-kr); }
+html .highlight .kt  { color: var(--py-kt); }
+html .highlight .o   { color: var(--py-o); }
+html .highlight .ow  { color: var(--py-ow); }
+html .highlight .p   { color: var(--py-p); }
+html .highlight .s   { color: var(--py-s); }
+html .highlight .sa  { color: var(--py-sa); }
+html .highlight .sb  { color: var(--py-sb); }
+html .highlight .sc  { color: var(--py-sc); }
+html .highlight .dl  { color: var(--py-dl); }
+html .highlight .sd  { color: var(--py-sd); }
+html .highlight .s2  { color: var(--py-s2); }
+html .highlight .se  { color: var(--py-se); }
+html .highlight .sh  { color: var(--py-sh); }
+html .highlight .si  { color: var(--py-si); }
+html .highlight .sx  { color: var(--py-sx); }
+html .highlight .sr  { color: var(--py-sr); }
+html .highlight .s1  { color: var(--py-s1); }
+html .highlight .ss  { color: var(--py-ss); }
+html .highlight .m   { color: var(--py-m); }
+html .highlight .mb  { color: var(--py-mb); }
+html .highlight .mf  { color: var(--py-mf); }
+html .highlight .mh  { color: var(--py-mh); }
+html .highlight .mi  { color: var(--py-mi); }
+html .highlight .il  { color: var(--py-il); }
+html .highlight .mo  { color: var(--py-mo); }
+html .highlight .n   { color: var(--py-n); }
+html .highlight .na  { color: var(--py-na); }
+html .highlight .nb  { color: var(--py-nb); }
+html .highlight .bp  { color: var(--py-bp); }
+html .highlight .nc  { color: var(--py-nc); }
+html .highlight .no  { color: var(--py-no); }
+html .highlight .nd  { color: var(--py-nd); }
+html .highlight .ni  { color: var(--py-ni); }
+html .highlight .ne  { color: var(--py-ne); }
+html .highlight .nf  { color: var(--py-nf); }
+html .highlight .fm  { color: var(--py-fm); }
+html .highlight .nl  { color: var(--py-nl); }
+html .highlight .nn  { color: var(--py-nn); }
+html .highlight .nx  { color: var(--py-nx); }
+html .highlight .py  { color: var(--py-py); }
+html .highlight .nt  { color: var(--py-nt); }
+html .highlight .nv  { color: var(--py-nv); }
+html .highlight .vc  { color: var(--py-vc); }
+html .highlight .vg  { color: var(--py-vg); }
+html .highlight .vi  { color: var(--py-vi); }
+html .highlight .vm  { color: var(--py-vm); }
+html .highlight .err { color: var(--py-err); background: transparent; }
+html .highlight .gr  { color: var(--py-gr); }
+html .highlight .gt  { color: var(--py-gt); }
+html .highlight .gd  { color: var(--py-gd); }
+html .highlight .gi  { color: var(--py-gi); }
+html .highlight .gh  { color: var(--py-gh); font-weight: 700; }
+html .highlight .gp  { color: var(--py-gp); font-weight: 700; }
+html .highlight .gu  { color: var(--py-gu); font-weight: 700; }
+html .highlight .go  { color: var(--py-go); }
+html .highlight .ge  { font-style: italic; }
+html .highlight .gs  { font-weight: 700; }
+html .highlight .w   { color: var(--py-w); }
+
+/* doctest output / prompts */
+html .rst-content .gp,
+html .highlight .gp { user-select: none; }
+
+/* copy button (sphinx-copybutton) */
+html button.copybtn {
+  background: var(--kh-chip-bg);
+  border: 1px solid var(--kh-chip-border);
+  color: var(--kh-muted);
+}
+html button.copybtn:hover {
+  background: var(--kh-btn-hover-bg);
+  color: var(--kh-heading);
+  border-color: var(--kh-link);
+}
+html button.copybtn svg { stroke: currentColor; fill: currentColor; }
+html .highlight:hover button.copybtn { opacity: 1; }
+html div.highlight { position: relative; }
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+html .wy-nav-side { background: var(--kh-sidebar-bg); }
+html .wy-nav-side.shadow { box-shadow: none; }
+
+/* nav header (logo + search) */
+html .wy-side-nav-search { background: var(--kh-navheader-bg); }
+html .wy-side-nav-search > a,
+html .wy-side-nav-search > a.icon-home,
+html .wy-side-nav-search .wy-dropdown > a {
+  color: var(--kh-navheader-fg);
+  font-size: 16px;
+  font-family: var(--kh-serif);
+  font-weight: 700;
+}
+html .wy-side-nav-search > a:hover,
+html .wy-side-nav-search > a.icon-home:hover { color: var(--kh-navheader-hover); }
+html .wy-side-nav-search > div.version,
+html .wy-side-nav-search > div.switch { color: var(--kh-navheader-muted); }
+html .wy-side-nav-search img.logo { width: 46px; height: 46px; margin: 6px auto 2px; }
+
+html .wy-side-nav-search input[type="text"] {
+  background: var(--kh-input-bg);
+  border: 1px solid var(--kh-input-border);
+  color: var(--kh-input-fg);
+  border-radius: 4px;
+}
+html .wy-side-nav-search input[type="text"]::placeholder { color: var(--kh-input-ph); }
+html .wy-side-nav-search input[type="text"]:focus {
+  border-color: var(--kh-link);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(125, 184, 224, 0.25);
+}
+
+/* navigation items */
+html .wy-menu-vertical header,
+html .wy-menu-vertical p.caption {
+  color: var(--kh-nav-caption);
+  font-weight: 700;
+  text-transform: none;
+}
+
+html .wy-menu-vertical a,
+html .wy-menu-vertical li a {
+  color: var(--kh-nav-fg);
+  background: transparent;
+}
+html .wy-menu-vertical a:hover,
+html .wy-menu-vertical li a:hover {
+  background: var(--kh-nav-hover-bg);
+  color: #ffffff;
+}
+
+/* RTD sets `li.current a { color:#404040 }` — override ALL descendants */
+html .wy-menu-vertical li.current,
+html .wy-menu-vertical li.current > ul,
+html .wy-menu-vertical li.toctree-l1.current > ul { background: transparent; }
+
+html .wy-menu-vertical li.on a,
+html .wy-menu-vertical li.current > a,
+html .wy-menu-vertical li.toctree-l1.current > a {
+  background: var(--kh-nav-current-bg);
+  color: var(--kh-nav-current-fg);
+  border-color: var(--kh-border);
+  font-weight: 700;
+}
+html .wy-menu-vertical li.on a:hover,
+html .wy-menu-vertical li.current > a:hover,
+html .wy-menu-vertical li.toctree-l1.current > a:hover {
+  background: var(--kh-nav-hover-bg);
+  color: #ffffff;
+}
+html .wy-menu-vertical li.current a,
+html .wy-menu-vertical li.current li a,
+html .wy-menu-vertical li.current li li a,
+html .wy-menu-vertical li.current li li li a {
+  color: var(--kh-nav-fg) !important;
+  background: transparent !important;
+  border-right: none !important;
+}
+html .wy-menu-vertical li.current a:hover,
+html .wy-menu-vertical li.current li a:hover,
+html .wy-menu-vertical li.current li li a:hover,
+html .wy-menu-vertical li.current li li li a:hover {
+  background: var(--kh-nav-hover-bg) !important;
+  color: #ffffff !important;
+}
+
+/* nested levels: RTD paints them #c9c9c9 — normalise to the theme */
+html .wy-menu-vertical li.toctree-l2.current > a,
+html .wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a,
+html .wy-menu-vertical li.toctree-l3.current > a,
+html .wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a,
+html .wy-menu-vertical li.toctree-l4.current > a {
+  background: transparent !important;
+  color: var(--kh-nav-fg) !important;
+}
+html .wy-menu-vertical li.toctree-l2.current > a:hover,
+html .wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a:hover,
+html .wy-menu-vertical li.toctree-l3.current > a:hover,
+html .wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a:hover {
+  background: var(--kh-nav-hover-bg) !important;
+  color: #ffffff !important;
+}
+
+/* expand/collapse arrows */
+html .wy-menu-vertical li span.toctree-expand,
+html .wy-menu-vertical li a span.toctree-expand { color: var(--kh-muted); }
+html .wy-menu-vertical li.on a span.toctree-expand,
+html .wy-menu-vertical li.current > a span.toctree-expand { color: var(--kh-nav-current-fg); }
+
+/* scrollbars */
+html .wy-nav-side::-webkit-scrollbar,
+html .wy-menu-vertical::-webkit-scrollbar,
+html .rst-content div[class^="highlight"] pre::-webkit-scrollbar,
+html .rst-content table::-webkit-scrollbar { width: 10px; height: 10px; }
+html .wy-nav-side::-webkit-scrollbar-thumb,
+html .wy-menu-vertical::-webkit-scrollbar-thumb,
+html .rst-content div[class^="highlight"] pre::-webkit-scrollbar-thumb,
+html .rst-content table::-webkit-scrollbar-thumb {
+  background: var(--kh-scrollbar);
+  border-radius: 6px;
+}
+html .wy-nav-side::-webkit-scrollbar-thumb:hover,
+html .wy-menu-vertical::-webkit-scrollbar-thumb:hover { background: var(--kh-scrollbar-hover); }
+html .wy-nav-side::-webkit-scrollbar-track,
+html .wy-menu-vertical::-webkit-scrollbar-track { background: transparent; }
+html .wy-nav-side, html .wy-menu-vertical { scrollbar-width: thin; scrollbar-color: var(--kh-scrollbar) transparent; }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+html .rst-content table.docutils,
+html .rst-content table.field-list,
+html .rst-content table.hlist,
+html .wy-table {
+  border: 1px solid var(--kh-border);
+  background: var(--kh-card-bg);
+}
+html .rst-content table.docutils th,
+html .rst-content table.field-list th,
+html .wy-table th {
+  background: var(--kh-thead-bg);
+  color: var(--kh-heading);
+  border: 1px solid var(--kh-border);
+  font-weight: 700;
+}
+html .rst-content table.docutils td,
+html .rst-content table.field-list td,
+html .wy-table td {
+  background: var(--kh-card-bg);
+  color: var(--kh-text);
+  border: 1px solid var(--kh-border-soft);
+}
+/* beat RTD's nth-child striping */
+html .rst-content table.docutils tr:nth-child(odd) td,
+html .rst-content table.docutils tbody tr:nth-child(odd) th,
+html .wy-table tr:nth-child(odd) td,
+html .wy-table-striped tbody tr:nth-child(odd) td,
+html .wy-table-striped tbody tr:nth-child(odd) th {
+  background: var(--kh-card-bg) !important;
+}
+html .rst-content table.docutils tr:nth-child(even) td,
+html .rst-content table.docutils tbody tr:nth-child(even) th,
+html .wy-table tr:nth-child(even) td,
+html .wy-table-striped tbody tr:nth-child(even) td,
+html .wy-table-striped tbody tr:nth-child(even) th {
+  background: var(--kh-stripe-bg) !important;
+}
+html .rst-content table.docutils caption {
+  color: var(--kh-muted);
+  font-style: italic;
+}
+/* field lists (option/parameter tables) keep a clean look */
+html .rst-content table.field-list th.field-name,
+html .rst-content table.field-list td.field-body { border-color: var(--kh-border-soft); }
+html .rst-content table.field-list { border: none; background: transparent; }
+html .rst-content table.field-list th,
+html .rst-content table.field-list td { border: none; background: transparent !important; }
+
+/* ==========================================================================
+   Admonitions — dark/soft body, coloured title kept
+   ========================================================================== */
+html .rst-content .admonition,
+html .rst-content .note,
+html .rst-content .warning,
+html .rst-content .caution,
+html .rst-content .attention,
+html .rst-content .danger,
+html .rst-content .error,
+html .rst-content .hint,
+html .rst-content .important,
+html .rst-content .tip,
+html .rst-content .seealso,
+html .rst-content .admonition-todo,
+html .rst-content .topic,
+html .rst-content .sidebar {
+  border-radius: 4px;
+  padding: 12px 14px;
+  margin-bottom: 22px;
+}
+
+html .rst-content .admonition-title {
+  font-family: var(--kh-serif);
+  font-weight: 700;
+  line-height: 1.7;
+  margin: -12px -14px 10px;
+  padding: 8px 14px;
+  border-radius: 4px 4px 0 0;
+}
+html .rst-content .admonition-title::before { display: none; }
+
+/* note */
+html .rst-content .note { background: var(--ad-note-bg); border-left: 4px solid var(--ad-note-t); }
+html .rst-content .note > .admonition-title { background: var(--ad-note-t); color: var(--ad-note-f); }
+/* seealso */
+html .rst-content .seealso { background: var(--ad-seealso-bg); border-left: 4px solid var(--ad-seealso-t); }
+html .rst-content .seealso > .admonition-title { background: var(--ad-seealso-t); color: var(--ad-seealso-f); }
+/* tip / hint / important */
+html .rst-content .tip,
+html .rst-content .hint,
+html .rst-content .important { background: var(--ad-tip-bg); border-left: 4px solid var(--ad-tip-t); }
+html .rst-content .tip > .admonition-title,
+html .rst-content .hint > .admonition-title,
+html .rst-content .important > .admonition-title { background: var(--ad-tip-t); color: var(--ad-tip-f); }
+/* warning / caution / attention */
+html .rst-content .warning,
+html .rst-content .caution,
+html .rst-content .attention { background: var(--ad-warn-bg); border-left: 4px solid var(--ad-warn-t); }
+html .rst-content .warning > .admonition-title,
+html .rst-content .caution > .admonition-title,
+html .rst-content .attention > .admonition-title { background: var(--ad-warn-t); color: var(--ad-warn-f); }
+/* danger / error */
+html .rst-content .danger,
+html .rst-content .error { background: var(--ad-danger-bg); border-left: 4px solid var(--ad-danger-t); }
+html .rst-content .danger > .admonition-title,
+html .rst-content .error > .admonition-title { background: var(--ad-danger-t); color: var(--ad-danger-f); }
+/* generic admonition / todo / topic / sidebar */
+html .rst-content .admonition,
+html .rst-content .topic,
+html .rst-content .sidebar { background: var(--ad-gen-bg); border-left: 4px solid var(--ad-gen-t); }
+html .rst-content .admonition > .admonition-title,
+html .rst-content .topic > .topic-title,
+html .rst-content .sidebar > .sidebar-title { background: var(--ad-gen-t); color: var(--ad-gen-f); }
+html .rst-content .admonition-todo { background: var(--ad-todo-bg); border-left: 4px solid var(--ad-todo-t); }
+html .rst-content .admonition-todo > .admonition-title { background: var(--ad-todo-t); color: var(--ad-todo-f); }
+
+/* body text inside admonitions must stay readable */
+html .rst-content .admonition p,
+html .rst-content .note p,
+html .rst-content .warning p,
+html .rst-content .tip p,
+html .rst-content .important p,
+html .rst-content .seealso p,
+html .rst-content .admonition li,
+html .rst-content .note li,
+html .rst-content .warning li,
+html .rst-content .tip li { color: var(--kh-text); }
+
+/* ==========================================================================
+   Blockquotes, figures, images, footnotes
+   ========================================================================== */
+html .rst-content blockquote {
+  border-left: 4px solid var(--kh-border);
+  background: var(--kh-card-bg);
+  color: var(--kh-text);
+  padding: 10px 16px;
+  margin-left: 0;
+}
+html .rst-content blockquote p { color: var(--kh-text); }
+
+html .rst-content .figure,
+html .rst-content figure { background: transparent; }
+html .rst-content .figure p.caption,
+html .rst-content figcaption,
+html .rst-content .caption-text {
+  color: var(--kh-muted);
+  font-style: italic;
+  line-height: 1.75;
+}
+html .rst-content img,
+html .rst-content .figure img {
+  background: #ffffff;
+  border-radius: 3px;
+}
+html .rst-content img.dark-invert { filter: none; }
+
+html .rst-content dl.footnote,
+html .rst-content dl.citation {
+  color: var(--kh-text);
+  border-top: 1px solid var(--kh-border-soft);
+}
+html .rst-content dl.footnote > dt,
+html .rst-content dl.citation > dt { color: var(--kh-muted); }
+html .rst-content .footnote { color: var(--kh-muted); font-size: 13.5px; }
+
+html .rst-content .line-block { color: var(--kh-text); }
+html .rst-content dl:not(.docutils) dt {
+  background: var(--kh-card-bg);
+  color: var(--kh-text);
+  border-top: 3px solid var(--kh-border);
+}
+html .rst-content dl:not(.docutils) dl dt {
+  background: transparent;
+  border-left: 3px solid var(--kh-border);
+  color: var(--kh-text);
+}
+html .rst-content dl.py dt { font-family: var(--kh-mono); }
+html .rst-content .sig-name,
+html .rst-content .sig-prename { color: var(--kh-heading); font-family: var(--kh-mono); }
+html .rst-content .sig-paren,
+html .rst-content .sig-param { color: var(--kh-text); }
+html .rst-content em.property { color: var(--py-k); font-style: normal; }
+
+/* ==========================================================================
+   Buttons (prev/next, .btn)
+   ========================================================================== */
+html .rst-content .btn,
+html .btn,
+html .btn-neutral,
+html .rst-footer-buttons .btn {
+  background: var(--kh-btn-bg) !important;
+  color: var(--kh-btn-fg) !important;
+  border: 1px solid var(--kh-btn-border) !important;
+  box-shadow: none !important;
+  border-radius: 4px;
+}
+html .rst-content .btn:hover,
+html .btn:hover,
+html .btn-neutral:hover {
+  background: var(--kh-btn-hover-bg) !important;
+  color: var(--kh-heading) !important;
+  border-color: var(--kh-link) !important;
+}
+html .btn .fa, html .btn-neutral .fa { color: inherit; }
+html .rst-footer-buttons { color: var(--kh-text); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+html footer,
+html .rst-footer,
+html [role="contentinfo"] {
+  color: var(--kh-muted);
+  border-top: 1px solid var(--kh-border-soft);
+}
+html footer a, html .rst-footer a { color: var(--kh-muted); text-decoration: underline; }
+html footer a:hover, html .rst-footer a:hover { color: var(--kh-link-hover); }
+html .rst-versions { background: #14161a; }
+html .rst-versions .rst-current-version { background: #1f2328; color: #d9dde4; }
+html .rst-versions .rst-other-versions { background: #14161a; color: #d9dde4; }
+html .rst-versions .rst-other-versions a { color: #a6d3f2; }
+
+/* ==========================================================================
+   Search page + highlight marks
+   ========================================================================== */
+html #search-results h2,
+html #search-results p.search-summary { color: var(--kh-heading); }
+html #search-results ul.search li {
+  border-top: 1px solid var(--kh-border-soft);
+  color: var(--kh-text);
+}
+html #search-results ul.search li a { color: var(--kh-link); }
+html #search-results ul.search li div.context { color: var(--kh-text); }
+
+html mark,
+html .rst-content mark,
+html .highlighted,
+html .rst-content .highlighted {
+  background: var(--kh-mark-bg) !important;
+  color: var(--kh-mark-fg) !important;
+  box-shadow: none !important;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* search box in the sidebar (mobile / search page) */
+html .wy-form input[type="text"],
+html .wy-form input[type="search"],
+html input[type="search"]#q {
+  background: var(--kh-input-bg);
+  border: 1px solid var(--kh-input-border);
+  color: var(--kh-input-fg);
+  border-radius: 4px;
+}
+html .wy-form input::placeholder { color: var(--kh-input-ph); }
+
+/* ==========================================================================
+   Theme toggle — ONE plain-text element: no icon, no box, no border.
+   The controlling <script> is rendered immediately after it in
+   _templates/breadcrumbs.html (never via html_js_files, which Sphinx puts
+   in <head>).
+   ========================================================================== */
+html .theme-toggle {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 10px 0 0;
+  font-family: var(--kh-sans);
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--kh-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+  vertical-align: baseline;
+}
+html .theme-toggle:hover,
+html .theme-toggle:focus {
+  color: var(--kh-link-hover);
+  outline: none;
+  text-decoration-style: solid;
+}
+html .theme-toggle:active { transform: none; }
+
+/* ==========================================================================
+   Responsive — keep the stock RTD breakpoints, only fix colours
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  .wy-nav-content { max-width: 100%; padding: 1.2em; }
+  html .wy-nav-top { background: var(--kh-navheader-bg); }
+  html .rst-content div[class^="highlight"] pre { font-size: 12.5px; }
+  html .rst-content table.docutils { display: block; overflow-x: auto; }
+  html .theme-toggle { font-size: 11.5px; }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html * { transition: none !important; animation: none !important; }
+}
+
+/* ==========================================================================
+   Print
+   ========================================================================== */
+@media print {
+  html body { background: #ffffff; color: #000000; }
+  html .wy-nav-side, html .theme-toggle, html .rst-versions { display: none !important; }
+  html .highlight pre { color: #000000; }
+}

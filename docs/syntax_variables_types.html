@@ -1,0 +1,1270 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/syntax_variables_types.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ខ្សែអក្សរ និងសំណុំទិន្នន័យ" href="strings_collections.html" />
+    <link rel="prev" title="ចាប់ផ្ដើម និងការដំឡើង Python" href="getting_started.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/syntax_variables_types.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/syntax_variables_types.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#comment">អត្ថាធិប្បាយ (Comment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#indentation-block">Indentation និង Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statement">Statement និងការបំបែកបន្ទាត់</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identifiers">អត្តសញ្ញាណ (Identifier) និងពាក្យគន្លឹះ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keyword">ពាក្យគន្លឹះ (Keyword)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#naming-conventions">អនុសញ្ញាក្នុងការដាក់ឈ្មោះ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#assignment">អថេរ និងការផ្ដល់តម្លៃ (Assignment)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-typing">Dynamic Typing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-assignment">ការផ្ដល់តម្លៃច្រើនក្នុងពេលតែមួយ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#augmented-assignment">Augmented Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#type-checking">ការពិនិត្យប្រភេទ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">ប្រភេទទិន្នន័យមូលដ្ឋាន</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#int">ចំនួនគត់ (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#float">ចំនួនទសភាគ (<code class="docutils literal notranslate"><span class="pre">float</span></code>) និងកំហុសនៃភាពជាក់លាក់</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arithmetic">ប្រមាណវិធីគណនា</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#precedence">លំដាប់អាទិភាពប្រមាណវិធី</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bool-truthiness"><code class="docutils literal notranslate"><span class="pre">bool</span></code> និងភាពពិត (Truthiness)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#falsy-truthy">តារាងតម្លៃ Falsy និង Truthy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#none"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#type-conversion">ការបំលែងប្រភេទ (Type Conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutable-immutable">Mutable និង Immutable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references">អថេរគឺជាឈ្មោះ មិនមែនជាប្រអប់ទេ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is"><code class="docutils literal notranslate"><span class="pre">is</span></code> ធៀបនឹង <code class="docutils literal notranslate"><span class="pre">==</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/syntax_variables_types.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="syntax-variables-types">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/introduction.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/reference/lexical_analysis.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/library/stdtypes.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/library/keyword.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<section id="comment">
+<span id="comments"></span><h2>អត្ថាធិប្បាយ (Comment)<a class="headerlink" href="#comment" title="Link to this heading"></a></h2>
+<p>សញ្ញា <code class="docutils literal notranslate"><span class="pre">#</span></code> ចាប់ផ្ដើមអត្ថាធិប្បាយ ហើយអ្វីៗពីក្រោយវារហូតដល់ចុងបន្ទាត់
+ត្រូវបាន Python មិនអើពើ។ អត្ថាធិប្បាយអាចនៅលើបន្ទាត់ដាច់ដោយឡែក
+ឬនៅចុងបន្ទាត់កូដ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># នេះជាអត្ថាធិប្បាយពេញមួយបន្ទាត់</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># នេះជាអត្ថាធិប្បាយនៅចុងបន្ទាត់</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># បោះពុម្ព 5</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python <strong>មិនមាន</strong> អត្ថាធិប្បាយច្រើនបន្ទាត់ដូច <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">...</span> <span class="pre">*/</span></code> របស់ C ទេ។
+អ្នកត្រូវដាក់ <code class="docutils literal notranslate"><span class="pre">#</span></code> នៅមុខបន្ទាត់នីមួយៗ។ ខ្សែអក្សរដែលដាក់ដោយខ្លួនឯង
+(<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code>) ក៏មិនអើពើដោយ interpreter ដែរ ហើយជួនកាលត្រូវបាន
+ប្រើជាអត្ថាធិប្បាយច្រើនបន្ទាត់ ប៉ុន្តែគោលបំណងពិតរបស់វាគឺជា
+<em>docstring</em> (មើលជំពូក <a class="reference internal" href="functions_scope.html"><span class="doc">អនុគមន៍ និងវិសាលភាពអថេរ</span></a>)។</p>
+</div>
+</section>
+<section id="indentation-block">
+<span id="indentation"></span><h2>Indentation និង Block<a class="headerlink" href="#indentation-block" title="Link to this heading"></a></h2>
+<p>ភាសាភាគច្រើនប្រើវង់ក្រចកដង្កៀប <code class="docutils literal notranslate"><span class="pre">{}</span></code> ឬពាក្យ <code class="docutils literal notranslate"><span class="pre">begin</span></code>/<code class="docutils literal notranslate"><span class="pre">end</span></code> ដើម្បី
+បង្រួបបង្រួមបន្ទាត់កូដជា block។ Python ប្រើ <strong>indentation</strong> វិញ។</p>
+<p>បន្ទាត់ដែលបញ្ចប់ដោយសញ្ញាពីរគូស <code class="docutils literal notranslate"><span class="pre">:</span></code> (ដូចជា <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>,
+<code class="docutils literal notranslate"><span class="pre">def</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">with</span></code>, <code class="docutils literal notranslate"><span class="pre">try</span></code>) បើក block មួយ ហើយបន្ទាត់ទាំងអស់
+ដែលចូលក្រោមវាជាផ្នែកនៃ block នោះ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ពេញវ័យ"</span><span class="p">)</span>        <span class="c1"># ចូល ៤ ដកឃ្លា — ក្នុង block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"អាចបោះឆ្នោត"</span><span class="p">)</span>   <span class="c1"># ក្នុង block ដូចគ្នា</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"ចប់"</span><span class="p">)</span>                <span class="c1"># មិនចូល — ក្រៅ block ដំណើរការជានិច្ច</span>
+</pre></div>
+</div>
+<p>លទ្ធផល៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ពេញវ័យ
+អាចបោះឆ្នោត
+ចប់
+</pre></div>
+</div>
+<p>ច្បាប់សំខាន់៖</p>
+<ul class="simple">
+<li><p>បន្ទាត់ទាំងអស់ក្នុង block តែមួយត្រូវមាន <strong>កម្រិតចូលដូចគ្នា</strong>។</p></li>
+<li><p>ស្តង់ដារ <a class="reference external" href="https://peps.python.org/pep-0008/">PEP 8</a> ណែនាំឱ្យប្រើ
+<strong>space ៤</strong> ក្នុងមួយកម្រិត។</p></li>
+<li><p>កុំលាយឡំ tab និង space។ បើលាយ Python នឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">TabError</span></code>។</p></li>
+</ul>
+</section>
+<section id="statement">
+<span id="statements"></span><h2>Statement និងការបំបែកបន្ទាត់<a class="headerlink" href="#statement" title="Link to this heading"></a></h2>
+<p>ជាធម្មតា មួយ statement ស្ថិតលើមួយបន្ទាត់។ ប៉ុន្តែអ្នកអាចបន្ត statement
+ទៅបន្ទាត់ថ្មីបានពីរវិធី៖</p>
+<p><strong>១. បន្តដោយស្វ័យប្រវត្តិក្នុងវង់ក្រចក</strong> — ណែនាំបំផុត៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span>
+         <span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"សុខា"</span><span class="p">,</span>
+    <span class="s2">"ដារ៉ា"</span><span class="p">,</span>
+    <span class="s2">"សុភា"</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>២. ប្រើ backslash</strong> <code class="docutils literal notranslate"><span class="pre">\</span></code> នៅចុងបន្ទាត់៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> \
+   <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"វ័យធ្វើការ"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំដាក់អត្ថាធិប្បាយក្រោយ backslash — វានឹងបណ្ដាលឱ្យមាន
+<code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>។ ហើយកុំមានដកឃ្លាទទេក្រោយ backslash ដែរ។</p>
+</div>
+<p>អ្នកក៏អាចដាក់ statement ច្រើនលើបន្ទាត់តែមួយដោយប្រើ <code class="docutils literal notranslate"><span class="pre">;</span></code> ប៉ុន្តែ
+វាមិនត្រូវបានណែនាំទេ ព្រោះអានពិបាក៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># ដំណើរការ ប៉ុន្តែមិនស្អាត</span>
+</pre></div>
+</div>
+</section>
+<section id="identifiers">
+<span id="identifier"></span><h2>អត្តសញ្ញាណ (Identifier) និងពាក្យគន្លឹះ<a class="headerlink" href="#identifiers" title="Link to this heading"></a></h2>
+<p><strong>អត្តសញ្ញាណ</strong> គឺជាឈ្មោះដែលអ្នកដាក់ឱ្យអថេរ អនុគមន៍ class ឬ module។
+ច្បាប់៖</p>
+<ul class="simple">
+<li><p>ចាប់ផ្ដើមដោយអក្សរ (<code class="docutils literal notranslate"><span class="pre">a</span></code>–<code class="docutils literal notranslate"><span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code>–<code class="docutils literal notranslate"><span class="pre">Z</span></code> ឬអក្សរ Unicode ដូចជាអក្សរខ្មែរ)
+ឬសញ្ញា underscore <code class="docutils literal notranslate"><span class="pre">_</span></code>។</p></li>
+<li><p>បន្ទាប់មកអាចជាអក្សរ លេខ (<code class="docutils literal notranslate"><span class="pre">0</span></code>–<code class="docutils literal notranslate"><span class="pre">9</span></code>) ឬ <code class="docutils literal notranslate"><span class="pre">_</span></code>។</p></li>
+<li><p>មិនអាចចាប់ផ្ដើមដោយលេខ។</p></li>
+<li><p>មិនអាចជាពាក្យគន្លឹះ។</p></li>
+<li><p>Case-sensitive៖ <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code> និង <code class="docutils literal notranslate"><span class="pre">AGE</span></code> ជាអត្តសញ្ញាណបីផ្សេងគ្នា។</p></li>
+</ul>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">user_name</span> <span class="o">=</span> <span class="s2">"sokha"</span>     <span class="c1"># ត្រឹមត្រូវ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_private</span> <span class="o">=</span> <span class="mi">42</span>           <span class="c1"># ត្រឹមត្រូវ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ឈ្មោះ</span> <span class="o">=</span> <span class="s2">"សុភា"</span>          <span class="c1"># ត្រឹមត្រូវ — Python 3 អនុញ្ញាត Unicode</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="n">nd_place</span> <span class="o">=</span> <span class="s2">"silver"</span>    <span class="c1"># ❌ ចាប់ផ្ដើមដោយលេខ</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid decimal literal</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ទោះបី Python 3 អនុញ្ញាតឱ្យប្រើអក្សរខ្មែរជាឈ្មោះអថេរក៏ដោយ
+សូមប្រើ <strong>ឈ្មោះជាអង់គ្លេស</strong> សម្រាប់អត្តសញ្ញាណ។ ឧបករណ៍ជាច្រើន
+(formatter, linter, library ខាងក្រៅ) សន្មតថាឈ្មោះជា ASCII ហើយ
+កូដរបស់អ្នកនឹងចែករំលែកជាមួយអ្នកដទៃបានងាយជាង។ ប្រើខ្សែអក្សរខ្មែរ
+សម្រាប់ <strong>ទិន្នន័យ</strong> និង <strong>អត្ថាធិប្បាយ</strong> វិញ។</p>
+</div>
+<section id="keyword">
+<span id="keywords"></span><h3>ពាក្យគន្លឹះ (Keyword)<a class="headerlink" href="#keyword" title="Link to this heading"></a></h3>
+<p>ពាក្យគន្លឹះគឺជាពាក្យបម្រុងរបស់ភាសា — អ្នកមិនអាចប្រើវាជាឈ្មោះអថេរបានទេ។
+Python 3.15 មានពាក្យគន្លឹះ <strong>៣៥</strong>៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>False   None    True    and     as      assert  async   await
+break   class   continue        def     del     elif    else
+except  finally for     from    global  if      import  in
+is      lambda  nonlocal        not     or      pass    raise
+return  try     while   with    yield
+</pre></div>
+</div>
+<p>អ្នកអាចពិនិត្យបញ្ជីនេះដោយខ្លួនឯង៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
+<span class="go">35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">"class"</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">"classy"</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<section id="soft-keyword">
+<span id="soft-keywords"></span><h4>Soft Keyword<a class="headerlink" href="#soft-keyword" title="Link to this heading"></a></h4>
+<p>មានពាក្យមួយចំនួនដែលជាពាក្យគន្លឹះ <strong>តែក្នុងបរិបទជាក់លាក់</strong> ប៉ុណ្ណោះ។
+នៅកន្លែងផ្សេងវានៅតែអាចប្រើជាឈ្មោះអថេរបាន។ នៅក្នុង Python 3.15
+ពួកវាគឺ <code class="docutils literal notranslate"><span class="pre">_</span></code>, <code class="docutils literal notranslate"><span class="pre">case</span></code>, <code class="docutils literal notranslate"><span class="pre">lazy</span></code>, <code class="docutils literal notranslate"><span class="pre">match</span></code> និង <code class="docutils literal notranslate"><span class="pre">type</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">softkwlist</span>
+<span class="go">['_', 'case', 'lazy', 'match', 'type']</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">match</span> <span class="o">=</span> <span class="s2">"ការប្រកួត"</span>      <span class="c1"># ត្រឹមត្រូវ — 'match' ជាអថេរធម្មតានៅទីនេះ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+<span class="go">ការប្រកួត</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.10: </span><code class="docutils literal notranslate"><span class="pre">match</span></code> និង <code class="docutils literal notranslate"><span class="pre">case</span></code> ត្រូវបានបន្ថែមសម្រាប់ <em>structural pattern matching</em>
+(មើលជំពូក <a class="reference internal" href="control_flow.html"><span class="doc">លក្ខខណ្ឌ និងរង្វិលជុំ</span></a>)។</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.12: </span><code class="docutils literal notranslate"><span class="pre">type</span></code> ត្រូវបានបន្ថែមសម្រាប់ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">X</span> <span class="pre">=</span> <span class="pre">...</span></code> (type alias)។</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15: </span><code class="docutils literal notranslate"><span class="pre">lazy</span></code> ត្រូវបានបន្ថែមសម្រាប់ <code class="docutils literal notranslate"><span class="pre">lazy</span> <span class="pre">import</span></code> (PEP 810) ដែលពន្យារ
+ការផ្ទុកម៉ូឌុលរហូតដល់វាត្រូវបានប្រើពិតប្រាកដ។</p>
+</div>
+</section>
+</section>
+<section id="naming-conventions">
+<span id="id3"></span><h3>អនុសញ្ញាក្នុងការដាក់ឈ្មោះ<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">ស្ទីលឈ្មោះតាម PEP 8</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 26.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ស្ទីល</p></th>
+<th class="head"><p>ឧទាហរណ៍</p></th>
+<th class="head"><p>ប្រើសម្រាប់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">user_name</span></code>, <code class="docutils literal notranslate"><span class="pre">total_price</span></code></p></td>
+<td><p>អថេរ និងអនុគមន៍ (លំនាំដើម)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PascalCase</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BankAccount</span></code>, <code class="docutils literal notranslate"><span class="pre">HttpClient</span></code></p></td>
+<td><p>ឈ្មោះ class</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UPPER_CASE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAX_SIZE</span></code>, <code class="docutils literal notranslate"><span class="pre">API_URL</span></code></p></td>
+<td><p>ថេរ (constant) កម្រិត module</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">_leading_underscore</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">_cache</span></code></p></td>
+<td><p>ធាតុផ្ទៃក្នុង (internal) — អនុសញ្ញា មិនមែនការហាមឃាត់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__double_leading</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__secret</span></code></p></td>
+<td><p>ក្នុង class បង្កើត <em>name mangling</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__dunder__</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></td>
+<td><p>ឈ្មោះពិសេសដែល Python កំណត់ទុក — កុំបង្កើតថ្មីដោយខ្លួនឯង</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំដាក់ឈ្មោះអថេរដូចឈ្មោះ built-in។ បើអ្នកសរសេរ <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2]</span></code>
+អ្នកនឹងបាត់បង់ function <code class="docutils literal notranslate"><span class="pre">list()</span></code> ក្នុង scope នោះ ហើយកូដបន្ទាប់
+<code class="docutils literal notranslate"><span class="pre">list(&quot;abc&quot;)</span></code> នឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>។ ចៀសវាងឈ្មោះដូចជា <code class="docutils literal notranslate"><span class="pre">list</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>,
+<code class="docutils literal notranslate"><span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span></code>។</p>
+</div>
+</section>
+</section>
+<section id="assignment">
+<span id="variables"></span><h2>អថេរ និងការផ្ដល់តម្លៃ (Assignment)<a class="headerlink" href="#assignment" title="Link to this heading"></a></h2>
+<p>នៅក្នុង Python អ្នកមិន <strong>ប្រកាស</strong> អថេរទេ — អ្នកគ្រាន់តែ <strong>ផ្ដល់តម្លៃ</strong> ឱ្យវា។
+អថេរកើតឡើងភ្លាមៗនៅពេលផ្ដល់តម្លៃដំបូង។</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="s2">"ភ្នំពេញ"</span>      <span class="c1"># str</span>
+<span class="n">population</span> <span class="o">=</span> <span class="mi">2_281_951</span>  <span class="c1"># int  (សញ្ញា _ ធ្វើឱ្យលេខអានងាយ)</span>
+<span class="n">area_km2</span> <span class="o">=</span> <span class="mf">679.0</span>       <span class="c1"># float</span>
+<span class="n">is_capital</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># bool</span>
+<span class="n">mayor</span> <span class="o">=</span> <span class="kc">None</span>           <span class="c1"># NoneType</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">area_km2</span><span class="p">,</span> <span class="n">is_capital</span><span class="p">,</span> <span class="n">mayor</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>លទ្ធផល៖</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ភ្នំពេញ 2281951 679.0 True None
+</pre></div>
+</div>
+<section id="dynamic-typing">
+<span id="id4"></span><h3>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Link to this heading"></a></h3>
+<p>អថេរមិនមានប្រភេទជាប់ជាមួយវាទេ — <strong>object</strong> ទេដែលមានប្រភេទ។ អថេរគ្រាន់តែ
+ជាឈ្មោះដែលចង្អុលទៅ object មួយ។ ដូច្នេះអ្នកអាចផ្ដល់តម្លៃប្រភេទផ្សេងទៅ
+អថេរដដែលបាន៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>        <span class="c1"># ចង្អុលទៅ int</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="go">&lt;class 'int'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="s2">"១០០"</span>       <span class="c1"># ឥឡូវចង្អុលទៅ str</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="go">&lt;class 'str'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># ឥឡូវចង្អុលទៅ list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="go">&lt;class 'list'&gt;</span>
+</pre></div>
+</div>
+<p>ការដែលគ្មានការត្រួតពិនិត្យប្រភេទនៅពេលសរសេរ (compile time) ធ្វើឱ្យ Python
+រហ័សក្នុងការសរសេរ ប៉ុន្តែកំហុសប្រភេទនឹងលេចឡើង <strong>នៅពេលដំណើរការ</strong>
+(runtime) វិញ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"1"</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">can only concatenate str (not "int") to str</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-assignment">
+<span id="id5"></span><h3>ការផ្ដល់តម្លៃច្រើនក្នុងពេលតែមួយ<a class="headerlink" href="#multiple-assignment" title="Link to this heading"></a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>          <span class="c1"># ផ្ដល់តម្លៃ ៣ ក្នុងពេលតែមួយ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>              <span class="c1"># តម្លៃដូចគ្នាទៅអថេរច្រើន</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>                <span class="c1"># ប្ដូរតម្លៃគ្នា (swap) ដោយមិនចាំបាច់អថេរជំនួយ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="go">(2, 1)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>   <span class="c1"># unpacking ជាមួយ *</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rest</span>
+<span class="go">[20, 30, 40]</span>
+</pre></div>
+</div>
+</section>
+<section id="augmented-assignment">
+<span id="id6"></span><h3>Augmented Assignment<a class="headerlink" href="#augmented-assignment" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 42.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រមាណវិធី</p></th>
+<th class="head"><p>មានន័យថា</p></th>
+<th class="head"><p>ឧទាហរណ៍</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">+=</span> <span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">balance</span> <span class="pre">-=</span> <span class="pre">100</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">*=</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">n</span></code> (តែងតែ <code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">avg</span> <span class="pre">/=</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//=</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">//</span> <span class="pre">n</span></code> (ចែកយកផ្នែកគត់)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">//=</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%=</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">n</span></code> (សំណល់)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">%=</span> <span class="pre">10</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**=</span> <span class="pre">n</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">n</span></code> (ស្វ័យគុណ)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">area</span> <span class="pre">**=</span> <span class="pre">2</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">1</span></code> <strong>មិនមែន</strong> ដូចគ្នាទាំងស្រុងទេសម្រាប់ object <em>mutable</em>។
+សម្រាប់ <code class="docutils literal notranslate"><span class="pre">list</span></code> ប្រតិបត្តិការ <code class="docutils literal notranslate"><span class="pre">+=</span></code> កែប្រែ list ដើមនៅនឹងកន្លែង
+(in-place) តាម <code class="docutils literal notranslate"><span class="pre">list.extend()</span></code> មិនមែនបង្កើត list ថ្មីទេ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>        <span class="c1"># កែប្រែ list ដើម</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">[1, 2, 3]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>     <span class="c1"># បង្កើត list ថ្មី ហើយ a ចង្អុលទៅវា</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">[1, 2]</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="type-checking">
+<span id="id7"></span><h2>ការពិនិត្យប្រភេទ<a class="headerlink" href="#type-checking" title="Link to this heading"></a></h2>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">&lt;class 'int'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="go">&lt;class 'float'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">"Python"</span><span class="p">)</span>
+<span class="go">&lt;class 'str'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&lt;class 'bool'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">&lt;class 'NoneType'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="go">&lt;class 'list'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">&lt;class 'tuple'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">({</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="go">&lt;class 'dict'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">})</span>
+<span class="go">&lt;class 'set'&gt;</span>
+</pre></div>
+</div>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> ដើម្បីពិនិត្យ — វាល្អជាង <code class="docutils literal notranslate"><span class="pre">type()</span></code> ព្រោះវាគោរព
+inheritance៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>      <span class="c1"># bool គឺជា subclass នៃ int</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>   <span class="c1"># ពិនិត្យច្រើនប្រភេទក្នុងពេលតែមួយ</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">isinstance(True,</span> <span class="pre">int)</span></code> ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">True</span></code> ព្រោះ <code class="docutils literal notranslate"><span class="pre">bool</span></code> គឺជា subclass
+នៃ <code class="docutils literal notranslate"><span class="pre">int</span></code>។ នេះមានន័យថា <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">+</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">2</span></code>។ បើអ្នកចង់បែងចែកដាច់ខាត
+សូមពិនិត្យ <code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">bool)</span></code> ជាមុន។</p>
+</div>
+</section>
+<section id="data-types">
+<span id="id8"></span><h2>ប្រភេទទិន្នន័យមូលដ្ឋាន<a class="headerlink" href="#data-types" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">ប្រភេទដែលប្រើញឹកញាប់</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 16.0%" />
+<col style="width: 18.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រភេទ</p></th>
+<th class="head"><p>ឈ្មោះ class</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ចំនួនគត់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p>ចំនួនគត់គ្មានដែនកំណត់ទំហំ (arbitrary precision)។ ឧ. <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">-7</span></code>, <code class="docutils literal notranslate"><span class="pre">10**100</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ចំនួនទសភាគ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p>ចំនួនពិតតាមស្តង់ដារ IEEE 754 double precision។ ឧ. <code class="docutils literal notranslate"><span class="pre">3.14</span></code>, <code class="docutils literal notranslate"><span class="pre">1e-9</span></code>, <code class="docutils literal notranslate"><span class="pre">-0.5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ចំនួនកុំផ្លិច</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">complex</span></code></p></td>
+<td><p>មានផ្នែកពិត និងផ្នែកនិម្មិត។ ឧ. <code class="docutils literal notranslate"><span class="pre">3+4j</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ប៊ូលីន</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>មានតែ <code class="docutils literal notranslate"><span class="pre">True</span></code> និង <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ខ្សែអក្សរ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>អត្ថបទ Unicode ដែល <strong>មិនអាចកែប្រែ</strong> (immutable)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ទិន្នន័យ binary</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code></p></td>
+<td><p>លំដាប់ byte ដែល immutable។ ឧ. <code class="docutils literal notranslate"><span class="pre">b&quot;hello&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ទទេ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NoneType</span></code></p></td>
+<td><p>មានតម្លៃតែមួយគត់គឺ <code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>បញ្ជី</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td><p>លំដាប់ដែល <strong>អាចកែប្រែ</strong> (mutable)។ ឧ. <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ទុប</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></td>
+<td><p>លំដាប់ដែល immutable។ ឧ. <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>សំណុំ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></td>
+<td><p>ធាតុមិនស្ទួនគ្នា គ្មានលំដាប់។ ឧ. <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">2,</span> <span class="pre">3}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>វចនានុក្រម</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p></td>
+<td><p>គូ key–value។ ឧ. <code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:</span> <span class="pre">&quot;Sokha&quot;}</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<section id="int">
+<span id="id9"></span><h3>ចំនួនគត់ (<code class="docutils literal notranslate"><span class="pre">int</span></code>)<a class="headerlink" href="#int" title="Link to this heading"></a></h3>
+<p>Python <code class="docutils literal notranslate"><span class="pre">int</span></code> មិនមានដែនកំណត់ទំហំទេ — វាអាចធំប៉ុណ្ណាក៏បាន
+(គ្រាន់តែកំណត់ដោយអង្គចងចាំរបស់ម៉ាស៊ីន)៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span>
+<span class="go">1267650600228229401496703205376</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">1000</span><span class="p">))</span>    <span class="c1"># លេខមាន ៣០២ ខ្ទង់</span>
+<span class="go">302</span>
+</pre></div>
+</div>
+<p>សញ្ញា underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> អាចប្រើជាទីបំបែកលេខ ដើម្បីងាយអាន
+(Python មិនអើពើវាទេ)៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1_000_000</span> <span class="o">==</span> <span class="mi">1000000</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mb">0b1010</span>          <span class="c1"># binary</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mo">0o17</span>            <span class="c1"># octal</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mh">0xFF</span>            <span class="c1"># hexadecimal</span>
+<span class="go">255</span>
+</pre></div>
+</div>
+</section>
+<section id="float">
+<span id="id10"></span><h3>ចំនួនទសភាគ (<code class="docutils literal notranslate"><span class="pre">float</span></code>) និងកំហុសនៃភាពជាក់លាក់<a class="headerlink" href="#float" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">float</span></code> ក្នុង Python គឺជា IEEE 754 double precision (៦៤ bit)។ វាមិនអាច
+តំណាងចំនួនទសភាគមួយចំនួនបានត្រឹមត្រូវទេ ព្រោះកុំព្យូទ័រប្រើប្រព័ន្ធ
+គោលពីរ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+<span class="go">0.30000000000000004</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p><strong>នេះមិនមែនជាកំហុសរបស់ Python ទេ</strong> — ភាសាដែលប្រើ IEEE 754 ទាំងអស់
+មានបញ្ហានេះ។ វិធីដោះស្រាយ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ១. ប្រៀបធៀបដោយមានភាពអត់ធ្មត់</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ២. ប្រើ math.isclose() — ណែនាំបំផុត</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ៣. សម្រាប់លុយ ប្រើ decimal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.1"</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.2"</span><span class="p">)</span>
+<span class="go">Decimal('0.3')</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ៤. សម្រាប់ប្រភាគពិតប្រាកដ ប្រើ fractions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fractions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fraction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">Fraction(3, 10)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំប្រើ <code class="docutils literal notranslate"><span class="pre">float</span></code> សម្រាប់ <strong>លុយ</strong>។ ប្រើ <code class="docutils literal notranslate"><span class="pre">decimal.Decimal</span></code> ឬរក្សាទុក
+ជាចំនួនគត់នៃ <em>សេន</em>។ កំហុសបង្គត់តូចៗអាចកើនឡើងក្នុងការគណនាច្រើន។</p>
+<p>ចំណាំថា <code class="docutils literal notranslate"><span class="pre">Decimal(&quot;0.1&quot;)</span></code> (ពីខ្សែអក្សរ) ត្រឹមត្រូវ ប៉ុន្តែ
+<code class="docutils literal notranslate"><span class="pre">Decimal(0.1)</span></code> (ពី float) នឹងផ្ទុកកំហុសបង្គត់ដែលមានស្រាប់។</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">float</span></code> ក៏មានតម្លៃពិសេស៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
+<span class="go">(inf, -inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span>     <span class="c1"># NaN មិនស្មើខ្លួនឯងទេ!</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">))</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+</pre></div>
+</div>
+</section>
+<section id="arithmetic">
+<span id="id11"></span><h3>ប្រមាណវិធីគណនា<a class="headerlink" href="#arithmetic" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 30.0%" />
+<col style="width: 24.0%" />
+<col style="width: 32.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រមាណវិធី</p></th>
+<th class="head"><p>ឈ្មោះ</p></th>
+<th class="head"><p>ឧទាហរណ៍</p></th>
+<th class="head"><p>លទ្ធផល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>បូក</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">+</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">9</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>ដក</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">-</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>គុណ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">*</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">14</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>ចែក (តែងតែ <code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">/</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3.5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td><p>ចែកយកផ្នែកគត់ (floor)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">//</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>សំណល់ (modulo)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">%</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p>ស្វ័យគុណ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">**</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">49</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">divmod()</span></code></p></td>
+<td><p>ផ្នែកគត់ និងសំណល់ក្នុងពេលតែមួយ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">divmod(7,</span> <span class="pre">2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">1)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">/</span> <span class="mi">2</span>       <span class="c1"># ចែកធម្មតា — តែងតែ float</span>
+<span class="go">3.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span>      <span class="c1"># floor division</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span>     <span class="c1"># floor ទៅរកចំនួនតូចជាង (មិនមែនទៅរកសូន្យទេ)</span>
+<span class="go">-4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">//</span> <span class="o">-</span><span class="mi">2</span>
+<span class="go">-4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span>      <span class="c1"># សំណល់មានសញ្ញាតាមភាគបែង</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">divmod</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">(-4, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mf">0.5</span>    <span class="c1"># ស្វ័យគុណទសភាគ = ឫសការ៉េ</span>
+<span class="go">1.4142135623730951</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">//</span></code> គឺ <strong>floor</strong> division — វាបង្គត់ចុះក្រោមជានិច្ច មិនមែនបង្គត់ទៅរកសូន្យ
+ទេ។ ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">-7</span> <span class="pre">//</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">-4</span></code> មិនមែន <code class="docutils literal notranslate"><span class="pre">-3</span></code>។ បើអ្នកចង់បាន
+truncation ទៅរកសូន្យ ប្រើ <code class="docutils literal notranslate"><span class="pre">int(-7</span> <span class="pre">/</span> <span class="pre">2)</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">math.trunc()</span></code>។</p>
+</div>
+</section>
+<section id="precedence">
+<span id="id12"></span><h3>លំដាប់អាទិភាពប្រមាណវិធី<a class="headerlink" href="#precedence" title="Link to this heading"></a></h3>
+<p>ពី <strong>ទាប</strong> ទៅ <strong>ខ្ពស់</strong>៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12.0%" />
+<col style="width: 88.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អាទិភាព</p></th>
+<th class="head"><p>ប្រមាណវិធី</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>១ (ទាបបំផុត)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>២</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">–</span> <span class="pre">else</span></code> (conditional expression)</p></td>
+</tr>
+<tr class="row-even"><td><p>៣</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>៤</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>៥</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>៦</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>៧</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">|</span></code> (bitwise OR)</p></td>
+</tr>
+<tr class="row-odd"><td><p>៨</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^</span></code> (bitwise XOR)</p></td>
+</tr>
+<tr class="row-even"><td><p>៩</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (bitwise AND)</p></td>
+</tr>
+<tr class="row-odd"><td><p>១០</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> (bit shift)</p></td>
+</tr>
+<tr class="row-even"><td><p>១១</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> (បូក ដក)</p></td>
+</tr>
+<tr class="row-odd"><td><p>១២</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>១៣</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+x</span></code>, <code class="docutils literal notranslate"><span class="pre">-x</span></code>, <code class="docutils literal notranslate"><span class="pre">~x</span></code> (unary)</p></td>
+</tr>
+<tr class="row-odd"><td><p>១៤</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code> (ស្វ័យគុណ)</p></td>
+</tr>
+<tr class="row-even"><td><p>១៥</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>១៦</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x[i]</span></code>, <code class="docutils literal notranslate"><span class="pre">x(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">x.attr</span></code> (subscription, call, attribute)</p></td>
+</tr>
+<tr class="row-even"><td><p>១៧ (ខ្ពស់បំផុត)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">…</span> <span class="pre">)</span></code>, <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">…</span> <span class="pre">]</span></code>, <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">…</span> <span class="pre">}</span></code> (វង់ក្រចក តារាងលំដាប់ វចនានុក្រម)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>          <span class="c1"># គុណមុនបូក</span>
+<span class="go">14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>        <span class="c1"># វង់ក្រចកបង្ខំលំដាប់</span>
+<span class="go">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span>        <span class="c1"># ** ភ្ជាប់ពីស្ដាំទៅឆ្វេង</span>
+<span class="go">512</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span>            <span class="c1"># unary - មានអាទិភាពទាបជាង **</span>
+<span class="go">-4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">%</span> <span class="mi">4</span>          <span class="c1"># * និង % អាទិភាពស្មើគ្នា → ពីឆ្វេងទៅស្ដាំ</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>បើអ្នកសង្ស័យ <strong>ដាក់វង់ក្រចក</strong>។ វាមិនផ្លាស់ប្ដូរលទ្ធផលទេ ប៉ុន្តែធ្វើឱ្យ
+ចេតនាច្បាស់លាស់សម្រាប់អ្នកអាន។</p>
+</div>
+</section>
+</section>
+<section id="bool-truthiness">
+<span id="bool-and-truthiness"></span><h2><code class="docutils literal notranslate"><span class="pre">bool</span></code> និងភាពពិត (Truthiness)<a class="headerlink" href="#bool-truthiness" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">bool</span></code> មានតម្លៃតែពីរប៉ុណ្ណោះគឺ <code class="docutils literal notranslate"><span class="pre">True</span></code> និង <code class="docutils literal notranslate"><span class="pre">False</span></code> (ចាប់ផ្ដើមដោយ
+អក្សរធំ)។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">3</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<section id="falsy-truthy">
+<span id="truth-table"></span><h3>តារាងតម្លៃ Falsy និង Truthy<a class="headerlink" href="#falsy-truthy" title="Link to this heading"></a></h3>
+<p>Object ខាងក្រោមត្រូវបានចាត់ទុកថា <strong>falsy</strong> (មិនពិត) នៅពេលប្រើក្នុងលក្ខខណ្ឌ៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Falsy</p></th>
+<th class="head"><p>ការពន្យល់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>តម្លៃ bool មិនពិត</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>គ្មានតម្លៃ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">0j</span></code></p></td>
+<td><p>សូន្យនៃប្រភេទលេខនីមួយៗ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>ខ្សែអក្សរទទេ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">{}</span></code>, <code class="docutils literal notranslate"><span class="pre">set()</span></code></p></td>
+<td><p>លំដាប់ ឬសំណុំទទេ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">range(0)</span></code></p></td>
+<td><p>ជួរទទេ</p></td>
+</tr>
+</tbody>
+</table>
+<p>អ្វីៗក្រៅពីនេះគឺ <strong>truthy</strong>។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>          <span class="c1"># មានដកឃ្លាមួយ → មិនទទេទេ</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">([])</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>          <span class="c1"># មានធាតុមួយ → truthy ទោះជាធាតុនោះជា 0</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>នេះធ្វើឱ្យអាចសរសេរលក្ខខណ្ឌខ្លី៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># វែង — មិនចាំបាច់</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"មានធាតុ"</span><span class="p">)</span>
+
+<span class="c1"># ខ្លី — Pythonic</span>
+<span class="k">if</span> <span class="n">items</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"មានធាតុ"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទទេ"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ប្រុងប្រយ័ត្នពេលពិនិត្យលេខ។ <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x:</span></code> នឹង <strong>មិនដំណើរការ</strong> បើ <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">0</span></code>
+ទោះបីជា <code class="docutils literal notranslate"><span class="pre">x</span></code> មានតម្លៃត្រឹមត្រូវក៏ដោយ។ សម្រាប់លេខ សូមប្រើ
+<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None:</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">!=</span> <span class="pre">0:</span></code> ឱ្យច្បាស់លាស់។</p>
+</div>
+</section>
+</section>
+<section id="none">
+<span id="id13"></span><h2><code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#none" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> គឺជា object តែមួយគត់នៃប្រភេទ <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>។ វាមានន័យថា
+&quot;គ្មានតម្លៃ&quot; ឬ &quot;មិនបានកំណត់&quot;។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span>          <span class="c1"># វិធីត្រឹមត្រូវដើម្បីពិនិត្យ None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="kc">None</span>          <span class="c1"># ដំណើរការដែរ ប៉ុន្តែមិនត្រូវបានណែនាំ</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">no_return</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">no_return</span><span class="p">())</span>   <span class="c1"># អនុគមន៍គ្មាន return ត្រឡប់ None</span>
+<span class="go">None</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">None</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code> ជានិច្ច — <strong>កុំ</strong> ប្រើ <code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">None</span></code>។
+<code class="docutils literal notranslate"><span class="pre">is</span></code> ពិនិត្យអត្តសញ្ញាណ object ដែលត្រឹមត្រូវ និងលឿនជាង ហើយ
+PEP 8 ណែនាំវាជាផ្លូវការ។</p>
+</div>
+</section>
+<section id="type-conversion">
+<span id="id14"></span><h2>ការបំលែងប្រភេទ (Type Conversion)<a class="headerlink" href="#type-conversion" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">អនុគមន៍បំលែងប្រភេទ</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អនុគមន៍</p></th>
+<th class="head"><p>បំលែងទៅ</p></th>
+<th class="head"><p>ឧទាហរណ៍ និងលទ្ធផល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int(&quot;42&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">42</span></code> · <code class="docutils literal notranslate"><span class="pre">int(3.99)</span></code> → <code class="docutils literal notranslate"><span class="pre">3</span></code> (truncate ទៅសូន្យ)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float(&quot;3.5&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">3.5</span></code> · <code class="docutils literal notranslate"><span class="pre">float(7)</span></code> → <code class="docutils literal notranslate"><span class="pre">7.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">str(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str(42)</span></code> → <code class="docutils literal notranslate"><span class="pre">&quot;42&quot;</span></code> · <code class="docutils literal notranslate"><span class="pre">str(None)</span></code> → <code class="docutils literal notranslate"><span class="pre">&quot;None&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool(&quot;&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code> · <code class="docutils literal notranslate"><span class="pre">bool(&quot;0&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list(&quot;abc&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tuple(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tuple([1,</span> <span class="pre">2])</span></code> → <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">set(&quot;aab&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">{'a',</span> <span class="pre">'b'}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dict(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict([(&quot;a&quot;,</span> <span class="pre">1)])</span></code> → <code class="docutils literal notranslate"><span class="pre">{'a':</span> <span class="pre">1}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">chr(n)</span></code></p></td>
+<td><p>តួអក្សរពី code point</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">chr(65)</span></code> → <code class="docutils literal notranslate"><span class="pre">'A'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ord(c)</span></code></p></td>
+<td><p>code point ពីតួអក្សរ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ord('A')</span></code> → <code class="docutils literal notranslate"><span class="pre">65</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bin(n)</span></code> / <code class="docutils literal notranslate"><span class="pre">oct(n)</span></code> / <code class="docutils literal notranslate"><span class="pre">hex(n)</span></code></p></td>
+<td><p>ខ្សែអក្សរជាទម្រង់ប្រព័ន្ធលេខ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hex(255)</span></code> → <code class="docutils literal notranslate"><span class="pre">'0xff'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">round(x,</span> <span class="pre">n)</span></code></p></td>
+<td><p>បង្គត់ទៅ <code class="docutils literal notranslate"><span class="pre">n</span></code> ខ្ទង់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">round(3.14159,</span> <span class="pre">2)</span></code> → <code class="docutils literal notranslate"><span class="pre">3.14</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"123"</span><span class="p">)</span>
+<span class="go">123</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"12.5"</span><span class="p">)</span>        <span class="c1"># មិនអាច — មានចុចទសភាគ</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: '12.5'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"12.5"</span><span class="p">))</span> <span class="c1"># បំលែងពីរដំណាក់កាល</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"ff"</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>      <span class="c1"># បញ្ជាក់ប្រព័ន្ធលេខជាគោល (base)</span>
+<span class="go">255</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">round()</span></code> ប្រើ <strong>banker's rounding</strong> (round-half-to-even) មិនមែន
+round-half-up ដែលអ្នករំពឹងទេ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="mutable-immutable">
+<span id="mutability"></span><h2>Mutable និង Immutable<a class="headerlink" href="#mutable-immutable" title="Link to this heading"></a></h2>
+<p>នេះគឺជាគំនិតសំខាន់បំផុតមួយក្នុង Python។</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Immutable</strong> (មិនអាចកែប្រែ)</p></th>
+<th class="head"><p><strong>Mutable</strong> (អាចកែប្រែ)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bytes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">frozenset</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bytearray</span></code> វត្ថុ custom ភាគច្រើន</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Immutable</strong> — object មិនអាចប្រែប្រួលបានទេ។ &quot;ការកែប្រែ&quot; គឺជាការបង្កើត
+object ថ្មី៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"abc"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"z"</span>          <span class="c1"># មិនអនុញ្ញាត</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">'str' object does not support item assignment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">"d"</span>         <span class="c1"># បង្កើតខ្សែអក្សរថ្មី ហើយ s ចង្អុលទៅវា</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">'abcd'</span>
+</pre></div>
+</div>
+<p><strong>Mutable</strong> — object អាចកែប្រែនៅនឹងកន្លែង៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>          <span class="c1"># កែប្រែផ្ទាល់</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span>
+<span class="go">[99, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span>
+<span class="go">[99, 2, 3, 4]</span>
+</pre></div>
+</div>
+<section id="references">
+<span id="id15"></span><h3>អថេរគឺជាឈ្មោះ មិនមែនជាប្រអប់ទេ<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
+<p>ការផ្ដល់តម្លៃមិន <strong>ចម្លង</strong> object ទេ — វាគ្រាន់តែបង្កើតឈ្មោះថ្មីដែលចង្អុល
+ទៅ object <strong>ដដែល</strong>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>                <span class="c1"># b និង a ចង្អុលទៅ list តែមួយ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>                    <span class="c1"># a ក៏ផ្លាស់ប្ដូរដែរ!</span>
+<span class="go">[1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>ដើម្បីចម្លងពិតប្រាកដ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>         <span class="c1"># ឬ a[:] ឬ list(a)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">[1, 2, 3, 4]</span>
+</pre></div>
+</div>
+<p>សម្រាប់ object ដែលមាន nested structure ប្រើ <code class="docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shallow</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">deep</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shallow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># shallow copy ចម្លងតែកម្រិតខាងក្រៅ</span>
+<span class="go">[1, 2, 99]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">deep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>              <span class="c1"># deep copy ចម្លងគ្រប់កម្រិត</span>
+<span class="go">[1, 2]</span>
+</pre></div>
+</div>
+</section>
+<section id="is">
+<span id="identity-vs-equality"></span><h3><code class="docutils literal notranslate"><span class="pre">is</span></code> ធៀបនឹង <code class="docutils literal notranslate"><span class="pre">==</span></code><a class="headerlink" href="#is" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 42.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រមាណវិធី</p></th>
+<th class="head"><p>ពិនិត្យអ្វី</p></th>
+<th class="head"><p>ប្រើពេលណា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p><strong>តម្លៃ</strong> ស្មើគ្នាឬទេ (ស្មើភាព)</p></td>
+<td><p>ភាគច្រើនគ្រប់ករណី</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>តម្លៃមិនស្មើគ្នា</p></td>
+<td><p>ភាគច្រើនគ្រប់ករណី</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">is</span></code></p></td>
+<td><p><strong>អត្តសញ្ញាណ</strong> — object តែមួយឬទេ</p></td>
+<td><p>តែជាមួយ <code class="docutils literal notranslate"><span class="pre">None</span></code> និង <em>sentinel</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code></p></td>
+<td><p>object ផ្សេងគ្នា</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None:</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>     <span class="c1"># តម្លៃដូចគ្នា</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>     <span class="c1"># object ពីរផ្សេងគ្នា</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="ow">is</span> <span class="n">x</span>               <span class="c1"># object តែមួយ</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>អ្នកអាចឃើញ <code class="docutils literal notranslate"><span class="pre">256</span> <span class="pre">is</span> <span class="pre">256</span></code> ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">True</span></code> ខណៈ <code class="docutils literal notranslate"><span class="pre">257</span> <span class="pre">is</span> <span class="pre">257</span></code>
+ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">False</span></code>។ នេះដោយសារ CPython ទុកចំនួនគត់តូចៗ (−5 ដល់ 256)
+ជាអចិន្ត្រៃយ៍។ <strong>កុំពឹងផ្អែកលើឥរិយាបថនេះ</strong> — វាជាការបង្កើនប្រសិទ្ធភាព
+នៃ implementation មិនមែនជាការធានាភាសាទេ។ ប្រើ <code class="docutils literal notranslate"><span class="pre">==</span></code> សម្រាប់តម្លៃ។</p>
+</div>
+<p>អ្នកអាចមើលអត្តសញ្ញាណ object ដោយ <code class="docutils literal notranslate"><span class="pre">id()</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="summary">
+<span id="id16"></span><h2>សង្ខេប<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Python ប្រើ <strong>indentation</strong> ដើម្បីកំណត់ block — ប្រើ space ៤។</p></li>
+<li><p>អថេរមិនចាំបាច់ប្រកាសប្រភេទទេ (<strong>dynamic typing</strong>)។</p></li>
+<li><p>អថេរគឺជា <strong>ឈ្មោះ</strong> ដែលចង្អុលទៅ object មិនមែនជាប្រអប់ផ្ទុកតម្លៃទេ។</p></li>
+<li><p>ប្រភេទ mutable (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>) អាចកែប្រែនៅនឹងកន្លែង;
+immutable (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>) មិនអាច។</p></li>
+<li><p>ប្រើ <code class="docutils literal notranslate"><span class="pre">==</span></code> សម្រាប់តម្លៃ និង <code class="docutils literal notranslate"><span class="pre">is</span></code> សម្រាប់អត្តសញ្ញាណ (ជាពិសេស <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">None</span></code>)។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> មានកំហុសបង្គត់ — ប្រើ <code class="docutils literal notranslate"><span class="pre">math.isclose()</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">Decimal</span></code>
+សម្រាប់លុយ។</p></li>
+</ul>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Built-in Types</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html">Lexical analysis</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html">Floating Point Arithmetic: Issues and Limitations</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0008/">PEP 8 — Style Guide for Python Code</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/keyword.html">keyword — Testing for Python keywords</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="ចាប់ផ្ដើម និងការដំឡើង Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="strings_collections.html" class="btn btn-neutral float-right" title="ខ្សែអក្សរ និងសំណុំទិន្នន័យ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1041 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ការគ្រប់គ្រងឯកសារ &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/file_handling.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ប្រភព និងអាជ្ញាបណ្ណ" href="license_attribution.html" />
+    <link rel="prev" title="អនុគមន៍ និងវិសាលភាពអថេរ" href="functions_scope.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/file_handling.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="ការគ្រប់គ្រងឯកសារ">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/file_handling.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ការគ្រប់គ្រងឯកសារ">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ការគ្រប់គ្រងឯកសារ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#open">អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">open()</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mode-open">Mode របស់ <code class="docutils literal notranslate"><span class="pre">open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-mode-binary-mode">Text Mode និង Binary Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#with">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">with</span></code> — វិធីត្រឹមត្រូវ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading">ការអានឯកសារ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#method">Method សម្រាប់អាន</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#writing">ការសរសេរឯកសារ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#seek-tell"><code class="docutils literal notranslate"><span class="pre">seek()</span></code> និង <code class="docutils literal notranslate"><span class="pre">tell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closed-files">ឯកសារដែលបានបិទ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pathlib"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> — ការគ្រប់គ្រងផ្លូវឯកសារ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pathlib-io">អាន និងសរសេរដោយផ្ទាល់</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pathlib-dirs">ថត និងការស្វែងរក</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#errors">កំហុសទូទៅ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#encoding">ការអនុវត្តល្អបំផុតអំពី Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#json">ការរក្សាទុកទិន្នន័យរចនាសម្ព័ន្ធជាមួយ <code class="docutils literal notranslate"><span class="pre">json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#os">ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">os</span></code> — ការងារមូលដ្ឋាន</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#csv">ឯកសារ CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">ការអនុវត្តល្អបំផុត — សង្ខេប</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ការគ្រប់គ្រងឯកសារ</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/file_handling.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="file-handling">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/inputoutput.rst</span></code> (ផ្នែក <em>Reading and
+writing files</em>), <code class="docutils literal notranslate"><span class="pre">Doc/library/functions.rst</span></code> (<code class="docutils literal notranslate"><span class="pre">open</span></code>),
+<code class="docutils literal notranslate"><span class="pre">Doc/library/pathlib.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/library/json.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/library/os.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>ការគ្រប់គ្រងឯកសារ<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<section id="open">
+<span id="id3"></span><h2>អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">open()</span></code><a class="headerlink" href="#open" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">open()</span></code> ត្រឡប់ <strong>file object</strong> មួយ។ ទម្រង់ដែលប្រើញឹកញាប់បំផុត៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">Parameter សំខាន់ៗ</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 82.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">file</span></code></p></td>
+<td><p>ឈ្មោះឯកសារ (str ឬ path-like object)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mode</span></code></p></td>
+<td><p>របៀបប្រើប្រាស់ឯកសារ (មើលតារាងខាងក្រោម)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">encoding</span></code></p></td>
+<td><p>encoding សម្រាប់ text mode។ <strong>លំនាំដើមអាស្រ័យលើប្រព័ន្ធ</strong> — សូមបញ្ជាក់ជាច្បាស់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">newline</span></code></p></td>
+<td><p>ការគ្រប់គ្រងការបំលែងបន្ទាត់ថ្មី។ ប្រើ <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> សម្រាប់ឯកសារ CSV</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">errors</span></code></p></td>
+<td><p>របៀបដោះស្រាយកំហុស encoding ឧ. <code class="docutils literal notranslate"><span class="pre">&quot;strict&quot;</span></code> (លំនាំដើម), <code class="docutils literal notranslate"><span class="pre">&quot;replace&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ignore&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<section id="mode-open">
+<span id="modes"></span><h3>Mode របស់ <code class="docutils literal notranslate"><span class="pre">open()</span></code><a class="headerlink" href="#mode-open" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 86.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code></p></td>
+<td><p><strong>អាន</strong> តែប៉ុណ្ណោះ (លំនាំដើម)។ <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> បើឯកសារមិនមាន</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code></p></td>
+<td><p><strong>សរសេរ</strong>។ បង្កើតឯកសារថ្មី ឬ <strong>លុបមាតិកាចាស់ទាំងអស់</strong> បើមានស្រាប់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></p></td>
+<td><p><strong>បន្ថែម</strong> (append) នៅចុងឯកសារ។ បង្កើតឯកសារថ្មីបើមិនមាន</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code></p></td>
+<td><p><strong>បង្កើតដាច់ខាត</strong>។ <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code> បើឯកសារមានស្រាប់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;r+&quot;</span></code></p></td>
+<td><p>អាន <strong>និង</strong> សរសេរ។ មិនលុបមាតិកាចាស់ទេ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code></p></td>
+<td><p>អាន <strong>និង</strong> សរសេរ។ លុបមាតិកាចាស់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;a+&quot;</span></code></p></td>
+<td><p>អាន <strong>និង</strong> បន្ថែម</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code></p></td>
+<td><p>សញ្ញាបន្ថែម — <strong>binary mode</strong>។ ឧ. <code class="docutils literal notranslate"><span class="pre">&quot;rb&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wb&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;t&quot;</span></code></p></td>
+<td><p>សញ្ញាបន្ថែម — <strong>text mode</strong> (លំនាំដើម)។ ឧ. <code class="docutils literal notranslate"><span class="pre">&quot;rt&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">)</span>            <span class="c1"># លំនាំដើម mode="r"</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: 'មិនមាន.txt'</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>   <span class="c1"># បង្កើតបាន</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> <strong>លុបមាតិកាឯកសារចាស់ទាំងស្រុង</strong> ភ្លាមៗនៅពេលបើក។
+បើអ្នកចង់រក្សាទុកទិន្នន័យចាស់ ប្រើ <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> (បន្ថែម) ឬ <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>
+(បរាជ័យបើមានស្រាប់)។</p>
+</div>
+</section>
+<section id="text-mode-binary-mode">
+<span id="text-vs-binary"></span><h3>Text Mode និង Binary Mode<a class="headerlink" href="#text-mode-binary-mode" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p><strong>Text mode</strong> (លំនាំដើម)</p></th>
+<th class="head"><p><strong>Binary mode</strong> (បន្ថែម <code class="docutils literal notranslate"><span class="pre">b</span></code>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>អាន/សរសេរជា</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">encoding</span></code></p></td>
+<td><p>អាចបញ្ជាក់បាន</p></td>
+<td><p>❌ មិនអាច — <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>បំលែងបន្ទាត់ថ្មី</p></td>
+<td><p>✅ បំលែង <code class="docutils literal notranslate"><span class="pre">\r\n</span></code> ↔ <code class="docutils literal notranslate"><span class="pre">\n</span></code> ស្វ័យប្រវត្តិ</p></td>
+<td><p>❌ គ្មានការបំលែង</p></td>
+</tr>
+<tr class="row-odd"><td><p>ប្រើសម្រាប់</p></td>
+<td><p>ឯកសារអត្ថបទ <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.py</span></code>, <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.json</span></code></p></td>
+<td><p>រូបភាព សំឡេង វីដេអូ PDF <code class="docutils literal notranslate"><span class="pre">.zip</span></code> <code class="docutils literal notranslate"><span class="pre">.exe</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>បើអ្នកអានឯកសារ binary (ដូចជា JPEG) ក្នុង text mode ទិន្នន័យនឹង <strong>ខូច</strong>។
+ប្រើ <code class="docutils literal notranslate"><span class="pre">&quot;rb&quot;</span></code> ជានិច្ចសម្រាប់ឯកសារដែលមិនមែនជាអត្ថបទ។</p>
+</div>
+</section>
+</section>
+<section id="with">
+<span id="with-statement"></span><h2>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">with</span></code> — វិធីត្រឹមត្រូវ<a class="headerlink" href="#with" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">Path</span><span class="p">(</span><span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកាសាកល្បង"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"notes.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>       <span class="c1"># មាតិកាសាកល្បង</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>      <span class="c1"># True — ឯកសារត្រូវបានបិទដោយស្វ័យប្រវត្តិ</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">with</span></code> បង្កើត <em>context manager</em> ដែលធានាថាឯកសារត្រូវបាន <strong>បិទត្រឹមត្រូវ</strong>
+បន្ទាប់ពី block ចប់ — សូម្បីតែបើមាន exception កើតឡើង។</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>បើអ្នក <strong>មិន</strong> ប្រើ <code class="docutils literal notranslate"><span class="pre">with</span></code> អ្នកត្រូវហៅ <code class="docutils literal notranslate"><span class="pre">f.close()</span></code> ដោយខ្លួនឯង។
+ការសរសេរ <code class="docutils literal notranslate"><span class="pre">f.write()</span></code> ដោយមិនបិទឯកសារ <strong>អាច</strong> បណ្ដាលឱ្យទិន្នន័យ
+មិនត្រូវបានសរសេរទៅថាសពេញលេញ សូម្បីតែកម្មវិធីបញ្ចប់ដោយជោគជ័យក៏ដោយ។
+ដូច្នេះ <strong>ប្រើ ``with`` ជានិច្ច</strong>។</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"ទិន្នន័យ"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="c1"># ❌ មិនណែនាំ — អាចបែកធ្លាយធនធាន</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>          <span class="c1"># មិនដំណើរការបើមាន exception</span>
+
+<span class="c1"># ✅ ណែនាំ</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>អ្នកក៏អាចបើកឯកសារច្រើនក្នុង <code class="docutils literal notranslate"><span class="pre">with</span></code> តែមួយ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"input.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="p">(</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s2">"input.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">,</span>
+    <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>   <span class="c1"># ABC</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>វាក្យសម្ពន្ធ វង់ក្រចកនៅក្នុង <code class="docutils literal notranslate"><span class="pre">with</span></code> ត្រូវការ Python 3.10+ ដើម្បីដំណើរការ
+ត្រឹមត្រូវជាមួយ context manager ច្រើន។ សម្រាប់កំណែចាស់ជាង ប្រើ backslash
+ឬ <code class="docutils literal notranslate"><span class="pre">contextlib.ExitStack</span></code>។</p>
+</div>
+</section>
+<section id="reading">
+<span id="id4"></span><h2>ការអានឯកសារ<a class="headerlink" href="#reading" title="Link to this heading"></a></h2>
+<section id="method">
+<span id="read-methods"></span><h3>Method សម្រាប់អាន<a class="headerlink" href="#method" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>ត្រឡប់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f.read()</span></code></p></td>
+<td><p>មាតិកា <strong>ទាំងអស់</strong> ជាខ្សែអក្សរតែមួយ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f.read(size)</span></code></p></td>
+<td><p>តួអក្សរច្រើនបំផុត <code class="docutils literal notranslate"><span class="pre">size</span></code> (ឬ byte ក្នុង binary mode)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f.readline()</span></code></p></td>
+<td><p><strong>មួយបន្ទាត់</strong> រួមទាំង <code class="docutils literal notranslate"><span class="pre">\n</span></code> នៅចុង (លើកលែងបន្ទាត់ចុងក្រោយ)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f.readlines()</span></code></p></td>
+<td><p><strong>list</strong> នៃបន្ទាត់ទាំងអស់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">f:</span></code></p></td>
+<td><p>ដើរលើបន្ទាត់ម្ដងមួយៗ — <strong>ល្អបំផុតសម្រាប់ឯកសារធំ</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># បង្កើតឯកសារសាកល្បង</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីមួយ</span><span class="se">\n</span><span class="s2">បន្ទាត់ទីពីរ</span><span class="se">\n</span><span class="s2">បន្ទាត់ទីបី</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>                       <span class="c1"># ចំនួនតួអក្សរដែលបានសរសេរ</span>
+<span class="go">38</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span>
+<span class="gp">...</span>
+<span class="go">'បន្ទាត់ទីមួយ\nបន្ទាត់ទីពីរ\nបន្ទាត់ទីបី\n'</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()))</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()))</span>
+<span class="gp">...</span>
+<span class="go">'បន្ទាត់ទីមួយ\n'</span>
+<span class="go">'បន្ទាត់ទីពីរ\n'</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p><strong>ដើរលើឯកសារបន្ទាត់ម្ដងមួយៗ</strong> — ប្រើអង្គចងចាំតិចបំផុត៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>     <span class="c1"># strip() លុប \n នៅចុង</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">f:</span></code> ជំនួស <code class="docutils literal notranslate"><span class="pre">f.readlines()</span></code> សម្រាប់ឯកសារធំ។
+<code class="docutils literal notranslate"><span class="pre">readlines()</span></code> ផ្ទុកឯកសារ <strong>ទាំងមូល</strong> ក្នុងអង្គចងចាំ ខណៈការដើរលើ
+file object អានតែមួយបន្ទាត់ក្នុងពេលតែមួយ។</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>បើអ្នកហៅ <code class="docutils literal notranslate"><span class="pre">f.read()</span></code> ពីរដង ការហៅលើកទីពីរត្រឡប់ <strong>ខ្សែអក្សរទទេ</strong>
+ព្រោះទីតាំងអានបានដល់ចុងឯកសារហើយ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">first</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">second</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">second</span>
+<span class="go">(True, '')</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="writing">
+<span id="id5"></span><h2>ការសរសេរឯកសារ<a class="headerlink" href="#writing" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f.write(s)</span></code></p></td>
+<td><p>សរសេរខ្សែអក្សរ <code class="docutils literal notranslate"><span class="pre">s</span></code>។ ត្រឡប់ចំនួនតួអក្សរដែលបានសរសេរ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f.writelines(seq)</span></code></p></td>
+<td><p>សរសេរលំដាប់នៃខ្សែអក្សរ។ <strong>មិនបន្ថែម</strong> <code class="docutils literal notranslate"><span class="pre">\n</span></code> ដោយស្វ័យប្រវត្តិទេ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f.flush()</span></code></p></td>
+<td><p>បញ្ជូន buffer ទៅឯកសារភ្លាម ដោយមិនបិទឯកសារ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីមួយ</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>       <span class="c1"># ត្រូវដាក់ \n ដោយខ្លួនឯង</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីពីរ</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់បន្ថែម</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"list.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">)</span>   <span class="c1"># បន្ថែម \n ដោយខ្លួនឯង</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">writelines()</span></code> <strong>មិនបន្ថែមបន្ទាត់ថ្មីទេ</strong> — ឈ្មោះរបស់វាបង្កើតការយល់ច្រឡំ។
+អ្នកត្រូវដាក់ <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> ក្នុងខ្សែអក្សរនីមួយៗដោយខ្លួនឯង។</p>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"bad.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"bad.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="go">abc</span>
+</pre></div>
+</div>
+<section id="seek-tell">
+<span id="id6"></span><h3><code class="docutils literal notranslate"><span class="pre">seek()</span></code> និង <code class="docutils literal notranslate"><span class="pre">tell()</span></code><a class="headerlink" href="#seek-tell" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f.tell()</span></code></p></td>
+<td><p>ទីតាំងបច្ចុប្បន្នក្នុងឯកសារ (ជា byte)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f.seek(offset[,</span> <span class="pre">whence])</span></code></p></td>
+<td><p>ផ្លាស់ទីតាំង។ <code class="docutils literal notranslate"><span class="pre">whence</span></code>: 0=ដើម (លំនាំដើម), 1=បច្ចុប្បន្ន, 2=ចុង</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទីតាំងដើម:"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="n">chunk</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"បន្ទាប់ពីអាន 4 byte:"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="n">_</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"បន្ទាប់ពី seek(0):"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">ទីតាំងដើម: 0</span>
+<span class="go">បន្ទាប់ពីអាន 4 byte: 4</span>
+<span class="go">បន្ទាប់ពី seek(0): 0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ក្នុង <strong>text mode</strong> <code class="docutils literal notranslate"><span class="pre">tell()</span></code> ត្រឡប់លេខ opaque ដែលមិនមែនជាចំនួនតួអក្សរ
+ទេ ហើយ <code class="docutils literal notranslate"><span class="pre">seek()</span></code> អាចប្រើបានតែជាមួយតម្លៃដែលទទួលពី <code class="docutils literal notranslate"><span class="pre">tell()</span></code>
+(ឬ 0)។ សម្រាប់ការគ្រប់គ្រងទីតាំងពិតប្រាកដ សូមប្រើ <strong>binary mode</strong>។</p>
+</div>
+</section>
+<section id="closed-files">
+<span id="id7"></span><h3>ឯកសារដែលបានបិទ<a class="headerlink" href="#closed-files" title="Link to this heading"></a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">I/O operation on closed file.</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="pathlib">
+<span id="id8"></span><h2><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> — ការគ្រប់គ្រងផ្លូវឯកសារ<a class="headerlink" href="#pathlib" title="Link to this heading"></a></h2>
+<p>ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> ផ្ដល់វិធីស្អាតជាងក្នុងការធ្វើការជាមួយផ្លូវឯកសារ
+ជំនួសឱ្យការភ្ជាប់ខ្សែអក្សរ។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"reports"</span> <span class="o">/</span> <span class="s2">"2026.txt"</span>     <span class="c1"># / ភ្ជាប់ផ្លូវ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
+<span class="go">PosixPath('data/reports/2026.txt')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">name</span>
+<span class="go">'2026.txt'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">stem</span>
+<span class="go">'2026'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">suffix</span>
+<span class="go">'.txt'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">parent</span>
+<span class="go">PosixPath('data/reports')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">parts</span>
+<span class="go">('data', 'reports', '2026.txt')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".md"</span><span class="p">)</span>
+<span class="go">PosixPath('data/reports/2026.md')</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>នៅលើ Windows <code class="docutils literal notranslate"><span class="pre">repr()</span></code> បង្ហាញជា <code class="docutils literal notranslate"><span class="pre">WindowsPath(...)</span></code> ហើយផ្លូវប្រើ
+backslash។ <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> ដោះស្រាយភាពខុសគ្នានេះដោយស្វ័យប្រវត្តិ —
+ដូច្នេះកូដរបស់អ្នកដំណើរការលើគ្រប់ប្រព័ន្ធ។</p>
+</div>
+<section id="pathlib-io">
+<span id="id9"></span><h3>អាន និងសរសេរដោយផ្ទាល់<a class="headerlink" href="#pathlib-io" title="Link to this heading"></a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"quick.txt"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកា</span><span class="se">\n</span><span class="s2">បន្ទាត់ពីរ</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="go">18</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="go">'មាតិកា\nបន្ទាត់ពីរ\n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>            <span class="c1"># ចំនួន byte ក្នុងឯកសារ</span>
+<span class="go">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span>               <span class="c1"># ទំហំជា byte</span>
+<span class="go">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>                     <span class="c1"># លុបឯកសារ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>ចំណាំលេខខាងលើ៖ <code class="docutils literal notranslate"><span class="pre">write_text()</span></code> ត្រឡប់ <strong>១៨</strong> (ចំនួនតួអក្សរ) ប៉ុន្តែ
+<code class="docutils literal notranslate"><span class="pre">stat().st_size</span></code> គឺ <strong>៥០</strong> (ចំនួន byte)។ អក្សរខ្មែរមួយត្រូវការ ៣ byte
+ក្នុង UTF-8 ដូច្នេះលេខទាំងពីរខុសគ្នា។ កុំច្រឡំ &quot;ចំនួនតួអក្សរ&quot;
+ជាមួយ &quot;ទំហំឯកសារ&quot;។</p>
+</div>
+</section>
+<section id="pathlib-dirs">
+<span id="id10"></span><h3>ថត និងការស្វែងរក<a class="headerlink" href="#pathlib-dirs" title="Link to this heading"></a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">())</span>       <span class="c1"># ថតសាកល្បងដាច់ដោយឡែក</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"reports"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"reports"</span> <span class="o">/</span> <span class="s2">"2026.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="go">1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())]</span>        <span class="c1"># ធាតុក្នុងថត</span>
+<span class="go">['data', 'notes.txt']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))]</span>    <span class="c1"># តែកម្រិតបច្ចុប្បន្ន</span>
+<span class="go">['notes.txt']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
+<span class="gp">... </span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))]</span>         <span class="c1"># recursive</span>
+<span class="go">['data/reports/2026.txt', 'notes.txt']</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">==</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>   <span class="c1"># ថតបច្ចុប្បន្ន</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">()</span>           <span class="c1"># ថតផ្ទះ</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Path.mkdir(parents=True,</span> <span class="pre">exist_ok=True)</span></code></p></td>
+<td><p>បង្កើតថត (រួមទាំងថតមេ) ដោយមិនបញ្ចេញកំហុសបើមានស្រាប់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p.iterdir()</span></code></p></td>
+<td><p>ធាតុក្នុងថត (មិន recursive)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p.glob(pattern)</span></code></p></td>
+<td><p>ស្វែងរកតាម pattern ក្នុងថតបច្ចុប្បន្ន</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p.rglob(pattern)</span></code></p></td>
+<td><p>ស្វែងរក recursive គ្រប់ថតរង</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p.walk()</span></code></p></td>
+<td><p>ដើរលើថតទាំងអស់ (Python 3.12+)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p.unlink(missing_ok=True)</span></code></p></td>
+<td><p>លុបឯកសារ (Python 3.8+ សម្រាប់ <code class="docutils literal notranslate"><span class="pre">missing_ok</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p.rmdir()</span></code></p></td>
+<td><p>លុបថតទទេ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p.rename(target)</span></code></p></td>
+<td><p>ប្ដូរឈ្មោះ ឬផ្លាស់ទី</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p.absolute()</span></code> / <code class="docutils literal notranslate"><span class="pre">p.resolve()</span></code></p></td>
+<td><p>ផ្លូវពេញលេញ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p.cwd()</span></code> / <code class="docutils literal notranslate"><span class="pre">Path.home()</span></code></p></td>
+<td><p>ថតបច្ចុប្បន្ន / ថតផ្ទះ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">exist_ok=True</span></code> នៅក្នុង <code class="docutils literal notranslate"><span class="pre">mkdir()</span></code> មានប្រយោជន៍ណាស់ — វាជៀសវាង
+<code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code> ដោយមិនត្រូវការពិនិត្យ <code class="docutils literal notranslate"><span class="pre">exists()</span></code> ជាមុន។</p>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="errors">
+<span id="id11"></span><h2>កំហុសទូទៅ<a class="headerlink" href="#errors" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Exception</p></th>
+<th class="head"><p>កើតឡើងពេលណា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></p></td>
+<td><p>ឯកសារ ឬថតមិនមាន (mode <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">r+</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> លើឯកសារមានស្រាប់គឺផ្ទុយគ្នា)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code></p></td>
+<td><p>mode <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> លើឯកសារដែលមានស្រាប់ ឬ <code class="docutils literal notranslate"><span class="pre">mkdir()</span></code> ដោយគ្មាន <code class="docutils literal notranslate"><span class="pre">exist_ok</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PermissionError</span></code></p></td>
+<td><p>គ្មានសិទ្ធិអាន/សរសេរ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IsADirectoryError</span></code></p></td>
+<td><p>ព្យាយាមអានថតជាឯកសារ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">NotADirectoryError</span></code></p></td>
+<td><p>ផ្លូវមិនមែនជាថត</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code></p></td>
+<td><p>encoding ខុស</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p></td>
+<td><p>ប្រតិបត្តិការលើឯកសារដែលបានបិទហើយ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OSError</span></code></p></td>
+<td><p>ថាសពេញ ឬកំហុសប្រព័ន្ធផ្សេងទៀត (ជា class មេនៃភាគច្រើនខាងលើ)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_safely</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""អានឯកសារដោយដោះស្រាយកំហុសទូទៅទាំងអស់។"""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ឯកសារ '</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' មិនមានទេ"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"គ្មានសិទ្ធិអាន '</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IsADirectoryError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' គឺជាថត មិនមែនឯកសារ"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' មិនមែនជាអត្ថបទ UTF-8"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>សូមមើលជំពូក <em>Exceptions</em> (មិនទាន់បានសរសេរ) សម្រាប់ការពន្យល់ពេញលេញ
+អំពី <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>/<code class="docutils literal notranslate"><span class="pre">finally</span></code>។</p>
+</div>
+<section id="encoding">
+<span id="encoding-best-practice"></span><h3>ការអនុវត្តល្អបំផុតអំពី Encoding<a class="headerlink" href="#encoding" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>តែងតែបញ្ជាក់ ``encoding=&quot;utf-8&quot;``</strong> នៅពេលបើកឯកសារអត្ថបទ។</p>
+<p>លំនាំដើមរបស់ <code class="docutils literal notranslate"><span class="pre">open()</span></code> គឺ <code class="docutils literal notranslate"><span class="pre">locale.getencoding()</span></code> ដែល <strong>ខុសគ្នាតាម
+ប្រព័ន្ធ</strong>៖ UTF-8 នៅលើ Linux/macOS ភាគច្រើន ប៉ុន្តែអាចជា
+<code class="docutils literal notranslate"><span class="pre">cp1252</span></code> នៅលើ Windows អឺរ៉ុប ឬ <code class="docutils literal notranslate"><span class="pre">cp874</span></code>/<code class="docutils literal notranslate"><span class="pre">TIS-620</span></code> នៅលើ
+Windows ខ្មែរ។ កូដដែលដំណើរការលើម៉ាស៊ីនរបស់អ្នកអាចបរាជ័យលើ
+ម៉ាស៊ីនអ្នកផ្សេង។</p>
+<p>បញ្ហានេះធ្ងន់ធ្ងរជាពិសេសសម្រាប់អត្ថបទខ្មែរ។</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="c1"># ❌ គ្រោះថ្នាក់ — encoding អាស្រ័យលើប្រព័ន្ធ</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># ✅ ត្រឹមត្រូវ</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15: </span>Python មានផែនការផ្លាស់ប្ដូរ encoding លំនាំដើមទៅ UTF-8 ជាសកល
+(PEP 686)។ ទោះជាយ៉ាងណាក៏ដោយ សូមបញ្ជាក់ <code class="docutils literal notranslate"><span class="pre">encoding</span></code> ជានិច្ច
+ដើម្បីឱ្យកូដច្បាស់លាស់ និងអាចយល់បានដោយអ្នកអាន។</p>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="json">
+<span id="id12"></span><h2>ការរក្សាទុកទិន្នន័យរចនាសម្ព័ន្ធជាមួយ <code class="docutils literal notranslate"><span class="pre">json</span></code><a class="headerlink" href="#json" title="Link to this heading"></a></h2>
+<p>JSON គឺជាទម្រង់ស្តង់ដារសម្រាប់ផ្លាស់ប្ដូរទិន្នន័យរចនាសម្ព័ន្ធ។</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 72.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អនុគមន៍</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">json.dumps(obj)</span></code></p></td>
+<td><p>បំលែង object → ខ្សែអក្សរ JSON</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">json.loads(s)</span></code></p></td>
+<td><p>បំលែងខ្សែអក្សរ JSON → object</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">json.dump(obj,</span> <span class="pre">f)</span></code></p></td>
+<td><p>សរសេរ object ទៅ <strong>file object</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">json.load(f)</span></code></p></td>
+<td><p>អាន object ពី <strong>file object</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="s2">"active"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">  "name": "សុខា",</span>
+<span class="go">  "age": 25,</span>
+<span class="go">  "tags": [</span>
+<span class="go">    "a",</span>
+<span class="go">    "b"</span>
+<span class="go">  ],</span>
+<span class="go">  "active": true</span>
+<span class="go">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="n">data</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><strong>សរសេរ និងអានពីឯកសារ៖</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"theme"</span><span class="p">:</span> <span class="s2">"dark"</span><span class="p">,</span> <span class="s2">"font_size"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">"lang"</span><span class="p">:</span> <span class="s2">"km"</span><span class="p">}</span>
+
+<span class="c1"># សរសេរ</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># អាន</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">loaded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Parameter មានប្រយោជន៍</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ensure_ascii=False</span></code></p></td>
+<td><p><strong>សំខាន់សម្រាប់ខ្មែរ</strong> — រក្សាអក្សរ Unicode ដូចដើម ជំនួស <code class="docutils literal notranslate"><span class="pre">\uXXXX</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">indent=2</span></code></p></td>
+<td><p>ធ្វើឱ្យ JSON ស្អាត ងាយអាន</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sort_keys=True</span></code></p></td>
+<td><p>តម្រៀប key តាមអក្ខរក្រម (ល្អសម្រាប់ diff ក្នុង git)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default=func</span></code></p></td>
+<td><p>ដោះស្រាយប្រភេទដែល JSON មិនស្គាល់</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>JSON គាំទ្រតែប្រភេទមូលដ្ឋានប៉ុណ្ណោះ៖ <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>,
+<code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">null</span></code>។ ប្រភេទដូចជា <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code>
+ឬ class ផ្ទាល់ខ្លួន នឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> លើកលែងតែអ្នកផ្ដល់
+<code class="docutils literal notranslate"><span class="pre">default=</span></code>។ ចំណាំថា <code class="docutils literal notranslate"><span class="pre">tuple</span></code> ត្រូវបានបំលែងទៅជា JSON array ហើយ
+ត្រឡប់មកវិញជា <code class="docutils literal notranslate"><span class="pre">list</span></code>។</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="os">
+<span id="os-module"></span><h2>ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">os</span></code> — ការងារមូលដ្ឋាន<a class="headerlink" href="#os" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> គ្របដណ្ដប់ភាគច្រើន ប៉ុន្តែ <code class="docutils literal notranslate"><span class="pre">os</span></code> នៅតែមានប្រយោជន៍៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>         <span class="c1"># ធាតុក្នុងថត</span>
+<span class="go">['b']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">)</span>   <span class="c1"># ភ្ជាប់ផ្លូវតាមប្រព័ន្ធ</span>
+<span class="go">'a/b/c'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">,</span> <span class="s2">"a/b/d"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"a/b"</span><span class="p">))</span>
+<span class="go">['d']</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span>            <span class="c1"># លុបឯកសារ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">"a/b/d"</span><span class="p">)</span>               <span class="c1"># លុបថតទទេ</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>  <span class="c1"># ថតបច្ចុប្បន្ន</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"HOME"</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span> <span class="ow">or</span> <span class="s2">"USERPROFILE"</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">ប្រៀបធៀប <code class="docutils literal notranslate"><span class="pre">os.path</span></code> និង <code class="docutils literal notranslate"><span class="pre">pathlib</span></code></span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">os.path</span></code> (ចាស់)</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> (ណែនាំ)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.join(a,</span> <span class="pre">b)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(a)</span> <span class="pre">/</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.exists(p)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(p).exists()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.isfile(p)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(p).is_file()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.basename(p)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(p).name</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.dirname(p)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(p).parent</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.splitext(p)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(p).stem</span></code> / <code class="docutils literal notranslate"><span class="pre">Path(p).suffix</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.getsize(p)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(p).stat().st_size</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">os.path.abspath(p)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Path(p).resolve()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>សម្រាប់កូដថ្មី ប្រើ <code class="docutils literal notranslate"><span class="pre">pathlib</span></code>។ វាអានងាយជាង មិនមានបញ្ហា separator
+តាមប្រព័ន្ធ និងផ្ដល់ method ទាំងអស់នៅលើ object តែមួយ។</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="csv">
+<span id="id13"></span><h2>ឯកសារ CSV<a class="headerlink" href="#csv" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">"ឈ្មោះ"</span><span class="p">,</span> <span class="s2">"អាយុ"</span><span class="p">,</span> <span class="s2">"ទីក្រុង"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">"ដារ៉ា"</span><span class="p">,</span> <span class="s2">"30"</span><span class="p">,</span> <span class="s2">"សៀមរាប"</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="c1"># សរសេរ</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"people.csv"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+<span class="c1"># អាន</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"people.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">newline=&quot;&quot;</span></code> ជានិច្ចនៅពេលបើកឯកសារ CSV។ បើមិនដូច្នោះទេ
+នៅលើ Windows អ្នកនឹងទទួលបានបន្ទាត់ទទេរវាងជួរនីមួយៗ ព្រោះ
+ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">csv</span></code> គ្រប់គ្រងបន្ទាត់ថ្មីដោយខ្លួនឯង។</p>
+</div>
+<p>---</p>
+</section>
+<section id="best-practices">
+<span id="id14"></span><h2>ការអនុវត្តល្អបំផុត — សង្ខេប<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>ប្រើ ``with`` ជានិច្ច</strong> ដើម្បីធានាថាឯកសារត្រូវបានបិទ។</p></li>
+<li><p><strong>បញ្ជាក់ ``encoding=&quot;utf-8&quot;``</strong> សម្រាប់ឯកសារអត្ថបទទាំងអស់។</p></li>
+<li><p><strong>ប្រើ ``&quot;rb&quot;``/``&quot;wb&quot;``</strong> សម្រាប់ឯកសារ binary។</p></li>
+<li><p><strong>អានបន្ទាត់ម្ដងមួយៗ</strong> (<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">f</span></code>) សម្រាប់ឯកសារធំ។</p></li>
+<li><p><strong>ប្រើ ``pathlib``</strong> សម្រាប់ការគ្រប់គ្រងផ្លូវ។</p></li>
+<li><p><strong>ប្រើ ``newline=&quot;&quot;``</strong> សម្រាប់ឯកសារ CSV។</p></li>
+<li><p><strong>ចាប់យក exception ជាក់លាក់</strong> — កុំប្រើ <code class="docutils literal notranslate"><span class="pre">except:</span></code> ទទេ។</p></li>
+<li><p><strong>កុំប្រើ mode ``&quot;w&quot;``</strong> លើឯកសារដែលអ្នកមិនចង់លុប។</p></li>
+<li><p>សម្រាប់ការសរសេរដែលត្រូវតែជោគជ័យទាំងស្រុង សូមសរសេរទៅឯកសារ
+បណ្ដោះអាសន្ន រួច <code class="docutils literal notranslate"><span class="pre">Path.rename()</span></code> ទៅឈ្មោះចុងក្រោយ។</p></li>
+</ol>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Reading and writing files</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects">Methods of File Objects</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open()</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib — Object-oriented filesystem paths</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html">json — JSON encoder and decoder</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/os.html">os — Miscellaneous operating system interfaces</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/csv.html">csv — CSV File Reading and Writing</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="functions_scope.html" class="btn btn-neutral float-left" title="អនុគមន៍ និងវិសាលភាពអថេរ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license_attribution.html" class="btn btn-neutral float-right" title="ប្រភព និងអាជ្ញាបណ្ណ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

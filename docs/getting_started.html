@@ -1,0 +1,606 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ចាប់ផ្ដើម និងការដំឡើង Python &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/getting_started.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ" href="syntax_variables_types.html" />
+    <link rel="prev" title="ឯកសារ Python ជាភាសាខ្មែរ" href="index.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/getting_started.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="ចាប់ផ្ដើម និងការដំឡើង Python">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/getting_started.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ចាប់ផ្ដើម និងការដំឡើង Python">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ចាប់ផ្ដើម និងការដំឡើង Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-python">តើ Python ជាអ្វី?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">ការដំឡើង Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macos">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-install">ការផ្ទៀងផ្ទាត់ការដំឡើង</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#repl-interactive">REPL — របៀប Interactive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#indentation">Indentation គឺចាំបាច់</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#script">ការដំណើរការ Script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-options">ជម្រើសបន្ទាត់ពាក្យបញ្ជាដែលសំខាន់</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shebang-unix">Shebang នៅលើ Unix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#argument">ការទទួល Argument ពីបន្ទាត់ពាក្យបញ្ជា</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#encoding-utf-8">Encoding — UTF-8 ជាលំនាំដើម</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editor">កម្មវិធីកែកូដ (Editor)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-program">កម្មវិធីដំបូងរបស់អ្នក</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">ជំហានបន្ទាប់</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ចាប់ផ្ដើម និងការដំឡើង Python</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/getting_started.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="getting-started">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/appetite.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/interpreter.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/using/unix.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/using/windows.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/using/mac.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/using/cmdline.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/index.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="python">
+<h1>ចាប់ផ្ដើម និងការដំឡើង Python<a class="headerlink" href="#python" title="Link to this heading"></a></h1>
+<section id="what-is-python">
+<span id="id2"></span><h2>តើ Python ជាអ្វី?<a class="headerlink" href="#what-is-python" title="Link to this heading"></a></h2>
+<p>Python គឺជាភាសាកម្មវិធី (programming language) កម្រិតខ្ពស់ ដែលរចនាឡើងដោយ
+លោក <strong>Guido van Rossum</strong> នៅដើមទសវត្សរ៍ ១៩៩០។ វាលេចធ្លោដោយសារ៖</p>
+<ul class="simple">
+<li><p><strong>វាក្យសម្ពន្ធសាមញ្ញ</strong> — កូដ Python អានដូចអង់គ្លេសសាមញ្ញ ដូច្នេះងាយរៀន
+និងងាយថែទាំ។</p></li>
+<li><p><strong>រចនាសម្ព័ន្ធទិន្នន័យកម្រិតខ្ពស់មានស្រាប់</strong> — <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tuple</span></code> ដំណើរការលឿន និងមិនចាំបាច់ប្រកាសទំហំជាមុន។</p></li>
+<li><p><strong>បណ្ណាល័យស្តង់ដារ (standard library) ធំ</strong> — មានម៉ូឌុលសម្រាប់ឯកសារ,
+បណ្ដាញ, JSON, ពេលវេលា, regular expression និងច្រើនទៀត ដោយមិនចាំបាច់
+ដំឡើងអ្វីបន្ថែម។</p></li>
+<li><p><strong>Interpreted language</strong> — អ្នកអាចសាកល្បងកូដភ្លាមៗក្នុង REPL ដោយមិនចាំបាច់
+compile ជាមុន។</p></li>
+<li><p><strong>Dynamic typing</strong> — អថេរមិនចាំបាច់ប្រកាសប្រភេទ (type) ជាមុនទេ។</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python នៅទីនេះសំដៅលើ <strong>Python 3</strong> ប៉ុណ្ណោះ។ Python 2 ត្រូវបានបញ្ឈប់
+ការគាំទ្រជាផ្លូវការតាំងពីថ្ងៃទី ១ មករា ២០២០ ហើយមិនទទួលបានការជួសជុល
+សុវត្ថិភាពទៀតទេ។</p>
+</div>
+</section>
+<section id="installation">
+<span id="id3"></span><h2>ការដំឡើង Python<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<section id="windows">
+<span id="install-windows"></span><h3>Windows<a class="headerlink" href="#windows" title="Link to this heading"></a></h3>
+<p>មានជម្រើសធំៗពីរ៖</p>
+<p><strong>ជម្រើសទី ១ — Installer ផ្លូវការពី python.org (ណែនាំ)</strong></p>
+<ol class="arabic simple">
+<li><p>ទៅកាន់ <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a> ហើយទាញយកកំណែ
+<em>Windows installer (64-bit)</em> ចុងក្រោយ។</p></li>
+<li><p>ដំណើរការឯកសារ <code class="docutils literal notranslate"><span class="pre">.exe</span></code> ដែលបានទាញយក។</p></li>
+<li><p><strong>សំខាន់បំផុត៖</strong> ក្នុងអេក្រង់ដំបូង សូមធីកប្រអប់
+<code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">python.exe</span> <span class="pre">to</span> <span class="pre">PATH</span></code> មុនចុច <em>Install Now</em>។ បើអ្នកភ្លេចធីក
+ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">python</span></code> នឹងមិនដំណើរការក្នុង Command Prompt ទេ។</p></li>
+</ol>
+<p><strong>ជម្រើសទី ២ — Microsoft Store</strong></p>
+<p>ស្វែងរក &quot;Python&quot; ក្នុងកម្មវិធី Microsoft Store ហើយចុច <em>Get</em>។ វិធីនេះងាយ
+បំផុត ហើយធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ ប៉ុន្តែមានដែនកំណត់មួយចំនួន
+លើការចូលដំណើរការឯកសារក្រៅផ្ទះរបស់អ្នក។</p>
+<p><strong>ការផ្ទៀងផ្ទាត់</strong></p>
+<p>បើក Command Prompt (<code class="docutils literal notranslate"><span class="pre">cmd</span></code>) ឬ PowerShell ហើយវាយ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">C:\&gt; py -V</span>
+<span class="go">Python 3.15.0</span>
+
+<span class="go">C:\&gt; python --version</span>
+<span class="go">Python 3.15.0</span>
+</pre></div>
+</div>
+<p>នៅលើ Windows ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">py</span></code> គឺជា <strong>Python launcher</strong> ដែលអនុញ្ញាតឱ្យ
+អ្នកជ្រើសរើសកំណែជាក់លាក់បាន ឧទាហរណ៍ <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-3.13</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-3.15</span></code>។</p>
+</section>
+<section id="macos">
+<span id="install-macos"></span><h3>macOS<a class="headerlink" href="#macos" title="Link to this heading"></a></h3>
+<p><strong>Installer ផ្លូវការ (ណែនាំ)</strong></p>
+<ol class="arabic simple">
+<li><p>ទៅ <a class="reference external" href="https://www.python.org/downloads/macos/">https://www.python.org/downloads/macos/</a> ហើយទាញយកឯកសារ
+<em>macOS 64-bit universal2 installer</em>។</p></li>
+<li><p>ដំណើរការឯកសារ <code class="docutils literal notranslate"><span class="pre">.pkg</span></code> ហើយដើរតាមជំហានរហូតដល់ចប់។</p></li>
+<li><p>បន្ទាប់ពីដំឡើងរួច សូមដំណើរការឯកសារ
+<code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Certificates.command</span></code> ដែលនៅក្នុងថត
+<code class="docutils literal notranslate"><span class="pre">/Applications/Python</span> <span class="pre">3.15/</span></code>។ ជំហាននេះដំឡើងវិញ្ញាបនបត្រ SSL ដែល
+<code class="docutils literal notranslate"><span class="pre">pip</span></code> និង <code class="docutils literal notranslate"><span class="pre">urllib</span></code> ត្រូវការ ដើម្បីភ្ជាប់ទៅគេហទំព័រ HTTPS។</p></li>
+</ol>
+<p><strong>Homebrew</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>python@3.15
+</pre></div>
+</div>
+<p><strong>ការផ្ទៀងផ្ទាត់</strong> — បើក Terminal ហើយវាយ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>--version
+<span class="go">Python 3.15.0</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>នៅលើ macOS ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">python</span></code> (គ្មានលេខ ៣) អាចសំដៅលើ Python ចាស់
+របស់ប្រព័ន្ធ ឬមិនមានសោះ។ សូមប្រើ <code class="docutils literal notranslate"><span class="pre">python3</span></code> ជានិច្ច។</p>
+</div>
+</section>
+<section id="linux">
+<span id="install-linux"></span><h3>Linux<a class="headerlink" href="#linux" title="Link to this heading"></a></h3>
+<p>ភាគច្រើននៃ distribution Linux សម័យថ្មីមាន Python 3 ដំឡើងរួចហើយ។ ពិនិត្យដោយ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>បើមិនមាន សូមដំឡើងតាម package manager របស់អ្នក៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Debian<span class="w"> </span>/<span class="w"> </span>Ubuntu
+<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
+
+<span class="gp"># </span>Fedora<span class="w"> </span>/<span class="w"> </span>RHEL
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
+
+<span class="gp"># </span>Arch<span class="w"> </span>Linux
+<span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python<span class="w"> </span>python-pip
+
+<span class="gp"># </span>openSUSE
+<span class="gp">$ </span>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
+
+<span class="gp"># </span>Alpine
+<span class="gp">$ </span>sudo<span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>python3<span class="w"> </span>py3-pip
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>នៅលើ Linux កុំលុប ឬជំនួស <code class="docutils literal notranslate"><span class="pre">/usr/bin/python3</span></code> ដែលមកជាមួយប្រព័ន្ធ។
+ឧបករណ៍ប្រព័ន្ធជាច្រើនពឹងផ្អែកលើវា។ បើអ្នកត្រូវការកំណែផ្សេង
+សូមដំឡើងនៅកន្លែងផ្សេង ឬប្រើ virtual environment
+(មើលជំពូក <em>Virtual Environments</em>)។</p>
+</div>
+</section>
+<section id="verify-install">
+<span id="id4"></span><h3>ការផ្ទៀងផ្ទាត់ការដំឡើង<a class="headerlink" href="#verify-install" title="Link to this heading"></a></h3>
+<p>វិធីលឿនបំផុតគឺបើក REPL ហើយពិនិត្យព័ត៌មានកំណែ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3
+<span class="go">Python 3.15.0 (main, Oct 14 2026, 01:05:07) [Clang 23.1.3] on linux</span>
+<span class="go">Type "help", "copyright", "credits" or "license" for more information.</span>
+<span class="go">&gt;&gt;&gt; import sys</span>
+<span class="go">&gt;&gt;&gt; sys.version_info</span>
+<span class="go">sys.version_info(major=3, minor=15, micro=0, releaselevel='final', serial=0)</span>
+<span class="go">&gt;&gt;&gt; sys.executable</span>
+<span class="go">'/usr/local/bin/python3'</span>
+<span class="go">&gt;&gt;&gt; exit()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="repl-interactive">
+<span id="repl"></span><h2>REPL — របៀប Interactive<a class="headerlink" href="#repl-interactive" title="Link to this heading"></a></h2>
+<p><strong>REPL</strong> (Read–Eval–Print Loop) គឺជាម៉ូដអន្តរកម្ម ដែល Python អានបន្ទាត់កូដ
+ដំណើរការវា បោះពុម្ពលទ្ធផល ហើយរង់ចាំបន្ទាត់បន្ទាប់។ វាល្អបំផុតសម្រាប់សាកល្បង
+គំនិតតូចៗ និងរៀនភាសា។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"Python"</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">'PythonPython'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">"ខ្មែរ"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
+<span class="go">សួស្ដី ខ្មែរ!</span>
+</pre></div>
+</div>
+<p><strong>សញ្ញា prompt ពីរប្រភេទ៖</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Prompt</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code></p></td>
+<td><p><em>Primary prompt</em> — រង់ចាំបន្ទាត់កូដថ្មី (statement ពេញលេញ)។</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">...</span></code></p></td>
+<td><p><em>Secondary prompt</em> — បន្តបន្ទាត់នៃ block ដែលមិនទាន់ចប់
+(ឧ. ខ្លួន <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">def</span></code>)។</p></td>
+</tr>
+</tbody>
+</table>
+<p>ចេញពី REPL ដោយ៖</p>
+<ul class="simple">
+<li><p><strong>Unix / Linux / macOS</strong> — ចុច <kbd class="kbd docutils literal notranslate">Control</kbd>-<kbd class="kbd docutils literal notranslate">D</kbd></p></li>
+<li><p><strong>Windows</strong> — ចុច <kbd class="kbd docutils literal notranslate">Control</kbd>-<kbd class="kbd docutils literal notranslate">Z</kbd> រួច <kbd class="kbd docutils literal notranslate">Enter</kbd></p></li>
+<li><p><strong>គ្រប់ប្រព័ន្ធ</strong> — វាយ <code class="docutils literal notranslate"><span class="pre">quit()</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">exit()</span></code></p></li>
+</ul>
+<section id="indentation">
+<span id="indentation-in-repl"></span><h3>Indentation គឺចាំបាច់<a class="headerlink" href="#indentation" title="Link to this heading"></a></h3>
+<p>Python ប្រើ <strong>ការចូលបន្ទាត់ (indentation)</strong> ដើម្បីកំណត់ block ជំនួសឱ្យ
+វង់ក្រចក <code class="docutils literal notranslate"><span class="pre">{}</span></code> ឬពាក្យ <code class="docutils literal notranslate"><span class="pre">begin</span></code>/<code class="docutils literal notranslate"><span class="pre">end</span></code>។ នៅក្នុង REPL អ្នកត្រូវចុច
+<kbd class="kbd docutils literal notranslate">Enter</kbd> ទទេម្ដងទៀតដើម្បីបញ្ចប់ block៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">0 1 2</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ប្រើ <strong>ដកឃ្លា (space) ៤</strong> សម្រាប់ indentation ជានិច្ច កុំលាយឡំជាមួយ
+tab។ ការលាយឡំបណ្ដាលឱ្យមាន <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">TabError</span></code>
+ដែលពិបាកមើលឃើញ។ កំណត់ editor របស់អ្នកឱ្យបំលែង tab ទៅជា space ៤។</p>
+</div>
+</section>
+</section>
+<section id="script">
+<span id="running-scripts"></span><h2>ការដំណើរការ Script<a class="headerlink" href="#script" title="Link to this heading"></a></h2>
+<p>ដាក់កូដក្នុងឯកសារដែលមានផ្នែកបន្ថែម <code class="docutils literal notranslate"><span class="pre">.py</span></code> ឧទាហរណ៍ <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>៖</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">hello.py</span></code></span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Script ដំបូង — បោះពុម្ពសារ និងធ្វើគណនាសាមញ្ញ។"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"សួស្ដីពី Python 3.15!"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"ផលបូក 1 + 2 ="</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>ដំណើរការវា៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>hello.py
+<span class="go">សួស្ដីពី Python 3.15!</span>
+<span class="go">ផលបូក 1 + 2 = 3</span>
+</pre></div>
+</div>
+<section id="command-line-options">
+<span id="id5"></span><h3>ជម្រើសបន្ទាត់ពាក្យបញ្ជាដែលសំខាន់<a class="headerlink" href="#command-line-options" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 72.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ពាក្យបញ្ជា</p></th>
+<th class="head"><p>ការប្រើប្រាស់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">script.py</span></code></p></td>
+<td><p>ដំណើរការឯកសារ script។</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-c</span> <span class="pre">&quot;code&quot;</span></code></p></td>
+<td><p>ដំណើរការកូដដែលបានវាយផ្ទាល់។ ដាក់កូដក្នុងសញ្ញាសម្រង់ជានិច្ច។</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">module</span></code></p></td>
+<td><p>ដំណើរការម៉ូឌុលជា script ឧ. <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">json.tool</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">.venv</span></code>។</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-i</span> <span class="pre">script.py</span></code></p></td>
+<td><p>ដំណើរការ script រួចបន្តចូល REPL ដើម្បីពិនិត្យអថេរ។</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-V</span></code></p></td>
+<td><p>បោះពុម្ពកំណែ Python។</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-h</span></code></p></td>
+<td><p>បង្ហាញជម្រើសទាំងអស់។</p></td>
+</tr>
+</tbody>
+</table>
+<p>ឧទាហរណ៍ជាក់ស្ដែង៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import platform; print(platform.python_version())"</span>
+<span class="go">3.15.0</span>
+
+<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>this<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
+<span class="go">The Zen of Python, by Tim Peters</span>
+
+<span class="go">Beautiful is better than ugly.</span>
+</pre></div>
+</div>
+</section>
+<section id="shebang-unix">
+<span id="shebang"></span><h3>Shebang នៅលើ Unix<a class="headerlink" href="#shebang-unix" title="Link to this heading"></a></h3>
+<p>ដើម្បីដំណើរការ script ដោយផ្ទាល់ (<code class="docutils literal notranslate"><span class="pre">./hello.py</span></code>) សូមដាក់បន្ទាត់ដំបូងជា
+<em>shebang</em>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+</pre></div>
+</div>
+<p>រួចផ្ដល់សិទ្ធិប្រតិបត្តិ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>hello.py
+<span class="gp">$ </span>./hello.py
+<span class="go">សួស្ដីពី Python 3.15!</span>
+</pre></div>
+</div>
+<p>វិធី <code class="docutils literal notranslate"><span class="pre">/usr/bin/env</span> <span class="pre">python3</span></code> ល្អជាង <code class="docutils literal notranslate"><span class="pre">/usr/bin/python3</span></code> ព្រោះវាស្វែងរក
+Python ក្នុង <code class="docutils literal notranslate"><span class="pre">PATH</span></code> របស់អ្នកប្រើ។</p>
+</section>
+<section id="argument">
+<span id="command-line-arguments"></span><h3>ការទទួល Argument ពីបន្ទាត់ពាក្យបញ្ជា<a class="headerlink" href="#argument" title="Link to this heading"></a></h3>
+<p>Argument ទាំងអស់ត្រូវបានដាក់ក្នុង list ឈ្មោះ <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>។ ធាតុដំបូង
+<code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code> គឺឈ្មោះ script ខ្លួនឯង។</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">argv_demo.py</span></code></span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""បង្ហាញរបៀបទទួល argument ពីបន្ទាត់ពាក្យបញ្ជាតាម sys.argv។"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"ចំនួន argument (មិនរាប់ឈ្មោះឯកសារ):"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"argument ដំបូង:"</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>argv_demo.py<span class="w"> </span>សុខា<span class="w"> </span>ដារ៉ា
+<span class="go">['argv_demo.py', 'សុខា', 'ដារ៉ា']</span>
+<span class="go">ចំនួន argument (មិនរាប់ឈ្មោះឯកសារ): 2</span>
+<span class="go">argument ដំបូង: សុខា</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="encoding-utf-8">
+<span id="encoding"></span><h2>Encoding — UTF-8 ជាលំនាំដើម<a class="headerlink" href="#encoding-utf-8" title="Link to this heading"></a></h2>
+<p>ចាប់តាំងពី Python 3 មក ឯកសារប្រភព (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) ត្រូវបានអានជា <strong>UTF-8</strong>
+ជាលំនាំដើម។ ដូច្នេះអ្នកអាចប្រើអក្សរខ្មែរក្នុងខ្សែអក្សរ (string) និងក្នុង
+អត្ថាធិប្បាយ (comment) បានដោយសេរី៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">greeting</span> <span class="o">=</span> <span class="s2">"សួស្ដី ពិភពលោក"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>                 <span class="c1"># ១៤ តួអក្សរ (រួមទាំងដកឃ្លាមួយ)</span>
+<span class="go">14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">greeting</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span> <span class="c1"># ៤០ byte</span>
+<span class="go">40</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greeting</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">'ស'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">len()</span></code> រាប់ចំនួន <strong>តួអក្សរ</strong> (character) មិនមែនចំនួន byte ទេ។
+អក្សរខ្មែរមួយត្រូវការ ៣ byte ក្នុង UTF-8 ប៉ុន្តែរាប់ជា ១ តួអក្សរ។
+ចំណាំថា <strong>ស្រៈ និងជើងអក្សរខ្មែរក៏រាប់ជាតួអក្សរដាច់ដោយឡែកដែរ</strong> —
+ពាក្យ <code class="docutils literal notranslate"><span class="pre">&quot;សួស្ដី&quot;</span></code> មាន ៦ តួអក្សរ មិនមែន ៥ ទេ។ បើអ្នកចង់ដឹងចំនួន byte
+ប្រើ <code class="docutils literal notranslate"><span class="pre">len(greeting.encode(&quot;utf-8&quot;))</span></code>។</p>
+</div>
+<p>ពេលអានឬសរសេរឯកសារ សូមបញ្ជាក់ <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code> ជាច្បាស់លាស់ជានិច្ច
+(មើលជំពូក <a class="reference internal" href="file_handling.html"><span class="doc">ការគ្រប់គ្រងឯកសារ</span></a>) ព្រោះលំនាំដើមអាចខុសគ្នាតាមប្រព័ន្ធ
+ប្រតិបត្តិការ។</p>
+</section>
+<section id="editor">
+<span id="editors"></span><h2>កម្មវិធីកែកូដ (Editor)<a class="headerlink" href="#editor" title="Link to this heading"></a></h2>
+<p>អ្នកអាចសរសេរ Python ដោយប្រើកម្មវិធីអត្ថបទធម្មតាណាក៏បាន ប៉ុន្តែ editor
+ដែលមាន <em>syntax highlighting</em> និង <em>indentation</em> ស្វ័យប្រវត្តិជួយច្រើន៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឧបករណ៍</p></th>
+<th class="head"><p>ចំណាំ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>IDLE</strong></p></td>
+<td><p>មកជាមួយការដំឡើង Python ស្តង់ដារ។ សាមញ្ញ សមស្របសម្រាប់អ្នកចាប់ផ្ដើម។</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>VS Code</strong></p></td>
+<td><p>ឥតគិតថ្លៃ មាន extension Python ផ្លូវការ។</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PyCharm</strong></p></td>
+<td><p>IDE ពេញលេញ មានកំណែ Community ឥតគិតថ្លៃ។</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Vim / Neovim / Emacs</strong></p></td>
+<td><p>សម្រាប់អ្នកចូលចិត្តធ្វើការក្នុង terminal។</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>កំណត់ editor របស់អ្នកឱ្យ៖ (១) រក្សាទុកជា UTF-8, (២) បំលែង tab ទៅ
+space ៤, (៣) បង្ហាញលេខបន្ទាត់។ ការកំណត់ទាំងបីនេះដោះស្រាយបញ្ហា
+<code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> និងអក្សរខូចភាគច្រើន។</p>
+</div>
+</section>
+<section id="first-program">
+<span id="id6"></span><h2>កម្មវិធីដំបូងរបស់អ្នក<a class="headerlink" href="#first-program" title="Link to this heading"></a></h2>
+<p>សូមសរសេរឯកសារ <code class="docutils literal notranslate"><span class="pre">first.py</span></code> ដូចខាងក្រោម៖</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">first.py</span></code></span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""កម្មវិធីដំបូង — ទទួលទិន្នន័យពីអ្នកប្រើ រួចបោះពុម្ពត្រឡប់វិញ។"""</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"សូមបញ្ចូលឈ្មោះរបស់អ្នក: "</span><span class="p">)</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"សូមបញ្ចូលអាយុរបស់អ្នក: "</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! អ្នកមានអាយុ </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> ឆ្នាំ។"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ក្នុងរយៈពេល ៥ ឆ្នាំទៀត អ្នកនឹងមានអាយុ </span><span class="si">{</span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2"> ឆ្នាំ។"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>ដំណើរការ៖</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>first.py
+<span class="go">សូមបញ្ចូលឈ្មោះរបស់អ្នក: សុភា</span>
+<span class="go">សូមបញ្ចូលអាយុរបស់អ្នក: 20</span>
+<span class="go">សួស្ដី សុភា! អ្នកមានអាយុ 20 ឆ្នាំ។</span>
+<span class="go">ក្នុងរយៈពេល ៥ ឆ្នាំទៀត អ្នកនឹងមានអាយុ 25 ឆ្នាំ។</span>
+</pre></div>
+</div>
+<p>ចំណុចគួរកត់សម្គាល់ពីឧទាហរណ៍នេះ៖</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">input()</span></code> តែងតែត្រឡប់ជា <strong>string</strong> ដូច្នេះត្រូវបំលែងទៅ <code class="docutils literal notranslate"><span class="pre">int</span></code>
+ដោយ <code class="docutils literal notranslate"><span class="pre">int(...)</span></code> មុនធ្វើគណនា។</p></li>
+<li><p><strong>f-string</strong> (<code class="docutils literal notranslate"><span class="pre">f&quot;...&quot;</span></code>) អនុញ្ញាតឱ្យបញ្ចូលតម្លៃអថេរក្នុងខ្សែអក្សរ
+ដោយដាក់វាក្នុងវង់ក្រចកដង្កៀប <code class="docutils literal notranslate"><span class="pre">{}</span></code>។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> ចាប់ផ្ដើម <strong>comment</strong> — Python មិនអានវាទេ។</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<span id="id7"></span><h2>ជំហានបន្ទាប់<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>ឥឡូវអ្នកមាន Python ដំណើរការរួចហើយ។ ជំពូកបន្ទាប់នឹងពន្យល់អំពីវាក្យសម្ពន្ធ
+អថេរ និងប្រភេទទិន្នន័យ៖ <a class="reference internal" href="syntax_variables_types.html"><span class="doc">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</span></a>។</p>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/interpreter.html">Using the Python Interpreter</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/using/unix.html">Using Python on a Unix Platform</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/using/windows.html">Using Python on Windows</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/using/mac.html">Using Python on macOS</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/using/cmdline.html">Command line and environment</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="ឯកសារ Python ជាភាសាខ្មែរ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="syntax_variables_types.html" class="btn btn-neutral float-right" title="វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

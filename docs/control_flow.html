@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>លក្ខខណ្ឌ និងរង្វិលជុំ &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/control_flow.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="អនុគមន៍ និងវិសាលភាពអថេរ" href="functions_scope.html" />
+    <link rel="prev" title="ខ្សែអក្សរ និងសំណុំទិន្នន័យ" href="strings_collections.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/control_flow.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="លក្ខខណ្ឌ និងរង្វិលជុំ">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/control_flow.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="លក្ខខណ្ឌ និងរង្វិលជុំ">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">លក្ខខណ្ឌ និងរង្វិលជុំ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#if">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">if</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#truthiness-recap">ភាពពិតក្នុងលក្ខខណ្ឌ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#comparison-operators">ប្រមាណវិធីប្រៀបធៀប</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chained-comparison">ការប្រៀបធៀបខ្សែ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#boolean-operators">ប្រមាណវិធីប៊ូលីន</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#short-circuit-evaluation">Short-circuit Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conditional-expression-ternary">Conditional Expression (Ternary)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#while">រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for">រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-during-loop">ការកែប្រែលំដាប់កំពុងដើរលើវា</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#range">អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#break-continue"><code class="docutils literal notranslate"><span class="pre">break</span></code> និង <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#else"><code class="docutils literal notranslate"><span class="pre">else</span></code> នៅលើរង្វិលជុំ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pass">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">pass</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#match-structural-pattern-matching">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">match</span></code> (Structural Pattern Matching)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nested">រង្វិលជុំ Nested និងឧទាហរណ៍ជាក់ស្ដែង</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-flow-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">លក្ខខណ្ឌ និងរង្វិលជុំ</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/control_flow.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="control-flow">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/controlflow.rst</span></code> (ផ្នែក ១–៦),
+<code class="docutils literal notranslate"><span class="pre">Doc/reference/simple_stmts.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/reference/compound_stmts.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>លក្ខខណ្ឌ និងរង្វិលជុំ<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<p><em>Control flow</em> គឺជារបៀបដែលកម្មវិធីសម្រេចចិត្តថាត្រូវដំណើរការកូដណាខ្លះ
+និងដំណើរការម្ដងប៉ុន្មាន។ Python មានឧបករណ៍សំខាន់ពីរប្រភេទ៖
+<strong>លក្ខខណ្ឌ</strong> (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">match</span></code>) និង <strong>រង្វិលជុំ</strong> (<code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>)។</p>
+<section id="if">
+<span id="if-statement"></span><h2>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#if" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">35</span>
+
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្ដៅខ្លាំង"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្ដៅល្មម"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ត្រជាក់ល្មម"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ត្រជាក់"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>លទ្ធផល៖ <code class="docutils literal notranslate"><span class="pre">ក្ដៅខ្លាំង</span></code></p>
+<p>ចំណុចសំខាន់៖</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">elif</span></code> គឺជាទម្រង់ខ្លីនៃ &quot;else if&quot;។ អ្នកអាចមាន <code class="docutils literal notranslate"><span class="pre">elif</span></code> ច្រើនតាមចិត្ត។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elif</span></code> ជំនួស <code class="docutils literal notranslate"><span class="pre">switch</span></code>/<code class="docutils literal notranslate"><span class="pre">case</span></code> របស់ភាសាផ្សេងៗ។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">else</span></code> និង <code class="docutils literal notranslate"><span class="pre">elif</span></code> ទាំងអស់ <strong>មិនចាំបាច់</strong> ទេ។</p></li>
+<li><p>Python វាយតម្លៃលក្ខខណ្ឌ <strong>ពីលើចុះក្រោម</strong> ហើយដំណើរការតែមួយសាខា
+ដំបូងដែលពិត — សាខាផ្សេងទៀតទាំងអស់ត្រូវបានរំលង។</p></li>
+</ul>
+<section id="truthiness-recap">
+<span id="id3"></span><h3>ភាពពិតក្នុងលក្ខខណ្ឌ<a class="headerlink" href="#truthiness-recap" title="Link to this heading"></a></h3>
+<p>លក្ខខណ្ឌមិនចាំបាច់ជា <code class="docutils literal notranslate"><span class="pre">bool</span></code> ទេ — object ណាក៏អាចប្រើបាន។ Python
+បំលែងវាតាមច្បាប់ <em>truthiness</em>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">[]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនដែលដំណើរការ"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ដំណើរការ — list មិនទទេ"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">ដំណើរការ — list មិនទទេ</span>
+</pre></div>
+</div>
+<p>Falsy រួមមាន៖ <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>,
+<code class="docutils literal notranslate"><span class="pre">{}</span></code>, <code class="docutils literal notranslate"><span class="pre">set()</span></code>, <code class="docutils literal notranslate"><span class="pre">range(0)</span></code>។ អ្វីៗក្រៅពីនេះគឺ truthy។</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x:</span></code> ខុសពី <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None:</span></code>។ បើ <code class="docutils literal notranslate"><span class="pre">x</span></code> អាចជា <code class="docutils literal notranslate"><span class="pre">0</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>
+ដែលជាតម្លៃត្រឹមត្រូវ លក្ខខណ្ឌទីមួយនឹងរំលងវាដោយច្រឡំ។</p>
+</div>
+</section>
+</section>
+<section id="comparison-operators">
+<span id="id4"></span><h2>ប្រមាណវិធីប្រៀបធៀប<a class="headerlink" href="#comparison-operators" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.0%" />
+<col style="width: 34.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រមាណវិធី</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+<th class="head"><p>ឧទាហរណ៍ (លទ្ធផល <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>ស្មើតម្លៃ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">==</span> <span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>មិនស្មើ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">!=</span> <span class="pre">6</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>  <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>តូចជាង / តូចជាងឬស្មើ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&lt;</span> <span class="pre">6</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>  <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>ធំជាង / ធំជាងឬស្មើ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">&gt;</span> <span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">is</span></code></p></td>
+<td><p>object តែមួយ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code></p></td>
+<td><p>object ផ្សេងគ្នា</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">in</span></code></p></td>
+<td><p>ស្ថិតក្នុងលំដាប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span> <span class="pre">in</span> <span class="pre">&quot;cat&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p></td>
+<td><p>មិនស្ថិតក្នុងលំដាប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">&quot;cat&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<section id="chained-comparison">
+<span id="id5"></span><h3>ការប្រៀបធៀបខ្សែ<a class="headerlink" href="#chained-comparison" title="Link to this heading"></a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">18</span> <span class="o">&lt;=</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">60</span>           <span class="c1"># ស្មើនឹង 18 &lt;= age and age &lt; 60</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span>                <span class="c1"># ស្មើនឹង a &lt; b and b &gt; c</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python វាយតម្លៃ expression នីមួយៗតែ <strong>ម្ដងគត់</strong> ក្នុងការប្រៀបធៀបខ្សែ។
+ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">f()</span> <span class="pre">&lt;</span> <span class="pre">b</span></code> ហៅ <code class="docutils literal notranslate"><span class="pre">f()</span></code> តែម្ដង។</p>
+</div>
+</section>
+</section>
+<section id="boolean-operators">
+<span id="id6"></span><h2>ប្រមាណវិធីប៊ូលីន<a class="headerlink" href="#boolean-operators" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 86.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ប្រមាណវិធី</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></td>
+<td><p>បើ <code class="docutils literal notranslate"><span class="pre">x</span></code> មិនពិត → ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">x</span></code>; បើមិនដូច្នោះ → ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></td>
+<td><p>បើ <code class="docutils literal notranslate"><span class="pre">x</span></code> ពិត → ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">x</span></code>; បើមិនដូច្នោះ → ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></td>
+<td><p>បញ្ច្រាសភាពពិតនៃ <code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>អាទិភាព</strong> (ពីទាបទៅខ្ពស់)៖ <code class="docutils literal notranslate"><span class="pre">or</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">and</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">not</span></code>។</p>
+<section id="short-circuit-evaluation">
+<span id="short-circuit"></span><h3>Short-circuit Evaluation<a class="headerlink" href="#short-circuit-evaluation" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">and</span></code> និង <code class="docutils literal notranslate"><span class="pre">or</span></code> <strong>ឈប់វាយតម្លៃ</strong> នៅពេលលទ្ធផលត្រូវបានកំណត់រួចហើយ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  ពិនិត្យ </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">value</span>             <span class="c1"># ត្រឡប់ operand ខ្លួនឯង មិនមែន bool</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="ow">and</span> <span class="n">check</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># '' មិនពិត → ឈប់ ត្រឡប់ ''</span>
+<span class="go">  ពិនិត្យ ''</span>
+<span class="go">''</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">check</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># 'a' ពិត → ឈប់ ត្រឡប់ 'a'</span>
+<span class="go">  ពិនិត្យ 'a'</span>
+<span class="go">'a'</span>
+</pre></div>
+</div>
+<p>ឥរិយាបថនេះអនុញ្ញាតឱ្យប្រើវាជា <strong>ការការពារ</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># ❌ អាចបញ្ចេញ ZeroDivisionError</span>
+<span class="c1"># result = 10 / x</span>
+
+<span class="c1"># ✅ បើ x == 0 នឹងមិនដល់ការចែកទេ</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">/</span> <span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>          <span class="c1"># False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">and</span></code>/<code class="docutils literal notranslate"><span class="pre">or</span></code> ត្រឡប់ <strong>operand ពិតប្រាកដ</strong> មិនមែន <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code>
+ទេ។ ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">or</span> <span class="pre">&quot;លំនាំដើម&quot;</span></code> ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">&quot;លំនាំដើម&quot;</span></code>។</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំប្រើ <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">default</span></code> ដើម្បីផ្ដល់តម្លៃលំនាំដើម បើ <code class="docutils literal notranslate"><span class="pre">x</span></code> អាចជា
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">[]</span></code> ដែលជាតម្លៃមានន័យ។ ក្នុងករណីនោះប្រើ
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">if</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span> <span class="pre">else</span> <span class="pre">default</span></code>។</p>
+</div>
+</section>
+</section>
+<section id="conditional-expression-ternary">
+<span id="conditional-expression"></span><h2>Conditional Expression (Ternary)<a class="headerlink" href="#conditional-expression-ternary" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="s2">"ពេញវ័យ"</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="k">else</span> <span class="s2">"អនីតិជន"</span>
+</pre></div>
+</div>
+<p>ទម្រង់ទូទៅ៖ <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">B</span></code> — វាយតម្លៃ <code class="docutils literal notranslate"><span class="pre">condition</span></code> រួចត្រឡប់
+<code class="docutils literal notranslate"><span class="pre">A</span></code> បើពិត ឬ <code class="docutils literal notranslate"><span class="pre">B</span></code> បើមិនពិត។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"គូ"</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"សេស"</span>
+<span class="go">'សេស'</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ប្រើវាសម្រាប់ការជ្រើសរើសតម្លៃ <strong>សាមញ្ញ</strong> ប៉ុណ្ណោះ។ បើមាន nested
+ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> ធម្មតាវិញ។</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="while">
+<span id="while-loop"></span><h2>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#while" title="Link to this heading"></a></h2>
+<p>ដំណើរការ block ម្ដងហើយម្ដងទៀត តราบណាលក្ខខណ្ឌនៅពិត៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="go">0 1 2</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>រង្វិលជុំគ្មានទីបញ្ចប់ (infinite loop)</strong> កើតឡើងបើលក្ខខណ្ឌមិនដែល
+ក្លាយជាមិនពិត។ ត្រូវប្រាកដថាមានអ្វីមួយផ្លាស់ប្ដូរក្នុងរង្វិលជុំ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ រង្វិលជុំគ្មានទីបញ្ចប់ — count មិនដែលផ្លាស់ប្ដូរ</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="c1"># ✅</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>បើកម្មវិធីរបស់អ្នកជាប់ក្នុងរង្វិលជុំគ្មានទីបញ្ចប់ សូមចុច
+<kbd class="kbd docutils literal notranslate">Control</kbd>-<kbd class="kbd docutils literal notranslate">C</kbd> ដើម្បីបញ្ឈប់វា។</p>
+</div>
+<p>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">while</span></code> សមស្របនៅពេលអ្នក <strong>មិនដឹងចំនួនដងជាមុន</strong>។
+ឧទាហរណ៍ ការសួរអ្នកប្រើរហូតដល់បានចម្លើយត្រឹមត្រូវ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"បញ្ចូលលេខ (ឬ 'q' ដើម្បីចេញ): "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">"q"</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">answer</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"អ្នកបានបញ្ចូល </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="for">
+<span id="for-loop"></span><h2>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#for" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> របស់ Python ខុសពីភាសាផ្សេងៗ — វាមិនមែនជារង្វិលជុំរាប់លេខទេ
+ប៉ុន្តែជារង្វិលជុំ <strong>ដើរលើធាតុនៃលំដាប់</strong> (iterate)។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ចេក"</span><span class="p">,</span> <span class="s2">"ស្វាយ"</span><span class="p">,</span> <span class="s2">"ទុំរេន"</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">ចេក</span>
+<span class="go">ស្វាយ</span>
+<span class="go">ទុំរេន</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">"Py"</span><span class="p">:</span>          <span class="c1"># ខ្សែអក្សរក៏ជា iterable</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">P</span>
+<span class="go">y</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">2</span><span class="p">}:</span>   <span class="c1"># dict — ដើរលើ key</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">a</span>
+<span class="go">b</span>
+</pre></div>
+</div>
+<section id="modifying-during-loop">
+<span id="id7"></span><h3>ការកែប្រែលំដាប់កំពុងដើរលើវា<a class="headerlink" href="#modifying-during-loop" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំបន្ថែម ឬលុបធាតុពីលំដាប់ដែលអ្នកកំពុងដើរលើវា។ លទ្ធផលគឺមិនអាច
+ទាយបាន។ ចូរដើរលើ <strong>ចម្លង</strong> ឬបង្កើតលំដាប់ <strong>ថ្មី</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># ❌ កែប្រែកំពុងដើរ — រំលងធាតុ</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">my_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># ✅ ដើរលើចម្លង</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="o">.</span><span class="n">copy</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">my_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>            <span class="c1"># [1, 3]</span>
+
+<span class="c1"># ✅ ល្អបំផុត — បង្កើត list ថ្មី</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>            <span class="c1"># [1, 3]</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="range">
+<span id="id8"></span><h2>អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#range" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">range()</span></code> បង្កើតលំដាប់លេខគត់។ វាជា <em>lazy sequence</em> — មិនផ្ទុកលេខ
+ទាំងអស់ក្នុងអង្គចងចាំទេ។</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ទម្រង់</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">range(stop)</span></code></p></td>
+<td><p>ពី <code class="docutils literal notranslate"><span class="pre">0</span></code> ដល់ <code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">-</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop)</span></code></p></td>
+<td><p>ពី <code class="docutils literal notranslate"><span class="pre">start</span></code> ដល់ <code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">-</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code></p></td>
+<td><p>ពី <code class="docutils literal notranslate"><span class="pre">start</span></code> ដល់ <code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">-</span> <span class="pre">1</span></code> ដោយជំហាន <code class="docutils literal notranslate"><span class="pre">step</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">[0, 1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="go">[2, 3, 4, 5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">[0, 3, 6, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>        <span class="c1"># រាប់ថយក្រោយ</span>
+<span class="go">[5, 4, 3, 2, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>               <span class="c1"># ទទេ</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>ធាតុដំបូងត្រូវបាន <strong>រាប់បញ្ចូល</strong>; ធាតុចុងក្រោយ <strong>មិនរាប់បញ្ចូល</strong>។
+<code class="docutils literal notranslate"><span class="pre">range(5)</span></code> មាន ៥ ធាតុ គឺ 0 ដល់ 4។</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range()</span></code> ត្រឡប់ <strong>object range</strong> មិនមែន <code class="docutils literal notranslate"><span class="pre">list</span></code> ទេ។
+ប្រើ <code class="docutils literal notranslate"><span class="pre">list(range(...))</span></code> បើអ្នកចង់បាន list។</p></li>
+</ul>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">range(0, 5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">&lt;class 'range'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>            <span class="c1"># ប៉ុន្តែមានប្រវែង និង index</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="break-continue">
+<span id="id9"></span><h2><code class="docutils literal notranslate"><span class="pre">break</span></code> និង <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-continue" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ពាក្យបញ្ជា</p></th>
+<th class="head"><p>ឥទ្ធិពល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">break</span></code></p></td>
+<td><p>ចេញពីរង្វិលជុំ <strong>ភ្លាម</strong> (ទាំងស្រុង)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">continue</span></code></p></td>
+<td><p>រំលងធាតុបច្ចុប្បន្ន ទៅធាតុ <strong>បន្ទាប់</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">break</span>              <span class="c1"># ឈប់នៅពេល n == 5</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">0 1 2 3 4</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">continue</span>           <span class="c1"># រំលងលេខគូ</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">1 3 5 7 9</span>
+</pre></div>
+</div>
+<p><strong>``break`` ក្នុងរង្វិលជុំ nested</strong> — វាចេញតែពីរង្វិលជុំ <strong>ខាងក្នុងបំផុត</strong> ប៉ុណ្ណោះ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">break</span>          <span class="c1"># ចេញពីរង្វិលជុំ j តែប៉ុណ្ណោះ</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">i=0 j=0</span>
+<span class="go">i=1 j=0</span>
+<span class="go">i=2 j=0</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>បើអ្នកត្រូវការចេញពីរង្វិលជុំ nested ទាំងអស់ វិធីស្អាតបំផុតគឺដាក់កូដ
+ក្នុង <strong>អនុគមន៍</strong> ហើយប្រើ <code class="docutils literal notranslate"><span class="pre">return</span></code>។</p>
+</div>
+</section>
+<section id="else">
+<span id="loop-else"></span><h2><code class="docutils literal notranslate"><span class="pre">else</span></code> នៅលើរង្វិលជុំ<a class="headerlink" href="#else" title="Link to this heading"></a></h2>
+<p>នេះជាលក្ខណៈពិសេសរបស់ Python ដែលភាសាផ្សេងគ្មាន។ <code class="docutils literal notranslate"><span class="pre">else</span></code> នៅលើរង្វិលជុំ
+ដំណើរការ <strong>លុះត្រាតែរង្វិលជុំបញ្ចប់ដោយធម្មតា</strong> — ពោលគឺ <strong>មិនមាន ``break``</strong>។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># មាន break → else មិនដំណើរការ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"រកឃើញ </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">break</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានរកឃើញ"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">រកឃើញ 5</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># គ្មាន break → else ដំណើរការ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"រកឃើញ </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">break</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានរកឃើញ"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">មិនបានរកឃើញ</span>
+</pre></div>
+</div>
+<p><strong>ឧទាហរណ៍ជាក់ស្ដែង</strong> — ស្វែងរកចំនួនបឋម៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">break</span>
+<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="c1"># រង្វិលជុំខាងក្នុងបញ្ចប់ដោយគ្មាន break → n ជាចំនួនបឋម</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">"ជាចំនួនបឋម"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">2 ជាចំនួនបឋម</span>
+<span class="go">3 ជាចំនួនបឋម</span>
+<span class="go">5 ជាចំនួនបឋម</span>
+<span class="go">7 ជាចំនួនបឋម</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">else</span></code> ក៏ដំណើរការលើ <code class="docutils literal notranslate"><span class="pre">while</span></code> ដែរ — វាដំណើរការនៅពេលលក្ខខណ្ឌ
+ក្លាយជាមិនពិត ប៉ុន្តែមិនដំណើរការបើមាន <code class="docutils literal notranslate"><span class="pre">break</span></code>។</p>
+<p>ចងចាំថា៖ <code class="docutils literal notranslate"><span class="pre">else</span></code> នៅលើរង្វិលជុំមានន័យថា <strong>&quot;no break&quot;</strong> មិនមែន
+&quot;ផ្សេងទៀត&quot; ទេ។</p>
+</div>
+</section>
+<section id="pass">
+<span id="id10"></span><h2>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">pass</span></code><a class="headerlink" href="#pass" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pass</span></code> មិនធ្វើអ្វីទាំងអស់។ វាមានប្រយោជន៍នៅកន្លែងដែល Python តម្រូវឱ្យ
+មាន statement ប៉ុន្តែអ្នកមិនទាន់ចង់សរសេរកូដ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># បង្កើត class ទទេជាអចិន្ត្រៃយ៍</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Placeholder</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># អនុគមន៍ដែលមិនទាន់បានអនុវត្ត</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">not_implemented_yet</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="c1"># ចាប់យកកំហុស ប៉ុន្តែមិនធ្វើអ្វី</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">risky</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"មានបញ្ហា"</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">risky</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># សាខាដែលមិនត្រូវការធ្វើអ្វី</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">do_something</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"សាខា else"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">pass</span></code> ខុសពីអត្ថាធិប្បាយ។ អត្ថាធិប្បាយមិនមែនជា statement ទេ
+ដូច្នេះ block ទទេដែលមានតែអត្ថាធិប្បាយនឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>។</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="match-structural-pattern-matching">
+<span id="match-statement"></span><h2>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">match</span></code> (Structural Pattern Matching)<a class="headerlink" href="#match-structural-pattern-matching" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">match</span></code> គឺជាវិធីមានអានុភាពជាង <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">elif</span></code> សម្រាប់ផ្គូផ្គង <strong>រចនាសម្ព័ន្ធ</strong>
+នៃទិន្នន័យ។</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+    <span class="k">match</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">case</span> <span class="p">[</span><span class="s2">"quit"</span> <span class="o">|</span> <span class="s2">"exit"</span> <span class="o">|</span> <span class="s2">"bye"</span><span class="p">]:</span>   <span class="c1"># ជាក់លាក់ — ត្រូវនៅមុនគេ</span>
+            <span class="k">return</span> <span class="s2">"ចេញពីកម្មវិធី"</span>
+        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">]:</span>                     <span class="c1"># ទូទៅ — ចាប់យកអ្វីក៏បាន</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"សកម្មភាពតែមួយ: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">,</span> <span class="n">target</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2"> លើ </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"មិនស្គាល់"</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"run"</span><span class="p">)</span>
+<span class="go">'សកម្មភាពតែមួយ: run'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"delete file"</span><span class="p">)</span>
+<span class="go">'delete លើ file'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"quit"</span><span class="p">)</span>
+<span class="go">'ចេញពីកម្មវិធី'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"do many things now"</span><span class="p">)</span>
+<span class="go">'មិនស្គាល់'</span>
+</pre></div>
+</div>
+<p><strong>លក្ខណៈសំខាន់ៗ៖</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>លក្ខណៈ</p></th>
+<th class="head"><p>ឧទាហរណ៍</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Literal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">42:</span></code>, <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">&quot;text&quot;:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Capture (ចាប់យកតម្លៃ)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">[x,</span> <span class="pre">y]:</span></code> → ភ្ជាប់ <code class="docutils literal notranslate"><span class="pre">x</span></code> និង <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Wildcard (ផ្គូផ្គងអ្វីក៏បាន)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">_:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>OR pattern</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">&quot;a&quot;</span> <span class="pre">|</span> <span class="pre">&quot;b&quot;</span> <span class="pre">|</span> <span class="pre">&quot;c&quot;:</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Sequence</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">[first,</span> <span class="pre">*rest]:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Mapping</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">{&quot;type&quot;:</span> <span class="pre">t,</span> <span class="pre">**rest}:</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Class pattern</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">Point(x=0,</span> <span class="pre">y=0):</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Guard (លក្ខខណ្ឌបន្ថែម)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">[x,</span> <span class="pre">y]</span> <span class="pre">if</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y:</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">match</span> <span class="n">data</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">case</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">}:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"អ្នកប្រើ: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="gp">... </span>        <span class="k">case</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span> <span class="o">**</span><span class="n">rest</span><span class="p">}:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"កំហុស </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">rest</span><span class="si">}</span><span class="s2">"</span>
+<span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">more</span><span class="p">]:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"កូអរដោនេ (</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) + </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">more</span><span class="p">)</span><span class="si">}</span><span class="s2"> ទៀត"</span>
+<span class="gp">... </span>        <span class="k">case</span> <span class="nb">str</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"ខ្សែអក្សរ: </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">"</span>
+<span class="gp">... </span>        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s2">"មិនស្គាល់"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">})</span>
+<span class="go">'អ្នកប្រើ: សុខា'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/x"</span><span class="p">})</span>
+<span class="go">"កំហុស 404: {'url': '/x'}"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="go">'កូអរដោនេ (1, 2) + 2 ទៀត'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
+<span class="go">'ខ្សែអក្សរ: hello'</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">case</span></code> ត្រូវបានសាកល្បង <strong>ពីលើចុះក្រោម</strong> ហើយ case ដំបូងដែលផ្គូផ្គង
+នឹងឈ្នះ។ ដូច្នេះ៖</p>
+<ul class="simple">
+<li><p>ដាក់ pattern <strong>ជាក់លាក់</strong> (literal, class pattern) នៅ <strong>ខាងលើ</strong></p></li>
+<li><p>ដាក់ pattern <strong>ទូទៅ</strong> (capture ដូចជា <code class="docutils literal notranslate"><span class="pre">[action]</span></code>) នៅ <strong>ខាងក្រោម</strong></p></li>
+<li><p>ដាក់ <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">_</span></code> (wildcard) នៅ <strong>ចុងក្រោយបំផុត</strong></p></li>
+</ul>
+<p>កំហុសទូទៅគឺដាក់ <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">[action]:</span></code> នៅមុន <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">[&quot;quit&quot;]:</span></code> — ពេលនោះ
+<code class="docutils literal notranslate"><span class="pre">&quot;quit&quot;</span></code> ត្រូវបានចាប់យកជា <code class="docutils literal notranslate"><span class="pre">action</span></code> ហើយ case ជាក់លាក់មិនដែលដំណើរការ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">wrong</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">match</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+<span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">]:</span>                  <span class="c1"># ❌ ចាប់យកអ្វីៗទាំងអស់</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"សកម្មភាព: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">"</span>
+<span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="s2">"quit"</span><span class="p">]:</span>                  <span class="c1"># មិនដែលដល់ទីនេះទេ</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="s2">"ចេញ"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wrong</span><span class="p">(</span><span class="s2">"quit"</span><span class="p">)</span>
+<span class="go">'សកម្មភាព: quit'</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">match</span></code> មិន <strong>fall through</strong> ដូច <code class="docutils literal notranslate"><span class="pre">switch</span></code> របស់ C/Java ទេ — នៅពេល
+case មួយផ្គូផ្គង វាដំណើរការហើយចេញពី <code class="docutils literal notranslate"><span class="pre">match</span></code> ភ្លាម។ បើអ្នកចង់បាន
+ឥរិយាបថ fall through ប្រើ OR pattern (<code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">&quot;a&quot;</span> <span class="pre">|</span> <span class="pre">&quot;b&quot;:</span></code>)។</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="nested">
+<span id="nested-loops"></span><h2>រង្វិលជុំ Nested និងឧទាហរណ៍ជាក់ស្ដែង<a class="headerlink" href="#nested" title="Link to this heading"></a></h2>
+<p><strong>តារាងគុណ៖</strong></p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">×</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"  "</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">1×1=1  1×2=2  1×3=3</span>
+<span class="go">2×1=2  2×2=4  2×3=6</span>
+<span class="go">3×1=3  3×2=6  3×3=9</span>
+</pre></div>
+</div>
+<p><strong>រូបត្រីកោណ៖</strong></p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+<span class="go">****</span>
+<span class="go">*****</span>
+</pre></div>
+</div>
+<p><strong>ស្វែងរកធាតុធំបំផុតដោយមិនប្រើ ``max()``៖</strong></p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">largest</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">largest</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">largest</span> <span class="o">=</span> <span class="n">n</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">largest</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="control-flow-summary">
+<span id="id11"></span><h2>សង្ខេប<a class="headerlink" href="#control-flow-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 76.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឧបករណ៍</p></th>
+<th class="head"><p>ប្រើសម្រាប់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code> / <code class="docutils literal notranslate"><span class="pre">elif</span></code> / <code class="docutils literal notranslate"><span class="pre">else</span></code></p></td>
+<td><p>សម្រេចចិត្តតាមលក្ខខណ្ឌ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">match</span></code> / <code class="docutils literal notranslate"><span class="pre">case</span></code></p></td>
+<td><p>ផ្គូផ្គងរចនាសម្ព័ន្ធទិន្នន័យ (Python 3.10+)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">for</span></code></p></td>
+<td><p>ដើរលើធាតុនៃលំដាប់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">range()</span></code></p></td>
+<td><p>បង្កើតលំដាប់លេខគត់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">while</span></code></p></td>
+<td><p>ដំណើរការម្ដងទៀតតាមលក្ខខណ្ឌ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">break</span></code></p></td>
+<td><p>ចេញពីរង្វិលជុំភ្លាម</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">continue</span></code></p></td>
+<td><p>រំលងទៅធាតុបន្ទាប់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">else</span></code> (លើរង្វិលជុំ)</p></td>
+<td><p>ដំណើរការបើរង្វិលជុំ <strong>មិនមាន</strong> <code class="docutils literal notranslate"><span class="pre">break</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pass</span></code></p></td>
+<td><p>Statement ទទេ</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if Statements</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#for-statements">for Statements</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#the-range-function">The range() Function</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops">break and continue Statements and else Clauses on Loops</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#match-statements">match Statements</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements">The pass statement</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="strings_collections.html" class="btn btn-neutral float-left" title="ខ្សែអក្សរ និងសំណុំទិន្នន័យ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="functions_scope.html" class="btn btn-neutral float-right" title="អនុគមន៍ និងវិសាលភាពអថេរ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

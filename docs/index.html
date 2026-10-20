@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ឯកសារ Python ជាភាសាខ្មែរ &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/index.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ចាប់ផ្ដើម និងការដំឡើង Python" href="getting_started.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ឯកសារ Python ជាភាសាខ្មែរ">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ឯកសារ Python ជាភាសាខ្មែរ</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python">
+<span id="khmer-python-docs"></span><h1>ឯកសារ Python ជាភាសាខ្មែរ<a class="headerlink" href="#python" title="Link to this heading"></a></h1>
+<div class="note admonition">
+<p class="admonition-title">កំណែ Python ដែលឯកសារនេះយោង</p>
+<p>មាតិកាទាំងអស់សរសេរសម្រាប់ <strong>Python 3.15</strong> (កំណែ stable ចេញថ្ងៃ ៩ តុលា ២០២៦)។
+ឧទាហរណ៍កូដនីមួយៗត្រូវបានដំណើរការផ្ទៀងផ្ទាត់ជាក់ស្ដែងលើ CPython 3.15.0។
+Python 2 មិនត្រូវបានគាំទ្រទេ — សូមកុំប្រើវា។</p>
+</div>
+<p>សូមស្វាគមន៍មកកាន់ឯកសារបង្រៀនភាសា <strong>Python</strong> ជាភាសាខ្មែរ។ គម្រោងនេះយោងតាម
+ឯកសារផ្លូវការរបស់ CPython ក្នុងថត <code class="docutils literal notranslate"><span class="pre">Doc/</span></code> (<code class="docutils literal notranslate"><span class="pre">Doc/tutorial/</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/using/</span></code>
+និង <code class="docutils literal notranslate"><span class="pre">Doc/library/</span></code>) ហើយសរសេរឡើងវិញជាភាសាខ្មែរដើម្បីឱ្យអ្នកសិក្សាខ្មែរងាយយល់។</p>
+<p>គោលការណ៍សំខាន់ពីរដែលយើងរក្សាជានិច្ច៖</p>
+<ol class="arabic simple">
+<li><p><strong>ពាក្យបច្ចេកទេស និងកូដមិនបកប្រែទេ។</strong> ពាក្យគន្លឹះដូចជា <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>,
+<code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">def</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">import</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+<code class="docutils literal notranslate"><span class="pre">None</span></code> ឈ្មោះ function, class, module និង parameter ទាំងអស់នៅដូចដើម
+ជាភាសាអង់គ្លេស។ មានតែការពន្យល់ប៉ុណ្ណោះដែលជាភាសាខ្មែរ។</p></li>
+<li><p><strong>ឧទាហរណ៍កូដត្រូវតែដំណើរការពិត។</strong> គ្មាន API ដែលស្មានចិត្ត ឬបង្កើតឡើងទេ។</p></li>
+</ol>
+<aside class="topic">
+<p class="topic-title">តើអ្នកគួរចាប់ផ្ដើមពីណា?</p>
+<p>បើអ្នកមិនទាន់ដំឡើង Python ទេ សូមចាប់ផ្ដើមពី
+<a class="reference internal" href="getting_started.html"><span class="doc">ចាប់ផ្ដើម និងការដំឡើង Python</span></a>។ បើអ្នកចេះភាសាគម្រោងវការផ្សេងរួចហើយ
+អ្នកអាចរំលងទៅ <a class="reference internal" href="syntax_variables_types.html"><span class="doc">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</span></a> បានភ្លាម។</p>
+</aside>
+<hr class="docutils" />
+<section id="status">
+<span id="id1"></span><h2>ស្ថានភាពនៃការបកប្រែ<a class="headerlink" href="#status" title="Link to this heading"></a></h2>
+<p>ឯកសារនេះ <strong>មិនទាន់បញ្ចប់ទាំងស្រុងទេ</strong>។ ខាងក្រោមជាតារាងស្ថានភាពពិតប្រាកដ៖</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">ជំពូកដែលបានបញ្ចប់</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 8.0%" />
+<col style="width: 42.0%" />
+<col style="width: 22.0%" />
+<col style="width: 28.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>លេខ</p></th>
+<th class="head"><p>ជំពូក</p></th>
+<th class="head"><p>ស្ថានភាព</p></th>
+<th class="head"><p>ប្រភពដើមក្នុង CPython <code class="docutils literal notranslate"><span class="pre">Doc/</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>១</p></td>
+<td><p><a class="reference internal" href="getting_started.html"><span class="doc">ចាប់ផ្ដើម និងការដំឡើង Python</span></a> — ចាប់ផ្ដើម និងការដំឡើង</p></td>
+<td><p>✅ បញ្ចប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/appetite.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">tutorial/interpreter.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">using/unix.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">using/windows.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">using/mac.rst</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>២</p></td>
+<td><p><a class="reference internal" href="syntax_variables_types.html"><span class="doc">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</span></a> — វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</p></td>
+<td><p>✅ បញ្ចប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/introduction.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/stdtypes.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">reference/lexical_analysis.rst</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>៣</p></td>
+<td><p><a class="reference internal" href="strings_collections.html"><span class="doc">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</span></a> — ខ្សែអក្សរ និងសំណុំទិន្នន័យ</p></td>
+<td><p>✅ បញ្ចប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/datastructures.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">tutorial/inputoutput.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/stdtypes.rst</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>៤</p></td>
+<td><p><a class="reference internal" href="control_flow.html"><span class="doc">លក្ខខណ្ឌ និងរង្វិលជុំ</span></a> — លក្ខខណ្ឌ និងរង្វិលជុំ</p></td>
+<td><p>✅ បញ្ចប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/controlflow.rst</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>៥</p></td>
+<td><p><a class="reference internal" href="functions_scope.html"><span class="doc">អនុគមន៍ និងវិសាលភាពអថេរ</span></a> — អនុគមន៍ និងវិសាលភាពអថេរ</p></td>
+<td><p>✅ បញ្ចប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/controlflow.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">tutorial/classes.rst</span></code> (ផ្នែក Scopes and Namespaces)</p></td>
+</tr>
+<tr class="row-odd"><td><p>៦</p></td>
+<td><p><a class="reference internal" href="file_handling.html"><span class="doc">ការគ្រប់គ្រងឯកសារ</span></a> — ការគ្រប់គ្រងឯកសារ</p></td>
+<td><p>✅ បញ្ចប់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tutorial/inputoutput.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/pathlib.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/json.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">library/os.rst</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">ជំពូកដែលគ្រោងទុក (មិនទាន់បានសរសេរ)</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 8.0%" />
+<col style="width: 55.0%" />
+<col style="width: 37.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>លេខ</p></th>
+<th class="head"><p>ជំពូក</p></th>
+<th class="head"><p>ស្ថានភាព</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>៧</p></td>
+<td><p>Modules និង Packages</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-odd"><td><p>៨</p></td>
+<td><p>Exceptions និងការគ្រប់គ្រងកំហុស</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-even"><td><p>៩</p></td>
+<td><p>Classes និង Object-Oriented Programming</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-odd"><td><p>១០</p></td>
+<td><p>Iterators និង Generators</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-even"><td><p>១១</p></td>
+<td><p>Decorators</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-odd"><td><p>១២</p></td>
+<td><p>Type Hints</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-even"><td><p>១៣</p></td>
+<td><p>Standard Library</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-odd"><td><p>១៤</p></td>
+<td><p>Virtual Environments និង Packages</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+<tr class="row-even"><td><p>១៥</p></td>
+<td><p>Testing, Debugging និង Best Practices</p></td>
+<td><p>⬜ មិនទាន់ចាប់ផ្ដើម</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>សូមកុំយល់ថាឯកសារ Python ទាំងមូលត្រូវបានបកប្រែរួចហើយ។ បច្ចុប្បន្នមានតែ
+<strong>៦ ជំពូកមូលដ្ឋានគ្រឹះ</strong> ប៉ុណ្ណោះដែលបានបញ្ចប់ ហើយផ្នែកធំនៃឯកសារផ្លូវការ
+(Library Reference, Language Reference, C API) មិនទាន់ត្រូវបានប៉ះពាល់ទេ។</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2>មាតិកា<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#what-is-python">តើ Python ជាអ្វី?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#installation">ការដំឡើង Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#repl-interactive">REPL — របៀប Interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#script">ការដំណើរការ Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#encoding-utf-8">Encoding — UTF-8 ជាលំនាំដើម</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#editor">កម្មវិធីកែកូដ (Editor)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#first-program">កម្មវិធីដំបូងរបស់អ្នក</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps">ជំហានបន្ទាប់</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#comment">អត្ថាធិប្បាយ (Comment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#indentation-block">Indentation និង Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#statement">Statement និងការបំបែកបន្ទាត់</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#identifiers">អត្តសញ្ញាណ (Identifier) និងពាក្យគន្លឹះ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#assignment">អថេរ និងការផ្ដល់តម្លៃ (Assignment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#type-checking">ការពិនិត្យប្រភេទ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#data-types">ប្រភេទទិន្នន័យមូលដ្ឋាន</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#bool-truthiness"><code class="docutils literal notranslate"><span class="pre">bool</span></code> និងភាពពិត (Truthiness)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#none"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#type-conversion">ការបំលែងប្រភេទ (Type Conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#mutable-immutable">Mutable និង Immutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax_variables_types.html#summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#str">ខ្សែអក្សរ (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#list">បញ្ជី (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#tuple">ទុប (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#set">សំណុំ (<code class="docutils literal notranslate"><span class="pre">set</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#dict">វចនានុក្រម (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#looping">បច្ចេកទេសរង្វិលជុំ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#comparing">ការប្រៀបធៀបលំដាប់</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings_collections.html#cheatsheet">តារាងសង្ខេប — ជ្រើសរើសប្រភេទណា?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#if">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#comparison-operators">ប្រមាណវិធីប្រៀបធៀប</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#boolean-operators">ប្រមាណវិធីប៊ូលីន</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#conditional-expression-ternary">Conditional Expression (Ternary)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#while">រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#for">រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#range">អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#break-continue"><code class="docutils literal notranslate"><span class="pre">break</span></code> និង <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#else"><code class="docutils literal notranslate"><span class="pre">else</span></code> នៅលើរង្វិលជុំ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#pass">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">pass</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#match-structural-pattern-matching">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">match</span></code> (Structural Pattern Matching)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#nested">រង្វិលជុំ Nested និងឧទាហរណ៍ជាក់ស្ដែង</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_flow.html#control-flow-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#defining-functions">ការកំណត់អនុគមន៍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#default-argument-value">Default Argument Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#keyword-argument">Keyword Argument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#special-parameter">Special Parameter — <code class="docutils literal notranslate"><span class="pre">/</span></code> និង <code class="docutils literal notranslate"><span class="pre">*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#argument-args-kwargs">បញ្ជី Argument តាមចិត្ត — <code class="docutils literal notranslate"><span class="pre">*args</span></code> និង <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#lambda">អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#function-annotation-type-hint">Function Annotation (Type Hint)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#recursion">អនុគមន៍ហៅខ្លួនឯង (Recursion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#scope-namespace">វិសាលភាព (Scope) និង Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#closure">Closure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions_scope.html#functions-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#open">អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">open()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#with">ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">with</span></code> — វិធីត្រឹមត្រូវ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#reading">ការអានឯកសារ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#writing">ការសរសេរឯកសារ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#pathlib"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> — ការគ្រប់គ្រងផ្លូវឯកសារ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#errors">កំហុសទូទៅ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#json">ការរក្សាទុកទិន្នន័យរចនាសម្ព័ន្ធជាមួយ <code class="docutils literal notranslate"><span class="pre">json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#os">ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">os</span></code> — ការងារមូលដ្ឋាន</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#csv">ឯកសារ CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_handling.html#best-practices">ការអនុវត្តល្អបំផុត — សង្ខេប</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>ប្រភព និងអាជ្ញាបណ្ណ<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>ឯកសារដើមគឺជាប្រភពផ្លូវការរបស់គម្រោង Python៖</p>
+<ul class="simple">
+<li><p>ឯកសារផ្លូវការ — <a class="reference external" href="https://docs.python.org/3/">https://docs.python.org/3/</a></p></li>
+<li><p>Source repository — <a class="reference external" href="https://github.com/python/cpython/tree/main/Doc">https://github.com/python/cpython/tree/main/Doc</a></p></li>
+</ul>
+<p>មាតិកាដើមរក្សាសិទ្ធិដោយ <strong>Python Software Foundation (PSF)</strong> ក្រោមអាជ្ញាបណ្ណ
+<strong>PSF License Version 2</strong>។ កំណែខ្មែរនេះគឺជា <em>derivative work</em> ដែលអាជ្ញាបណ្ណ
+នោះអនុញ្ញាត ដោយរក្សាសេចក្ដីជូនដំណឹងអំពីសិទ្ធិដើម និងបញ្ជាក់សង្ខេបអំពី
+ការផ្លាស់ប្ដូរដែលបានធ្វើ។ សូមអាន <a class="reference internal" href="license_attribution.html"><span class="doc">ប្រភព និងអាជ្ញាបណ្ណ</span></a> និងឯកសារ
+<code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> ក្នុង repository សម្រាប់ព័ត៌មានលម្អិត។</p>
+<p>&quot;Python&quot; និងរូបសញ្ញា Python គឺជា trademark របស់ Python Software Foundation។
+គម្រោងនេះមិនទទួលបានការអនុម័ត ឬឧបត្ថម្ភពី PSF ទេ។</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="ចាប់ផ្ដើម និងការដំឡើង Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
