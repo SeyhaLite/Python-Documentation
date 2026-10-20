@@ -62,6 +62,12 @@
      - ``tutorial/errors.rst``, ``library/exceptions.rst``, ``library/contextlib.rst``, ``reference/simple_stmts.rst``
    * - :doc:`classes_oop`
      - ``tutorial/classes.rst``, ``reference/datamodel.rst``, ``library/dataclasses.rst``, ``library/abc.rst``
+   * - :doc:`iterators_generators`
+     - ``tutorial/classes.rst`` (Iterators, Generators, Generator Expressions), ``library/itertools.rst``, ``reference/expressions.rst``
+   * - :doc:`decorators`
+     - ``glossary.rst``, ``reference/compound_stmts.rst``, ``library/functools.rst``, ``library/contextlib.rst``
+   * - :doc:`type_hints`
+     - ``library/typing.rst``, ``howto/annotations.rst``, ``tutorial/controlflow.rst`` (Function Annotations)
 
 .. _copyright:
 

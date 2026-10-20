@@ -82,6 +82,18 @@
      - :doc:`classes_oop` — Classes និង OOP
      - ✅ បញ្ចប់
      - ``tutorial/classes.rst``, ``reference/datamodel.rst``, ``library/dataclasses.rst``, ``library/abc.rst``
+   * - ១០
+     - :doc:`iterators_generators` — Iterators និង Generators
+     - ✅ បញ្ចប់
+     - ``tutorial/classes.rst`` (Iterators/Generators), ``library/itertools.rst``, ``reference/expressions.rst``
+   * - ១១
+     - :doc:`decorators` — Decorators
+     - ✅ បញ្ចប់
+     - ``glossary.rst``, ``reference/compound_stmts.rst``, ``library/functools.rst``
+   * - ១២
+     - :doc:`type_hints` — Type Hints
+     - ✅ បញ្ចប់
+     - ``library/typing.rst``, ``howto/annotations.rst``, ``tutorial/controlflow.rst``
 
 .. list-table:: ជំពូកដែលគ្រោងទុក (មិនទាន់បានសរសេរ)
    :header-rows: 1
@@ -90,15 +102,6 @@
    * - លេខ
      - ជំពូក
      - ស្ថានភាព
-   * - ១០
-     - Iterators និង Generators
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
-   * - ១១
-     - Decorators
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
-   * - ១២
-     - Type Hints
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
    * - ១៣
      - Standard Library
      - ⬜ មិនទាន់ចាប់ផ្ដើម
@@ -112,7 +115,7 @@
 .. warning::
 
    សូមកុំយល់ថាឯកសារ Python ទាំងមូលត្រូវបានបកប្រែរួចហើយ។ បច្ចុប្បន្នមានតែ
-   **៩ ជំពូក** ប៉ុណ្ណោះដែលបានបញ្ចប់ ហើយផ្នែកធំនៃឯកសារផ្លូវការ
+   **១២ ជំពូក** ប៉ុណ្ណោះដែលបានបញ្ចប់ ហើយផ្នែកធំនៃឯកសារផ្លូវការ
    (Library Reference, Language Reference, C API) មិនទាន់ត្រូវបានប៉ះពាល់ទេ។
 
 ----
@@ -133,6 +136,9 @@
    modules_packages
    exceptions
    classes_oop
+   iterators_generators
+   decorators
+   type_hints
 
 .. toctree::
    :maxdepth: 1

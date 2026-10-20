@@ -3,8 +3,9 @@
 ឯកសារបង្រៀនភាសា **Python** ជាភាសាខ្មែរ ដែលសរសេរឡើងវិញដោយយោងតាម
 ឯកសារផ្លូវការរបស់ CPython (ថត `Doc/`).
 
-> **ស្ថានភាព៖ កំពុងអភិវឌ្ឍ។** បច្ចុប្បន្នមាន **៩ ជំពូក** ដែលបានបញ្ចប់
-> (៦ មូលដ្ឋានគ្រឹះ + Modules/Packages + Exceptions + Classes/OOP)។
+> **ស្ថានភាព៖ កំពុងអភិវឌ្ឍ។** បច្ចុប្បន្នមាន **១២ ជំពូក** ដែលបានបញ្ចប់
+> (៦ មូលដ្ឋានគ្រឹះ + Modules/Packages + Exceptions + Classes/OOP
+> + Iterators/Generators + Decorators + Type Hints)។
 > ឯកសារ Python ទាំងមូល **មិនទាន់** ត្រូវបានបកប្រែទេ។
 
 - **កំណែ Python គោលដៅ៖** 3.15 (stable ចេញថ្ងៃ ៩ តុលា ២០២៦)
@@ -27,9 +28,9 @@
 | ៧ | Modules និង Packages | `source/modules_packages.rst` | ✅ |
 | ៨ | Exceptions និងការគ្រប់គ្រងកំហុស | `source/exceptions.rst` | ✅ |
 | ៩ | Classes និង Object-Oriented Programming | `source/classes_oop.rst` | ✅ |
-| ១០ | Iterators និង Generators | — | ⬜ |
-| ១១ | Decorators | — | ⬜ |
-| ១២ | Type Hints | — | ⬜ |
+| ១០ | Iterators និង Generators | `source/iterators_generators.rst` | ✅ |
+| ១១ | Decorators | `source/decorators.rst` | ✅ |
+| ១២ | Type Hints | `source/type_hints.rst` | ✅ |
 | ១៣ | Standard Library | — | ⬜ |
 | ១៤ | Virtual Environments និង Packages | — | ⬜ |
 | ១៥ | Testing, Debugging និង Best Practices | — | ⬜ |
@@ -58,6 +59,9 @@ Python-Documentation/
 │   ├── modules_packages.rst
 │   ├── exceptions.rst
 │   ├── classes_oop.rst
+│   ├── iterators_generators.rst
+│   ├── decorators.rst
+│   ├── type_hints.rst
 │   ├── license_attribution.rst
 │   ├── _code/               # ឯកសារ .py ពិត (literalinclude + module សម្រាប់ឧទាហរណ៍ import)
 │   ├── _static/khmer.css    # ពុម្ពអក្សរខ្មែរ + palette light/dark
