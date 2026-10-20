@@ -121,6 +121,18 @@ RENAME = {
         "summary": "iterators-summary",
         "best-practices": "iterators-best-practices",
     },
+    "standard_library.rst": {
+        "summary": "stdlib-summary",
+        "best-practices": "stdlib-best-practices",
+    },
+    "virtual_environments.rst": {
+        "summary": "venv-summary",
+        "best-practices": "venv-best-practices",
+    },
+    "testing_debugging.rst": {
+        "summary": "testing-summary",
+        "best-practices": "testing-best-practices",
+    },
 }
 
 

@@ -627,6 +627,10 @@ Exception ផ្ទាល់ខ្លួន
 
    នេះជាកំហុសងាយធ្វើ។ **កុំដាក់ ``return`` ក្នុង ``finally``**។
 
+   .. versionadded:: 3.14
+      Python បញ្ចេញ ``SyntaxWarning: 'return' in a 'finally' block``
+      នៅពេល compile ដើម្បីព្រមានអំពីគំរូនេះជាមុន។
+
 .. warning::
 
    ``finally`` ក៏ដំណើរការដែរនៅពេល ``try`` block មានរង្វិលជុំដែល

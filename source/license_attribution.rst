@@ -68,6 +68,12 @@
      - ``glossary.rst``, ``reference/compound_stmts.rst``, ``library/functools.rst``, ``library/contextlib.rst``
    * - :doc:`type_hints`
      - ``library/typing.rst``, ``howto/annotations.rst``, ``tutorial/controlflow.rst`` (Function Annotations)
+   * - :doc:`standard_library`
+     - ``tutorial/stdlib.rst``, ``tutorial/stdlib2.rst``, ``library/index.rst``
+   * - :doc:`virtual_environments`
+     - ``tutorial/venv.rst``, ``library/venv.rst``, ``installing/index.rst``, ``using/cmdline.rst``
+   * - :doc:`testing_debugging`
+     - ``library/unittest.rst``, ``library/doctest.rst``, ``library/pdb.rst``, ``library/timeit.rst``, ``develop/testing.rst``, ``library/logging.rst``
 
 .. _copyright:
 

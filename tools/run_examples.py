@@ -88,6 +88,11 @@ print(repr(greet(42)))
         "import functools\nimport inspect\nimport typing\nfrom typing import ParamSpec, TypeVar\n\nP = ParamSpec('P')\nR = TypeVar('R')\n\n\ndef logged(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        return func(*args, **kwargs)\n    return wrapper\n\n\n@logged\ndef divide(a: int, b: int) -> float:\n    return a / b\n\n\ndef greet(name: str, times: int = 1) -> str:\n    return f'hi {name}'\n\n\nprint(inspect.signature(divide))\nprint(inspect.signature(greet))\nprint(greet.__annotations__)\nprint(typing.get_origin(int | str))\nprint(typing.get_args(dict[str, int]))",
         "(a: int, b: int) -> float\n(name: str, times: int = 1) -> str\n{'name': <class 'str'>, 'times': <class 'int'>, 'return': <class 'str'>}\n<class 'typing.Union'>\n(<class 'str'>, <class 'int'>)",
     ),
+    (
+        "logging.StreamHandler writes to the configured stream",
+        "import logging\nimport sys\n\nlog = logging.getLogger('demo')\nlog.setLevel(logging.INFO)\nhandler = logging.StreamHandler(sys.stdout)\nhandler.setFormatter(logging.Formatter('%(levelname)s %(message)s'))\nlog.addHandler(handler)\n\nlog.info('START')\nlog.warning('MEMORY_LOW')\nlog.debug('not shown: level is INFO')\nlog.removeHandler(handler)",
+        'INFO START\nWARNING MEMORY_LOW',
+    ),
 ]
 
 

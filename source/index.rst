@@ -94,29 +94,25 @@
      - :doc:`type_hints` — Type Hints
      - ✅ បញ្ចប់
      - ``library/typing.rst``, ``howto/annotations.rst``, ``tutorial/controlflow.rst``
-
-.. list-table:: ជំពូកដែលគ្រោងទុក (មិនទាន់បានសរសេរ)
-   :header-rows: 1
-   :widths: 8 55 37
-
-   * - លេខ
-     - ជំពូក
-     - ស្ថានភាព
    * - ១៣
-     - Standard Library
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
+     - :doc:`standard_library` — Standard Library
+     - ✅ បញ្ចប់
+     - ``tutorial/stdlib.rst``, ``tutorial/stdlib2.rst``, ``library/index.rst``
    * - ១៤
-     - Virtual Environments និង Packages
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
+     - :doc:`virtual_environments` — Virtual Environments និង Packages
+     - ✅ បញ្ចប់
+     - ``tutorial/venv.rst``, ``library/venv.rst``, ``installing/index.rst``
    * - ១៥
-     - Testing, Debugging និង Best Practices
-     - ⬜ មិនទាន់ចាប់ផ្ដើម
+     - :doc:`testing_debugging` — Testing, Debugging និង Best Practices
+     - ✅ បញ្ចប់
+     - ``library/unittest.rst``, ``library/doctest.rst``, ``library/pdb.rst``, ``develop/testing.rst``
 
 .. warning::
 
    សូមកុំយល់ថាឯកសារ Python ទាំងមូលត្រូវបានបកប្រែរួចហើយ។ បច្ចុប្បន្នមានតែ
-   **១២ ជំពូក** ប៉ុណ្ណោះដែលបានបញ្ចប់ ហើយផ្នែកធំនៃឯកសារផ្លូវការ
-   (Library Reference, Language Reference, C API) មិនទាន់ត្រូវបានប៉ះពាល់ទេ។
+   **១៥ ជំពូក** ដែលគ្របដណ្ដប់មាតិកាស្នូល។ ទោះជាយ៉ាងណា ផ្នែកធំនៃ
+   ឯកសារផ្លូវការ (Library Reference, Language Reference, C API,
+   What's New) មិនទាន់ត្រូវបានប៉ះពាល់ទេ។
 
 ----
 
@@ -139,6 +135,9 @@
    iterators_generators
    decorators
    type_hints
+   standard_library
+   virtual_environments
+   testing_debugging
 
 .. toctree::
    :maxdepth: 1
