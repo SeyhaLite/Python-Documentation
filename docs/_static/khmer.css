@@ -145,6 +145,11 @@ html[data-theme="dark"] {
   --kh-mark-bg:        #5c4d13;
   --kh-mark-fg:        #ffe9a8;
 
+  /* line numbers in code blocks: 5.31:1 on --kh-code-bg */
+  --kh-lineno-fg:      #8b949e;
+  --kh-lineno-bg:      transparent;
+  --kh-lineno-border:  #343b45;
+
   --kh-scrollbar:      #343b45;
   --kh-scrollbar-hover:#4a5260;
 
@@ -236,6 +241,11 @@ html[data-theme="light"] {
 
   --kh-mark-bg:        #fff3b0;
   --kh-mark-fg:        #24292f;
+
+  /* line numbers in code blocks: 6.00:1 on --kh-code-bg */
+  --kh-lineno-fg:      #57606a;
+  --kh-lineno-bg:      transparent;
+  --kh-lineno-border:  #cfd6de;
 
   --kh-scrollbar:      #4e4a4a;
   --kh-scrollbar-hover:#6b6666;
@@ -483,6 +493,33 @@ html .highlight .w   { color: var(--py-w); }
 html .rst-content .gp,
 html .highlight .gp { user-select: none; }
 
+/* ---------------------------------------------------- line numbers --------
+   Sphinx renders these as inline <span class="linenos">N</span> inside <pre>.
+   Fixed width + right alignment keeps the code column straight, and the
+   numbers are excluded from copy/select so a paste stays runnable.          */
+html .highlight .linenos,
+html .highlight pre .linenos,
+html .rst-content .highlight .linenos {
+  display: inline-block;
+  min-width: 2.4em;
+  margin-right: 0.85em;
+  padding-right: 0.7em;
+  text-align: right;
+  color: var(--kh-lineno-fg);
+  background: var(--kh-lineno-bg);
+  border-right: 1px solid var(--kh-lineno-border);
+  font-family: var(--kh-mono);
+  font-size: 0.92em;
+  line-height: inherit;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  vertical-align: top;
+}
+
+/* widen the gutter once blocks exceed three digits */
+html .highlight .linenos:is([data-wide]) { min-width: 3em; }
+
 /* copy button (sphinx-copybutton) */
 html button.copybtn {
   background: var(--kh-chip-bg);
@@ -518,7 +555,14 @@ html .wy-side-nav-search > a:hover,
 html .wy-side-nav-search > a.icon-home:hover { color: var(--kh-navheader-hover); }
 html .wy-side-nav-search > div.version,
 html .wy-side-nav-search > div.switch { color: var(--kh-navheader-muted); }
-html .wy-side-nav-search img.logo { width: 46px; height: 46px; margin: 6px auto 2px; }
+html /* the official Python logo is a wide wordmark (~3.4:1) — keep its ratio */
+html .wy-side-nav-search img.logo {
+  display: block;
+  width: auto;
+  max-width: 190px;
+  height: auto;
+  margin: 10px auto 4px;
+}
 
 html .wy-side-nav-search input[type="text"] {
   background: var(--kh-input-bg);
@@ -940,3 +984,52 @@ html .theme-toggle:active { transform: none; }
   html .wy-nav-side, html .theme-toggle, html .rst-versions { display: none !important; }
   html .highlight pre { color: #000000; }
 }
+
+
+/* ==========================================================================
+   Sidebar logo block — the official, UNALTERED PSF Python logo.
+   The (tm) marker beside it is required by the PSF Trademark Usage Policy
+   ("must always be included with the logo"); it is added as a sibling
+   element so the artwork itself is never modified or obscured.
+   ========================================================================== */
+html .wy-side-nav-search a.kh-logo-link {
+  display: block;
+  color: var(--kh-navheader-fg);
+}
+html .wy-side-nav-search a.kh-logo-link:hover { color: var(--kh-navheader-hover); }
+
+html .kh-logo-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+html .kh-tm {
+  position: absolute;
+  top: -2px;
+  right: -13px;
+  font-family: var(--kh-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--kh-navheader-muted);
+}
+html .kh-site-title {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--kh-serif);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--kh-navheader-fg);
+}
+html .kh-trademark-note {
+  margin: 6px 12px 0;
+  font-family: var(--kh-sans);
+  font-size: 10.5px;
+  line-height: 1.7;
+  color: var(--kh-navheader-muted);   /* 6.25:1 dark · 5.10:1 light */
+  text-align: center;
+}
+
+/* keep the search box clear of the logo block */
+html .wy-side-nav-search > div.switch { margin-top: 4px; }

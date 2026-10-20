@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/iterators_generators.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -190,28 +195,28 @@
 <li><p>ហៅ <code class="docutils literal notranslate"><span class="pre">next()</span></code> លើ iterator នោះម្ដងហើយម្ដងទៀត រហូតដល់វាបញ្ចេញ
 <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code></p></li>
 </ol>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"abc"</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
-<span class="go">'a'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
-<span class="go">'b'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
-<span class="go">'c'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">StopIteration</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"abc"</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="go">'a'</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">'b'</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">'c'</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="linenos">10</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">11</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">12</span><span class="gr">StopIteration</span>
 </pre></div>
 </div>
 <p>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">char</span> <span class="pre">in</span> <span class="pre">s:</span></code> គឺស្មើនឹង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">char</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="linenos">2</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">3</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">4</span>        <span class="n">char</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="linenos">5</span>    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="linenos">6</span>        <span class="k">break</span>
+<span class="linenos">7</span>    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -254,30 +259,30 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>              <span class="c1"># ប្រើអស់ហើយ</span>
-<span class="go">[1, 2, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>              <span class="c1"># ❌ ទទេ — iterator ដើរបានតែម្ដង</span>
-<span class="go">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>            <span class="c1"># ✅ list ដើមនៅតែដើរបានច្រើនដង</span>
-<span class="go">[1, 2, 3]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nums</span>            <span class="c1"># list មិនមែនជា iterator ទេ</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="ow">is</span> <span class="n">it</span>                <span class="c1"># iterator ត្រឡប់ខ្លួនឯង</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>              <span class="c1"># ប្រើអស់ហើយ</span>
+<span class="linenos"> 4</span><span class="go">[1, 2, 3]</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>              <span class="c1"># ❌ ទទេ — iterator ដើរបានតែម្ដង</span>
+<span class="linenos"> 6</span><span class="go">[]</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>            <span class="c1"># ✅ list ដើមនៅតែដើរបានច្រើនដង</span>
+<span class="linenos"> 8</span><span class="go">[1, 2, 3]</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nums</span>            <span class="c1"># list មិនមែនជា iterator ទេ</span>
+<span class="linenos">11</span><span class="go">False</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="ow">is</span> <span class="n">it</span>                <span class="c1"># iterator ត្រឡប់ខ្លួនឯង</span>
+<span class="linenos">14</span><span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>ភាពខុសគ្នានេះបង្កើត bug ស្ងាត់៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># generator expression</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="go">6</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>                            <span class="c1"># ❌ 0 — អស់ហើយ!</span>
-<span class="go">0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># generator expression — ខ្ជិល</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">6</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>                            <span class="c1"># ❌ 0 — អស់ហើយ!</span>
+<span class="linenos">5</span><span class="go">0</span>
 </pre></div>
 </div>
 <p>បើអ្នកត្រូវការដើរលើទិន្នន័យច្រើនដង សូមប្រើ <code class="docutils literal notranslate"><span class="pre">list</span></code> ឬហៅ
@@ -286,32 +291,32 @@ generator function ម្ដងទៀត។</p>
 </section>
 <section id="iterator">
 <span id="custom-iterator"></span><h3>ការបង្កើត Iterator ផ្ទាល់ខ្លួន<a class="headerlink" href="#iterator" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Countdown</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""រាប់ថយក្រោយពី start ដល់ 1។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="n">start</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span>                    <span class="c1"># ខ្លួនឯងជា iterator</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">StopIteration</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Countdown</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">"""រាប់ថយក្រោយពី start ដល់ 1។"""</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+<span class="linenos"> 5</span>        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+<span class="linenos"> 6</span>        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="n">start</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 9</span>        <span class="k">return</span> <span class="bp">self</span>                    <span class="c1"># ខ្លួនឯងជា iterator</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">12</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">13</span>            <span class="k">raise</span> <span class="ne">StopIteration</span>
+<span class="linenos">14</span>        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="linenos">15</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">3 2 1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>                            <span class="c1"># ដើរបានតែម្ដង</span>
-<span class="go">[1]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="go">3 2 1</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="linenos">7</span><span class="go">2</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>                            <span class="c1"># ដើរបានតែម្ដង</span>
+<span class="linenos">9</span><span class="go">[1]</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -323,14 +328,14 @@ generator function ម្ដងទៀត។</p>
 <section id="iter-sentinel">
 <span id="id4"></span><h3><code class="docutils literal notranslate"><span class="pre">iter()</span></code> ជាមួយ Sentinel<a class="headerlink" href="#iter-sentinel" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">iter(callable,</span> <span class="pre">sentinel)</span></code> ហៅ callable រហូតដល់វាត្រឡប់ sentinel៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"data.bin"</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="sa">b</span><span class="s2">"AB</span><span class="se">\x00</span><span class="s2">CD"</span><span class="p">)</span>
-<span class="go">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.bin"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">chunks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">))</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">chunks</span>
-<span class="go">[b'AB', b'\x00C', b'D']</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"data.bin"</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="sa">b</span><span class="s2">"AB</span><span class="se">\x00</span><span class="s2">CD"</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">5</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.bin"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">5</span><span class="gp">... </span>    <span class="n">chunks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">))</span>
+<span class="linenos">6</span><span class="gp">...</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunks</span>
+<span class="linenos">8</span><span class="go">[b'AB', b'\x00C', b'D']</span>
 </pre></div>
 </div>
 <p>នេះមានប្រយោជន៍សម្រាប់អានឯកសារ ឬទិន្នន័យបណ្ដាញជាដុំៗ។</p>
@@ -341,30 +346,30 @@ generator function ម្ដងទៀត។</p>
 <span id="id5"></span><h2>Generators<a class="headerlink" href="#generators" title="Link to this heading"></a></h2>
 <p><strong>Generator</strong> គឺជាវិធីសាមញ្ញបំផុតក្នុងការបង្កើត iterator។ អ្នកសរសេរវា
 ដូចអនុគមន៍ធម្មតា ប៉ុន្តែប្រើ <code class="docutils literal notranslate"><span class="pre">yield</span></code> ជំនួស <code class="docutils literal notranslate"><span class="pre">return</span></code>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""រាប់ថយក្រោយពី n ដល់ 1។"""</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ចាប់ផ្ដើម"</span><span class="p">)</span>
-    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">n</span>
-        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ចប់"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">2</span><span class="w">    </span><span class="sd">"""រាប់ថយក្រោយពី n ដល់ 1។"""</span>
+<span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ចាប់ផ្ដើម"</span><span class="p">)</span>
+<span class="linenos">4</span>    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">5</span>        <span class="k">yield</span> <span class="n">n</span>
+<span class="linenos">6</span>        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="linenos">7</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ចប់"</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span>                      <span class="c1"># មិនទាន់ដំណើរការទេ!</span>
-<span class="go">&lt;generator object countdown at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="go">ចាប់ផ្ដើម</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="go">ចប់</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">StopIteration</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span>                      <span class="c1"># មិនទាន់ដំណើរការទេ!</span>
+<span class="linenos"> 3</span><span class="go">&lt;generator object countdown at 0x...&gt;</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">ចាប់ផ្ដើម</span>
+<span class="linenos"> 6</span><span class="go">3</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">2</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">1</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="linenos">12</span><span class="go">ចប់</span>
+<span class="linenos">13</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">14</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">15</span><span class="gr">StopIteration</span>
 </pre></div>
 </div>
 <section id="generator-lazy">
@@ -372,25 +377,25 @@ generator function ម្ដងទៀត។</p>
 <p>អ្វីដែលមាននៅក្នុង generator function <strong>មិនដំណើរការទេ</strong> រហូតដល់មាន
 ការហៅ <code class="docutils literal notranslate"><span class="pre">next()</span></code>។ ហើយវាឈប់នៅត្រង់ <code class="docutils literal notranslate"><span class="pre">yield</span></code> រួច <strong>ចងចាំ</strong> ស្ថានភាព
 ទាំងអស់ (អថេរ local, ទីតាំងកូដ) រហូតដល់ការហៅបន្ទាប់។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">traced</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">1</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">2</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">traced</span><span class="p">()</span>             <span class="c1"># គ្មានអ្វីត្រូវបានបោះពុម្ពទេ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-<span class="go">A</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-<span class="go">B</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-<span class="go">C</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">StopIteration</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">traced</span><span class="p">():</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">yield</span> <span class="mi">1</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="k">yield</span> <span class="mi">2</span>
+<span class="linenos"> 6</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">...</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">traced</span><span class="p">()</span>             <span class="c1"># គ្មានអ្វីត្រូវបានបោះពុម្ពទេ</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">A</span>
+<span class="linenos">11</span><span class="go">1</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="linenos">13</span><span class="go">B</span>
+<span class="linenos">14</span><span class="go">2</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="linenos">16</span><span class="go">C</span>
+<span class="linenos">17</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">18</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">19</span><span class="gr">StopIteration</span>
 </pre></div>
 </div>
 </section>
@@ -398,59 +403,59 @@ generator function ម្ដងទៀត។</p>
 <span id="id7"></span><h3>អត្ថប្រយោជន៍អង្គចងចាំ<a class="headerlink" href="#generator-memory" title="Link to this heading"></a></h3>
 <p>Generator ផលិតតម្លៃ <strong>ម្ដងមួយៗ</strong> ដូច្នេះវាមិនត្រូវការផ្ទុកទិន្នន័យទាំងអស់
 ក្នុងអង្គចងចាំទេ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">big_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">big_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">big_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8_000_000</span>     <span class="c1"># រាប់លាន byte</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">big_gen</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">300</span>            <span class="c1"># តែរាប់រយ byte</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">big_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">big_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">big_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8_000_000</span>     <span class="c1"># រាប់លាន byte</span>
+<span class="linenos">5</span><span class="go">True</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">big_gen</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">300</span>            <span class="c1"># តែរាប់រយ byte</span>
+<span class="linenos">7</span><span class="go">True</span>
 </pre></div>
 </div>
 <p><strong>ឧទាហរណ៍ជាក់ស្ដែង</strong> — អានឯកសារធំដោយមិនផ្ទុកទាំងមូល៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-
-<span class="n">Path</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"line </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100_000</span><span class="p">)),</span>
-                           <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">errors_only</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ផលិតតែបន្ទាត់ដែលមានពាក្យ ERROR។"""</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>                    <span class="c1"># អានម្ដងមួយបន្ទាត់</span>
-            <span class="k">if</span> <span class="s2">"ERROR"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-
-
-<span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">errors_only</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">))</span>   <span class="c1"># គ្មាន list ក្នុងអង្គចងចាំ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">Path</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"line </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100_000</span><span class="p">)),</span>
+<span class="linenos"> 4</span>                           <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">def</span><span class="w"> </span><span class="nf">errors_only</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="sd">"""ផលិតតែបន្ទាត់ដែលមានពាក្យ ERROR។"""</span>
+<span class="linenos"> 9</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>                    <span class="c1"># អានម្ដងមួយបន្ទាត់</span>
+<span class="linenos">11</span>            <span class="k">if</span> <span class="s2">"ERROR"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+<span class="linenos">12</span>                <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">errors_only</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">))</span>   <span class="c1"># គ្មាន list ក្នុងអង្គចងចាំ</span>
 </pre></div>
 </div>
 </section>
 <section id="generator-pipeline">
 <span id="generator-pipelines"></span><h3>Generator Pipeline<a class="headerlink" href="#generator-pipeline" title="Link to this heading"></a></h3>
 <p>Generator អាចត្រូវបាន <strong>តភ្ជាប់</strong> គ្នាដូចបំពង់ — ទិន្នន័យហូរកាត់ម្ដងមួយធាតុ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_lines</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">filter_errors</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">"ERROR"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">line</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">extract_messages</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-
-<span class="n">pipeline</span> <span class="o">=</span> <span class="n">extract_messages</span><span class="p">(</span><span class="n">filter_errors</span><span class="p">(</span><span class="n">read_lines</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">)))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">read_lines</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 3</span>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 4</span>            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">def</span><span class="w"> </span><span class="nf">filter_errors</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+<span class="linenos"> 8</span>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<span class="linenos"> 9</span>        <span class="k">if</span> <span class="s2">"ERROR"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+<span class="linenos">10</span>            <span class="k">yield</span> <span class="n">line</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="k">def</span><span class="w"> </span><span class="nf">extract_messages</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+<span class="linenos">14</span>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<span class="linenos">15</span>        <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">extract_messages</span><span class="p">(</span><span class="n">filter_errors</span><span class="p">(</span><span class="n">read_lines</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">)))</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">pipeline</span><span class="p">)</span>
-<span class="go">0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">pipeline</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">0</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -463,17 +468,17 @@ generator function ម្ដងទៀត។</p>
 <section id="generator">
 <span id="infinite-generators"></span><h3>Generator គ្មានទីបញ្ចប់<a class="headerlink" href="#generator" title="Link to this heading"></a></h3>
 <p>Generator អាចផលិតលំដាប់គ្មានទីបញ្ចប់បាន ព្រោះវាផលិតតាមតម្រូវការ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">natural_numbers</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">start</span>
-<span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">yield</span> <span class="n">n</span>
-<span class="gp">... </span>        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">natural_numbers</span><span class="p">(),</span> <span class="mi">5</span><span class="p">))</span>
-<span class="go">[1, 2, 3, 4, 5]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">natural_numbers</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-<span class="go">[100, 101, 102]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">natural_numbers</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">start</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>        <span class="k">yield</span> <span class="n">n</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 6</span><span class="gp">...</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">natural_numbers</span><span class="p">(),</span> <span class="mi">5</span><span class="p">))</span>
+<span class="linenos"> 9</span><span class="go">[1, 2, 3, 4, 5]</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">natural_numbers</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+<span class="linenos">11</span><span class="go">[100, 101, 102]</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -485,28 +490,28 @@ generator function ម្ដងទៀត។</p>
 <section id="yield-from">
 <span id="id8"></span><h3><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code><a class="headerlink" href="#yield-from" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> បញ្ជូនតម្លៃទាំងអស់ពី iterable ឬ generator ផ្សេងទៀត៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">flatten</span><span class="p">(</span><span class="n">nested</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">nested</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<span class="gp">... </span>            <span class="k">yield from</span> <span class="n">flatten</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>     <span class="c1"># recursive delegation</span>
-<span class="gp">... </span>        <span class="k">else</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="k">yield</span> <span class="n">item</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">flatten</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="mi">5</span><span class="p">]))</span>
-<span class="go">[1, 2, 3, 4, 5]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">chained</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">yield from</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="gp">... </span>    <span class="k">yield from</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">yield from</span> <span class="s2">"ab"</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">chained</span><span class="p">())</span>
-<span class="go">[1, 2, 3, 4, 'a', 'b']</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">flatten</span><span class="p">(</span><span class="n">nested</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">nested</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="gp">... </span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="gp">... </span>            <span class="k">yield from</span> <span class="n">flatten</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>     <span class="c1"># បញ្ជូនបន្តជា recursion</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 6</span><span class="gp">... </span>            <span class="k">yield</span> <span class="n">item</span>
+<span class="linenos"> 7</span><span class="gp">...</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">flatten</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="linenos"> 9</span><span class="go">[1, 2, 3, 4, 5]</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">chained</span><span class="p">():</span>
+<span class="linenos">12</span><span class="gp">... </span>    <span class="k">yield from</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="linenos">13</span><span class="gp">... </span>    <span class="k">yield from</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">14</span><span class="gp">... </span>    <span class="k">yield from</span> <span class="s2">"ab"</span>
+<span class="linenos">15</span><span class="gp">...</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">chained</span><span class="p">())</span>
+<span class="linenos">17</span><span class="go">[1, 2, 3, 4, 'a', 'b']</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span> <span class="pre">x</span></code> ខ្លីជាង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-    <span class="k">yield</span> <span class="n">item</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="k">yield</span> <span class="n">item</span>
 </pre></div>
 </div>
 <p>ប៉ុន្តែវាខ្លាំងជាង ព្រោះវាក៏បញ្ជូន <code class="docutils literal notranslate"><span class="pre">send()</span></code>, <code class="docutils literal notranslate"><span class="pre">throw()</span></code> និង <code class="docutils literal notranslate"><span class="pre">close()</span></code>
@@ -517,16 +522,16 @@ generator function ម្ដងទៀត។</p>
 <span id="generator-expressions"></span><h2>Generator Expression<a class="headerlink" href="#generator-expression" title="Link to this heading"></a></h2>
 <p>Generator expression ដូច list comprehension ប៉ុន្តែប្រើវង់ក្រចកមូល <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>
 ជំនួសវង់ក្រចកការ៉េ <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># list — ផ្ទុកភ្លាម</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">squares_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># generator — ខ្ជិល</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">squares_list</span>
-<span class="go">[0, 1, 4, 9, 16]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">squares_gen</span>
-<span class="go">&lt;generator object &lt;genexpr&gt; at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">squares_gen</span><span class="p">)</span>
-<span class="go">[0, 1, 4, 9, 16]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">squares_gen</span><span class="p">)</span>                             <span class="c1"># អស់ហើយ</span>
-<span class="go">[]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># list — ផ្ទុកភ្លាម</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># generator — ខ្ជិល</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares_list</span>
+<span class="linenos"> 4</span><span class="go">[0, 1, 4, 9, 16]</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares_gen</span>
+<span class="linenos"> 6</span><span class="go">&lt;generator object &lt;genexpr&gt; at 0x...&gt;</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">squares_gen</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">[0, 1, 4, 9, 16]</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">squares_gen</span><span class="p">)</span>                             <span class="c1"># អស់ហើយ</span>
+<span class="linenos">10</span><span class="go">[]</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -564,14 +569,14 @@ generator function ម្ដងទៀត។</p>
 <p class="admonition-title">Tip</p>
 <p>នៅពេលបញ្ជូន generator expression ជា <strong>argument តែមួយគត់</strong> អ្នកអាចលុប
 វង់ក្រចកមួយជាន់៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>       <span class="c1"># គ្មានវង់ក្រចកពីរជាន់</span>
-<span class="go">30</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"bbb"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">])</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>       <span class="c1"># គ្មានវង់ក្រចកពីរជាន់</span>
+<span class="linenos">2</span><span class="go">30</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"bbb"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">])</span>
+<span class="linenos">4</span><span class="go">3</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="linenos">6</span><span class="go">True</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="linenos">8</span><span class="go">True</span>
 </pre></div>
 </div>
 <p>នេះមានប្រសិទ្ធភាពជាង <code class="docutils literal notranslate"><span class="pre">sum([x</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">range(5)])</span></code> ព្រោះវា
@@ -581,22 +586,22 @@ generator function ម្ដងទៀត។</p>
 <section id="send-throw-close">
 <span id="generator-methods"></span><h2><code class="docutils literal notranslate"><span class="pre">send()</span></code>, <code class="docutils literal notranslate"><span class="pre">throw()</span></code> និង <code class="docutils literal notranslate"><span class="pre">close()</span></code><a class="headerlink" href="#send-throw-close" title="Link to this heading"></a></h2>
 <p>Generator អាច <strong>ទទួល</strong> តម្លៃពីខាងក្រៅបានផងដែរ (coroutine)៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">accumulator</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">total</span>        <span class="c1"># ទទួលតម្លៃ ហើយបញ្ជូន total ចេញ</span>
-<span class="gp">... </span>        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="k">break</span>
-<span class="gp">... </span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span> <span class="o">=</span> <span class="n">accumulator</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span>                          <span class="c1"># ចាប់ផ្ដើម (prime the generator)</span>
-<span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">15</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                        <span class="c1"># បញ្ឈប់</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">accumulator</span><span class="p">():</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>        <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">total</span>        <span class="c1"># ទទួលតម្លៃ ហើយបញ្ជូន total ចេញ</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 6</span><span class="gp">... </span>            <span class="k">break</span>
+<span class="linenos"> 7</span><span class="gp">... </span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+<span class="linenos"> 8</span><span class="gp">...</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span> <span class="o">=</span> <span class="n">accumulator</span><span class="p">()</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span>                          <span class="c1"># ចាប់ផ្ដើម (prime the generator)</span>
+<span class="linenos">11</span><span class="go">0</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">13</span><span class="go">10</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">15</span><span class="go">15</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                        <span class="c1"># បញ្ឈប់</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -637,13 +642,13 @@ generator function ម្ដងទៀត។</p>
 វានឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code>។</p>
 <p>សម្រាប់ការសម្អាតធនធាន វិធីសាមញ្ញបំផុតគឺប្រើ <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">finally</span></code> ក្នុង
 generator៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_rows</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>          <span class="c1"># ដំណើរការទោះបី generator ត្រូវបាន close()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">read_rows</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">3</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">4</span>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">5</span>            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="linenos">6</span>    <span class="k">finally</span><span class="p">:</span>
+<span class="linenos">7</span>        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>          <span class="c1"># ដំណើរការទោះបី generator ត្រូវបាន close()</span>
 </pre></div>
 </div>
 </div>
@@ -651,30 +656,30 @@ generator៖</p>
 <span id="return-in-generator"></span><h3><code class="docutils literal notranslate"><span class="pre">return</span></code> ក្នុង Generator<a class="headerlink" href="#return-generator" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">value</span></code> ក្នុង generator បញ្ចប់វា ហើយដាក់ <code class="docutils literal notranslate"><span class="pre">value</span></code> ទៅក្នុង
 <code class="docutils literal notranslate"><span class="pre">StopIteration.value</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">gen_with_return</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">1</span>
-<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">2</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="s2">"លទ្ធផលចុងក្រោយ"</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">gen_with_return</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-<span class="go">(1, 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"StopIteration.value ="</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">StopIteration.value = លទ្ធផលចុងក្រោយ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">gen_with_return</span><span class="p">():</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">yield</span> <span class="mi">1</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">yield</span> <span class="mi">2</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">return</span> <span class="s2">"លទ្ធផលចុងក្រោយ"</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">gen_with_return</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">(1, 2)</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">10</span><span class="gp">... </span>    <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="linenos">11</span><span class="gp">... </span><span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">12</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"StopIteration.value ="</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos">13</span><span class="gp">...</span>
+<span class="linenos">14</span><span class="go">StopIteration.value = លទ្ធផលចុងក្រោយ</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> ចាប់យកតម្លៃនេះដោយស្វ័យប្រវត្តិ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">gen_with_return</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទទួលបានពី sub-generator:"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">wrapper</span><span class="p">())</span>
-<span class="go">ទទួលបានពី sub-generator: លទ្ធផលចុងក្រោយ</span>
-<span class="go">[1, 2]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">gen_with_return</span><span class="p">()</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទទួលបានពី sub-generator:"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">wrapper</span><span class="p">())</span>
+<span class="linenos">6</span><span class="go">ទទួលបានពី sub-generator: លទ្ធផលចុងក្រោយ</span>
+<span class="linenos">7</span><span class="go">[1, 2]</span>
 </pre></div>
 </div>
 </section>
@@ -796,23 +801,23 @@ generator៖</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">"ab"</span><span class="p">))</span>
-<span class="go">[1, 2, 'a', 'b']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
-<span class="go">[10, 15, 20, 25]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">takewhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
-<span class="go">[1, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">accumulate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
-<span class="go">[1, 3, 6, 10]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">pairwise</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
-<span class="go">[(1, 2), (2, 3), (3, 4)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">"ab"</span><span class="p">))</span>
-<span class="go">[(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
-<span class="go">[(1, 2), (1, 3), (2, 3)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
-<span class="go">[(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">"ab"</span><span class="p">))</span>
+<span class="linenos"> 3</span><span class="go">[1, 2, 'a', 'b']</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos"> 5</span><span class="go">[10, 15, 20, 25]</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">takewhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="linenos"> 7</span><span class="go">[1, 3]</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">accumulate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="linenos"> 9</span><span class="go">[1, 3, 6, 10]</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">pairwise</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="linenos">11</span><span class="go">[(1, 2), (2, 3), (3, 4)]</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">"ab"</span><span class="p">))</span>
+<span class="linenos">13</span><span class="go">[(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')]</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos">15</span><span class="go">[(1, 2), (1, 3), (2, 3)]</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos">17</span><span class="go">[(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]</span>
 </pre></div>
 </div>
 <div class="versionadded">
@@ -821,22 +826,22 @@ generator៖</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.12: </span><code class="docutils literal notranslate"><span class="pre">batched()</span></code>។</p>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">batched</span><span class="p">(</span><span class="s2">"ABCDEFG"</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="go">[('A', 'B', 'C'), ('D', 'E', 'F'), ('G',)]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">batched</span><span class="p">(</span><span class="s2">"ABCDEFG"</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="linenos">2</span><span class="go">[('A', 'B', 'C'), ('D', 'E', 'F'), ('G',)]</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> ក្រុមតែធាតុ <strong>ជាប់គ្នា</strong> ប៉ុណ្ណោះ។ អ្នកត្រូវតម្រៀបទិន្នន័យ
 តាម key ជាមុន៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ❌ 'b' ពីរក្រុម</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
-<span class="go">[('b', 1), ('a', 1), ('b', 1)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ✅</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">data_sorted</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
-<span class="go">[('a', 1), ('b', 2)]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ❌ 'b' ពីរក្រុម</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+<span class="linenos">4</span><span class="go">[('b', 1), ('a', 1), ('b', 1)]</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ✅</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">data_sorted</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+<span class="linenos">8</span><span class="go">[('a', 1), ('b', 2)]</span>
 </pre></div>
 </div>
 <p>ចំណាំថា <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> ត្រូវបាន <strong>ប្រើប្រាស់ភ្លាម</strong> — បើអ្នកមិនបំលែង

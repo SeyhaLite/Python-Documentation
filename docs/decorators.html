@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/decorators.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -180,65 +185,65 @@
 <section id="decorator">
 <span id="what-is-decorator"></span><h2>តើ Decorator ជាអ្វី?<a class="headerlink" href="#decorator" title="Link to this heading"></a></h2>
 <p>វាក្យសម្ពន្ធ <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> គ្រាន់តែជាការហៅអនុគមន៍ធម្មតាមួយប៉ុណ្ណោះ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@my_decorator</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
-    <span class="o">...</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nd">@my_decorator</span>
+<span class="linenos">2</span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
+<span class="linenos">3</span>    <span class="o">...</span>
 </pre></div>
 </div>
 <p>គឺស្មើនឹង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
-    <span class="o">...</span>
-<span class="n">func</span> <span class="o">=</span> <span class="n">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
+<span class="linenos">2</span>    <span class="o">...</span>
+<span class="linenos">3</span><span class="n">func</span> <span class="o">=</span> <span class="n">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">shout</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@shout</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
-<span class="go">'សួស្ដី សុខា'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__name__</span>                  <span class="c1"># ⚠ ឈ្មោះបានបាត់បង់</span>
-<span class="go">'wrapper'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">shout</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 3</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@shout</span>
+<span class="linenos"> 7</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="linenos"> 8</span><span class="gp">... </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos"> 9</span><span class="gp">...</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="linenos">11</span><span class="go">'សួស្ដី សុខា'</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__name__</span>                  <span class="c1"># ⚠ ឈ្មោះបានបាត់បង់</span>
+<span class="linenos">13</span><span class="go">'wrapper'</span>
 </pre></div>
 </div>
 </section>
 <section id="first-decorator">
 <span id="id3"></span><h2>Decorator ដំបូងរបស់អ្នក<a class="headerlink" href="#first-decorator" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""វាស់ពេលដំណើរការរបស់អនុគមន៍។"""</span>
-
-    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>                       <span class="c1"># ← សំខាន់ណាស់</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ចំណាយ </span><span class="si">{</span><span class="n">elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">return</span> <span class="n">wrapper</span>
-
-
-<span class="nd">@timer</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sum_range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""បូកលេខពី 0 ដល់ n។"""</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="sd">"""វាស់ពេលដំណើរការរបស់អនុគមន៍។"""</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>                       <span class="c1"># ← សំខាន់ណាស់</span>
+<span class="linenos"> 9</span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">10</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="linenos">11</span>        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">12</span>        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="linenos">13</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ចំណាយ </span><span class="si">{</span><span class="n">elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms"</span><span class="p">)</span>
+<span class="linenos">14</span>        <span class="k">return</span> <span class="n">result</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="nd">@timer</span>
+<span class="linenos">20</span><span class="k">def</span><span class="w"> </span><span class="nf">sum_range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">21</span><span class="w">    </span><span class="sd">"""បូកលេខពី 0 ដល់ n។"""</span>
+<span class="linenos">22</span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">total</span> <span class="o">=</span> <span class="n">sum_range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="go">sum_range ចំណាយ ... ms</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sum_range</span><span class="o">.</span><span class="vm">__name__</span>            <span class="c1"># ✅ ឈ្មោះដើមត្រូវបានរក្សា</span>
-<span class="go">'sum_range'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sum_range</span><span class="o">.</span><span class="vm">__doc__</span>
-<span class="go">'បូកលេខពី 0 ដល់ n។'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">total</span> <span class="o">=</span> <span class="n">sum_range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">sum_range ចំណាយ ... ms</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sum_range</span><span class="o">.</span><span class="vm">__name__</span>            <span class="c1"># ✅ ឈ្មោះដើមត្រូវបានរក្សា</span>
+<span class="linenos">4</span><span class="go">'sum_range'</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sum_range</span><span class="o">.</span><span class="vm">__doc__</span>
+<span class="linenos">6</span><span class="go">'បូកលេខពី 0 ដល់ n។'</span>
 </pre></div>
 </div>
 </section>
@@ -289,37 +294,37 @@ metadata</strong> ទាំងអស់របស់វា៖</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span><span class="o">,</span><span class="w"> </span><span class="nn">inspect</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">plain</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@plain</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="gp">... </span><span class="w">    </span><span class="sd">"""docstring ដើម"""</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">original</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="go">'wrapper'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
-<span class="go">&lt;Signature (*a, **k)&gt;</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">polite</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@polite</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">original2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="gp">... </span><span class="w">    </span><span class="sd">"""docstring ដើម"""</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">original2</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="go">'original2'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">original2</span><span class="p">)</span>          <span class="c1"># ផ្ទៀងផ្ទាត់តាម REAL_SCRIPT_CHECKS</span>
-<span class="go">&lt;Signature (x: int) -&gt; str&gt;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span><span class="o">,</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">plain</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos"> 6</span><span class="gp">...</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@plain</span>
+<span class="linenos"> 8</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos"> 9</span><span class="gp">... </span><span class="w">    </span><span class="sd">"""docstring ដើម"""</span>
+<span class="linenos">10</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">11</span><span class="gp">...</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">original</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="linenos">13</span><span class="go">'wrapper'</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+<span class="linenos">15</span><span class="go">&lt;Signature (*a, **k)&gt;</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">polite</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="linenos">18</span><span class="gp">... </span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="linenos">19</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+<span class="linenos">20</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="linenos">21</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">22</span><span class="gp">...</span>
+<span class="linenos">23</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@polite</span>
+<span class="linenos">24</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">original2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos">25</span><span class="gp">... </span><span class="w">    </span><span class="sd">"""docstring ដើម"""</span>
+<span class="linenos">26</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">27</span><span class="gp">...</span>
+<span class="linenos">28</span><span class="gp">&gt;&gt;&gt; </span><span class="n">original2</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="linenos">29</span><span class="go">'original2'</span>
+<span class="linenos">30</span><span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">original2</span><span class="p">)</span>          <span class="c1"># ផ្ទៀងផ្ទាត់តាម REAL_SCRIPT_CHECKS</span>
+<span class="linenos">31</span><span class="go">&lt;Signature (x: int) -&gt; str&gt;</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -334,38 +339,38 @@ metadata</strong> ទាំងអស់របស់វា៖</p>
 <section id="decorator-argument">
 <span id="decorators-with-arguments"></span><h2>Decorator ដែលមាន Argument<a class="headerlink" href="#decorator-argument" title="Link to this heading"></a></h2>
 <p>Decorator ដែលទទួល argument ត្រូវការ <strong>បីជាន់</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ហៅអនុគមន៍ ``times`` ដង។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">result</span>
-
-        <span class="k">return</span> <span class="n">wrapper</span>
-
-    <span class="k">return</span> <span class="n">decorator</span>
-
-
-<span class="nd">@repeat</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">name</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="sd">"""ហៅអនុគមន៍ ``times`` ដង។"""</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 8</span>        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">10</span>            <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">11</span>            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+<span class="linenos">12</span>                <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">13</span>            <span class="k">return</span> <span class="n">result</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>        <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="k">return</span> <span class="n">decorator</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="nd">@repeat</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">21</span><span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="linenos">22</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="k">return</span> <span class="n">name</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">say_hello</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
-<span class="go">សួស្ដី សុខា</span>
-<span class="go">សួស្ដី សុខា</span>
-<span class="go">សួស្ដី សុខា</span>
-<span class="go">'សុខា'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">say_hello</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="go">'say_hello'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">say_hello</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">សួស្ដី សុខា</span>
+<span class="linenos">3</span><span class="go">សួស្ដី សុខា</span>
+<span class="linenos">4</span><span class="go">សួស្ដី សុខា</span>
+<span class="linenos">5</span><span class="go">'សុខា'</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">say_hello</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="linenos">7</span><span class="go">'say_hello'</span>
 </pre></div>
 </div>
 <p><strong>លំដាប់នៃការដំណើរការ៖</strong></p>
@@ -380,17 +385,17 @@ metadata</strong> ទាំងអស់របស់វា៖</p>
 <code class="docutils literal notranslate"><span class="pre">&#64;repeat</span></code> ដោយគ្មានវង់ក្រចក នឹងព្យាយាមប្រើ <code class="docutils literal notranslate"><span class="pre">times</span></code> ជាអនុគមន៍។</p>
 <p>អ្នកអាចធ្វើឱ្យ decorator មួយដំណើរការទាំងពីររបៀប ដោយពិនិត្យ
 ប្រភេទ argument ដំបូង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">"INFO"</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ដំណើរការទាំង @log និង @log(level="DEBUG")។"""</span>
-    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
-
-    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">wrapper</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">"INFO"</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">"""ដំណើរការទាំង @log និង @log(level="DEBUG")។"""</span>
+<span class="linenos"> 3</span>    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 4</span>        <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 8</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">return</span> <span class="n">wrapper</span>
 </pre></div>
 </div>
 </div>
@@ -398,31 +403,31 @@ metadata</strong> ទាំងអស់របស់វា៖</p>
 <section id="stacking">
 <span id="id5"></span><h2>ការដាក់ Decorator ច្រើនជាន់<a class="headerlink" href="#stacking" title="Link to this heading"></a></h2>
 <p>Decorator ត្រូវបានអនុវត្ត <strong>ពីក្រោមឡើងលើ</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">bold</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;b&gt;</span><span class="si">{</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/b&gt;"</span>
-    <span class="k">return</span> <span class="n">wrapper</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">italic</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;i&gt;</span><span class="si">{</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/i&gt;"</span>
-    <span class="k">return</span> <span class="n">wrapper</span>
-
-
-<span class="nd">@bold</span>
-<span class="nd">@italic</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">label</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">text</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">bold</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+<span class="linenos"> 7</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;b&gt;</span><span class="si">{</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/b&gt;"</span>
+<span class="linenos"> 8</span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">def</span><span class="w"> </span><span class="nf">italic</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos">12</span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+<span class="linenos">14</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;i&gt;</span><span class="si">{</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/i&gt;"</span>
+<span class="linenos">15</span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="nd">@bold</span>
+<span class="linenos">19</span><span class="nd">@italic</span>
+<span class="linenos">20</span><span class="k">def</span><span class="w"> </span><span class="nf">label</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">21</span>    <span class="k">return</span> <span class="n">text</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">)</span>
-<span class="go">'&lt;b&gt;&lt;i&gt;សួស្ដី&lt;/i&gt;&lt;/b&gt;'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">'&lt;b&gt;&lt;i&gt;សួស្ដី&lt;/i&gt;&lt;/b&gt;'</span>
 </pre></div>
 </div>
 <p>នេះស្មើនឹង <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">bold(italic(label))</span></code>។ ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">&#64;bold</span></code> ដែលនៅ
@@ -434,17 +439,17 @@ metadata</strong> ទាំងអស់របស់វា៖</p>
 <p><span class="versionmodified changed">Changed in version 3.9: </span>PEP 614 ធ្វើឱ្យវាក្យសម្ពន្ធធូររលុង — decorator អាចជា <strong>expression ណាក៏បាន</strong>
 ដែលត្រឡប់ callable មិនមែនត្រឹមតែឈ្មោះ ឬការហៅមានចុចប៉ុណ្ណោះទេ។</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># មុន Python 3.9 — ត្រូវប្រើអថេរជំនួយ</span>
-<span class="n">decorator</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="s2">"debug"</span><span class="p">]</span>
-<span class="nd">@decorator</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span> <span class="o">...</span>
-
-<span class="c1"># Python 3.9+ — អនុញ្ញាតផ្ទាល់</span>
-<span class="nd">@registry</span><span class="p">[</span><span class="s2">"debug"</span><span class="p">]</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span> <span class="o">...</span>
-
-<span class="nd">@buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">on_click</span><span class="p">():</span> <span class="o">...</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># មុន Python 3.9 — ត្រូវប្រើអថេរជំនួយ</span>
+<span class="linenos"> 2</span><span class="n">decorator</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="s2">"debug"</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="nd">@decorator</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span> <span class="o">...</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># Python 3.9+ — អនុញ្ញាតផ្ទាល់</span>
+<span class="linenos"> 7</span><span class="nd">@registry</span><span class="p">[</span><span class="s2">"debug"</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span> <span class="o">...</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="nd">@buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span>
+<span class="linenos">11</span><span class="k">def</span><span class="w"> </span><span class="nf">on_click</span><span class="p">():</span> <span class="o">...</span>
 </pre></div>
 </div>
 </section>
@@ -510,34 +515,34 @@ metadata</strong> ទាំងអស់របស់វា៖</p>
 </table>
 <section id="lru-cache-caching">
 <span id="lru-cache"></span><h3><code class="docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> — Caching<a class="headerlink" href="#lru-cache-caching" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">n</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="go">832040</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>
-<span class="go">CacheInfo(hits=28, misses=31, maxsize=None, currsize=31)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_clear</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>
-<span class="go">CacheInfo(hits=0, misses=0, maxsize=None, currsize=0)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">n</span>
+<span class="linenos"> 6</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">...</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="go">832040</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>
+<span class="linenos">11</span><span class="go">CacheInfo(hits=28, misses=31, maxsize=None, currsize=31)</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_clear</span><span class="p">()</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>
+<span class="linenos">14</span><span class="go">CacheInfo(hits=0, misses=0, maxsize=None, currsize=0)</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> តម្រូវឱ្យ argument ទាំងអស់ <strong>hashable</strong>។ Argument
 mutable (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>) នឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">process</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">unhashable type: 'list'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
+<span class="linenos">2</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">process</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="linenos">6</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">7</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">8</span><span class="gr">TypeError</span>: <span class="n">unhashable type: 'list'</span>
 </pre></div>
 </div>
 <p>ចំណាំថា cache ក៏រក្សា <strong>reference</strong> ទៅ argument និងលទ្ធផលផងដែរ
@@ -549,33 +554,33 @@ mutable (<code class="docutils literal notranslate"><span class="pre">list</span
 <section id="class-decorator">
 <span id="class-decorators"></span><h2>Class ជា Decorator<a class="headerlink" href="#class-decorator" title="Link to this heading"></a></h2>
 <p>Object ណាដែលមាន <code class="docutils literal notranslate"><span class="pre">__call__</span></code> អាចជា decorator បាន៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">CountCalls</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""រាប់ចំនួនដងដែលអនុគមន៍ត្រូវបានហៅ។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="n">functools</span><span class="o">.</span><span class="n">update_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-
-<span class="nd">@CountCalls</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s2">"pong"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">CountCalls</span><span class="p">:</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="sd">"""រាប់ចំនួនដងដែលអនុគមន៍ត្រូវបានហៅ។"""</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 8</span>        <span class="n">functools</span><span class="o">.</span><span class="n">update_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+<span class="linenos">10</span>        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">13</span>        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">14</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="nd">@CountCalls</span>
+<span class="linenos">18</span><span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">():</span>
+<span class="linenos">19</span>    <span class="k">return</span> <span class="s2">"pong"</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="p">(),</span> <span class="n">ping</span><span class="p">()</span>
-<span class="go">('pong', 'pong')</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="o">.</span><span class="n">count</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="go">'ping'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="p">(),</span> <span class="n">ping</span><span class="p">()</span>
+<span class="linenos">2</span><span class="go">('pong', 'pong')</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="o">.</span><span class="n">count</span>
+<span class="linenos">4</span><span class="go">2</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="linenos">6</span><span class="go">'ping'</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -589,54 +594,54 @@ mutable (<code class="docutils literal notranslate"><span class="pre">list</span
 <span id="decorating-methods"></span><h2>Decorator លើ Method<a class="headerlink" href="#decorator-method" title="Link to this heading"></a></h2>
 <p>Decorator ដំណើរការមុនពេល method ក្លាយជា bound method ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">self</span></code>
 គ្រាន់តែជា argument ធម្មតាមួយ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">requires_auth</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">logged_in</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">"ត្រូវតែចូលគណនីជាមុន"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">wrapper</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logged_in</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="nd">@requires_auth</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">}</span><span class="s2"> បានដក </span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">requires_auth</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 7</span>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">logged_in</span><span class="p">:</span>
+<span class="linenos"> 8</span>            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">"ត្រូវតែចូលគណនីជាមុន"</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+<span class="linenos">16</span>        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+<span class="linenos">17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">logged_in</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>    <span class="nd">@requires_auth</span>
+<span class="linenos">20</span>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+<span class="linenos">21</span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">}</span><span class="s2"> បានដក </span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">PermissionError</span>: <span class="n">ត្រូវតែចូលគណនីជាមុន</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">logged_in</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="go">'សុខា បានដក 100'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">4</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">5</span><span class="gr">PermissionError</span>: <span class="n">ត្រូវតែចូលគណនីជាមុន</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">logged_in</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">8</span><span class="go">'សុខា បានដក 100'</span>
 </pre></div>
 </div>
 </section>
 <section id="decorator-class">
 <span id="class-decorator-target"></span><h2>Decorator សម្រាប់ Class<a class="headerlink" href="#decorator-class" title="Link to this heading"></a></h2>
 <p>Decorator ក៏អាចកែប្រែ class បានដែរ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add_repr</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="bp">cls</span><span class="o">.</span><span class="fm">__repr__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"&lt;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&gt;"</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="bp">cls</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@add_repr</span>
-<span class="gp">... </span><span class="k">class</span><span class="w"> </span><span class="nc">Thing</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">pass</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Thing</span><span class="p">()</span>
-<span class="go">&lt;Thing&gt;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add_repr</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="bp">cls</span><span class="o">.</span><span class="fm">__repr__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"&lt;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&gt;"</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">return</span> <span class="bp">cls</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@add_repr</span>
+<span class="linenos"> 7</span><span class="gp">... </span><span class="k">class</span><span class="w"> </span><span class="nc">Thing</span><span class="p">:</span>
+<span class="linenos"> 8</span><span class="gp">... </span>    <span class="k">pass</span>
+<span class="linenos"> 9</span><span class="gp">...</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Thing</span><span class="p">()</span>
+<span class="linenos">11</span><span class="go">&lt;Thing&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -649,76 +654,76 @@ mutable (<code class="docutils literal notranslate"><span class="pre">list</span
 <section id="real-world">
 <span id="id8"></span><h2>ឧទាហរណ៍ជាក់ស្ដែង<a class="headerlink" href="#real-world" title="Link to this heading"></a></h2>
 <p><strong>១. Retry logic</strong> — សាកល្បងម្ដងទៀតពេលបរាជ័យ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">retry</span><span class="p">(</span><span class="n">attempts</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">exceptions</span><span class="o">=</span><span class="p">(</span><span class="ne">OSError</span><span class="p">,)):</span>
-<span class="w">    </span><span class="sd">"""សាកល្បងម្ដងទៀតរហូតដល់ជោគជ័យ ឬអស់ attempts។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="n">last</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-                <span class="k">except</span> <span class="n">exceptions</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                    <span class="n">last</span> <span class="o">=</span> <span class="n">exc</span>
-                    <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">attempts</span><span class="p">:</span>
-                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="n">last</span>
-
-        <span class="k">return</span> <span class="n">wrapper</span>
-
-    <span class="k">return</span> <span class="n">decorator</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span><span class="w"> </span><span class="nf">retry</span><span class="p">(</span><span class="n">attempts</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">exceptions</span><span class="o">=</span><span class="p">(</span><span class="ne">OSError</span><span class="p">,)):</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="sd">"""សាកល្បងម្ដងទៀតរហូតដល់ជោគជ័យ ឬអស់ attempts។"""</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 9</span>        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos">10</span>        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">11</span>            <span class="n">last</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">12</span>            <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">13</span>                <span class="k">try</span><span class="p">:</span>
+<span class="linenos">14</span>                    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">15</span>                <span class="k">except</span> <span class="n">exceptions</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="linenos">16</span>                    <span class="n">last</span> <span class="o">=</span> <span class="n">exc</span>
+<span class="linenos">17</span>                    <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">attempts</span><span class="p">:</span>
+<span class="linenos">18</span>                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+<span class="linenos">19</span>            <span class="k">raise</span> <span class="n">last</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>        <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="k">return</span> <span class="n">decorator</span>
 </pre></div>
 </div>
 <p><strong>២. Validation</strong> — ពិនិត្យ argument៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">positive</span><span class="p">(</span><span class="o">*</span><span class="n">param_names</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ធានាថា parameter ដែលបានបញ្ជាក់មានតម្លៃវិជ្ជមាន។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
-
-        <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-
-        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="n">bound</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="n">bound</span><span class="o">.</span><span class="n">apply_defaults</span><span class="p">()</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">param_names</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> ត្រូវតែវិជ្ជមាន"</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">wrapper</span>
-
-    <span class="k">return</span> <span class="n">decorator</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">positive</span><span class="p">(</span><span class="o">*</span><span class="n">param_names</span><span class="p">):</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="sd">"""ធានាថា parameter ដែលបានបញ្ជាក់មានតម្លៃវិជ្ជមាន។"""</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 8</span>        <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>        <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos">13</span>        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">14</span>            <span class="n">bound</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">15</span>            <span class="n">bound</span><span class="o">.</span><span class="n">apply_defaults</span><span class="p">()</span>
+<span class="linenos">16</span>            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">param_names</span><span class="p">:</span>
+<span class="linenos">17</span>                <span class="k">if</span> <span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">18</span>                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> ត្រូវតែវិជ្ជមាន"</span><span class="p">)</span>
+<span class="linenos">19</span>            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>        <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="k">return</span> <span class="n">decorator</span>
 </pre></div>
 </div>
 <p><strong>៣. Deprecation warning</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">deprecated</span><span class="p">(</span><span class="n">reason</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ហួសសម័យហើយ: </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                <span class="ne">DeprecationWarning</span><span class="p">,</span>
-                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-            <span class="p">)</span>
-            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">wrapper</span>
-
-    <span class="k">return</span> <span class="n">decorator</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span><span class="w"> </span><span class="nf">deprecated</span><span class="p">(</span><span class="n">reason</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="linenos"> 7</span>        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos"> 8</span>        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos"> 9</span>            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="linenos">10</span>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ហួសសម័យហើយ: </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+<span class="linenos">11</span>                <span class="ne">DeprecationWarning</span><span class="p">,</span>
+<span class="linenos">12</span>                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">13</span>            <span class="p">)</span>
+<span class="linenos">14</span>            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>        <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="k">return</span> <span class="n">decorator</span>
 </pre></div>
 </div>
 </section>

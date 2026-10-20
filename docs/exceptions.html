@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/exceptions.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -210,17 +215,17 @@
 </table>
 <section id="syntax-error">
 <span id="syntax-errors"></span><h2>Syntax Error<a class="headerlink" href="#syntax-error" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
-<span class="w">    </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="w">               </span><span class="pm">^^^^^</span>
-<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានបិទ</span>
-  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
-<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានបិទ</span>
-<span class="w">          </span><span class="pm">^</span>
-<span class="gr">SyntaxError</span>: <span class="n">unterminated string literal (detected at line 1)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="linenos"> 2</span>  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="w">               </span><span class="pm">^^^^^</span>
+<span class="linenos"> 5</span><span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានបិទ</span>
+<span class="linenos"> 8</span>  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានបិទ</span>
+<span class="linenos">10</span><span class="w">          </span><span class="pm">^</span>
+<span class="linenos">11</span><span class="gr">SyntaxError</span>: <span class="n">unterminated string literal (detected at line 1)</span>
 </pre></div>
 </div>
 <p>Python បង្ហាញ <strong>ទីតាំងជាក់លាក់</strong> ដែលវារកឃើញបញ្ហា ដោយប្រើសញ្ញា <code class="docutils literal notranslate"><span class="pre">^</span></code>
@@ -237,40 +242,40 @@
 <p>Exception គឺជា <strong>object</strong> ដែល Python បង្កើតនៅពេលមានអ្វីខុសកំឡុងពេល
 ដំណើរការ។ បើមិនបានចាប់យក (handle) កម្មវិធីនឹងឈប់ ហើយបោះពុម្ព
 <strong>traceback</strong>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: 'abc'</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">undefined_name</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name 'undefined_name' is not defined</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">][</span><span class="mi">10</span><span class="p">]</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="linenos"> 2</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 4</span><span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 9</span><span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: 'abc'</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">undefined_name</span>
+<span class="linenos">12</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">13</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">14</span><span class="gr">NameError</span>: <span class="n">name 'undefined_name' is not defined</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">][</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos">17</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">18</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">19</span><span class="gr">IndexError</span>: <span class="n">list index out of range</span>
 </pre></div>
 </div>
 <section id="traceback">
 <span id="reading-traceback"></span><h3>ការអាន Traceback<a class="headerlink" href="#traceback" title="Link to this heading"></a></h3>
 <p>Traceback អាន <strong>ពីលើចុះក្រោម</strong> — បង្ហាញជាមុនថាការហៅបានឆ្លងកាត់
 អនុគមន៍ណាខ្លះ រួចបញ្ចប់ដោយកំហុសជាក់ស្ដែងនៅ <strong>បន្ទាត់ចុងក្រោយ</strong>៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):        ← ចាប់ផ្ដើម
-  File "app.py", line 42, in handle      ← កម្រិតខាងក្រៅបំផុត
-    result = process(data)
-  File "core.py", line 17, in process    ← កម្រិតខាងក្នុង
-    return parse(value)
-  File "core.py", line 9, in parse       ← កន្លែងកំហុសកើតឡើង
-    return int(value)
-ValueError: invalid literal for int()    ← ប្រភេទកំហុស + សារ
-        with base 10: 'hello'
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>Traceback (most recent call last):        ← ចាប់ផ្ដើម
+<span class="linenos">2</span>  File "app.py", line 42, in handle      ← កម្រិតខាងក្រៅបំផុត
+<span class="linenos">3</span>    result = process(data)
+<span class="linenos">4</span>  File "core.py", line 17, in process    ← កម្រិតខាងក្នុង
+<span class="linenos">5</span>    return parse(value)
+<span class="linenos">6</span>  File "core.py", line 9, in parse       ← កន្លែងកំហុសកើតឡើង
+<span class="linenos">7</span>    return int(value)
+<span class="linenos">8</span>ValueError: invalid literal for int()    ← ប្រភេទកំហុស + សារ
+<span class="linenos">9</span>        with base 10: 'hello'
 </pre></div>
 </div>
 <p><strong>លំដាប់សម្រាប់អាន៖</strong></p>
@@ -289,32 +294,32 @@ ValueError: invalid literal for int()    ← ប្រភេទកំហុស +
 </section>
 <section id="try-except">
 <span id="id3"></span><h2><code class="docutils literal notranslate"><span class="pre">try</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-except" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ចែកលេខដោយដោះស្រាយការចែកនឹងសូន្យ។"""</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនអាចចែកនឹងសូន្យបានទេ"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">None</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">safe_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">2</span><span class="w">    </span><span class="sd">"""ចែកលេខដោយដោះស្រាយការចែកនឹងសូន្យ។"""</span>
+<span class="linenos">3</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">4</span>        <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="linenos">5</span>    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="linenos">6</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនអាចចែកនឹងសូន្យបានទេ"</span><span class="p">)</span>
+<span class="linenos">7</span>        <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">5.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="go">មិនអាចចែកនឹងសូន្យបានទេ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">5.0</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">4</span><span class="go">មិនអាចចែកនឹងសូន្យបានទេ</span>
 </pre></div>
 </div>
 <p>រចនាសម្ព័ន្ធពេញលេញ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">risky_operation</span><span class="p">()</span>
-<span class="k">except</span> <span class="n">SomeError</span><span class="p">:</span>
-    <span class="n">handle_it</span><span class="p">()</span>
-<span class="k">except</span> <span class="p">(</span><span class="n">OtherError</span><span class="p">,</span> <span class="n">AnotherError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-    <span class="n">handle_multiple</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">runs_only_if_no_exception</span><span class="p">()</span>
-<span class="k">finally</span><span class="p">:</span>
-    <span class="n">always_runs</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 2</span>    <span class="n">risky_operation</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="k">except</span> <span class="n">SomeError</span><span class="p">:</span>
+<span class="linenos"> 4</span>    <span class="n">handle_it</span><span class="p">()</span>
+<span class="linenos"> 5</span><span class="k">except</span> <span class="p">(</span><span class="n">OtherError</span><span class="p">,</span> <span class="n">AnotherError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="linenos"> 6</span>    <span class="n">handle_multiple</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 8</span>    <span class="n">runs_only_if_no_exception</span><span class="p">()</span>
+<span class="linenos"> 9</span><span class="k">finally</span><span class="p">:</span>
+<span class="linenos">10</span>    <span class="n">always_runs</span><span class="p">()</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -346,38 +351,38 @@ ValueError: invalid literal for int()    ← ប្រភេទកំហុស +
 <section id="object-exception">
 <span id="catching-object"></span><h3>ចាប់យក Object នៃ Exception<a class="headerlink" href="#object-exception" title="Link to this heading"></a></h3>
 <p>ប្រើ <code class="docutils literal notranslate"><span class="pre">as</span></code> ដើម្បីទទួល exception object ផ្ទាល់៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">ValueError</span>
-<span class="go">invalid literal for int() with base 10: 'abc'</span>
-<span class="go">("invalid literal for int() with base 10: 'abc'",)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">...</span>
+<span class="linenos"> 8</span><span class="go">ValueError</span>
+<span class="linenos"> 9</span><span class="go">invalid literal for int() with base 10: 'abc'</span>
+<span class="linenos">10</span><span class="go">("invalid literal for int() with base 10: 'abc'",)</span>
 </pre></div>
 </div>
 </section>
 <section id="multiple-except">
 <span id="id4"></span><h3>ចាប់យក Exception ច្រើន<a class="headerlink" href="#multiple-except" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="s2">"0"</span>          <span class="c1"># សាកល្បងជាមួយ "abc" ដើម្បីឃើញសាខា ValueError</span>
-
-<span class="c1"># វិធី ១ — clause ដាច់ដោយឡែក (ល្អបំផុត ព្រោះដោះស្រាយខុសគ្នា)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">value</span>
-<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនមែនជាលេខទេ"</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនអាចចែកនឹងសូន្យទេ"</span><span class="p">)</span>
-
-<span class="c1"># វិធី ២ — tuple (ពេលដោះស្រាយដូចគ្នា)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">value</span>
-<span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">ZeroDivisionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"កំហុសទិន្នន័យ: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">raw</span> <span class="o">=</span> <span class="s2">"0"</span>          <span class="c1"># សាកល្បងជាមួយ "abc" ដើម្បីឃើញសាខា ValueError</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># វិធី ១ — clause ដាច់ដោយឡែក (ល្អបំផុត ព្រោះដោះស្រាយខុសគ្នា)</span>
+<span class="linenos"> 4</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">value</span>
+<span class="linenos"> 7</span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="linenos"> 8</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនមែនជាលេខទេ"</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="linenos">10</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនអាចចែកនឹងសូន្យទេ"</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># វិធី ២ — tuple (ពេលដោះស្រាយដូចគ្នា)</span>
+<span class="linenos">13</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">14</span>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="linenos">15</span>    <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">value</span>
+<span class="linenos">16</span><span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">ZeroDivisionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"កំហុសទិន្នន័យ: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -391,25 +396,25 @@ ValueError: invalid literal for int()    ← ប្រភេទកំហុស +
 <span id="id5"></span><h3><code class="docutils literal notranslate"><span class="pre">else</span></code> Clause<a class="headerlink" href="#else-clause" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">else</span></code> ដំណើរការតែនៅពេល <strong>គ្មាន</strong> exception។ វាល្អជាងការដាក់កូដ
 ក្នុង <code class="docutils literal notranslate"><span class="pre">try</span></code> ព្រោះវាច្បាស់ថាកូដណាដែលអាចបរាជ័យ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="s2">"42"</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
-
-<span class="c1"># ❌ មិនច្បាស់ — convert() ក៏អាចបញ្ចេញ ValueError ដែរ</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>      <span class="c1"># បើ convert បរាជ័យ នឹងត្រូវចាប់យកដូចគ្នា</span>
-<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទិន្នន័យមិនត្រឹមត្រូវ"</span><span class="p">)</span>
-
-<span class="c1"># ✅ ច្បាស់លាស់</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទិន្នន័យមិនត្រឹមត្រូវ"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>      <span class="c1"># ដំណើរការតែពេល int() ជោគជ័យ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">raw</span> <span class="o">=</span> <span class="s2">"42"</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 4</span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># ❌ មិនច្បាស់ — convert() ក៏អាចបញ្ចេញ ValueError ដែរ</span>
+<span class="linenos"> 7</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 8</span>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">result</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>      <span class="c1"># បើ convert បរាជ័យ នឹងត្រូវចាប់យកដូចគ្នា</span>
+<span class="linenos">10</span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទិន្នន័យមិនត្រឹមត្រូវ"</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># ✅ ច្បាស់លាស់</span>
+<span class="linenos">14</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="linenos">16</span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទិន្នន័យមិនត្រឹមត្រូវ"</span><span class="p">)</span>
+<span class="linenos">18</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="n">result</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>      <span class="c1"># ដំណើរការតែពេល int() ជោគជ័យ</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -423,67 +428,67 @@ ValueError: invalid literal for int()    ← ប្រភេទកំហុស +
 <span id="id6"></span><h2>ឋានានុក្រម Exception<a class="headerlink" href="#exception-hierarchy" title="Link to this heading"></a></h2>
 <p>Exception ទាំងអស់បន្តពូជ (inherit) ពី <code class="docutils literal notranslate"><span class="pre">BaseException</span></code>។ ការយល់ដឹងអំពីឋានានុក្រម
 សំខាន់ណាស់ ព្រោះ <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">X</span></code> ចាប់យក <strong>X និង subclass ទាំងអស់របស់វា</strong>។</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BaseException
- +-- SystemExit                 ← sys.exit()
- +-- KeyboardInterrupt          ← Control-C
- +-- GeneratorExit
- +-- BaseExceptionGroup
- +-- Exception                  ← កំហុស "ធម្មតា" ទាំងអស់
-      +-- StopIteration
-      +-- StopAsyncIteration
-      +-- ArithmeticError
-      |    +-- FloatingPointError
-      |    +-- OverflowError
-      |    +-- ZeroDivisionError
-      +-- AssertionError
-      +-- AttributeError
-      +-- BufferError
-      +-- EOFError
-      +-- ExceptionGroup
-      +-- ImportError
-      |    +-- ModuleNotFoundError
-      +-- LookupError
-      |    +-- IndexError
-      |    +-- KeyError
-      +-- MemoryError
-      +-- NameError
-      |    +-- UnboundLocalError
-      +-- OSError                (ហៅផងដែរ IOError, EnvironmentError)
-      |    +-- FileNotFoundError
-      |    +-- FileExistsError
-      |    +-- PermissionError
-      |    +-- IsADirectoryError
-      |    +-- NotADirectoryError
-      |    +-- TimeoutError
-      |    +-- ConnectionError
-      |         +-- ConnectionRefusedError
-      |         +-- ConnectionResetError
-      +-- RecursionError
-      +-- ReferenceError
-      +-- RuntimeError
-      |    +-- NotImplementedError
-      +-- SyntaxError
-      |    +-- IndentationError
-      |         +-- TabError
-      +-- SystemError
-      +-- TypeError
-      +-- ValueError
-      |    +-- UnicodeError
-      |         +-- UnicodeDecodeError
-      |         +-- UnicodeEncodeError
-      +-- Warning
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>BaseException
+<span class="linenos"> 2</span> +-- SystemExit                 ← sys.exit()
+<span class="linenos"> 3</span> +-- KeyboardInterrupt          ← Control-C
+<span class="linenos"> 4</span> +-- GeneratorExit
+<span class="linenos"> 5</span> +-- BaseExceptionGroup
+<span class="linenos"> 6</span> +-- Exception                  ← កំហុស "ធម្មតា" ទាំងអស់
+<span class="linenos"> 7</span>      +-- StopIteration
+<span class="linenos"> 8</span>      +-- StopAsyncIteration
+<span class="linenos"> 9</span>      +-- ArithmeticError
+<span class="linenos">10</span>      |    +-- FloatingPointError
+<span class="linenos">11</span>      |    +-- OverflowError
+<span class="linenos">12</span>      |    +-- ZeroDivisionError
+<span class="linenos">13</span>      +-- AssertionError
+<span class="linenos">14</span>      +-- AttributeError
+<span class="linenos">15</span>      +-- BufferError
+<span class="linenos">16</span>      +-- EOFError
+<span class="linenos">17</span>      +-- ExceptionGroup
+<span class="linenos">18</span>      +-- ImportError
+<span class="linenos">19</span>      |    +-- ModuleNotFoundError
+<span class="linenos">20</span>      +-- LookupError
+<span class="linenos">21</span>      |    +-- IndexError
+<span class="linenos">22</span>      |    +-- KeyError
+<span class="linenos">23</span>      +-- MemoryError
+<span class="linenos">24</span>      +-- NameError
+<span class="linenos">25</span>      |    +-- UnboundLocalError
+<span class="linenos">26</span>      +-- OSError                (ហៅផងដែរ IOError, EnvironmentError)
+<span class="linenos">27</span>      |    +-- FileNotFoundError
+<span class="linenos">28</span>      |    +-- FileExistsError
+<span class="linenos">29</span>      |    +-- PermissionError
+<span class="linenos">30</span>      |    +-- IsADirectoryError
+<span class="linenos">31</span>      |    +-- NotADirectoryError
+<span class="linenos">32</span>      |    +-- TimeoutError
+<span class="linenos">33</span>      |    +-- ConnectionError
+<span class="linenos">34</span>      |         +-- ConnectionRefusedError
+<span class="linenos">35</span>      |         +-- ConnectionResetError
+<span class="linenos">36</span>      +-- RecursionError
+<span class="linenos">37</span>      +-- ReferenceError
+<span class="linenos">38</span>      +-- RuntimeError
+<span class="linenos">39</span>      |    +-- NotImplementedError
+<span class="linenos">40</span>      +-- SyntaxError
+<span class="linenos">41</span>      |    +-- IndentationError
+<span class="linenos">42</span>      |         +-- TabError
+<span class="linenos">43</span>      +-- SystemError
+<span class="linenos">44</span>      +-- TypeError
+<span class="linenos">45</span>      +-- ValueError
+<span class="linenos">46</span>      |    +-- UnicodeError
+<span class="linenos">47</span>      |         +-- UnicodeDecodeError
+<span class="linenos">48</span>      |         +-- UnicodeEncodeError
+<span class="linenos">49</span>      +-- Warning
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">LookupError</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="ne">ArithmeticError</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span>   <span class="c1"># ❗ ទេ</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">LookupError</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="go">True</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="go">True</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="ne">ArithmeticError</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">True</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">True</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span>   <span class="c1"># ❗ ទេ</span>
+<span class="linenos">10</span><span class="go">False</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -495,17 +500,17 @@ Control-C ឬ <code class="docutils literal notranslate"><span class="pre">sys.e
 </div>
 <section id="except">
 <span id="bare-except"></span><h3>កំហុសធ្ងន់ធ្ងរ — <code class="docutils literal notranslate"><span class="pre">except:</span></code> ទទេ<a class="headerlink" href="#except" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ គ្រោះថ្នាក់បំផុត</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">do_something</span><span class="p">()</span>
-<span class="k">except</span><span class="p">:</span>            <span class="c1"># ចាប់យក BaseException ទាំងអស់</span>
-    <span class="k">pass</span>
-
-<span class="c1"># ❌ ក៏មិនល្អដែរ</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">do_something</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># ចាប់យកកំហុសធម្មតាទាំងអស់</span>
-    <span class="k">pass</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ❌ គ្រោះថ្នាក់បំផុត</span>
+<span class="linenos"> 2</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 3</span>    <span class="n">do_something</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="k">except</span><span class="p">:</span>            <span class="c1"># ចាប់យក BaseException ទាំងអស់</span>
+<span class="linenos"> 5</span>    <span class="k">pass</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># ❌ ក៏មិនល្អដែរ</span>
+<span class="linenos"> 8</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 9</span>    <span class="n">do_something</span><span class="p">()</span>
+<span class="linenos">10</span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># ចាប់យកកំហុសធម្មតាទាំងអស់</span>
+<span class="linenos">11</span>    <span class="k">pass</span>
 </pre></div>
 </div>
 <p>បញ្ហា៖</p>
@@ -516,12 +521,12 @@ Control-C ឬ <code class="docutils literal notranslate"><span class="pre">sys.e
 Control-C (ករណី <code class="docutils literal notranslate"><span class="pre">except:</span></code> ទទេ)។</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pass</span></code> ដោយគ្មានការកត់ត្រា = កំហុសបាត់ដោយស្ងាត់។</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ ចាប់យកតែអ្វីដែលអ្នកដឹងពីរបៀបដោះស្រាយ</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">do_something</span><span class="p">()</span>
-<span class="k">except</span> <span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">PermissionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"មិនអាចអានឯកសារកំណត់រចនាសម្ព័ន្ធ: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-    <span class="n">use_defaults</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ✅ ចាប់យកតែអ្វីដែលអ្នកដឹងពីរបៀបដោះស្រាយ</span>
+<span class="linenos">2</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">3</span>    <span class="n">do_something</span><span class="p">()</span>
+<span class="linenos">4</span><span class="k">except</span> <span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">PermissionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="linenos">5</span>    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"មិនអាចអានឯកសារកំណត់រចនាសម្ព័ន្ធ: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="linenos">6</span>    <span class="n">use_defaults</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -537,23 +542,23 @@ Control-C (ករណី <code class="docutils literal notranslate"><span class="
 </section>
 <section id="exception-raise">
 <span id="raising"></span><h2>ការបញ្ចេញ Exception (<code class="docutils literal notranslate"><span class="pre">raise</span></code>)<a class="headerlink" href="#exception-raise" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"តម្លៃមិនត្រឹមត្រូវ"</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ValueError</span>: <span class="n">តម្លៃមិនត្រឹមត្រូវ</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="ne">RuntimeError</span>          <span class="c1"># គ្មានសារ</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">RuntimeError</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"តម្លៃមិនត្រឹមត្រូវ"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">3</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">4</span><span class="gr">ValueError</span>: <span class="n">តម្លៃមិនត្រឹមត្រូវ</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="ne">RuntimeError</span>          <span class="c1"># គ្មានសារ</span>
+<span class="linenos">7</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">8</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">9</span><span class="gr">RuntimeError</span>
 </pre></div>
 </div>
 <p><strong>បញ្ចេញឡើងវិញ (re-raise)</strong> — កត់ត្រា រួចបណ្ដោយឱ្យកំហុសបន្ត៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"ទិន្នន័យខូច: </span><span class="si">%r</span><span class="s2">"</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
-    <span class="k">raise</span>                        <span class="c1"># បញ្ចេញ exception ដើមឡើងវិញ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="linenos">3</span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="linenos">4</span>    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"ទិន្នន័យខូច: </span><span class="si">%r</span><span class="s2">"</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
+<span class="linenos">5</span>    <span class="k">raise</span>                        <span class="c1"># បញ្ចេញ exception ដើមឡើងវិញ</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">raise</span></code> ដោយគ្មាន argument ក្នុង <code class="docutils literal notranslate"><span class="pre">except</span></code> block បញ្ចេញ exception
@@ -561,11 +566,11 @@ Control-C (ករណី <code class="docutils literal notranslate"><span class="
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>អ្នកក៏អាចបញ្ចេញ exception ពី class បានដែរ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exc</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"ខុស"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="n">exc</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ValueError</span>: <span class="n">ខុស</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">exc</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"ខុស"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="n">exc</span>
+<span class="linenos">3</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">4</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">5</span><span class="gr">ValueError</span>: <span class="n">ខុស</span>
 </pre></div>
 </div>
 </div>
@@ -574,20 +579,20 @@ Control-C (ករណី <code class="docutils literal notranslate"><span class="
 <span id="chaining"></span><h2>Exception Chaining<a class="headerlink" href="#exception-chaining" title="Link to this heading"></a></h2>
 <p>នៅពេល exception កើតឡើងក្នុង <code class="docutils literal notranslate"><span class="pre">except</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">finally</span></code> block Python
 ភ្ជាប់វាទៅ exception ដើមដោយស្វ័យប្រវត្តិ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"បរាជ័យក្នុងការគណនា"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
-
-<span class="gt">During handling of the above exception, another exception occurred:</span>
-
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">RuntimeError</span>: <span class="n">បរាជ័យក្នុងការគណនា</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="linenos"> 3</span><span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"បរាជ័យក្នុងការគណនា"</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 8</span><span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gt">During handling of the above exception, another exception occurred:</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">13</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">14</span><span class="gr">RuntimeError</span>: <span class="n">បរាជ័យក្នុងការគណនា</span>
 </pre></div>
 </div>
 <section id="raise-from">
@@ -615,41 +620,41 @@ Control-C (ករណី <code class="docutils literal notranslate"><span class="
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-        <span class="c1"># បំលែងកំហុសប្រព័ន្ធទៅជាកំហុសកម្មវិធីដែលមានន័យ</span>
-        <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"មិនអាចផ្ទុក </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">3</span>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">4</span>            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="linenos">5</span>    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="linenos">6</span>        <span class="c1"># បំលែងកំហុសប្រព័ន្ធទៅជាកំហុសកម្មវិធីដែលមានន័យ</span>
+<span class="linenos">7</span>        <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"មិនអាចផ្ទុក </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"មូលហេតុដើម"</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"បរាជ័យ"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
-<span class="gp">...</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ValueError</span>: <span class="n">មូលហេតុដើម</span>
-
-<span class="gt">The above exception was the direct cause of the following exception:</span>
-
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">RuntimeError</span>: <span class="n">បរាជ័យ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"មូលហេតុដើម"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"បរាជ័យ"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 8</span><span class="gr">ValueError</span>: <span class="n">មូលហេតុដើម</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gt">The above exception was the direct cause of the following exception:</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">13</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">14</span><span class="gr">RuntimeError</span>: <span class="n">បរាជ័យ</span>
 </pre></div>
 </div>
 <p><strong>លុបការភ្ជាប់</strong> ដោយ <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">None</span></code> — មានប្រយោជន៍ពេលលម្អិតខាងក្នុង
 មិនសំខាន់សម្រាប់អ្នកប្រើ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"លម្អិតផ្ទៃក្នុង"</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"សំណើមិនត្រឹមត្រូវ"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
-<span class="gp">...</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">RuntimeError</span>: <span class="n">សំណើមិនត្រឹមត្រូវ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"លម្អិតផ្ទៃក្នុង"</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="linenos">4</span><span class="gp">... </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"សំណើមិនត្រឹមត្រូវ"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+<span class="linenos">5</span><span class="gp">...</span>
+<span class="linenos">6</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">7</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">8</span><span class="gr">RuntimeError</span>: <span class="n">សំណើមិនត្រឹមត្រូវ</span>
 </pre></div>
 </div>
 </section>
@@ -657,40 +662,40 @@ Control-C (ករណី <code class="docutils literal notranslate"><span class="
 <section id="custom-exceptions">
 <span id="id8"></span><h2>Exception ផ្ទាល់ខ្លួន<a class="headerlink" href="#custom-exceptions" title="Link to this heading"></a></h2>
 <p>បង្កើត exception ផ្ទាល់ខ្លួនដោយបន្តពូជពី <code class="docutils literal notranslate"><span class="pre">Exception</span></code>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AppError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""មូលដ្ឋានសម្រាប់កំហុសទាំងអស់របស់កម្មវិធី។"""</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">ValidationError</span><span class="p">(</span><span class="n">AppError</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ទិន្នន័យមិនត្រឹមត្រូវ។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">field</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">NotFoundError</span><span class="p">(</span><span class="n">AppError</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""រកធាតុមិនឃើញ។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">entity</span><span class="si">}</span><span class="s2"> '</span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">' មិនមានទេ"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entity</span> <span class="o">=</span> <span class="n">entity</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">identifier</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">AppError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">"""មូលដ្ឋានសម្រាប់កំហុសទាំងអស់របស់កម្មវិធី។"""</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">ValidationError</span><span class="p">(</span><span class="n">AppError</span><span class="p">):</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="sd">"""ទិន្នន័យមិនត្រឹមត្រូវ។"""</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="linenos"> 9</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="linenos">10</span>        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">field</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="k">class</span><span class="w"> </span><span class="nc">NotFoundError</span><span class="p">(</span><span class="n">AppError</span><span class="p">):</span>
+<span class="linenos">14</span><span class="w">    </span><span class="sd">"""រកធាតុមិនឃើញ។"""</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
+<span class="linenos">17</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">entity</span><span class="si">}</span><span class="s2"> '</span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">' មិនមានទេ"</span><span class="p">)</span>
+<span class="linenos">18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">entity</span> <span class="o">=</span> <span class="n">entity</span>
+<span class="linenos">19</span>        <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">identifier</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">"email"</span><span class="p">,</span> <span class="s2">"ត្រូវមាន @"</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="s2">"-&gt;"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">email -&gt; ត្រូវមាន @</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">raise</span> <span class="n">NotFoundError</span><span class="p">(</span><span class="s2">"User"</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">except</span> <span class="n">AppError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>        <span class="c1"># ចាប់យកតាម class មេ</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">NotFoundError : User '42' មិនមានទេ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">"email"</span><span class="p">,</span> <span class="s2">"ត្រូវមាន @"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">... </span><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="s2">"-&gt;"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="go">email -&gt; ត្រូវមាន @</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 9</span><span class="gp">... </span>    <span class="k">raise</span> <span class="n">NotFoundError</span><span class="p">(</span><span class="s2">"User"</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="linenos">10</span><span class="gp">... </span><span class="k">except</span> <span class="n">AppError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>        <span class="c1"># ចាប់យកតាម class មេ</span>
+<span class="linenos">11</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="linenos">12</span><span class="gp">...</span>
+<span class="linenos">13</span><span class="go">NotFoundError : User '42' មិនមានទេ</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -708,51 +713,51 @@ Control-C (ករណី <code class="docutils literal notranslate"><span class="
 <section id="finally">
 <span id="id9"></span><h2><code class="docutils literal notranslate"><span class="pre">finally</span></code> — សកម្មភាពសម្អាត<a class="headerlink" href="#finally" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">finally</span></code> block ដំណើរការ <strong>ជានិច្ច</strong> មិនថាមានអ្វីកើតឡើងក៏ដោយ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
-<span class="gp">... </span>    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"ចែកនឹងសូន្យ!"</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"លទ្ធផលគឺ"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"ដំណើរការ finally"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="go">លទ្ធផលគឺ 2.0</span>
-<span class="go">ដំណើរការ finally</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="go">ចែកនឹងសូន្យ!</span>
-<span class="go">ដំណើរការ finally</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="gp">... </span>        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"ចែកនឹងសូន្យ!"</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 7</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"លទ្ធផលគឺ"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="linenos"> 9</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"ដំណើរការ finally"</span><span class="p">)</span>
+<span class="linenos">10</span><span class="gp">...</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">12</span><span class="go">លទ្ធផលគឺ 2.0</span>
+<span class="linenos">13</span><span class="go">ដំណើរការ finally</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">15</span><span class="go">ចែកនឹងសូន្យ!</span>
+<span class="linenos">16</span><span class="go">ដំណើរការ finally</span>
 </pre></div>
 </div>
 <section id="finally-return">
 <span id="id10"></span><h3>ឥរិយាបថពិសេសរបស់ <code class="docutils literal notranslate"><span class="pre">finally</span></code><a class="headerlink" href="#finally-return" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">finally</span></code> ដំណើរការសូម្បីតែនៅពេលមាន <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">continue</span></code>
 ក្នុង <code class="docutils literal notranslate"><span class="pre">try</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="s2">"ពី try"</span>
-<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"finally ដំណើរការមុន return"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">()</span>
-<span class="go">finally ដំណើរការមុន return</span>
-<span class="go">'ពី try'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">3</span><span class="gp">... </span>        <span class="k">return</span> <span class="s2">"ពី try"</span>
+<span class="linenos">4</span><span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="linenos">5</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"finally ដំណើរការមុន return"</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">...</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">()</span>
+<span class="linenos">8</span><span class="go">finally ដំណើរការមុន return</span>
+<span class="linenos">9</span><span class="go">'ពី try'</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>បើ <code class="docutils literal notranslate"><span class="pre">finally</span></code> block មាន <code class="docutils literal notranslate"><span class="pre">return</span></code> វា <strong>បដិសេធ</strong> តម្លៃត្រឡប់ពី <code class="docutils literal notranslate"><span class="pre">try</span></code>
 ឬ <code class="docutils literal notranslate"><span class="pre">except</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="mi">1</span>
-<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="mi">2</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="p">()</span>
-<span class="go">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">3</span><span class="gp">... </span>        <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos">4</span><span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="linenos">5</span><span class="gp">... </span>        <span class="k">return</span> <span class="mi">2</span>
+<span class="linenos">6</span><span class="gp">...</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="p">()</span>
+<span class="linenos">8</span><span class="go">2</span>
 </pre></div>
 </div>
 <p>នេះជាកំហុសងាយធ្វើ។ <strong>កុំដាក់ ``return`` ក្នុង ``finally``</strong>។</p>
@@ -773,23 +778,23 @@ Control-C (ករណី <code class="docutils literal notranslate"><span class="
 <span id="exceptions-with-statement"></span><h2><code class="docutils literal notranslate"><span class="pre">with</span></code> — Predefined Clean-up Actions<a class="headerlink" href="#with-predefined-clean-up-actions" title="Link to this heading"></a></h2>
 <p>object ខ្លះត្រូវការសម្អាតជានិច្ច ទោះបីជាប្រើជោគជ័យក៏ដោយ។ <code class="docutils literal notranslate"><span class="pre">with</span></code>
 ធ្វើវាដោយស្វ័យប្រវត្តិ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="gp">...</span>
-<span class="go">x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>          <span class="c1"># បិទរួចហើយ ទោះបីជាគ្មាន finally</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">1</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">5</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="linenos">6</span><span class="gp">...</span>
+<span class="linenos">7</span><span class="go">x</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>          <span class="c1"># បិទរួចហើយ ទោះបីជាគ្មាន finally</span>
+<span class="linenos">9</span><span class="go">True</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">with</span></code> គឺជាការប្រើ <strong>context manager</strong>។ វាស្មើនឹង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="k">finally</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="linenos">4</span><span class="k">finally</span><span class="p">:</span>
+<span class="linenos">5</span>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -801,19 +806,19 @@ connections និងច្រើនទៀត។</p>
 <p>សូមមើលជំពូក <a class="reference internal" href="file_handling.html"><span class="doc">ការគ្រប់គ្រងឯកសារ</span></a> សម្រាប់ការប្រើជាមួយឯកសារ។</p>
 </div>
 <p><strong>បង្កើត context manager ផ្ទាល់ខ្លួន</strong> ដោយ <code class="docutils literal notranslate"><span class="pre">contextlib.contextmanager</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">timed</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">yield</span>
-<span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">timed</span><span class="p">(</span><span class="s2">"រង្វិលជុំ"</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100_000</span><span class="p">))</span>
-<span class="gp">...</span>
-<span class="go">រង្វិលជុំ: ... ms</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="linenos"> 3</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">timed</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 6</span><span class="gp">... </span>        <span class="k">yield</span>
+<span class="linenos"> 7</span><span class="gp">... </span>    <span class="k">finally</span><span class="p">:</span>
+<span class="linenos"> 8</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms"</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="gp">...</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">timed</span><span class="p">(</span><span class="s2">"រង្វិលជុំ"</span><span class="p">):</span>
+<span class="linenos">11</span><span class="gp">... </span>    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100_000</span><span class="p">))</span>
+<span class="linenos">12</span><span class="gp">...</span>
+<span class="linenos">13</span><span class="go">រង្វិលជុំ: ... ms</span>
 </pre></div>
 </div>
 </section>
@@ -824,41 +829,41 @@ connections និងច្រើនទៀត។</p>
 </div>
 <p>បើមានកំហុស <strong>ច្រើនក្នុងពេលតែមួយ</strong> (ឧ. ក្នុង concurrency ឬការផ្ទៀងផ្ទាត់
 ច្រើនវាល (field)) អ្នកអាចបញ្ចេញពួកវាជាក្រុម៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">fields</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="gp">... </span>        <span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">raise</span> <span class="n">ExceptionGroup</span><span class="p">(</span><span class="s2">"ការផ្ទៀងផ្ទាត់បរាជ័យ"</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">validate</span><span class="p">({</span><span class="s2">"a"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="s2">"y"</span><span class="p">})</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">  | ExceptionGroup</span>: <span class="n">ការផ្ទៀងផ្ទាត់បរាជ័យ (2 sub-exceptions)</span>
-<span class="x">  +-+---------------- 1 ----------------</span>
-<span class="x">    | Traceback (most recent call last):</span>
-<span class="x">    | ...</span>
-<span class="x">    | ValueError: invalid literal for int() with base 10: 'x'</span>
-<span class="x">    +---------------- 2 ----------------</span>
-<span class="x">    | Traceback (most recent call last):</span>
-<span class="x">    | ...</span>
-<span class="x">    | ValueError: invalid literal for int() with base 10: 'y'</span>
-<span class="x">    +------------------------------------</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">fields</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos"> 4</span><span class="gp">... </span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 5</span><span class="gp">... </span>            <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="gp">... </span>        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="linenos"> 7</span><span class="gp">... </span>            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="gp">... </span>    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+<span class="linenos"> 9</span><span class="gp">... </span>        <span class="k">raise</span> <span class="n">ExceptionGroup</span><span class="p">(</span><span class="s2">"ការផ្ទៀងផ្ទាត់បរាជ័យ"</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+<span class="linenos">10</span><span class="gp">...</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">validate</span><span class="p">({</span><span class="s2">"a"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="s2">"y"</span><span class="p">})</span>
+<span class="linenos">12</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">13</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">14</span><span class="gr">  | ExceptionGroup</span>: <span class="n">ការផ្ទៀងផ្ទាត់បរាជ័យ (2 sub-exceptions)</span>
+<span class="linenos">15</span><span class="x">  +-+---------------- 1 ----------------</span>
+<span class="linenos">16</span><span class="x">    | Traceback (most recent call last):</span>
+<span class="linenos">17</span><span class="x">    | ...</span>
+<span class="linenos">18</span><span class="x">    | ValueError: invalid literal for int() with base 10: 'x'</span>
+<span class="linenos">19</span><span class="x">    +---------------- 2 ----------------</span>
+<span class="linenos">20</span><span class="x">    | Traceback (most recent call last):</span>
+<span class="linenos">21</span><span class="x">    | ...</span>
+<span class="linenos">22</span><span class="x">    | ValueError: invalid literal for int() with base 10: 'y'</span>
+<span class="linenos">23</span><span class="x">    +------------------------------------</span>
 </pre></div>
 </div>
 <p><strong>``except*``</strong> ចាប់យកតែ exception ដែលត្រូវគ្នាពីក្រុម៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">}</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">validate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="k">except</span><span class="o">*</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">eg</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">err</span> <span class="ow">in</span> <span class="n">eg</span><span class="o">.</span><span class="n">exceptions</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"តម្លៃខុស:"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-<span class="k">except</span><span class="o">*</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">eg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ប្រភេទខុស:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">exceptions</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"x"</span><span class="p">}</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">4</span>    <span class="n">validate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">5</span><span class="k">except</span><span class="o">*</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">eg</span><span class="p">:</span>
+<span class="linenos">6</span>    <span class="k">for</span> <span class="n">err</span> <span class="ow">in</span> <span class="n">eg</span><span class="o">.</span><span class="n">exceptions</span><span class="p">:</span>
+<span class="linenos">7</span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"តម្លៃខុស:"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="linenos">8</span><span class="k">except</span><span class="o">*</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">eg</span><span class="p">:</span>
+<span class="linenos">9</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ប្រភេទខុស:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">exceptions</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -899,18 +904,18 @@ connections និងច្រើនទៀត។</p>
 <p><span class="versionmodified added">Added in version 3.11.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">add_note()</span></code> បន្ថែមបរិបទដោយមិនប្ដូរប្រភេទ ឬសារដើម៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">err</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"តម្លៃខុស"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="s2">"កើតឡើងពេលផ្ទុកឯកសារ config.yaml"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="s2">"បន្ទាត់ ៤២"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="n">err</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ValueError</span>: <span class="n">តម្លៃខុស</span>
-<span class="x">កើតឡើងពេលផ្ទុកឯកសារ config.yaml</span>
-<span class="x">បន្ទាត់ ៤២</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">__notes__</span>
-<span class="go">['កើតឡើងពេលផ្ទុកឯកសារ config.yaml', 'បន្ទាត់ ៤២']</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">err</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"តម្លៃខុស"</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="s2">"កើតឡើងពេលផ្ទុកឯកសារ config.yaml"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">add_note</span><span class="p">(</span><span class="s2">"បន្ទាត់ ៤២"</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="k">raise</span> <span class="n">err</span>
+<span class="linenos"> 5</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 7</span><span class="gr">ValueError</span>: <span class="n">តម្លៃខុស</span>
+<span class="linenos"> 8</span><span class="x">កើតឡើងពេលផ្ទុកឯកសារ config.yaml</span>
+<span class="linenos"> 9</span><span class="x">បន្ទាត់ ៤២</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">err</span><span class="o">.</span><span class="n">__notes__</span>
+<span class="linenos">12</span><span class="go">['កើតឡើងពេលផ្ទុកឯកសារ config.yaml', 'បន្ទាត់ ៤២']</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -923,24 +928,24 @@ traceback និងប្រភេទដើមទាំងស្រុង ហើ
 <section id="assert">
 <span id="id12"></span><h2><code class="docutils literal notranslate"><span class="pre">assert</span></code><a class="headerlink" href="#assert" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">assert</span></code> បញ្ចេញ <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> បើលក្ខខណ្ឌមិនពិត៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">assert</span> <span class="n">nums</span><span class="p">,</span> <span class="s2">"បញ្ជីមិនអាចទទេទេ"</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">2.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">average</span><span class="p">([])</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">AssertionError</span>: <span class="n">បញ្ជីមិនអាចទទេទេ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">assert</span> <span class="n">nums</span><span class="p">,</span> <span class="s2">"បញ្ជីមិនអាចទទេទេ"</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">...</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="linenos"> 6</span><span class="go">2.0</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">average</span><span class="p">([])</span>
+<span class="linenos"> 8</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">10</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">11</span><span class="gr">AssertionError</span>: <span class="n">បញ្ជីមិនអាចទទេទេ</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><code class="docutils literal notranslate"><span class="pre">assert</span></code> គឺសម្រាប់ <strong>ការត្រួតពិនិត្យខាងក្នុង</strong> (invariant) មិនមែន
 សម្រាប់ផ្ទៀងផ្ទាត់ទិន្នន័យពីអ្នកប្រើទេ។ មូលហេតុ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-O<span class="w"> </span>app.py<span class="w">     </span><span class="c1"># -O ដក assert ទាំងអស់ចេញ!</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-O<span class="w"> </span>app.py<span class="w">     </span><span class="c1"># -O ដក assert ទាំងអស់ចេញ!</span>
 </pre></div>
 </div>
 <p>សម្រាប់ទិន្នន័យខាងក្រៅ ប្រើ <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">ValueError(...)</span></code> ជំនួសវិញ។</p>

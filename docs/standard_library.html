@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/standard_library.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -257,108 +262,108 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">shutil</span><span class="o">,</span><span class="w"> </span><span class="nn">platform</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">""</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"PATH"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">""</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"Linux"</span><span class="p">,</span> <span class="s2">"Darwin"</span><span class="p">,</span> <span class="s2">"Windows"</span><span class="p">}</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">)</span>
-<span class="go">'a/b'</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># pathlib — វិធីទំនើប</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir/sub"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir/sub"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"note.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="go">6</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir"</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))</span>
-<span class="go">['note.txt']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"demo_dir"</span><span class="p">)</span>           <span class="c1"># លុបថតទាំងមូល</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">shutil</span><span class="o">,</span><span class="w"> </span><span class="nn">platform</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">""</span>
+<span class="linenos"> 3</span><span class="go">True</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"PATH"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">""</span>
+<span class="linenos"> 5</span><span class="go">True</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"Linux"</span><span class="p">,</span> <span class="s2">"Darwin"</span><span class="p">,</span> <span class="s2">"Windows"</span><span class="p">}</span>
+<span class="linenos"> 7</span><span class="go">True</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="go">'a/b'</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># pathlib — វិធីទំនើប</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir/sub"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir/sub"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"note.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">15</span><span class="go">6</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir"</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))</span>
+<span class="linenos">17</span><span class="go">['note.txt']</span>
+<span class="linenos">18</span><span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"demo_dir"</span><span class="p">)</span>           <span class="c1"># លុបថតទាំងមូល</span>
+<span class="linenos">19</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"demo_dir"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="linenos">20</span><span class="go">False</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># subprocess — ដំណើរការកម្មវិធីខាងក្រៅដោយសុវត្ថិភាព</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"print('hello')"</span><span class="p">],</span>
-<span class="gp">... </span>    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="go">'hello'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span>
-<span class="go">0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># subprocess — ដំណើរការកម្មវិធីខាងក្រៅដោយសុវត្ថិភាព</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"print('hello')"</span><span class="p">],</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 6</span><span class="gp">... </span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos"> 8</span><span class="go">'hello'</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span>
+<span class="linenos">10</span><span class="go">0</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>កុំប្រើ <code class="docutils literal notranslate"><span class="pre">shell=True</span></code> ជាមួយទិន្នន័យពីអ្នកប្រើ — វាបើកចំហ
 <strong>command injection</strong>។ បញ្ជូន argument ជា list ជំនួសវិញ។</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ គ្រោះថ្នាក់</span>
-<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ls </span><span class="si">{</span><span class="n">user_input</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># ✅ សុវត្ថិភាព</span>
-<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"ls"</span><span class="p">,</span> <span class="n">user_input</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ❌ គ្រោះថ្នាក់</span>
+<span class="linenos">2</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ls </span><span class="si">{</span><span class="n">user_input</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1"># ✅ សុវត្ថិភាព</span>
+<span class="linenos">5</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"ls"</span><span class="p">,</span> <span class="n">user_input</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </section>
 <section id="cli">
 <span id="id6"></span><h2>បន្ទាត់ពាក្យបញ្ជា<a class="headerlink" href="#cli" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="kc">False</span> <span class="k">else</span> <span class="kc">None</span>      <span class="c1"># បញ្ចប់កម្មវិធីដោយ exit code</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>        <span class="c1"># error stream ដាច់ដោយឡែក</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+<span class="linenos">3</span><span class="go">True</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="kc">False</span> <span class="k">else</span> <span class="kc">None</span>      <span class="c1"># បញ្ចប់កម្មវិធីដោយ exit code</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>        <span class="c1"># error stream ដាច់ដោយឡែក</span>
+<span class="linenos">6</span><span class="go">True</span>
 </pre></div>
 </div>
 <p><strong>``argparse``</strong> — វិធីស្តង់ដារដើម្បីវិភាគ argument៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">build_parser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">:</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-        <span class="n">prog</span><span class="o">=</span><span class="s2">"backup"</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">"ចម្លងឯកសារទៅកន្លែងបម្រុងទុក។"</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"source"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"ឯកសារ ឬថតប្រភព"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">,</span> <span class="s2">"--dest"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"ទីតាំងគោលដៅ"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-v"</span><span class="p">,</span> <span class="s2">"--verbose"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> <span class="s2">"--count"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"--mode"</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">"copy"</span><span class="p">,</span> <span class="s2">"move"</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s2">"copy"</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">parser</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">build_parser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="linenos"> 6</span>        <span class="n">prog</span><span class="o">=</span><span class="s2">"backup"</span><span class="p">,</span>
+<span class="linenos"> 7</span>        <span class="n">description</span><span class="o">=</span><span class="s2">"ចម្លងឯកសារទៅកន្លែងបម្រុងទុក។"</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"source"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"ឯកសារ ឬថតប្រភព"</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">,</span> <span class="s2">"--dest"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"ទីតាំងគោលដៅ"</span><span class="p">)</span>
+<span class="linenos">11</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-v"</span><span class="p">,</span> <span class="s2">"--verbose"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> <span class="s2">"--count"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">14</span>        <span class="s2">"--mode"</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">"copy"</span><span class="p">,</span> <span class="s2">"move"</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s2">"copy"</span>
+<span class="linenos">15</span>    <span class="p">)</span>
+<span class="linenos">16</span>    <span class="k">return</span> <span class="n">parser</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">build_parser</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"--dest"</span><span class="p">,</span> <span class="s2">"/tmp"</span><span class="p">,</span> <span class="s2">"-v"</span><span class="p">,</span> <span class="s2">"-n"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">dest</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">mode</span>
-<span class="go">('data', '/tmp', True, 3, 'copy')</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># --help ត្រូវបានបង្កើតដោយស្វ័យប្រវត្តិ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">format_usage</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"usage: backup"</span><span class="p">)</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">build_parser</span><span class="p">()</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"--dest"</span><span class="p">,</span> <span class="s2">"/tmp"</span><span class="p">,</span> <span class="s2">"-v"</span><span class="p">,</span> <span class="s2">"-n"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">])</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">dest</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">mode</span>
+<span class="linenos">4</span><span class="go">('data', '/tmp', True, 3, 'copy')</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># --help ត្រូវបានបង្កើតដោយស្វ័យប្រវត្តិ</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">format_usage</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"usage: backup"</span><span class="p">)</span>
+<span class="linenos">8</span><span class="go">True</span>
 </pre></div>
 </div>
 </section>
 <section id="regular-expression-re">
 <span id="re-module"></span><h2>Regular Expression (<code class="docutils literal notranslate"><span class="pre">re</span></code>)<a class="headerlink" href="#regular-expression-re" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\d+"</span><span class="p">,</span> <span class="s2">"a1b22c333"</span><span class="p">)</span>
-<span class="go">['1', '22', '333']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\w+)@(\w+\.\w+)"</span><span class="p">,</span> <span class="s2">"ទាក់ទង: sokha@example.com"</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
-<span class="go">('sokha', 'example.com')</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="s2">"a    b</span><span class="se">\t\t</span><span class="s2">c"</span><span class="p">)</span>
-<span class="go">'a b c'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Py"</span><span class="p">,</span> <span class="s2">"Python"</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="go">'Py'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[a-z]+"</span><span class="p">,</span> <span class="s2">"abc"</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[a-z]+"</span><span class="p">,</span> <span class="s2">"ABC"</span><span class="p">))</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\d+"</span><span class="p">,</span> <span class="s2">"a1b22c333"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">['1', '22', '333']</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\w+)@(\w+\.\w+)"</span><span class="p">,</span> <span class="s2">"ទាក់ទង: sokha@example.com"</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+<span class="linenos"> 5</span><span class="go">('sokha', 'example.com')</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="s2">"a    b</span><span class="se">\t\t</span><span class="s2">c"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="go">'a b c'</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Py"</span><span class="p">,</span> <span class="s2">"Python"</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="go">'Py'</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[a-z]+"</span><span class="p">,</span> <span class="s2">"abc"</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="linenos">11</span><span class="go">True</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[a-z]+"</span><span class="p">,</span> <span class="s2">"ABC"</span><span class="p">))</span>
+<span class="linenos">13</span><span class="go">False</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -406,54 +411,54 @@
 </section>
 <section id="math-stats">
 <span id="id7"></span><h2>គណិតវិទ្យា និងស្ថិតិ<a class="headerlink" href="#math-stats" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">random</span><span class="o">,</span><span class="w"> </span><span class="nn">statistics</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">3.7</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">3.2</span><span class="p">)</span>
-<span class="go">(4.0, 3, 4)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="go">3.1416</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">lcm</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="go">(6, 12)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">inf</span> <span class="o">&gt;</span> <span class="mf">1e308</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="go">18</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="go">15.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="go">(4, 42, 108)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">random</span><span class="o">,</span><span class="w"> </span><span class="nn">statistics</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">3.7</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">3.2</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">(4.0, 3, 4)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">3.1416</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="go">True</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">lcm</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="go">(6, 12)</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">inf</span> <span class="o">&gt;</span> <span class="mf">1e308</span>
+<span class="linenos">11</span><span class="go">True</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">15</span><span class="go">18</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">17</span><span class="go">15.5</span>
+<span class="linenos">18</span><span class="gp">&gt;&gt;&gt; </span><span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="linenos">19</span><span class="go">True</span>
+<span class="linenos">20</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">21</span><span class="go">(4, 42, 108)</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ចៃដន្យ — ប្រើ random.seed() សម្រាប់លទ្ធផលដែលអាចធ្វើម្ដងទៀតបាន</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="n">first</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span> <span class="ow">or</span> <span class="kc">True</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">])</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">]</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">1.0</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ចៃដន្យ — ប្រើ random.seed() សម្រាប់លទ្ធផលដែលអាចធ្វើម្ដងទៀតបាន</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">first</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="n">first</span>
+<span class="linenos"> 6</span><span class="go">True</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span> <span class="ow">or</span> <span class="kc">True</span>
+<span class="linenos">10</span><span class="go">True</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">])</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">]</span>
+<span class="linenos">12</span><span class="go">True</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">1.0</span>
+<span class="linenos">14</span><span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>កុំប្រើ ``random`` សម្រាប់សុវត្ថិភាព</strong> (ពាក្យសម្ងាត់, token, សោ)។
 ប្រើ <code class="docutils literal notranslate"><span class="pre">secrets</span></code> វិញ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">token_urlsafe</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="mi">20</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">secrets</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">])</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">]</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">token_urlsafe</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="mi">20</span>
+<span class="linenos">3</span><span class="go">True</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">secrets</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">])</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">]</span>
+<span class="linenos">5</span><span class="go">True</span>
 </pre></div>
 </div>
 <p>ចំណាំថា <code class="docutils literal notranslate"><span class="pre">random.seed(0)</span></code> ធ្វើឱ្យលទ្ធផល <strong>អាចទាយបាន</strong> ដូច្នេះវា
@@ -461,22 +466,22 @@
 </div>
 <section id="decimal-fractions">
 <span id="id8"></span><h3><code class="docutils literal notranslate"><span class="pre">decimal</span></code> និង <code class="docutils literal notranslate"><span class="pre">fractions</span></code><a class="headerlink" href="#decimal-fractions" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">getcontext</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.1"</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.2"</span><span class="p">)</span>
-<span class="go">Decimal('0.3')</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"7"</span><span class="p">)</span>            <span class="c1"># ២៨ ខ្ទង់តាមលំនាំដើម</span>
-<span class="go">Decimal('0.1428571428571428571428571429')</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"7"</span><span class="p">)</span>
-<span class="go">Decimal('0.1429')</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fractions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fraction</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="go">Fraction(1, 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">Fraction(1, 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="go">0.25</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">getcontext</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.1"</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.2"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">Decimal('0.3')</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"7"</span><span class="p">)</span>            <span class="c1"># ២៨ ខ្ទង់តាមលំនាំដើម</span>
+<span class="linenos"> 5</span><span class="go">Decimal('0.1428571428571428571428571429')</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"7"</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">Decimal('0.1429')</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fractions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fraction</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="linenos">12</span><span class="go">Fraction(1, 2)</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">14</span><span class="go">Fraction(1, 2)</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">16</span><span class="go">0.25</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -489,34 +494,34 @@
 </section>
 <section id="datetime">
 <span id="id9"></span><h2>កាលបរិច្ឆេទ និងពេលវេលា<a class="headerlink" href="#datetime" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">day</span>
-<span class="go">(2026, 10, 20)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="go">'2026-10-20'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2"> %b %Y"</span><span class="p">)</span>
-<span class="go">'20 Oct 2026'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">"2026-01-15"</span><span class="p">)</span>
-<span class="go">datetime.date(2026, 1, 15)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="go">'2026-10-20T14:30:00'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="go">'2026-10-27T17:30:00'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">day</span>
+<span class="linenos"> 4</span><span class="go">(2026, 10, 20)</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="go">'2026-10-20'</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2"> %b %Y"</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">'20 Oct 2026'</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">"2026-01-15"</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">datetime.date(2026, 1, 15)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="linenos">14</span><span class="go">'2026-10-20T14:30:00'</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="linenos">16</span><span class="go">'2026-10-27T17:30:00'</span>
 </pre></div>
 </div>
 <p><strong>Timezone</strong> — ប្រើ <code class="docutils literal notranslate"><span class="pre">zoneinfo</span></code> (3.9+)៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">phnom_penh</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">"Asia/Phnom_Penh"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t_utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">utc</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t_kh</span> <span class="o">=</span> <span class="n">t_utc</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">phnom_penh</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t_kh</span><span class="o">.</span><span class="n">hour</span>                        <span class="c1"># កម្ពុជា UTC+7</span>
-<span class="go">7</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t_kh</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span>
-<span class="go">datetime.timedelta(seconds=25200)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">phnom_penh</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">"Asia/Phnom_Penh"</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t_utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">utc</span><span class="p">)</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t_kh</span> <span class="o">=</span> <span class="n">t_utc</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">phnom_penh</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t_kh</span><span class="o">.</span><span class="n">hour</span>                        <span class="c1"># កម្ពុជា UTC+7</span>
+<span class="linenos">7</span><span class="go">7</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t_kh</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span>
+<span class="linenos">9</span><span class="go">datetime.timedelta(seconds=25200)</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -524,35 +529,35 @@
 <p><strong>កុំប្រើ naive datetime</strong> (គ្មាន <code class="docutils literal notranslate"><span class="pre">tzinfo</span></code>) សម្រាប់ទិន្នន័យដែលឆ្លង
 កាត់ព្រំដែន ឬរក្សាទុកក្នុង database។ ប្រើ <code class="docutils literal notranslate"><span class="pre">datetime.now(timezone.utc)</span></code>
 ហើយបំលែងទៅ timezone របស់អ្នកប្រើនៅពេលបង្ហាញ។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="linenos">2</span><span class="go">True</span>
 </pre></div>
 </div>
 </div>
 </section>
 <section id="json-csv">
 <span id="id10"></span><h2>ទិន្នន័យរចនាសម្ព័ន្ធ — <code class="docutils literal notranslate"><span class="pre">json</span></code> និង <code class="docutils literal notranslate"><span class="pre">csv</span></code><a class="headerlink" href="#json-csv" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">csv</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="s2">"ok"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span>
-<span class="go">'{"id": 1, "ok": true, "tags": ["a", "b"]}'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="n">payload</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># CSV — តែងតែប្រើ newline=""</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"rows.csv"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">"ឈ្មោះ"</span><span class="p">,</span> <span class="s2">"អាយុ"</span><span class="p">]))</span>   <span class="c1"># ចំនួនតួអក្សរ</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">]))</span>
-<span class="gp">...</span>
-<span class="go">12</span>
-<span class="go">9</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"rows.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">rows</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span>
-<span class="go">[['ឈ្មោះ', 'អាយុ'], ['សុខា', '25']]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">csv</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="s2">"ok"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span>
+<span class="linenos"> 5</span><span class="go">'{"id": 1, "ok": true, "tags": ["a", "b"]}'</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="n">payload</span>
+<span class="linenos"> 7</span><span class="go">True</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># CSV — តែងតែប្រើ newline=""</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"rows.csv"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">11</span><span class="gp">... </span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="linenos">12</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">"ឈ្មោះ"</span><span class="p">,</span> <span class="s2">"អាយុ"</span><span class="p">]))</span>   <span class="c1"># ចំនួនតួអក្សរ</span>
+<span class="linenos">13</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">]))</span>
+<span class="linenos">14</span><span class="gp">...</span>
+<span class="linenos">15</span><span class="go">12</span>
+<span class="linenos">16</span><span class="go">9</span>
+<span class="linenos">17</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"rows.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">18</span><span class="gp">... </span>    <span class="n">rows</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="linenos">19</span><span class="gp">...</span>
+<span class="linenos">20</span><span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span>
+<span class="linenos">21</span><span class="go">[['ឈ្មោះ', 'អាយុ'], ['សុខា', '25']]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -561,75 +566,75 @@
 <code class="docutils literal notranslate"><span class="pre">newline=&quot;&quot;</span></code> និង encoding។</p>
 </div>
 <p><strong>``csv.DictReader`` / ``DictWriter``</strong> — ធ្វើការជាមួយជួរជា <code class="docutils literal notranslate"><span class="pre">dict</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"rows.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
-<span class="gp">...</span>
-<span class="go">{'ឈ្មោះ': 'សុខា', 'អាយុ': '25'}</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"rows.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="linenos">3</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="go">{'ឈ្មោះ': 'សុខា', 'អាយុ': '25'}</span>
 </pre></div>
 </div>
 </section>
 <section id="database-sqlite3">
 <span id="databases"></span><h2>Database — <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code><a class="headerlink" href="#database-sqlite3" title="Link to this heading"></a></h2>
 <p>SQLite មកជាមួយ Python ដោយមិនចាំបាច់ដំឡើង server ទេ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">":memory:"</span><span class="p">)</span>          <span class="c1"># ឬផ្លូវឯកសារ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)"</span><span class="p">)</span>
-<span class="go">&lt;sqlite3.Cursor object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="s2">"INSERT INTO users (name) VALUES (?)"</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="p">[(</span><span class="s2">"សុខា"</span><span class="p">,),</span> <span class="p">(</span><span class="s2">"ដារ៉ា"</span><span class="p">,)],</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="go">&lt;sqlite3.Cursor object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT id, name FROM users ORDER BY id"</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span>
-<span class="go">[(1, 'សុខា'), (2, 'ដារ៉ា')]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">":memory:"</span><span class="p">)</span>          <span class="c1"># ឬផ្លូវឯកសារ</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)"</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="go">&lt;sqlite3.Cursor object at 0x...&gt;</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
+<span class="linenos"> 6</span><span class="gp">... </span>    <span class="s2">"INSERT INTO users (name) VALUES (?)"</span><span class="p">,</span>
+<span class="linenos"> 7</span><span class="gp">... </span>    <span class="p">[(</span><span class="s2">"សុខា"</span><span class="p">,),</span> <span class="p">(</span><span class="s2">"ដារ៉ា"</span><span class="p">,)],</span>
+<span class="linenos"> 8</span><span class="gp">... </span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="go">&lt;sqlite3.Cursor object at 0x...&gt;</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT id, name FROM users ORDER BY id"</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span>
+<span class="linenos">13</span><span class="go">[(1, 'សុខា'), (2, 'ដារ៉ា')]</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>ប្រើ <strong>placeholder</strong> <code class="docutils literal notranslate"><span class="pre">?</span></code> ជានិច្ច កុំភ្ជាប់ខ្សែអក្សរដោយផ្ទាល់។
 ការភ្ជាប់ខ្សែអក្សរបើកចំហ <strong>SQL injection</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ គ្រោះថ្នាក់</span>
-<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SELECT * FROM users WHERE name = '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-
-<span class="c1"># ✅ សុវត្ថិភាព</span>
-<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM users WHERE name = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ❌ គ្រោះថ្នាក់</span>
+<span class="linenos">2</span><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SELECT * FROM users WHERE name = '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1"># ✅ សុវត្ថិភាព</span>
+<span class="linenos">5</span><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM users WHERE name = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,))</span>
 </pre></div>
 </div>
 </div>
 </section>
 <section id="collections">
 <span id="id11"></span><h2>រចនាសម្ព័ន្ធទិន្នន័យជំនួយ<a class="headerlink" href="#collections" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="s2">"mississippi"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>                 <span class="c1"># សម្រាប់ចំនួនស្មើគ្នា រក្សាលំដាប់បញ្ចូល</span>
-<span class="go">[('i', 4), ('s', 4)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s2">"s"</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s2">"z"</span><span class="p">]</span>              <span class="c1"># key ដែលមិនមានត្រឡប់ 0</span>
-<span class="go">(4, 0)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>    <span class="c1"># លើស maxlen → ដកពីខាងឆ្វេង</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="go">[2, 3, 4, 5]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="p">[</span><span class="s2">"fruits"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ចេក"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="p">[</span><span class="s2">"fruits"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ស្វាយ"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-<span class="go">{'fruits': ['ចេក', 'ស្វាយ']}</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">od</span><span class="p">)</span>
-<span class="go">['a', 'b']</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Point"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
-<span class="go">(3, 3, {'x': 3, 'y': 4})</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="s2">"mississippi"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>                 <span class="c1"># សម្រាប់ចំនួនស្មើគ្នា រក្សាលំដាប់បញ្ចូល</span>
+<span class="linenos"> 4</span><span class="go">[('i', 4), ('s', 4)]</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="s2">"s"</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s2">"z"</span><span class="p">]</span>              <span class="c1"># key ដែលមិនមានត្រឡប់ 0</span>
+<span class="linenos"> 6</span><span class="go">(4, 0)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>    <span class="c1"># លើស maxlen → ដកពីខាងឆ្វេង</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="linenos">11</span><span class="go">[2, 3, 4, 5]</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="p">[</span><span class="s2">"fruits"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ចេក"</span><span class="p">)</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="p">[</span><span class="s2">"fruits"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ស្វាយ"</span><span class="p">)</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="linenos">17</span><span class="go">{'fruits': ['ចេក', 'ស្វាយ']}</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="gp">&gt;&gt;&gt; </span><span class="n">od</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="linenos">20</span><span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>
+<span class="linenos">21</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">od</span><span class="p">)</span>
+<span class="linenos">22</span><span class="go">['a', 'b']</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Point"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">])</span>
+<span class="linenos">25</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">26</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+<span class="linenos">27</span><span class="go">(3, 3, {'x': 3, 'y': 4})</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -643,66 +648,66 @@
 <span id="id12"></span><h2><code class="docutils literal notranslate"><span class="pre">itertools</span></code> និង <code class="docutils literal notranslate"><span class="pre">functools</span></code><a class="headerlink" href="#itertools-functools" title="Link to this heading"></a></h2>
 <p>សូមមើលជំពូក <a class="reference internal" href="iterators_generators.html"><span class="doc">Iterators និង Generators</span></a> សម្រាប់តារាង <code class="docutils literal notranslate"><span class="pre">itertools</span></code> ពេញលេញ។
 ខាងក្រោមជា <code class="docutils literal notranslate"><span class="pre">functools</span></code> សំខាន់ៗ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
-<span class="go">42</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="go">12586269025</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span><span class="o">.</span><span class="n">hits</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">singledispatch</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"មិនស្គាល់: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@describe</span><span class="o">.</span><span class="n">register</span>
-<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"ចំនួនគត់ </span><span class="si">{</span><span class="n">obj</span><span class="si">}</span><span class="s2">"</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">describe</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="go">('ចំនួនគត់ 5', 'មិនស្គាល់: str')</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="go">42</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 8</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="gp">...</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="linenos">11</span><span class="go">12586269025</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span><span class="o">.</span><span class="n">hits</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="linenos">13</span><span class="go">True</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">singledispatch</span>
+<span class="linenos">16</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+<span class="linenos">17</span><span class="gp">... </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"មិនស្គាល់: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos">18</span><span class="gp">...</span>
+<span class="linenos">19</span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@describe</span><span class="o">.</span><span class="n">register</span>
+<span class="linenos">20</span><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="linenos">21</span><span class="gp">... </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"ចំនួនគត់ </span><span class="si">{</span><span class="n">obj</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos">22</span><span class="gp">...</span>
+<span class="linenos">23</span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">describe</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="linenos">24</span><span class="go">('ចំនួនគត់ 5', 'មិនស្គាល់: str')</span>
 </pre></div>
 </div>
 </section>
 <section id="output-formatting">
 <span id="id13"></span><h2>ការរៀបចំទិន្នន័យសម្រាប់បង្ហាញ<a class="headerlink" href="#output-formatting" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span><span class="o">,</span><span class="w"> </span><span class="nn">textwrap</span><span class="o">,</span><span class="w"> </span><span class="nn">reprlib</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nested</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)),</span> <span class="s2">"b"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"c"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">))}}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="go">{'a': [0, 1, 2, 3, 4, 5, 6, 7],</span>
-<span class="go"> 'b': {'c': [0, 1, 2, 3, 4, 5, 6, 7]}}</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">long_text</span> <span class="o">=</span> <span class="s2">"ពាក្យ "</span> <span class="o">*</span> <span class="mi">30</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">long_text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)[:</span><span class="mi">1</span><span class="p">]:</span>
-<span class="gp">... </span>    <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">40</span>
-<span class="gp">...</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">reprlib</span><span class="o">.</span><span class="n">repr</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>     <span class="c1"># កាត់ឱ្យខ្លីសម្រាប់បង្ហាញ</span>
-<span class="go">'[0, 1, 2, 3, 4, 5, ...]'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span><span class="o">,</span><span class="w"> </span><span class="nn">textwrap</span><span class="o">,</span><span class="w"> </span><span class="nn">reprlib</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">nested</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)),</span> <span class="s2">"b"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"c"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">))}}</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="go">{'a': [0, 1, 2, 3, 4, 5, 6, 7],</span>
+<span class="linenos"> 5</span><span class="go"> 'b': {'c': [0, 1, 2, 3, 4, 5, 6, 7]}}</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">long_text</span> <span class="o">=</span> <span class="s2">"ពាក្យ "</span> <span class="o">*</span> <span class="mi">30</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">long_text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)[:</span><span class="mi">1</span><span class="p">]:</span>
+<span class="linenos"> 9</span><span class="gp">... </span>    <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">40</span>
+<span class="linenos">10</span><span class="gp">...</span>
+<span class="linenos">11</span><span class="go">True</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">reprlib</span><span class="o">.</span><span class="n">repr</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>     <span class="c1"># កាត់ឱ្យខ្លីសម្រាប់បង្ហាញ</span>
+<span class="linenos">14</span><span class="go">'[0, 1, 2, 3, 4, 5, ...]'</span>
 </pre></div>
 </div>
 <p><strong>``string``</strong> — ថេរ និង template៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
-<span class="go">'abcdefghijklmnopqrstuvwxyz'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">digits</span>
-<span class="go">'0123456789'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
-<span class="go">'!"#$%&amp;\'()*'</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">string</span><span class="w"> </span><span class="kn">import</span> <span class="n">Template</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">"$name មានអាយុ $age ឆ្នាំ"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-<span class="go">'សុខា មានអាយុ 25 ឆ្នាំ'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">safe_substitute</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">)</span>          <span class="c1"># ខ្វះ age → មិនបញ្ចេញកំហុស</span>
-<span class="go">'សុខា មានអាយុ $age ឆ្នាំ'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
+<span class="linenos"> 3</span><span class="go">'abcdefghijklmnopqrstuvwxyz'</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+<span class="linenos"> 5</span><span class="go">'0123456789'</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="go">'!"#$%&amp;\'()*'</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">string</span><span class="w"> </span><span class="kn">import</span> <span class="n">Template</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">"$name មានអាយុ $age ឆ្នាំ"</span><span class="p">)</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="linenos">12</span><span class="go">'សុខា មានអាយុ 25 ឆ្នាំ'</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">safe_substitute</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">)</span>          <span class="c1"># ខ្វះ age → មិនបញ្ចេញកំហុស</span>
+<span class="linenos">14</span><span class="go">'សុខា មានអាយុ $age ឆ្នាំ'</span>
 </pre></div>
 </div>
 </section>
@@ -738,27 +743,27 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"demo"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">"</span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"ចាប់ផ្ដើម"</span><span class="p">)</span>
-<span class="go">INFO ចាប់ផ្ដើម</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"អង្គចងចាំជិតពេញ"</span><span class="p">)</span>
-<span class="go">WARNING អង្គចងចាំជិតពេញ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"នេះមិនបង្ហាញទេ ព្រោះ level=INFO"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"demo"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">"</span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">))</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"ចាប់ផ្ដើម"</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">INFO ចាប់ផ្ដើម</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"អង្គចងចាំជិតពេញ"</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">WARNING អង្គចងចាំជិតពេញ</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"នេះមិនបង្ហាញទេ ព្រោះ level=INFO"</span><span class="p">)</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-
-<span class="c1"># កត់ត្រា exception រួមទាំង traceback</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">"ការគណនាបរាជ័យ"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="c1"># កត់ត្រា exception រួមទាំង traceback</span>
+<span class="linenos">4</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">5</span>    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="linenos">6</span><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="linenos">7</span>    <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">"ការគណនាបរាជ័យ"</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -771,24 +776,24 @@ traceback ដោយស្វ្វ័យប្រវត្តិ។ កុំប
 </section>
 <section id="performance">
 <span id="id15"></span><h2>ការវាស់ប្រសិទ្ធភាព<a class="headerlink" href="#performance" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">timeit</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># វាស់កូដខ្លីៗ — ដំណើរការច្រើនដង ហើយយកមធ្យមភាគ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">"sum(range(100))"</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">"'a' + 'b'"</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">timeit</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># វាស់កូដខ្លីៗ — ដំណើរការច្រើនដង ហើយយកមធ្យមភាគ</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">"sum(range(100))"</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="linenos">5</span><span class="go">True</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">"'a' + 'b'"</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0</span>
+<span class="linenos">7</span><span class="go">True</span>
 </pre></div>
 </div>
 <p><strong>``cProfile``</strong> — សម្រាប់កម្មវិធីពេញលេញ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>cProfile<span class="w"> </span>-s<span class="w"> </span>cumtime<span class="w"> </span>app.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
-<span class="go">          10234 function calls in 0.012 seconds</span>
-
-<span class="go">    Ordered by: cumulative time</span>
-
-<span class="go">    ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span>
-<span class="go">         1    0.000    0.000    0.012    0.012 app.py:1(&lt;module&gt;)</span>
-<span class="go">      1000    0.010    0.000    0.010    0.000 app.py:10(process)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>cProfile<span class="w"> </span>-s<span class="w"> </span>cumtime<span class="w"> </span>app.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+<span class="linenos">2</span><span class="go">          10234 function calls in 0.012 seconds</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="go">    Ordered by: cumulative time</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="go">    ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span>
+<span class="linenos">7</span><span class="go">         1    0.000    0.000    0.012    0.012 app.py:1(&lt;module&gt;)</span>
+<span class="linenos">8</span><span class="go">      1000    0.010    0.000    0.010    0.000 app.py:10(process)</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -822,19 +827,19 @@ traceback ដោយស្វ្វ័យប្រវត្តិ។ កុំប
 </section>
 <section id="quality-control">
 <span id="id16"></span><h2>ការគ្រប់គ្រងគុណភាព<a class="headerlink" href="#quality-control" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># doctest — សាកល្បងពីឧទាហរណ៍ក្នុង docstring</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="gp">... </span>    \<span class="s2">"</span><span class="se">\"\"</span><span class="s2">បូកលេខពីរ។</span>
-<span class="gp">...</span>
-<span class="gp">... </span>    <span class="o">&gt;&gt;&gt;</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="mi">5</span>
-<span class="gp">... </span>    \<span class="s2">"</span><span class="se">\"\"</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">results</span><span class="o">.</span><span class="n">failed</span>
-<span class="go">0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># doctest — សាកល្បងពីឧទាហរណ៍ក្នុង docstring</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    \<span class="s2">"</span><span class="se">\"\"</span><span class="s2">បូកលេខពីរ។</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gp">... </span>    <span class="o">&gt;&gt;&gt;</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">... </span>    <span class="mi">5</span>
+<span class="linenos"> 8</span><span class="gp">... </span>    \<span class="s2">"</span><span class="se">\"\"</span>
+<span class="linenos"> 9</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="linenos">10</span><span class="gp">...</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span><span class="o">.</span><span class="n">failed</span>
+<span class="linenos">13</span><span class="go">0</span>
 </pre></div>
 </div>
 <p>សូមមើលជំពូក <a class="reference internal" href="testing_debugging.html"><span class="doc">Testing, Debugging និង Best Practices</span></a> សម្រាប់ <code class="docutils literal notranslate"><span class="pre">unittest</span></code> និង
@@ -842,30 +847,30 @@ traceback ដោយស្វ្វ័យប្រវត្តិ។ កុំប
 </section>
 <section id="compression">
 <span id="id17"></span><h2>ការបង្ហាប់ទិន្នន័យ<a class="headerlink" href="#compression" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">zlib</span><span class="o">,</span><span class="w"> </span><span class="nn">gzip</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span><span class="o">,</span><span class="w"> </span><span class="nn">tarfile</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="s2">"សួស្ដី "</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">raw</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">compressed</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">compressed</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">compressed</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="o">==</span> <span class="n">data</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"data.gz"</span><span class="p">,</span> <span class="s2">"wt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"data.gz"</span><span class="p">,</span> <span class="s2">"rt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="o">==</span> <span class="n">data</span>
-<span class="gp">...</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">"archive.zip"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">"note.txt"</span><span class="p">,</span> <span class="s2">"មាតិកា"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">"archive.zip"</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>
-<span class="gp">...</span>
-<span class="go">['note.txt']</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">zlib</span><span class="o">,</span><span class="w"> </span><span class="nn">gzip</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span><span class="o">,</span><span class="w"> </span><span class="nn">tarfile</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="s2">"សួស្ដី "</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">raw</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">compressed</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">compressed</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">True</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">compressed</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="o">==</span> <span class="n">data</span>
+<span class="linenos"> 8</span><span class="go">True</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"data.gz"</span><span class="p">,</span> <span class="s2">"wt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">11</span><span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">12</span><span class="gp">...</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"data.gz"</span><span class="p">,</span> <span class="s2">"rt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">14</span><span class="gp">... </span>    <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="o">==</span> <span class="n">data</span>
+<span class="linenos">15</span><span class="gp">...</span>
+<span class="linenos">16</span><span class="go">True</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">"archive.zip"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+<span class="linenos">19</span><span class="gp">... </span>    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">"note.txt"</span><span class="p">,</span> <span class="s2">"មាតិកា"</span><span class="p">)</span>
+<span class="linenos">20</span><span class="gp">...</span>
+<span class="linenos">21</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">"archive.zip"</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+<span class="linenos">22</span><span class="gp">... </span>    <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>
+<span class="linenos">23</span><span class="gp">...</span>
+<span class="linenos">24</span><span class="go">['note.txt']</span>
 </pre></div>
 </div>
 </section>

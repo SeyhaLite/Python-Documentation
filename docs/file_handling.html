@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/file_handling.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -189,7 +194,7 @@ writing files</em>), <code class="docutils literal notranslate"><span class="pre
 <section id="open">
 <span id="id3"></span><h2>អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">open()</span></code><a class="headerlink" href="#open" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">open()</span></code> ត្រឡប់ <strong>file object</strong> មួយ។ ទម្រង់ដែលប្រើញឹកញាប់បំផុត៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
 </pre></div>
 </div>
 <table class="docutils align-default" id="id16">
@@ -263,15 +268,15 @@ writing files</em>), <code class="docutils literal notranslate"><span class="pre
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">)</span>            <span class="c1"># លំនាំដើម mode="r"</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: 'មិនមាន.txt'</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>   <span class="c1"># បង្កើតបាន</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">)</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">)</span>            <span class="c1"># លំនាំដើម mode="r"</span>
+<span class="linenos">2</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">3</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">4</span><span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: 'មិនមាន.txt'</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>   <span class="c1"># បង្កើតបាន</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"មិនមាន.txt"</span><span class="p">)</span>
+<span class="linenos">9</span><span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -323,15 +328,15 @@ writing files</em>), <code class="docutils literal notranslate"><span class="pre
 </section>
 <section id="with">
 <span id="files-with-statement"></span><h2>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">with</span></code> — វិធីត្រឹមត្រូវ<a class="headerlink" href="#with" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-
-<span class="n">Path</span><span class="p">(</span><span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកាសាកល្បង"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"notes.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>       <span class="c1"># មាតិកាសាកល្បង</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>      <span class="c1"># True — ឯកសារត្រូវបានបិទដោយស្វ័យប្រវត្តិ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">Path</span><span class="p">(</span><span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកាសាកល្បង"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"notes.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">6</span>    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>       <span class="c1"># មាតិកាសាកល្បង</span>
+<span class="linenos">9</span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>      <span class="c1"># True — ឯកសារត្រូវបានបិទដោយស្វ័យប្រវត្តិ</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">with</span></code> បង្កើត <em>context manager</em> ដែលធានាថាឯកសារត្រូវបាន <strong>បិទត្រឹមត្រូវ</strong>
@@ -343,30 +348,30 @@ writing files</em>), <code class="docutils literal notranslate"><span class="pre
 មិនត្រូវបានសរសេរទៅថាសពេញលេញ សូម្បីតែកម្មវិធីបញ្ចប់ដោយជោគជ័យក៏ដោយ។
 ដូច្នេះ <strong>ប្រើ ``with`` ជានិច្ច</strong>។</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="n">Path</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"ទិន្នន័យ"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-
-<span class="c1"># ❌ មិនណែនាំ — អាចបែកធ្លាយធនធាន</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>          <span class="c1"># មិនដំណើរការបើមាន exception</span>
-
-<span class="c1"># ✅ ណែនាំ</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 2</span><span class="n">Path</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"ទិន្នន័យ"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># ❌ មិនណែនាំ — អាចបែកធ្លាយធនធាន</span>
+<span class="linenos"> 5</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>          <span class="c1"># មិនដំណើរការបើមាន exception</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># ✅ ណែនាំ</span>
+<span class="linenos">10</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>អ្នកក៏អាចបើកឯកសារច្រើនក្នុង <code class="docutils literal notranslate"><span class="pre">with</span></code> តែមួយ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="n">Path</span><span class="p">(</span><span class="s2">"input.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="p">(</span>
-    <span class="nb">open</span><span class="p">(</span><span class="s2">"input.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">,</span>
-    <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">,</span>
-<span class="p">):</span>
-    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>   <span class="c1"># ABC</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 2</span><span class="n">Path</span><span class="p">(</span><span class="s2">"input.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">with</span> <span class="p">(</span>
+<span class="linenos"> 5</span>    <span class="nb">open</span><span class="p">(</span><span class="s2">"input.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">,</span>
+<span class="linenos"> 6</span>    <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">,</span>
+<span class="linenos"> 7</span><span class="p">):</span>
+<span class="linenos"> 8</span>    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>   <span class="c1"># លទ្ធផល: ABC</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -408,36 +413,36 @@ writing files</em>), <code class="docutils literal notranslate"><span class="pre
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># បង្កើតឯកសារសាកល្បង</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីមួយ</span><span class="se">\n</span><span class="s2">បន្ទាត់ទីពីរ</span><span class="se">\n</span><span class="s2">បន្ទាត់ទីបី</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>                       <span class="c1"># ចំនួនតួអក្សរដែលបានសរសេរ</span>
-<span class="go">38</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span>
-<span class="gp">...</span>
-<span class="go">'បន្ទាត់ទីមួយ\nបន្ទាត់ទីពីរ\nបន្ទាត់ទីបី\n'</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()))</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()))</span>
-<span class="gp">...</span>
-<span class="go">'បន្ទាត់ទីមួយ\n'</span>
-<span class="go">'បន្ទាត់ទីពីរ\n'</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-<span class="go">3</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># បង្កើតឯកសារសាកល្បង</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីមួយ</span><span class="se">\n</span><span class="s2">បន្ទាត់ទីពីរ</span><span class="se">\n</span><span class="s2">បន្ទាត់ទីបី</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">...</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>                       <span class="c1"># ចំនួនតួអក្សរដែលបានសរសេរ</span>
+<span class="linenos"> 6</span><span class="go">38</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 9</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span>
+<span class="linenos">10</span><span class="gp">...</span>
+<span class="linenos">11</span><span class="go">'បន្ទាត់ទីមួយ\nបន្ទាត់ទីពីរ\nបន្ទាត់ទីបី\n'</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">14</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()))</span>
+<span class="linenos">15</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()))</span>
+<span class="linenos">16</span><span class="gp">...</span>
+<span class="linenos">17</span><span class="go">'បន្ទាត់ទីមួយ\n'</span>
+<span class="linenos">18</span><span class="go">'បន្ទាត់ទីពីរ\n'</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">21</span><span class="gp">... </span>    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="linenos">22</span><span class="gp">...</span>
+<span class="linenos">23</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="linenos">24</span><span class="go">3</span>
 </pre></div>
 </div>
 <p><strong>ដើរលើឯកសារបន្ទាត់ម្ដងមួយៗ</strong> — ប្រើអង្គចងចាំតិចបំផុត៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>     <span class="c1"># strip() លុប \n នៅចុង</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">3</span>        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>     <span class="c1"># strip() លុប \n នៅចុង</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -450,12 +455,12 @@ file object អានតែមួយបន្ទាត់ក្នុងពេ�
 <p class="admonition-title">Important</p>
 <p>បើអ្នកហៅ <code class="docutils literal notranslate"><span class="pre">f.read()</span></code> ពីរដង ការហៅលើកទីពីរត្រឡប់ <strong>ខ្សែអក្សរទទេ</strong>
 ព្រោះទីតាំងអានបានដល់ចុងឯកសារហើយ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">first</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="n">second</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">second</span>
-<span class="go">(True, '')</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="n">first</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="n">second</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">second</span>
+<span class="linenos">6</span><span class="go">(True, '')</span>
 </pre></div>
 </div>
 </div>
@@ -485,16 +490,16 @@ file object អានតែមួយបន្ទាត់ក្នុងពេ�
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីមួយ</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>       <span class="c1"># ត្រូវដាក់ \n ដោយខ្លួនឯង</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីពីរ</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់បន្ថែម</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">]</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"list.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">)</span>   <span class="c1"># បន្ថែម \n ដោយខ្លួនឯង</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 2</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីមួយ</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>       <span class="c1"># ត្រូវដាក់ \n ដោយខ្លួនឯង</span>
+<span class="linenos"> 3</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់ទីពីរ</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 6</span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"បន្ទាត់បន្ថែម</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ក"</span><span class="p">,</span> <span class="s2">"ខ"</span><span class="p">,</span> <span class="s2">"គ"</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"list.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">10</span>    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">)</span>   <span class="c1"># បន្ថែម \n ដោយខ្លួនឯង</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -502,11 +507,11 @@ file object អានតែមួយបន្ទាត់ក្នុងពេ�
 <p><code class="docutils literal notranslate"><span class="pre">writelines()</span></code> <strong>មិនបន្ថែមបន្ទាត់ថ្មីទេ</strong> — ឈ្មោះរបស់វាបង្កើតការយល់ច្រឡំ។
 អ្នកត្រូវដាក់ <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> ក្នុងខ្សែអក្សរនីមួយៗដោយខ្លួនឯង។</p>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"bad.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">])</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"bad.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="go">abc</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"bad.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">])</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"bad.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="linenos">5</span><span class="go">abc</span>
 </pre></div>
 </div>
 <section id="seek-tell">
@@ -530,16 +535,16 @@ file object អានតែមួយបន្ទាត់ក្នុងពេ�
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទីតាំងដើម:"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
-<span class="gp">... </span>    <span class="n">chunk</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"បន្ទាប់ពីអាន 4 byte:"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
-<span class="gp">... </span>    <span class="n">_</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"បន្ទាប់ពី seek(0):"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
-<span class="gp">...</span>
-<span class="go">ទីតាំងដើម: 0</span>
-<span class="go">បន្ទាប់ពីអាន 4 byte: 4</span>
-<span class="go">បន្ទាប់ពី seek(0): 0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទីតាំងដើម:"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="n">chunk</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"បន្ទាប់ពីអាន 4 byte:"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="n">_</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"បន្ទាប់ពី seek(0):"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+<span class="linenos"> 7</span><span class="gp">...</span>
+<span class="linenos"> 8</span><span class="go">ទីតាំងដើម: 0</span>
+<span class="linenos"> 9</span><span class="go">បន្ទាប់ពីអាន 4 byte: 4</span>
+<span class="linenos">10</span><span class="go">បន្ទាប់ពី seek(0): 0</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -551,14 +556,14 @@ file object អានតែមួយបន្ទាត់ក្នុងពេ�
 </section>
 <section id="closed-files">
 <span id="id7"></span><h3>ឯកសារដែលបានបិទ<a class="headerlink" href="#closed-files" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ValueError</span>: <span class="n">I/O operation on closed file.</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"demo.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>
+<span class="linenos">4</span><span class="go">True</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">6</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">7</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">8</span><span class="gr">ValueError</span>: <span class="n">I/O operation on closed file.</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -568,22 +573,22 @@ file object អានតែមួយបន្ទាត់ក្នុងពេ�
 <span id="id8"></span><h2><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> — ការគ្រប់គ្រងផ្លូវឯកសារ<a class="headerlink" href="#pathlib" title="Link to this heading"></a></h2>
 <p>ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> ផ្ដល់វិធីស្អាតជាងក្នុងការធ្វើការជាមួយផ្លូវឯកសារ
 ជំនួសឱ្យការភ្ជាប់ខ្សែអក្សរ។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"reports"</span> <span class="o">/</span> <span class="s2">"2026.txt"</span>     <span class="c1"># / ភ្ជាប់ផ្លូវ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
-<span class="go">PosixPath('data/reports/2026.txt')</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">name</span>
-<span class="go">'2026.txt'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">stem</span>
-<span class="go">'2026'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">suffix</span>
-<span class="go">'.txt'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">parent</span>
-<span class="go">PosixPath('data/reports')</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">parts</span>
-<span class="go">('data', 'reports', '2026.txt')</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".md"</span><span class="p">)</span>
-<span class="go">PosixPath('data/reports/2026.md')</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"reports"</span> <span class="o">/</span> <span class="s2">"2026.txt"</span>     <span class="c1"># / ភ្ជាប់ផ្លូវ</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
+<span class="linenos"> 4</span><span class="go">PosixPath('data/reports/2026.txt')</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">name</span>
+<span class="linenos"> 6</span><span class="go">'2026.txt'</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">stem</span>
+<span class="linenos"> 8</span><span class="go">'2026'</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">suffix</span>
+<span class="linenos">10</span><span class="go">'.txt'</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">parent</span>
+<span class="linenos">12</span><span class="go">PosixPath('data/reports')</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">parts</span>
+<span class="linenos">14</span><span class="go">('data', 'reports', '2026.txt')</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".md"</span><span class="p">)</span>
+<span class="linenos">16</span><span class="go">PosixPath('data/reports/2026.md')</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -594,24 +599,24 @@ backslash។ <code class="docutils literal notranslate"><span class="pre">pathli
 </div>
 <section id="pathlib-io">
 <span id="id9"></span><h3>អាន និងសរសេរដោយផ្ទាល់<a class="headerlink" href="#pathlib-io" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"quick.txt"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកា</span><span class="se">\n</span><span class="s2">បន្ទាត់ពីរ</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="go">18</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="go">'មាតិកា\nបន្ទាត់ពីរ\n'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>            <span class="c1"># ចំនួន byte ក្នុងឯកសារ</span>
-<span class="go">50</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span>               <span class="c1"># ទំហំជា byte</span>
-<span class="go">50</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>                     <span class="c1"># លុបឯកសារ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"quick.txt"</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកា</span><span class="se">\n</span><span class="s2">បន្ទាត់ពីរ</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">18</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">'មាតិកា\nបន្ទាត់ពីរ\n'</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>            <span class="c1"># ចំនួន byte ក្នុងឯកសារ</span>
+<span class="linenos"> 7</span><span class="go">50</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="linenos"> 9</span><span class="go">True</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="linenos">11</span><span class="go">True</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="linenos">13</span><span class="go">False</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span>               <span class="c1"># ទំហំជា byte</span>
+<span class="linenos">15</span><span class="go">50</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>                     <span class="c1"># លុបឯកសារ</span>
+<span class="linenos">17</span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="linenos">18</span><span class="go">False</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -624,28 +629,28 @@ backslash។ <code class="docutils literal notranslate"><span class="pre">pathli
 </section>
 <section id="pathlib-dirs">
 <span id="id10"></span><h3>ថត និងការស្វែងរក<a class="headerlink" href="#pathlib-dirs" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">())</span>       <span class="c1"># ថតសាកល្បងដាច់ដោយឡែក</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"reports"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"reports"</span> <span class="o">/</span> <span class="s2">"2026.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="go">1</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())]</span>        <span class="c1"># ធាតុក្នុងថត</span>
-<span class="go">['data', 'notes.txt']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))]</span>    <span class="c1"># តែកម្រិតបច្ចុប្បន្ន</span>
-<span class="go">['notes.txt']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
-<span class="gp">... </span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))]</span>         <span class="c1"># recursive</span>
-<span class="go">['data/reports/2026.txt', 'notes.txt']</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">==</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>   <span class="c1"># ថតបច្ចុប្បន្ន</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">()</span>           <span class="c1"># ថតផ្ទះ</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">())</span>       <span class="c1"># ថតសាកល្បងដាច់ដោយឡែក</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"reports"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"reports"</span> <span class="o">/</span> <span class="s2">"2026.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">1</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="go">1</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())]</span>        <span class="c1"># ធាតុក្នុងថត</span>
+<span class="linenos">10</span><span class="go">['data', 'notes.txt']</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))]</span>    <span class="c1"># តែកម្រិតបច្ចុប្បន្ន</span>
+<span class="linenos">12</span><span class="go">['notes.txt']</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
+<span class="linenos">14</span><span class="gp">... </span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.txt"</span><span class="p">))]</span>         <span class="c1"># recursive — គ្រប់កម្រិត</span>
+<span class="linenos">15</span><span class="go">['data/reports/2026.txt', 'notes.txt']</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">==</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>   <span class="c1"># ថតបច្ចុប្បន្ន</span>
+<span class="linenos">18</span><span class="go">True</span>
+<span class="linenos">19</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">()</span>           <span class="c1"># ថតផ្ទះ</span>
+<span class="linenos">20</span><span class="go">True</span>
+<span class="linenos">21</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"notes.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="linenos">22</span><span class="go">True</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -738,22 +743,22 @@ backslash។ <code class="docutils literal notranslate"><span class="pre">pathli
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">read_safely</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""អានឯកសារដោយដោះស្រាយកំហុសទូទៅទាំងអស់។"""</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ឯកសារ '</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' មិនមានទេ"</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"គ្មានសិទ្ធិអាន '</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">IsADirectoryError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' គឺជាថត មិនមែនឯកសារ"</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' មិនមែនជាអត្ថបទ UTF-8"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">None</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span><span class="w"> </span><span class="nf">read_safely</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">"""អានឯកសារដោយដោះស្រាយកំហុសទូទៅទាំងអស់។"""</span>
+<span class="linenos"> 5</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 6</span>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 7</span>            <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos"> 8</span>    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+<span class="linenos"> 9</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ឯកសារ '</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' មិនមានទេ"</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+<span class="linenos">11</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"គ្មានសិទ្ធិអាន '</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="k">except</span> <span class="ne">IsADirectoryError</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' គឺជាថត មិនមែនឯកសារ"</span><span class="p">)</span>
+<span class="linenos">14</span>    <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+<span class="linenos">15</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">' មិនមែនជាអត្ថបទ UTF-8"</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -773,16 +778,16 @@ Windows ខ្មែរ។ កូដដែលដំណើរការលើម�
 ម៉ាស៊ីនអ្នកផ្សេង។</p>
 <p>បញ្ហានេះធ្ងន់ធ្ងរជាពិសេសសម្រាប់អត្ថបទខ្មែរ។</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="n">Path</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-
-<span class="c1"># ❌ គ្រោះថ្នាក់ — encoding អាស្រ័យលើប្រព័ន្ធ</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-<span class="c1"># ✅ ត្រឹមត្រូវ</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 2</span><span class="n">Path</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># ❌ គ្រោះថ្នាក់ — encoding អាស្រ័យលើប្រព័ន្ធ</span>
+<span class="linenos"> 5</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 6</span>    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># ✅ ត្រឹមត្រូវ</span>
+<span class="linenos"> 9</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"khmer.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">10</span>    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="versionchanged">
@@ -821,35 +826,35 @@ Windows ខ្មែរ។ កូដដែលដំណើរការលើម�
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="s2">"active"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="go">{</span>
-<span class="go">  "name": "សុខា",</span>
-<span class="go">  "age": 25,</span>
-<span class="go">  "tags": [</span>
-<span class="go">    "a",</span>
-<span class="go">    "b"</span>
-<span class="go">  ],</span>
-<span class="go">  "active": true</span>
-<span class="go">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="n">data</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"tags"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="s2">"active"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">{</span>
+<span class="linenos"> 6</span><span class="go">  "name": "សុខា",</span>
+<span class="linenos"> 7</span><span class="go">  "age": 25,</span>
+<span class="linenos"> 8</span><span class="go">  "tags": [</span>
+<span class="linenos"> 9</span><span class="go">    "a",</span>
+<span class="linenos">10</span><span class="go">    "b"</span>
+<span class="linenos">11</span><span class="go">  ],</span>
+<span class="linenos">12</span><span class="go">  "active": true</span>
+<span class="linenos">13</span><span class="go">}</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">==</span> <span class="n">data</span>
+<span class="linenos">15</span><span class="go">True</span>
 </pre></div>
 </div>
 <p><strong>សរសេរ និងអានពីឯកសារ៖</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"theme"</span><span class="p">:</span> <span class="s2">"dark"</span><span class="p">,</span> <span class="s2">"font_size"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">"lang"</span><span class="p">:</span> <span class="s2">"km"</span><span class="p">}</span>
-
-<span class="c1"># សរសេរ</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># អាន</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">loaded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"theme"</span><span class="p">:</span> <span class="s2">"dark"</span><span class="p">,</span> <span class="s2">"font_size"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">"lang"</span><span class="p">:</span> <span class="s2">"km"</span><span class="p">}</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># សរសេរ</span>
+<span class="linenos"> 6</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 7</span>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># អាន</span>
+<span class="linenos">10</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="n">loaded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <table class="docutils align-default" id="id17">
@@ -891,29 +896,29 @@ Windows ខ្មែរ។ កូដដែលដំណើរការលើម�
 <section id="os">
 <span id="os-module"></span><h2>ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">os</span></code> — ការងារមូលដ្ឋាន<a class="headerlink" href="#os" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> គ្របដណ្ដប់ភាគច្រើន ប៉ុន្តែ <code class="docutils literal notranslate"><span class="pre">os</span></code> នៅតែមានប្រយោជន៍៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>         <span class="c1"># ធាតុក្នុងថត</span>
-<span class="go">['b']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">)</span>   <span class="c1"># ភ្ជាប់ផ្លូវតាមប្រព័ន្ធ</span>
-<span class="go">'a/b/c'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">,</span> <span class="s2">"a/b/d"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"a/b"</span><span class="p">))</span>
-<span class="go">['d']</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span>            <span class="c1"># លុបឯកសារ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">"a/b/d"</span><span class="p">)</span>               <span class="c1"># លុបថតទទេ</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>  <span class="c1"># ថតបច្ចុប្បន្ន</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">"HOME"</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span> <span class="ow">or</span> <span class="s2">"USERPROFILE"</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>         <span class="c1"># ធាតុក្នុងថត</span>
+<span class="linenos"> 4</span><span class="go">['b']</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">True</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">)</span>   <span class="c1"># ភ្ជាប់ផ្លូវតាមប្រព័ន្ធ</span>
+<span class="linenos"> 8</span><span class="go">'a/b/c'</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"a/b/c"</span><span class="p">,</span> <span class="s2">"a/b/d"</span><span class="p">)</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"a/b"</span><span class="p">))</span>
+<span class="linenos">11</span><span class="go">['d']</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">14</span><span class="go">1</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span>            <span class="c1"># លុបឯកសារ</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"tmp.txt"</span><span class="p">)</span>
+<span class="linenos">17</span><span class="go">False</span>
+<span class="linenos">18</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">"a/b/d"</span><span class="p">)</span>               <span class="c1"># លុបថតទទេ</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>  <span class="c1"># ថតបច្ចុប្បន្ន</span>
+<span class="linenos">21</span><span class="go">True</span>
+<span class="linenos">22</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"HOME"</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span> <span class="ow">or</span> <span class="s2">"USERPROFILE"</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span>
+<span class="linenos">23</span><span class="go">True</span>
 </pre></div>
 </div>
 <table class="docutils align-default" id="id18">
@@ -963,23 +968,23 @@ Windows ខ្មែរ។ កូដដែលដំណើរការលើម�
 </section>
 <section id="csv">
 <span id="id13"></span><h2>ឯកសារ CSV<a class="headerlink" href="#csv" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
-
-<span class="n">rows</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="s2">"ឈ្មោះ"</span><span class="p">,</span> <span class="s2">"អាយុ"</span><span class="p">,</span> <span class="s2">"ទីក្រុង"</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">"ដារ៉ា"</span><span class="p">,</span> <span class="s2">"30"</span><span class="p">,</span> <span class="s2">"សៀមរាប"</span><span class="p">],</span>
-<span class="p">]</span>
-
-<span class="c1"># សរសេរ</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"people.csv"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-
-<span class="c1"># អាន</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"people.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">rows</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos"> 4</span>    <span class="p">[</span><span class="s2">"ឈ្មោះ"</span><span class="p">,</span> <span class="s2">"អាយុ"</span><span class="p">,</span> <span class="s2">"ទីក្រុង"</span><span class="p">],</span>
+<span class="linenos"> 5</span>    <span class="p">[</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">],</span>
+<span class="linenos"> 6</span>    <span class="p">[</span><span class="s2">"ដារ៉ា"</span><span class="p">,</span> <span class="s2">"30"</span><span class="p">,</span> <span class="s2">"សៀមរាប"</span><span class="p">],</span>
+<span class="linenos"> 7</span><span class="p">]</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># សរសេរ</span>
+<span class="linenos">10</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"people.csv"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># អាន</span>
+<span class="linenos">15</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"people.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="linenos">17</span>        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition important">

@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/virtual_environments.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -180,8 +185,8 @@
 <span id="why-venv"></span><h2>ហេតុអ្វីត្រូវការ Virtual Environment?<a class="headerlink" href="#virtual-environment" title="Link to this heading"></a></h2>
 <p>កម្មវិធី Python ជាច្រើនប្រើ package ដែលមិនមែនជាផ្នែកនៃបណ្ណាល័យស្តង់ដារ។
 ជួនកាលកម្មវិធីពីរត្រូវការ <strong>កំណែខុសគ្នា</strong> នៃបណ្ណាល័យដូចគ្នា៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>កម្មវិធី A  →  ត្រូវការ requests 2.28
-កម្មវិធី B  →  ត្រូវការ requests 2.32
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>កម្មវិធី A  →  ត្រូវការ requests 2.28
+<span class="linenos">2</span>កម្មវិធី B  →  ត្រូវការ requests 2.32
 </pre></div>
 </div>
 <p>បើអ្នកដំឡើងទាំងពីរក្នុង Python តែមួយ វានឹង <strong>ប៉ះទង្គិចគ្នា</strong>។</p>
@@ -217,8 +222,8 @@
 </section>
 <section id="creating-venv">
 <span id="id2"></span><h2>ការបង្កើត Virtual Environment<a class="headerlink" href="#creating-venv" title="Link to this heading"></a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project
+<span class="linenos">2</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 </pre></div>
 </div>
 <ul class="simple">
@@ -228,8 +233,8 @@
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>ប្រើ <strong>interpreter ជាក់លាក់</strong> បើអ្នកចង់បានកំណែជាក់លាក់៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3.15<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w">     </span><span class="c1"># environment សម្រាប់ Python 3.15</span>
-<span class="gp">$ </span>py<span class="w"> </span>-3.13<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w">       </span><span class="c1"># Windows — ជ្រើសរើសកំណែ</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3.15<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w">     </span><span class="c1"># environment សម្រាប់ Python 3.15</span>
+<span class="linenos">2</span><span class="gp">$ </span>py<span class="w"> </span>-3.13<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w">       </span><span class="c1"># Windows — ជ្រើសរើសកំណែ</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">venv</span></code> ដំឡើងកំណែ Python ដែល <strong>បានដំណើរការពាក្យបញ្ជា</strong> នោះ។</p>
@@ -265,40 +270,40 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>--version
-<span class="go">Python 3.15.0</span>
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>which<span class="w"> </span>python
-<span class="go">/home/user/my-project/.venv/bin/python</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="linenos">2</span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>--version
+<span class="linenos">3</span><span class="go">Python 3.15.0</span>
+<span class="linenos">4</span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>which<span class="w"> </span>python
+<span class="linenos">5</span><span class="go">/home/user/my-project/.venv/bin/python</span>
 </pre></div>
 </div>
 <p>សញ្ញា <code class="docutils literal notranslate"><span class="pre">(.venv)</span></code> នៅមុខ prompt បញ្ជាក់ថា environment កំពុងសកម្ម។</p>
 <p><strong>បិទ (deactivate)៖</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>deactivate
-<span class="gp">$</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>deactivate
+<span class="linenos">2</span><span class="gp">$</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>អ្នក <strong>មិនចាំបាច់</strong> activate ទេ — អ្នកអាចហៅ interpreter ដោយផ្ទាល់៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>.venv/bin/python<span class="w"> </span>app.py
-<span class="gp">$ </span>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>requests
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>.venv/bin/python<span class="w"> </span>app.py
+<span class="linenos">2</span><span class="gp">$ </span>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>requests
 </pre></div>
 </div>
 <p>នេះមានប្រយោជន៍ក្នុង script ឬ CI ដែលការ activate មិនងាយស្រួល។</p>
 </div>
 <section id="venv-structure">
 <span id="id3"></span><h3>រចនាសម្ព័ន្ធនៃ Virtual Environment<a class="headerlink" href="#venv-structure" title="Link to this heading"></a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.venv/
-├── bin/                    (Windows: Scripts\)
-│   ├── python  →  python3.15
-│   ├── pip
-│   └── activate
-├── include/
-├── lib/
-│   └── python3.15/
-│       └── site-packages/  ← package របស់អ្នកនៅទីនេះ
-└── pyvenv.cfg              ← កំណត់រចនាសម្ព័ន្ធ
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>.venv/
+<span class="linenos"> 2</span>├── bin/                    (Windows: Scripts\)
+<span class="linenos"> 3</span>│   ├── python  →  python3.15
+<span class="linenos"> 4</span>│   ├── pip
+<span class="linenos"> 5</span>│   └── activate
+<span class="linenos"> 6</span>├── include/
+<span class="linenos"> 7</span>├── lib/
+<span class="linenos"> 8</span>│   └── python3.15/
+<span class="linenos"> 9</span>│       └── site-packages/  ← package របស់អ្នកនៅទីនេះ
+<span class="linenos">10</span>└── pyvenv.cfg              ← កំណត់រចនាសម្ព័ន្ធ
 </pre></div>
 </div>
 <div class="admonition important">
@@ -306,11 +311,11 @@
 <p><strong>ដាក់ ``.venv/`` ក្នុង ``.gitignore``</strong>។ កុំ commit environment ទេ —
 វាធំ អាស្រ័យលើប្រព័ន្ធ និងអាចបង្កើតឡើងវិញបានពី
 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>។</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># .gitignore
-.venv/
-venv/
-__pycache__/
-*.py[cod]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span># .gitignore
+<span class="linenos">2</span>.venv/
+<span class="linenos">3</span>venv/
+<span class="linenos">4</span>__pycache__/
+<span class="linenos">5</span>*.py[cod]
 </pre></div>
 </div>
 </div>
@@ -368,13 +373,13 @@ __pycache__/
 </tr>
 </tbody>
 </table>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>requests
-<span class="go">Collecting requests</span>
-<span class="go">  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)</span>
-<span class="go">Collecting charset-normalizer&lt;4,&gt;=2 (from requests)</span>
-<span class="go">  Downloading charset_normalizer-3.4.0-py3-none-any.whl.metadata (34 kB)</span>
-<span class="go">...</span>
-<span class="go">Successfully installed requests-2.32.3 urllib3-2.2.3</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>requests
+<span class="linenos">2</span><span class="go">Collecting requests</span>
+<span class="linenos">3</span><span class="go">  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)</span>
+<span class="linenos">4</span><span class="go">Collecting charset-normalizer&lt;4,&gt;=2 (from requests)</span>
+<span class="linenos">5</span><span class="go">  Downloading charset_normalizer-3.4.0-py3-none-any.whl.metadata (34 kB)</span>
+<span class="linenos">6</span><span class="go">...</span>
+<span class="linenos">7</span><span class="go">Successfully installed requests-2.32.3 urllib3-2.2.3</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -433,28 +438,28 @@ __pycache__/
 <section id="requirements-txt">
 <span id="requirements"></span><h2><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code><a class="headerlink" href="#requirements-txt" title="Link to this heading"></a></h2>
 <p>វិធីសាមញ្ញបំផុតដើម្បីកត់ត្រា dependency៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>កត់ត្រា<span class="w"> </span>environment<span class="w"> </span>បច្ចុប្បន្ន
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
-
-<span class="gp"># </span>ដំឡើងឡើងវិញនៅកន្លែងផ្សេង
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp"># </span>កត់ត្រា<span class="w"> </span>environment<span class="w"> </span>បច្ចុប្បន្ន
+<span class="linenos">2</span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="gp"># </span>ដំឡើងឡើងវិញនៅកន្លែងផ្សេង
+<span class="linenos">5</span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 <p><strong>ទម្រង់ឯកសារ៖</strong></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># requirements.txt
-# ---- runtime ----
-requests==2.32.3
-click&gt;=8.1,&lt;9
-pydantic~=2.9
-
-# ---- development ----
--r requirements-dev.txt
-
-# ---- ពី git ----
-git+https://github.com/user/repo.git@v1.2.3#egg=mypackage
-
-# ---- ឯកសារ wheel ក្នុងស្រុក ----
-./wheels/custom-1.0-py3-none-any.whl
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span># requirements.txt
+<span class="linenos"> 2</span># ---- ពេលដំណើរការ (runtime) ----
+<span class="linenos"> 3</span>requests==2.32.3
+<span class="linenos"> 4</span>click&gt;=8.1,&lt;9
+<span class="linenos"> 5</span>pydantic~=2.9
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span># ---- សម្រាប់អភិវឌ្ឍន៍ (development) ----
+<span class="linenos"> 8</span>-r requirements-dev.txt
+<span class="linenos"> 9</span>
+<span class="linenos">10</span># ---- ពី git ----
+<span class="linenos">11</span>git+https://github.com/user/repo.git@v1.2.3#egg=mypackage
+<span class="linenos">12</span>
+<span class="linenos">13</span># ---- ឯកសារ wheel ក្នុងស្រុក ----
+<span class="linenos">14</span>./wheels/custom-1.0-py3-none-any.whl
 </pre></div>
 </div>
 <table class="docutils align-default" id="id9">
@@ -503,43 +508,43 @@ git+https://github.com/user/repo.git@v1.2.3#egg=mypackage
 <section id="pyproject-toml">
 <span id="pyproject"></span><h2><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#pyproject-toml" title="Link to this heading"></a></h2>
 <p>ឯកសារកំណត់រចនាសម្ព័ន្ធស្តង់ដារសម្រាប់គម្រោង Python (PEP 518, 621)៖</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
-<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"hatchling"</span><span class="p">]</span>
-<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"hatchling.build"</span>
-
-<span class="k">[project]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-app"</span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1.4.0"</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"កម្មវិធីឧទាហរណ៍"</span>
-<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"README.md"</span>
-<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=3.12"</span>
-<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"MIT"</span><span class="w"> </span><span class="p">}</span>
-<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"Sokha"</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"sokha@example.com"</span><span class="w"> </span><span class="p">}]</span>
-<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">"requests&gt;=2.31,&lt;3"</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">"click&gt;=8.1"</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="k">[project.optional-dependencies]</span>
-<span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">"pytest&gt;=8.0"</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">"ruff&gt;=0.6"</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">"mypy&gt;=1.11"</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="k">[project.scripts]</span>
-<span class="n">my-app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_app.cli:main"</span>
-
-<span class="k">[tool.ruff]</span>
-<span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-<span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"py312"</span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">[build-system]</span>
+<span class="linenos"> 2</span><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"hatchling"</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"hatchling.build"</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">[project]</span>
+<span class="linenos"> 6</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-app"</span>
+<span class="linenos"> 7</span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1.4.0"</span>
+<span class="linenos"> 8</span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"កម្មវិធីឧទាហរណ៍"</span>
+<span class="linenos"> 9</span><span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"README.md"</span>
+<span class="linenos">10</span><span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=3.12"</span>
+<span class="linenos">11</span><span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"MIT"</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">12</span><span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"Sokha"</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"sokha@example.com"</span><span class="w"> </span><span class="p">}]</span>
+<span class="linenos">13</span><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos">14</span><span class="w">    </span><span class="s2">"requests&gt;=2.31,&lt;3"</span><span class="p">,</span>
+<span class="linenos">15</span><span class="w">    </span><span class="s2">"click&gt;=8.1"</span><span class="p">,</span>
+<span class="linenos">16</span><span class="p">]</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="k">[project.optional-dependencies]</span>
+<span class="linenos">19</span><span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos">20</span><span class="w">    </span><span class="s2">"pytest&gt;=8.0"</span><span class="p">,</span>
+<span class="linenos">21</span><span class="w">    </span><span class="s2">"ruff&gt;=0.6"</span><span class="p">,</span>
+<span class="linenos">22</span><span class="w">    </span><span class="s2">"mypy&gt;=1.11"</span><span class="p">,</span>
+<span class="linenos">23</span><span class="p">]</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="k">[project.scripts]</span>
+<span class="linenos">26</span><span class="n">my-app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my_app.cli:main"</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="k">[tool.ruff]</span>
+<span class="linenos">29</span><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="linenos">30</span><span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"py312"</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ដំឡើងគម្រោងជា<span class="w"> </span>editable<span class="w"> </span><span class="o">(</span>កូដផ្លាស់ប្ដូរភ្លាម<span class="w"> </span>មិនចាំបាច់ដំឡើងម្ដងទៀត<span class="o">)</span>
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
-
-<span class="gp"># </span>ដំឡើងរួមទាំង<span class="w"> </span>optional<span class="w"> </span>dependency
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[dev]"</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp"># </span>ដំឡើងគម្រោងជា<span class="w"> </span>editable<span class="w"> </span><span class="o">(</span>កូដផ្លាស់ប្ដូរភ្លាម<span class="w"> </span>មិនចាំបាច់ដំឡើងម្ដងទៀត<span class="o">)</span>
+<span class="linenos">2</span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="gp"># </span>ដំឡើងរួមទាំង<span class="w"> </span>optional<span class="w"> </span>dependency
+<span class="linenos">5</span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[dev]"</span>
 </pre></div>
 </div>
 </section>
@@ -579,12 +584,12 @@ git+https://github.com/user/repo.git@v1.2.3#egg=mypackage
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ពិនិត្យថាអ្នកកំពុងប្រើ interpreter ណា</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span> <span class="o">!=</span> <span class="s2">""</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span> <span class="o">==</span> <span class="n">sys</span><span class="o">.</span><span class="n">base_prefix</span>      <span class="c1"># False = ក្នុង virtual environment</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ពិនិត្យថាអ្នកកំពុងប្រើ interpreter ណា</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span> <span class="o">!=</span> <span class="s2">""</span>
+<span class="linenos">4</span><span class="go">True</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span> <span class="o">==</span> <span class="n">sys</span><span class="o">.</span><span class="n">base_prefix</span>      <span class="c1"># False = ក្នុង virtual environment</span>
+<span class="linenos">6</span><span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -600,23 +605,23 @@ git+https://github.com/user/repo.git@v1.2.3#egg=mypackage
 <p>Distribution Linux ជាច្រើន (Debian 12+, Ubuntu 23.04+, Fedora 38+) បាន
 សម្គាល់ Python របស់ប្រព័ន្ធថា <strong>គ្រប់គ្រងដោយខាងក្រៅ</strong>។ នេះមានន័យថា
 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> ទៅប្រព័ន្ធនឹងបរាជ័យ៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>error: externally-managed-environment
-× This environment is externally managed
-╰─&gt; To install Python packages system-wide, try apt install python3-xyz...
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>error: externally-managed-environment
+<span class="linenos">2</span>× This environment is externally managed
+<span class="linenos">3</span>╰─&gt; To install Python packages system-wide, try apt install python3-xyz...
 </pre></div>
 </div>
 <p><strong>នេះគឺជាការការពារ មិនមែនជាកំហុសទេ។</strong> ឧបករណ៍ប្រព័ន្ធជាច្រើនពឹងផ្អែក
 លើ Python របស់ប្រព័ន្ធ ហើយ <code class="docutils literal notranslate"><span class="pre">pip</span></code> អាចបំបែកវា។</p>
 <p>ដំណោះស្រាយត្រឹមត្រូវ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="m">១</span>.<span class="w"> </span>Virtual<span class="w"> </span>environment<span class="w"> </span><span class="o">(</span>ណែនាំសម្រាប់គម្រោង<span class="o">)</span>
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>requests
-
-<span class="gp"># </span><span class="m">២</span>.<span class="w"> </span>pipx<span class="w"> </span><span class="o">(</span>ណែនាំសម្រាប់ឧបករណ៍<span class="w"> </span>CLI<span class="o">)</span>
-<span class="gp">$ </span>pipx<span class="w"> </span>install<span class="w"> </span>black
-
-<span class="gp"># </span><span class="m">៣</span>.<span class="w"> </span>apt<span class="w"> </span><span class="o">(</span>សម្រាប់<span class="w"> </span>package<span class="w"> </span>ប្រព័ន្ធ<span class="o">)</span>
-<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-requests
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp"># </span><span class="m">១</span>.<span class="w"> </span>Virtual<span class="w"> </span>environment<span class="w"> </span><span class="o">(</span>ណែនាំសម្រាប់គម្រោង<span class="o">)</span>
+<span class="linenos">2</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="linenos">3</span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>requests
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="gp"># </span><span class="m">២</span>.<span class="w"> </span>pipx<span class="w"> </span><span class="o">(</span>ណែនាំសម្រាប់ឧបករណ៍<span class="w"> </span>CLI<span class="o">)</span>
+<span class="linenos">6</span><span class="gp">$ </span>pipx<span class="w"> </span>install<span class="w"> </span>black
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="gp"># </span><span class="m">៣</span>.<span class="w"> </span>apt<span class="w"> </span><span class="o">(</span>សម្រាប់<span class="w"> </span>package<span class="w"> </span>ប្រព័ន្ធ<span class="o">)</span>
+<span class="linenos">9</span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-requests
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -668,9 +673,9 @@ git+https://github.com/user/repo.git@v1.2.3#egg=mypackage
 សូមពិចារណា <code class="docutils literal notranslate"><span class="pre">uv</span></code> (លឿន និងសាមញ្ញ) ឬ <code class="docutils literal notranslate"><span class="pre">poetry</span></code> (lock file និង
 dependency resolution ខ្លាំង)។</p>
 <p><code class="docutils literal notranslate"><span class="pre">uv</span></code> អាចបង្កើត environment និងដំឡើង package ក្នុងពាក្យបញ្ជាតែមួយ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>venv<span class="w">                     </span><span class="c1"># បង្កើត .venv</span>
-<span class="gp">$ </span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="w">     </span><span class="c1"># ដំឡើង</span>
-<span class="gp">$ </span>uv<span class="w"> </span>run<span class="w"> </span>app.py<span class="w">               </span><span class="c1"># ដំណើរការក្នុង environment</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>uv<span class="w"> </span>venv<span class="w">                     </span><span class="c1"># បង្កើត .venv</span>
+<span class="linenos">2</span><span class="gp">$ </span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="w">     </span><span class="c1"># ដំឡើង</span>
+<span class="linenos">3</span><span class="gp">$ </span>uv<span class="w"> </span>run<span class="w"> </span>app.py<span class="w">               </span><span class="c1"># ដំណើរការក្នុង environment</span>
 </pre></div>
 </div>
 </div>

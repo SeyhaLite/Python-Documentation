@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/control_flow.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -187,16 +192,16 @@
 <strong>លក្ខខណ្ឌ</strong> (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">match</span></code>) និង <strong>រង្វិលជុំ</strong> (<code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>)។</p>
 <section id="if">
 <span id="if-statement"></span><h2>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#if" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">35</span>
-
-<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្ដៅខ្លាំង"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្ដៅល្មម"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ត្រជាក់ល្មម"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ត្រជាក់"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+<span class="linenos"> 4</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្ដៅខ្លាំង"</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+<span class="linenos"> 6</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្ដៅល្មម"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="linenos"> 8</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ត្រជាក់ល្មម"</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">10</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ត្រជាក់"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>លទ្ធផល៖ <code class="docutils literal notranslate"><span class="pre">ក្ដៅខ្លាំង</span></code></p>
@@ -212,13 +217,13 @@
 <span id="id3"></span><h3>ភាពពិតក្នុងលក្ខខណ្ឌ<a class="headerlink" href="#truthiness-recap" title="Link to this heading"></a></h3>
 <p>លក្ខខណ្ឌមិនចាំបាច់ជា <code class="docutils literal notranslate"><span class="pre">bool</span></code> ទេ — object ណាក៏អាចប្រើបាន។ Python
 បំលែងវាតាមច្បាប់ <em>truthiness</em>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">[]:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនដែលដំណើរការ"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ដំណើរការ — list មិនទទេ"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">ដំណើរការ — list មិនទទេ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">[]:</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនដែលដំណើរការ"</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="linenos">5</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ដំណើរការ — list មិនទទេ"</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">...</span>
+<span class="linenos">7</span><span class="go">ដំណើរការ — list មិនទទេ</span>
 </pre></div>
 </div>
 <p>Falsy រួមមាន៖ <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>,
@@ -281,14 +286,14 @@
 </table>
 <section id="chained-comparison">
 <span id="id5"></span><h3>ការប្រៀបធៀបខ្សែ<a class="headerlink" href="#chained-comparison" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">18</span> <span class="o">&lt;=</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">60</span>           <span class="c1"># ស្មើនឹង 18 &lt;= age and age &lt; 60</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span>                <span class="c1"># ស្មើនឹង a &lt; b and b &gt; c</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">18</span> <span class="o">&lt;=</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">60</span>           <span class="c1"># ស្មើនឹង 18 &lt;= age and age &lt; 60</span>
+<span class="linenos">3</span><span class="go">True</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span>
+<span class="linenos">6</span><span class="go">True</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span>                <span class="c1"># ស្មើនឹង a &lt; b and b &gt; c</span>
+<span class="linenos">8</span><span class="go">False</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -326,27 +331,27 @@
 <section id="short-circuit-evaluation">
 <span id="short-circuit"></span><h3>Short-circuit Evaluation<a class="headerlink" href="#short-circuit-evaluation" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">and</span></code> និង <code class="docutils literal notranslate"><span class="pre">or</span></code> <strong>ឈប់វាយតម្លៃ</strong> នៅពេលលទ្ធផលត្រូវបានកំណត់រួចហើយ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  ពិនិត្យ </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">value</span>             <span class="c1"># ត្រឡប់ operand ខ្លួនឯង មិនមែន bool</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">check</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="ow">and</span> <span class="n">check</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># '' មិនពិត → ឈប់ ត្រឡប់ ''</span>
-<span class="go">  ពិនិត្យ ''</span>
-<span class="go">''</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">check</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">check</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># 'a' ពិត → ឈប់ ត្រឡប់ 'a'</span>
-<span class="go">  ពិនិត្យ 'a'</span>
-<span class="go">'a'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  ពិនិត្យ </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">value</span>             <span class="c1"># ត្រឡប់ operand ខ្លួនឯង មិនមែន bool</span>
+<span class="linenos"> 4</span><span class="gp">...</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">check</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="ow">and</span> <span class="n">check</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># '' មិនពិត → ឈប់ ត្រឡប់ ''</span>
+<span class="linenos"> 6</span><span class="go">  ពិនិត្យ ''</span>
+<span class="linenos"> 7</span><span class="go">''</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">check</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">check</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># 'a' ពិត → ឈប់ ត្រឡប់ 'a'</span>
+<span class="linenos"> 9</span><span class="go">  ពិនិត្យ 'a'</span>
+<span class="linenos">10</span><span class="go">'a'</span>
 </pre></div>
 </div>
 <p>ឥរិយាបថនេះអនុញ្ញាតឱ្យប្រើវាជា <strong>ការការពារ</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="c1"># ❌ អាចបញ្ចេញ ZeroDivisionError</span>
-<span class="c1"># result = 10 / x</span>
-
-<span class="c1"># ✅ បើ x == 0 នឹងមិនដល់ការចែកទេ</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">/</span> <span class="n">x</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>          <span class="c1"># False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="c1"># ❌ អាចបញ្ចេញ ZeroDivisionError</span>
+<span class="linenos">4</span><span class="c1"># result = 10 / x</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="c1"># ✅ បើ x == 0 នឹងមិនដល់ការចែកទេ</span>
+<span class="linenos">7</span><span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">/</span> <span class="n">x</span>
+<span class="linenos">8</span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>          <span class="c1"># លទ្ធផល: False</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -364,14 +369,14 @@
 </section>
 <section id="conditional-expression-ternary">
 <span id="conditional-expression"></span><h2>Conditional Expression (Ternary)<a class="headerlink" href="#conditional-expression-ternary" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="s2">"ពេញវ័យ"</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="k">else</span> <span class="s2">"អនីតិជន"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"ពេញវ័យ"</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="k">else</span> <span class="s2">"អនីតិជន"</span>
 </pre></div>
 </div>
 <p>ទម្រង់ទូទៅ៖ <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">B</span></code> — វាយតម្លៃ <code class="docutils literal notranslate"><span class="pre">condition</span></code> រួចត្រឡប់
 <code class="docutils literal notranslate"><span class="pre">A</span></code> បើពិត ឬ <code class="docutils literal notranslate"><span class="pre">B</span></code> បើមិនពិត។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">"គូ"</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"សេស"</span>
-<span class="go">'សេស'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"គូ"</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"សេស"</span>
+<span class="linenos">3</span><span class="go">'សេស'</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -384,28 +389,28 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 <section id="while">
 <span id="while-loop"></span><h2>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#while" title="Link to this heading"></a></h2>
 <p>ដំណើរការ block ម្ដងហើយម្ដងទៀត ខណៈដែលលក្ខខណ្ឌនៅតែពិត៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">...</span>
-<span class="go">0 1 2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">... </span>    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">5</span><span class="gp">...</span>
+<span class="linenos">6</span><span class="go">0 1 2</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>រង្វិលជុំគ្មានទីបញ្ចប់ (infinite loop)</strong> កើតឡើងបើលក្ខខណ្ឌមិនដែល
 ក្លាយជាមិនពិត។ ត្រូវប្រាកដថាមានអ្វីមួយផ្លាស់ប្ដូរក្នុងរង្វិលជុំ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ រង្វិលជុំគ្មានទីបញ្ចប់ — count មិនដែលផ្លាស់ប្ដូរ</span>
-<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
-
-<span class="c1"># ✅</span>
-<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
-    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ❌ រង្វិលជុំគ្មានទីបញ្ចប់ — count មិនដែលផ្លាស់ប្ដូរ</span>
+<span class="linenos"> 2</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 3</span><span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="linenos"> 4</span>    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># ✅</span>
+<span class="linenos"> 7</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 8</span><span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="linenos"> 9</span>    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>បើកម្មវិធីរបស់អ្នកជាប់ក្នុងរង្វិលជុំគ្មានទីបញ្ចប់ សូមចុច
@@ -413,12 +418,12 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 </div>
 <p>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">while</span></code> សមស្របនៅពេលអ្នក <strong>មិនដឹងចំនួនដងជាមុន</strong>។
 ឧទាហរណ៍ ការសួរអ្នកប្រើរហូតដល់បានចម្លើយត្រឹមត្រូវ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"បញ្ចូលលេខ (ឬ 'q' ដើម្បីចេញ): "</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">"q"</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="k">if</span> <span class="n">answer</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"អ្នកបានបញ្ចូល </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"បញ្ចូលលេខ (ឬ 'q' ដើម្បីចេញ): "</span><span class="p">)</span>
+<span class="linenos">3</span>    <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">"q"</span><span class="p">:</span>
+<span class="linenos">4</span>        <span class="k">break</span>
+<span class="linenos">5</span>    <span class="k">if</span> <span class="n">answer</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+<span class="linenos">6</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"អ្នកបានបញ្ចូល </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -427,24 +432,24 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 <span id="for-loop"></span><h2>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#for" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code> របស់ Python ខុសពីភាសាផ្សេងៗ — វាមិនមែនជារង្វិលជុំរាប់លេខទេ
 ប៉ុន្តែជារង្វិលជុំ <strong>ដើរលើធាតុនៃលំដាប់</strong> (iterate)។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ចេក"</span><span class="p">,</span> <span class="s2">"ស្វាយ"</span><span class="p">,</span> <span class="s2">"ទុំរេន"</span><span class="p">]:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">ចេក</span>
-<span class="go">ស្វាយ</span>
-<span class="go">ទុំរេន</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">"Py"</span><span class="p">:</span>          <span class="c1"># ខ្សែអក្សរក៏ជា iterable</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">P</span>
-<span class="go">y</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">2</span><span class="p">}:</span>   <span class="c1"># dict — ដើរលើ key</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">a</span>
-<span class="go">b</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ចេក"</span><span class="p">,</span> <span class="s2">"ស្វាយ"</span><span class="p">,</span> <span class="s2">"ទុំរេន"</span><span class="p">]:</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">...</span>
+<span class="linenos"> 4</span><span class="go">ចេក</span>
+<span class="linenos"> 5</span><span class="go">ស្វាយ</span>
+<span class="linenos"> 6</span><span class="go">ទុំរេន</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">"Py"</span><span class="p">:</span>          <span class="c1"># ខ្សែអក្សរក៏ជា iterable</span>
+<span class="linenos"> 9</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<span class="linenos">10</span><span class="gp">...</span>
+<span class="linenos">11</span><span class="go">P</span>
+<span class="linenos">12</span><span class="go">y</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">2</span><span class="p">}:</span>   <span class="c1"># dict — ដើរលើ key</span>
+<span class="linenos">15</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="linenos">16</span><span class="gp">...</span>
+<span class="linenos">17</span><span class="go">a</span>
+<span class="linenos">18</span><span class="go">b</span>
 </pre></div>
 </div>
 <section id="modifying-during-loop">
@@ -453,24 +458,24 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 <p class="admonition-title">Warning</p>
 <p>កុំបន្ថែម ឬលុបធាតុពីលំដាប់ដែលអ្នកកំពុងដើរលើវា។ លទ្ធផលគឺមិនអាច
 ទាយបាន។ ចូរដើរលើ <strong>ចម្លង</strong> ឬបង្កើតលំដាប់ <strong>ថ្មី</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-
-<span class="c1"># ❌ កែប្រែកំពុងដើរ — រំលងធាតុ</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">my_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># ✅ ដើរលើចម្លង</span>
-<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="o">.</span><span class="n">copy</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">my_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>            <span class="c1"># [1, 3]</span>
-
-<span class="c1"># ✅ ល្អបំផុត — បង្កើត list ថ្មី</span>
-<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>            <span class="c1"># [1, 3]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># ❌ កែប្រែកំពុងដើរ — រំលងធាតុ</span>
+<span class="linenos"> 4</span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 6</span>        <span class="n">my_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># ✅ ដើរលើចម្លង</span>
+<span class="linenos"> 9</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="linenos">10</span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="o">.</span><span class="n">copy</span><span class="p">():</span>
+<span class="linenos">11</span>    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">12</span>        <span class="n">my_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">13</span><span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>            <span class="c1"># [1, 3]</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># ✅ ល្អបំផុត — បង្កើត list ថ្មី</span>
+<span class="linenos">16</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="linenos">17</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="linenos">18</span><span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>            <span class="c1"># [1, 3]</span>
 </pre></div>
 </div>
 </div>
@@ -502,16 +507,16 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="go">[0, 1, 2, 3, 4]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="go">[2, 3, 4, 5]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="go">[0, 3, 6, 9]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>        <span class="c1"># រាប់ថយក្រោយ</span>
-<span class="go">[5, 4, 3, 2, 1]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>               <span class="c1"># ទទេ</span>
-<span class="go">[]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="linenos"> 2</span><span class="go">[0, 1, 2, 3, 4]</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="linenos"> 4</span><span class="go">[2, 3, 4, 5]</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="linenos"> 6</span><span class="go">[0, 3, 6, 9]</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>        <span class="c1"># រាប់ថយក្រោយ</span>
+<span class="linenos"> 8</span><span class="go">[5, 4, 3, 2, 1]</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>               <span class="c1"># ទទេ</span>
+<span class="linenos">10</span><span class="go">[]</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -522,14 +527,14 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 <li><p><code class="docutils literal notranslate"><span class="pre">range()</span></code> ត្រឡប់ <strong>object range</strong> មិនមែន <code class="docutils literal notranslate"><span class="pre">list</span></code> ទេ។
 ប្រើ <code class="docutils literal notranslate"><span class="pre">list(range(...))</span></code> បើអ្នកចង់បាន list។</p></li>
 </ul>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">range(0, 5)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="go">&lt;class 'range'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>            <span class="c1"># ប៉ុន្តែមានប្រវែង និង index</span>
-<span class="go">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">range(0, 5)</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="linenos">4</span><span class="go">&lt;class 'range'&gt;</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>            <span class="c1"># ប៉ុន្តែមានប្រវែង និង index</span>
+<span class="linenos">6</span><span class="go">5</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos">8</span><span class="go">2</span>
 </pre></div>
 </div>
 </div>
@@ -555,31 +560,31 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">break</span>              <span class="c1"># ឈប់នៅពេល n == 5</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">0 1 2 3 4</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">continue</span>           <span class="c1"># រំលងលេខគូ</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">1 3 5 7 9</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="gp">... </span>        <span class="k">break</span>              <span class="c1"># ឈប់នៅពេល n == 5</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="go">0 1 2 3 4</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="linenos"> 9</span><span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">10</span><span class="gp">... </span>        <span class="k">continue</span>           <span class="c1"># រំលងលេខគូ</span>
+<span class="linenos">11</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="linenos">12</span><span class="gp">...</span>
+<span class="linenos">13</span><span class="go">1 3 5 7 9</span>
 </pre></div>
 </div>
 <p><strong>``break`` ក្នុងរង្វិលជុំ nested</strong> — វាចេញតែពីរង្វិលជុំ <strong>ខាងក្នុងបំផុត</strong> ប៉ុណ្ណោះ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="k">break</span>          <span class="c1"># ចេញពីរង្វិលជុំ j តែប៉ុណ្ណោះ</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">i=0 j=0</span>
-<span class="go">i=1 j=0</span>
-<span class="go">i=2 j=0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos">3</span><span class="gp">... </span>        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">4</span><span class="gp">... </span>            <span class="k">break</span>          <span class="c1"># ចេញពីរង្វិលជុំ j តែប៉ុណ្ណោះ</span>
+<span class="linenos">5</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">...</span>
+<span class="linenos">7</span><span class="go">i=0 j=0</span>
+<span class="linenos">8</span><span class="go">i=1 j=0</span>
+<span class="linenos">9</span><span class="go">i=2 j=0</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -592,40 +597,40 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 <span id="loop-else"></span><h2><code class="docutils literal notranslate"><span class="pre">else</span></code> នៅលើរង្វិលជុំ<a class="headerlink" href="#else" title="Link to this heading"></a></h2>
 <p>នេះជាលក្ខណៈពិសេសរបស់ Python ដែលភាសាផ្សេងគ្មាន។ <code class="docutils literal notranslate"><span class="pre">else</span></code> នៅលើរង្វិលជុំ
 ដំណើរការ <strong>លុះត្រាតែរង្វិលជុំបញ្ចប់ដោយធម្មតា</strong> — ពោលគឺ <strong>មិនមាន ``break``</strong>។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># មាន break → else មិនដំណើរការ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"រកឃើញ </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="k">break</span>
-<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានរកឃើញ"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">រកឃើញ 5</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># គ្មាន break → else ដំណើរការ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"រកឃើញ </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="k">break</span>
-<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានរកឃើញ"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">មិនបានរកឃើញ</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># មាន break → else មិនដំណើរការ</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"រកឃើញ </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="k">break</span>
+<span class="linenos"> 6</span><span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 7</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានរកឃើញ"</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="gp">...</span>
+<span class="linenos"> 9</span><span class="go">រកឃើញ 5</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># គ្មាន break → else ដំណើរការ</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="linenos">13</span><span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">14</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"រកឃើញ </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos">15</span><span class="gp">... </span>        <span class="k">break</span>
+<span class="linenos">16</span><span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">17</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មិនបានរកឃើញ"</span><span class="p">)</span>
+<span class="linenos">18</span><span class="gp">...</span>
+<span class="linenos">19</span><span class="go">មិនបានរកឃើញ</span>
 </pre></div>
 </div>
 <p><strong>ឧទាហរណ៍ជាក់ស្ដែង</strong> — ស្វែងរកចំនួនបឋម៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="k">break</span>
-<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="c1"># រង្វិលជុំខាងក្នុងបញ្ចប់ដោយគ្មាន break → n ជាចំនួនបឋម</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">"ជាចំនួនបឋម"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">2 ជាចំនួនបឋម</span>
-<span class="go">3 ជាចំនួនបឋម</span>
-<span class="go">5 ជាចំនួនបឋម</span>
-<span class="go">7 ជាចំនួនបឋម</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 3</span><span class="gp">... </span>        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>            <span class="k">break</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 6</span><span class="gp">... </span>        <span class="c1"># រង្វិលជុំខាងក្នុងបញ្ចប់ដោយគ្មាន break → n ជាចំនួនបឋម</span>
+<span class="linenos"> 7</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">"ជាចំនួនបឋម"</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="gp">...</span>
+<span class="linenos"> 9</span><span class="go">2 ជាចំនួនបឋម</span>
+<span class="linenos">10</span><span class="go">3 ជាចំនួនបឋម</span>
+<span class="linenos">11</span><span class="go">5 ជាចំនួនបឋម</span>
+<span class="linenos">12</span><span class="go">7 ជាចំនួនបឋម</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -640,33 +645,33 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 <span id="id10"></span><h2>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">pass</span></code><a class="headerlink" href="#pass" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pass</span></code> មិនធ្វើអ្វីទាំងអស់។ វាមានប្រយោជន៍នៅកន្លែងដែល Python តម្រូវឱ្យ
 មាន statement ប៉ុន្តែអ្នកមិនទាន់ចង់សរសេរកូដ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="c1"># បង្កើត class ទទេជាអចិន្ត្រៃយ៍</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Placeholder</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># អនុគមន៍ដែលមិនទាន់បានអនុវត្ត</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">not_implemented_yet</span><span class="p">():</span>
-    <span class="k">pass</span>
-
-<span class="c1"># ចាប់យកកំហុស ប៉ុន្តែមិនធ្វើអ្វី</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">risky</span><span class="p">():</span>
-    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"មានបញ្ហា"</span><span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">risky</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># សាខាដែលមិនត្រូវការធ្វើអ្វី</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">do_something</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"សាខា else"</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
-    <span class="k">pass</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">do_something</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># បង្កើត class ទទេជាអចិន្ត្រៃយ៍</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">Placeholder</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="k">pass</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># អនុគមន៍ដែលមិនទាន់បានអនុវត្ត</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">not_implemented_yet</span><span class="p">():</span>
+<span class="linenos"> 9</span>    <span class="k">pass</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># ចាប់យកកំហុស ប៉ុន្តែមិនធ្វើអ្វី</span>
+<span class="linenos">12</span><span class="k">def</span><span class="w"> </span><span class="nf">risky</span><span class="p">():</span>
+<span class="linenos">13</span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"មានបញ្ហា"</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="n">risky</span><span class="p">()</span>
+<span class="linenos">17</span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="linenos">18</span>    <span class="k">pass</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="c1"># សាខាដែលមិនត្រូវការធ្វើអ្វី</span>
+<span class="linenos">21</span><span class="k">def</span><span class="w"> </span><span class="nf">do_something</span><span class="p">():</span>
+<span class="linenos">22</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"សាខា else"</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+<span class="linenos">25</span>    <span class="k">pass</span>
+<span class="linenos">26</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">27</span>    <span class="n">do_something</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -683,26 +688,26 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">match</span></code> គឺជាវិធីមានអានុភាពជាង <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">elif</span></code> សម្រាប់ផ្គូផ្គង <strong>រចនាសម្ព័ន្ធ</strong>
 នៃទិន្នន័យ។</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
-    <span class="k">match</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
-        <span class="k">case</span> <span class="p">[</span><span class="s2">"quit"</span> <span class="o">|</span> <span class="s2">"exit"</span> <span class="o">|</span> <span class="s2">"bye"</span><span class="p">]:</span>   <span class="c1"># ជាក់លាក់ — ត្រូវនៅមុនគេ</span>
-            <span class="k">return</span> <span class="s2">"ចេញពីកម្មវិធី"</span>
-        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">]:</span>                     <span class="c1"># ទូទៅ — ចាប់យកអ្វីក៏បាន</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">"សកម្មភាពតែមួយ: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">,</span> <span class="n">target</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2"> លើ </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">"មិនស្គាល់"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="k">match</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+<span class="linenos"> 3</span>        <span class="k">case</span> <span class="p">[</span><span class="s2">"quit"</span> <span class="o">|</span> <span class="s2">"exit"</span> <span class="o">|</span> <span class="s2">"bye"</span><span class="p">]:</span>   <span class="c1"># ជាក់លាក់ — ត្រូវនៅមុនគេ</span>
+<span class="linenos"> 4</span>            <span class="k">return</span> <span class="s2">"ចេញពីកម្មវិធី"</span>
+<span class="linenos"> 5</span>        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">]:</span>                     <span class="c1"># ទូទៅ — ចាប់យកអ្វីក៏បាន</span>
+<span class="linenos"> 6</span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"សកម្មភាពតែមួយ: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos"> 7</span>        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">,</span> <span class="n">target</span><span class="p">]:</span>
+<span class="linenos"> 8</span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2"> លើ </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos"> 9</span>        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+<span class="linenos">10</span>            <span class="k">return</span> <span class="s2">"មិនស្គាល់"</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"run"</span><span class="p">)</span>
-<span class="go">'សកម្មភាពតែមួយ: run'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"delete file"</span><span class="p">)</span>
-<span class="go">'delete លើ file'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"quit"</span><span class="p">)</span>
-<span class="go">'ចេញពីកម្មវិធី'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"do many things now"</span><span class="p">)</span>
-<span class="go">'មិនស្គាល់'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"run"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">'សកម្មភាពតែមួយ: run'</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"delete file"</span><span class="p">)</span>
+<span class="linenos">4</span><span class="go">'delete លើ file'</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"quit"</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">'ចេញពីកម្មវិធី'</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="s2">"do many things now"</span><span class="p">)</span>
+<span class="linenos">8</span><span class="go">'មិនស្គាល់'</span>
 </pre></div>
 </div>
 <p><strong>លក្ខណៈសំខាន់ៗ៖</strong></p>
@@ -743,27 +748,27 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">match</span> <span class="n">data</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">case</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">}:</span>
-<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"អ្នកប្រើ: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="gp">... </span>        <span class="k">case</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span> <span class="o">**</span><span class="n">rest</span><span class="p">}:</span>
-<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"កំហុស </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">rest</span><span class="si">}</span><span class="s2">"</span>
-<span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">more</span><span class="p">]:</span>
-<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"កូអរដោនេ (</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) + </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">more</span><span class="p">)</span><span class="si">}</span><span class="s2"> ទៀត"</span>
-<span class="gp">... </span>        <span class="k">case</span> <span class="nb">str</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"ខ្សែអក្សរ: </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">"</span>
-<span class="gp">... </span>        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="k">return</span> <span class="s2">"មិនស្គាល់"</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">})</span>
-<span class="go">'អ្នកប្រើ: សុខា'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/x"</span><span class="p">})</span>
-<span class="go">"កំហុស 404: {'url': '/x'}"</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="go">'កូអរដោនេ (1, 2) + 2 ទៀត'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
-<span class="go">'ខ្សែអក្សរ: hello'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">match</span> <span class="n">data</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="gp">... </span>        <span class="k">case</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">}:</span>
+<span class="linenos"> 4</span><span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"អ្នកប្រើ: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="k">case</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span> <span class="o">**</span><span class="n">rest</span><span class="p">}:</span>
+<span class="linenos"> 6</span><span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"កំហុស </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">rest</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos"> 7</span><span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">more</span><span class="p">]:</span>
+<span class="linenos"> 8</span><span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"កូអរដោនេ (</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) + </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">more</span><span class="p">)</span><span class="si">}</span><span class="s2"> ទៀត"</span>
+<span class="linenos"> 9</span><span class="gp">... </span>        <span class="k">case</span> <span class="nb">str</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+<span class="linenos">10</span><span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"ខ្សែអក្សរ: </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos">11</span><span class="gp">... </span>        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+<span class="linenos">12</span><span class="gp">... </span>            <span class="k">return</span> <span class="s2">"មិនស្គាល់"</span>
+<span class="linenos">13</span><span class="gp">...</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">})</span>
+<span class="linenos">15</span><span class="go">'អ្នកប្រើ: សុខា'</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/x"</span><span class="p">})</span>
+<span class="linenos">17</span><span class="go">"កំហុស 404: {'url': '/x'}"</span>
+<span class="linenos">18</span><span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="linenos">19</span><span class="go">'កូអរដោនេ (1, 2) + 2 ទៀត'</span>
+<span class="linenos">20</span><span class="gp">&gt;&gt;&gt; </span><span class="n">handle</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
+<span class="linenos">21</span><span class="go">'ខ្សែអក្សរ: hello'</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -777,15 +782,15 @@ ternary (ternary ក្នុង ternary) សូមបំលែងទៅជា <
 </ul>
 <p>កំហុសទូទៅគឺដាក់ <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">[action]:</span></code> នៅមុន <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">[&quot;quit&quot;]:</span></code> — ពេលនោះ
 <code class="docutils literal notranslate"><span class="pre">&quot;quit&quot;</span></code> ត្រូវបានចាប់យកជា <code class="docutils literal notranslate"><span class="pre">action</span></code> ហើយ case ជាក់លាក់មិនដែលដំណើរការ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">wrong</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">match</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
-<span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">]:</span>                  <span class="c1"># ❌ ចាប់យកអ្វីៗទាំងអស់</span>
-<span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"សកម្មភាព: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">"</span>
-<span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="s2">"quit"</span><span class="p">]:</span>                  <span class="c1"># មិនដែលដល់ទីនេះទេ</span>
-<span class="gp">... </span>            <span class="k">return</span> <span class="s2">"ចេញ"</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">wrong</span><span class="p">(</span><span class="s2">"quit"</span><span class="p">)</span>
-<span class="go">'សកម្មភាព: quit'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">wrong</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">match</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+<span class="linenos">3</span><span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="n">action</span><span class="p">]:</span>                  <span class="c1"># ❌ ចាប់យកអ្វីៗទាំងអស់</span>
+<span class="linenos">4</span><span class="gp">... </span>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"សកម្មភាព: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">"</span>
+<span class="linenos">5</span><span class="gp">... </span>        <span class="k">case</span> <span class="p">[</span><span class="s2">"quit"</span><span class="p">]:</span>                  <span class="c1"># មិនដែលដល់ទីនេះទេ</span>
+<span class="linenos">6</span><span class="gp">... </span>            <span class="k">return</span> <span class="s2">"ចេញ"</span>
+<span class="linenos">7</span><span class="gp">...</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">wrong</span><span class="p">(</span><span class="s2">"quit"</span><span class="p">)</span>
+<span class="linenos">9</span><span class="go">'សកម្មភាព: quit'</span>
 </pre></div>
 </div>
 </div>
@@ -800,36 +805,36 @@ case មួយផ្គូផ្គង វាដំណើរការហើយ�
 <section id="nested">
 <span id="nested-loops"></span><h2>រង្វិលជុំ Nested និងឧទាហរណ៍ជាក់ស្ដែង<a class="headerlink" href="#nested" title="Link to this heading"></a></h2>
 <p><strong>តារាងគុណ៖</strong></p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">×</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"  "</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">()</span>
-<span class="gp">...</span>
-<span class="go">1×1=1  1×2=2  1×3=3</span>
-<span class="go">2×1=2  2×2=4  2×3=6</span>
-<span class="go">3×1=3  3×2=6  3×3=9</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="linenos">3</span><span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">×</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"  "</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">()</span>
+<span class="linenos">5</span><span class="gp">...</span>
+<span class="linenos">6</span><span class="go">1×1=1  1×2=2  1×3=3</span>
+<span class="linenos">7</span><span class="go">2×1=2  2×2=4  2×3=6</span>
+<span class="linenos">8</span><span class="go">3×1=3  3×2=6  3×3=9</span>
 </pre></div>
 </div>
 <p><strong>រូបត្រីកោណ៖</strong></p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">*</span>
-<span class="go">**</span>
-<span class="go">***</span>
-<span class="go">****</span>
-<span class="go">*****</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="go">*</span>
+<span class="linenos">5</span><span class="go">**</span>
+<span class="linenos">6</span><span class="go">***</span>
+<span class="linenos">7</span><span class="go">****</span>
+<span class="linenos">8</span><span class="go">*****</span>
 </pre></div>
 </div>
 <p><strong>ស្វែងរកធាតុធំបំផុតដោយមិនប្រើ ``max()``៖</strong></p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">largest</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">largest</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">largest</span> <span class="o">=</span> <span class="n">n</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">largest</span>
-<span class="go">9</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">largest</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+<span class="linenos">4</span><span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">largest</span><span class="p">:</span>
+<span class="linenos">5</span><span class="gp">... </span>        <span class="n">largest</span> <span class="o">=</span> <span class="n">n</span>
+<span class="linenos">6</span><span class="gp">...</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">largest</span>
+<span class="linenos">8</span><span class="go">9</span>
 </pre></div>
 </div>
 <hr class="docutils" />

@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/functions_scope.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -198,19 +203,19 @@
 <span id="id3"></span><h2>ការកំណត់អនុគមន៍<a class="headerlink" href="#defining-functions" title="Link to this heading"></a></h2>
 <p>អនុគមន៍ (function) គឺជាប្លុកកូដដែលមានឈ្មោះ អាចហៅម្ដងទៀតបាន។
 វាជួយឱ្យកូដរបស់អ្នក <strong>មិនស្ទួន</strong> <strong>ងាយអាន</strong> និង <strong>ងាយសាកល្បង</strong>។</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""បោះពុម្ពពាក្យសួស្ដីទៅកាន់មនុស្សម្នាក់។"""</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
-
-<span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>     <span class="c1"># ហៅអនុគមន៍</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="linenos">2</span><span class="w">    </span><span class="sd">"""បោះពុម្ពពាក្យសួស្ដីទៅកាន់មនុស្សម្នាក់។"""</span>
+<span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>     <span class="c1"># ហៅអនុគមន៍</span>
 </pre></div>
 </div>
 <p>ទម្រង់ទូទៅ៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>def ឈ្មោះអនុគមន៍(parameter1, parameter2, ...):
-    """docstring (មិនចាំបាច់ ប៉ុន្តែណែនាំ)"""
-    statement
-    statement
-    return expression      # មិនចាំបាច់
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>def ឈ្មោះអនុគមន៍(parameter1, parameter2, ...):
+<span class="linenos">2</span>    """docstring (មិនចាំបាច់ ប៉ុន្តែណែនាំ)"""
+<span class="linenos">3</span>    statement
+<span class="linenos">4</span>    statement
+<span class="linenos">5</span>    return expression      # មិនចាំបាច់
 </pre></div>
 </div>
 <ul class="simple">
@@ -222,36 +227,36 @@
 <span id="docstrings"></span><h3>Docstring<a class="headerlink" href="#docstring" title="Link to this heading"></a></h3>
 <p>ខ្សែអក្សរដំបូងក្នុងខ្លួនអនុគមន៍គឺជា <strong>docstring</strong>។ ឧបករណ៍ជាច្រើន
 (IDE, <code class="docutils literal notranslate"><span class="pre">help()</span></code>, ឯកសារស្វ័យប្រវត្តិ) ប្រើវា៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="gp">... </span><span class="w">    </span><span class="sd">"""ត្រឡប់ផលបូកនៃ a និង b។"""</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span>
-<span class="go">'ត្រឡប់ផលបូកនៃ a និង b។'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
-<span class="go">Help on function add in module ...:</span>
-
-<span class="go">add(a, b)</span>
-<span class="go">    ត្រឡប់ផលបូកនៃ a និង b។</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span><span class="w">    </span><span class="sd">"""ត្រឡប់ផលបូកនៃ a និង b។"""</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="linenos"> 4</span><span class="gp">...</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span>
+<span class="linenos"> 6</span><span class="go">'ត្រឡប់ផលបូកនៃ a និង b។'</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">Help on function add in module ...:</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="go">add(a, b)</span>
+<span class="linenos">11</span><span class="go">    ត្រឡប់ផលបូកនៃ a និង b។</span>
 </pre></div>
 </div>
 <p>អនុសញ្ញា docstring ច្រើនបន្ទាត់៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="n">income</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""គណនាពន្ធលើចំណូល។</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        income: ចំណូលប្រចាំឆ្នាំជាលេខ (int ឬ float)។</span>
-<span class="sd">        rate: អត្រាពន្ធជាភាគរយទសភាគ ឧ. 0.2 សម្រាប់ ២០%។</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        ចំនួនពន្ធជា float។</span>
-
-<span class="sd">    Raises:</span>
-<span class="sd">        ValueError: បើ income អវិជ្ជមាន។</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">income</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"ចំណូលមិនអាចអវិជ្ជមានទេ"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">income</span> <span class="o">*</span> <span class="n">rate</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="n">income</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">"""គណនាពន្ធលើចំណូល។</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="sd">    Args:</span>
+<span class="linenos"> 5</span><span class="sd">        income: ចំណូលប្រចាំឆ្នាំជាលេខ (int ឬ float)។</span>
+<span class="linenos"> 6</span><span class="sd">        rate: អត្រាពន្ធជាភាគរយទសភាគ ឧ. 0.2 សម្រាប់ ២០%។</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">    Returns:</span>
+<span class="linenos"> 9</span><span class="sd">        ចំនួនពន្ធជា float។</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="sd">    Raises:</span>
+<span class="linenos">12</span><span class="sd">        ValueError: បើ income អវិជ្ជមាន។</span>
+<span class="linenos">13</span><span class="sd">    """</span>
+<span class="linenos">14</span>    <span class="k">if</span> <span class="n">income</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">15</span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"ចំណូលមិនអាចអវិជ្ជមានទេ"</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="k">return</span> <span class="n">income</span> <span class="o">*</span> <span class="n">rate</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -262,19 +267,19 @@
 </section>
 <section id="return">
 <span id="id4"></span><h3><code class="docutils literal notranslate"><span class="pre">return</span></code> និងតម្លៃត្រឡប់<a class="headerlink" href="#return" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">25</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">no_return</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"គ្មាន return"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">no_return</span><span class="p">()</span>
-<span class="go">គ្មាន return</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="go">None</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="linenos"> 3</span><span class="gp">...</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">25</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">no_return</span><span class="p">():</span>
+<span class="linenos"> 8</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"គ្មាន return"</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="gp">...</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">no_return</span><span class="p">()</span>
+<span class="linenos">11</span><span class="go">គ្មាន return</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="linenos">13</span><span class="go">None</span>
 </pre></div>
 </div>
 <p>ច្បាប់សំខាន់៖</p>
@@ -285,14 +290,14 @@
 <code class="docutils literal notranslate"><span class="pre">None</span></code> ដែរ។</p></li>
 </ul>
 <p><strong>ត្រឡប់ច្រើនតម្លៃ</strong> — តាមពិតគឺត្រឡប់ <code class="docutils literal notranslate"><span class="pre">tuple</span></code> មួយ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">min_max</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">nums</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">min_max</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="go">(1, 7)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">min_max</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>      <span class="c1"># unpacking</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span>
-<span class="go">(1, 7)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">min_max</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">nums</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">min_max</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="linenos">5</span><span class="go">(1, 7)</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">min_max</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>      <span class="c1"># unpacking — បំបែកតម្លៃ</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span>
+<span class="linenos">8</span><span class="go">(1, 7)</span>
 </pre></div>
 </div>
 </section>
@@ -300,20 +305,20 @@
 <span id="call-semantics"></span><h3>អនុគមន៍គឺជា Object<a class="headerlink" href="#object" title="Link to this heading"></a></h3>
 <p>នៅក្នុង Python អនុគមន៍គឺជា <strong>object ធម្មតាមួយ</strong>។ អ្នកអាចផ្ដល់វាទៅអថេរ
 បញ្ជូនវាទៅអនុគមន៍ផ្សេង ឬរក្សាទុកវាក្នុង list៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">double</span>            <span class="c1"># គ្មានវង់ក្រចក — មិនមែនការហៅទេ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
-<span class="go">42</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span>                <span class="c1"># វាជា object</span>
-<span class="go">&lt;function double at 0x...&gt;</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">apply</span><span class="p">(</span><span class="n">double</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="go">10</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos"> 3</span><span class="gp">...</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">double</span>            <span class="c1"># គ្មានវង់ក្រចក — មិនមែនការហៅទេ</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">42</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span>                <span class="c1"># វាជា object</span>
+<span class="linenos"> 8</span><span class="go">&lt;function double at 0x...&gt;</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="linenos">11</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos">12</span><span class="gp">...</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">apply</span><span class="p">(</span><span class="n">double</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="linenos">14</span><span class="go">10</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -334,25 +339,25 @@
 </ol>
 <p>Argument ត្រូវបានបញ្ជូនដោយ <strong>call by object reference</strong> — តម្លៃដែល
 បញ្ជូនគឺជា <em>reference</em> ទៅ object មិនមែនជាចម្លងនៃ object ទេ។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">modify</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># បង្កើត object ថ្មី បញ្ជូនមកក្រៅទេ</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្នុងអនុគមន៍:"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">modify</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="go">ក្នុងអនុគមន៍: 11</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>                    <span class="c1"># មិនផ្លាស់ប្ដូរទេ</span>
-<span class="go">10</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">modify</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># បង្កើត object ថ្មី បញ្ជូនមកក្រៅទេ</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ក្នុងអនុគមន៍:"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">modify</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos">7</span><span class="go">ក្នុងអនុគមន៍: 11</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>                    <span class="c1"># មិនផ្លាស់ប្ដូរទេ</span>
+<span class="linenos">9</span><span class="go">10</span>
 </pre></div>
 </div>
 <p>ប៉ុន្តែបើ object ជា <strong>mutable</strong> ការកែប្រែនឹងលេចចេញមកក្រៅ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add_item</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ថ្មី"</span><span class="p">)</span>     <span class="c1"># កែប្រែ list ដើម</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ចាស់"</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_item</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">items</span>
-<span class="go">['ចាស់', 'ថ្មី']</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add_item</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"ថ្មី"</span><span class="p">)</span>     <span class="c1"># កែប្រែ list ដើម</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"ចាស់"</span><span class="p">]</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">add_item</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">items</span>
+<span class="linenos">7</span><span class="go">['ចាស់', 'ថ្មី']</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -367,16 +372,16 @@
 <section id="default-argument-value">
 <span id="default-arguments"></span><h2>Default Argument Value<a class="headerlink" href="#default-argument-value" title="Link to this heading"></a></h2>
 <p>Parameter អាចមានតម្លៃលំនាំដើម។ ពួកវាត្រូវតែនៅ <strong>ខាងចុង</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2"> (timeout=</span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2">)"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2"> (timeout=</span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2">)"</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">connect</span><span class="p">(</span><span class="s2">"localhost"</span><span class="p">)</span>
-<span class="go">'localhost:3306 (timeout=30)'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">connect</span><span class="p">(</span><span class="s2">"db.example.com"</span><span class="p">,</span> <span class="mi">5432</span><span class="p">)</span>
-<span class="go">'db.example.com:5432 (timeout=30)'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">connect</span><span class="p">(</span><span class="s2">"db.example.com"</span><span class="p">,</span> <span class="mi">5432</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-<span class="go">'db.example.com:5432 (timeout=60)'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">connect</span><span class="p">(</span><span class="s2">"localhost"</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">'localhost:3306 (timeout=30)'</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">connect</span><span class="p">(</span><span class="s2">"db.example.com"</span><span class="p">,</span> <span class="mi">5432</span><span class="p">)</span>
+<span class="linenos">4</span><span class="go">'db.example.com:5432 (timeout=30)'</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">connect</span><span class="p">(</span><span class="s2">"db.example.com"</span><span class="p">,</span> <span class="mi">5432</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">'db.example.com:5432 (timeout=60)'</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -386,33 +391,33 @@
 </div>
 <section id="default-argument-mutable">
 <span id="mutable-default-pitfall"></span><h3>អន្ទាក់ — Default Argument ជា Mutable<a class="headerlink" href="#default-argument-mutable" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ កំហុស — កុំសរសេរបែបនេះ</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">append_to</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="p">[]):</span>
-    <span class="n">target</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">target</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ❌ កំហុស — កុំសរសេរបែបនេះ</span>
+<span class="linenos">2</span><span class="k">def</span><span class="w"> </span><span class="nf">append_to</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="p">[]):</span>
+<span class="linenos">3</span>    <span class="n">target</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="linenos">4</span>    <span class="k">return</span> <span class="n">target</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">[1]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>          <span class="c1"># រំពឹង [2] ប៉ុន្តែបាន [1, 2]!</span>
-<span class="go">[1, 2]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">[1, 2, 3]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">[1]</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>          <span class="c1"># រំពឹង [2] ប៉ុន្តែបាន [1, 2]!</span>
+<span class="linenos">4</span><span class="go">[1, 2]</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">[1, 2, 3]</span>
 </pre></div>
 </div>
 <p>list ទទេដូចគ្នាត្រូវបាន <strong>ចែករំលែក</strong> រវាងការហៅទាំងអស់។ វិធីត្រឹមត្រូវ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ ត្រឹមត្រូវ</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">append_to</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">target</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">target</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">target</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ✅ ត្រឹមត្រូវ</span>
+<span class="linenos">2</span><span class="k">def</span><span class="w"> </span><span class="nf">append_to</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos">3</span>    <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">4</span>        <span class="n">target</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">5</span>    <span class="n">target</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="linenos">6</span>    <span class="k">return</span> <span class="n">target</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">[1]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">[2]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">[1]</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">append_to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">4</span><span class="go">[2]</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -429,21 +434,21 @@
 <section id="keyword-argument">
 <span id="keyword-arguments"></span><h2>Keyword Argument<a class="headerlink" href="#keyword-argument" title="Link to this heading"></a></h2>
 <p>អ្នកអាចហៅអនុគមន៍ដោយបញ្ជាក់ឈ្មោះ parameter៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_user</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="n">age</span><span class="p">,</span> <span class="s2">"city"</span><span class="p">:</span> <span class="n">city</span><span class="p">,</span> <span class="s2">"active"</span><span class="p">:</span> <span class="n">active</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">create_user</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="n">age</span><span class="p">,</span> <span class="s2">"city"</span><span class="p">:</span> <span class="n">city</span><span class="p">,</span> <span class="s2">"active"</span><span class="p">:</span> <span class="n">active</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># positional ទាំងអស់</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">)</span>
-<span class="go">{'name': 'សុខា', 'age': 25, 'city': 'ភ្នំពេញ', 'active': True}</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># keyword ទាំងអស់ — លំដាប់មិនសំខាន់</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="s2">"សៀមរាប"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"ដារ៉ា"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="go">{'name': 'ដារ៉ា', 'age': 30, 'city': 'សៀមរាប', 'active': True}</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># លាយឡំ — positional ត្រូវតែមកមុន keyword</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុភា"</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">"បាត់ដំបង"</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="go">{'name': 'សុភា', 'age': 22, 'city': 'បាត់ដំបង', 'active': False}</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># positional ទាំងអស់</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">{'name': 'សុខា', 'age': 25, 'city': 'ភ្នំពេញ', 'active': True}</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># keyword ទាំងអស់ — លំដាប់មិនសំខាន់</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="s2">"សៀមរាប"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"ដារ៉ា"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="go">{'name': 'ដារ៉ា', 'age': 30, 'city': 'សៀមរាប', 'active': True}</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># លាយឡំ — positional ត្រូវតែមកមុន keyword</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុភា"</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">"បាត់ដំបង"</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">11</span><span class="go">{'name': 'សុភា', 'age': 22, 'city': 'បាត់ដំបង', 'active': False}</span>
 </pre></div>
 </div>
 <p>ច្បាប់៖</p>
@@ -452,20 +457,20 @@
 <li><p>មិនអាចផ្ដល់តម្លៃពីរដងទៅ parameter ដូចគ្នា។</p></li>
 <li><p>parameter ដែលគ្មានតម្លៃលំនាំដើម ត្រូវតែទទួលបាន argument។</p></li>
 </ol>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">)</span>   <span class="c1"># keyword មុន positional</span>
-  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
-<span class="w">    </span><span class="o">...</span>
-<span class="gr">SyntaxError</span>: <span class="n">positional argument follows keyword argument</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"ដារ៉ា"</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">create_user() got multiple values for argument 'name'</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>                   <span class="c1"># ខ្វះ city</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">create_user() missing 1 required positional argument: 'city'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">)</span>   <span class="c1"># keyword មុន positional</span>
+<span class="linenos"> 2</span>  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="o">...</span>
+<span class="linenos"> 4</span><span class="gr">SyntaxError</span>: <span class="n">positional argument follows keyword argument</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"ភ្នំពេញ"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"ដារ៉ា"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 9</span><span class="gr">TypeError</span>: <span class="n">create_user() got multiple values for argument 'name'</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_user</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>                   <span class="c1"># ខ្វះ city</span>
+<span class="linenos">12</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">13</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">14</span><span class="gr">TypeError</span>: <span class="n">create_user() missing 1 required positional argument: 'city'</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -480,8 +485,8 @@ boolean ច្រើន ឬនៅពេលអ្នករំលង parameter ខ
 <span id="special-parameters"></span><h2>Special Parameter — <code class="docutils literal notranslate"><span class="pre">/</span></code> និង <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#special-parameter" title="Link to this heading"></a></h2>
 <p>Python អនុញ្ញាតឱ្យអ្នក <strong>កំណត់</strong> ថា parameter ណាត្រូវបញ្ជូនជា positional
 ឬ keyword៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
-      └── positional-only ──┘ └── ទាំងពីរ ──┘ └ keyword-only ┘
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+<span class="linenos">2</span>      └── positional-only ──┘ └── ទាំងពីរ ──┘ └ keyword-only ┘
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -503,21 +508,21 @@ boolean ច្រើន ឬនៅពេលអ្នករំលង parameter ខ
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">3.33</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">3.3333</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>           <span class="c1"># a និង b សុទ្ធតែ positional-only</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">divide() got some positional-only arguments passed as keyword arguments: 'a, b'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>            <span class="c1"># precision គឺ keyword-only</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">divide() takes 2 positional arguments but 3 were given</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">...</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">3.33</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="go">3.3333</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>           <span class="c1"># a និង b សុទ្ធតែ positional-only</span>
+<span class="linenos"> 9</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">10</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">11</span><span class="gr">TypeError</span>: <span class="n">divide() got some positional-only arguments passed as keyword arguments: 'a, b'</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>            <span class="c1"># precision គឺ keyword-only</span>
+<span class="linenos">13</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">14</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">15</span><span class="gr">TypeError</span>: <span class="n">divide() takes 2 positional arguments but 3 were given</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -533,55 +538,55 @@ boolean ច្រើន ឬនៅពេលអ្នករំលង parameter ខ
 </section>
 <section id="argument-args-kwargs">
 <span id="arbitrary-arguments"></span><h2>បញ្ជី Argument តាមចិត្ត — <code class="docutils literal notranslate"><span class="pre">*args</span></code> និង <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code><a class="headerlink" href="#argument-args-kwargs" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="o">*</span><span class="n">numbers</span><span class="p">):</span>              <span class="c1"># ទទួល positional ច្រើនតាមចិត្ត</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">total</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">6</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">total</span><span class="p">()</span>
-<span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span>                          <span class="c1"># វាជា tuple ក្នុងអនុគមន៍</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name 'numbers' is not defined. Did you forget to import 'numbers'?</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="o">**</span><span class="n">details</span><span class="p">):</span>          <span class="c1"># ទទួល keyword ច្រើនតាមចិត្ត</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">details</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">"ភ្នំពេញ"</span><span class="p">)</span>
-<span class="go">'name=សុខា, age=25, city=ភ្នំពេញ'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="o">*</span><span class="n">numbers</span><span class="p">):</span>              <span class="c1"># ទទួល positional ច្រើនតាមចិត្ត</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">...</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">total</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="go">6</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">total</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="go">0</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span>                          <span class="c1"># វាជា tuple ក្នុងអនុគមន៍</span>
+<span class="linenos"> 9</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">10</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">11</span><span class="gr">NameError</span>: <span class="n">name 'numbers' is not defined. Did you forget to import 'numbers'?</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="o">**</span><span class="n">details</span><span class="p">):</span>          <span class="c1"># ទទួល keyword ច្រើនតាមចិត្ត</span>
+<span class="linenos">14</span><span class="gp">... </span>    <span class="k">return</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">details</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="linenos">15</span><span class="gp">...</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="n">describe</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">"ភ្នំពេញ"</span><span class="p">)</span>
+<span class="linenos">17</span><span class="go">'name=សុខា, age=25, city=ភ្នំពេញ'</span>
 </pre></div>
 </div>
 <p><strong>លាយឡំទាំងអស់គ្នា</strong> — លំដាប់ត្រូវតែ៖ positional → <code class="docutils literal notranslate"><span class="pre">*args</span></code> →
 keyword-only → <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">api_call</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">"endpoint"</span><span class="p">:</span> <span class="n">endpoint</span><span class="p">,</span>
-        <span class="s2">"args"</span><span class="p">:</span> <span class="n">args</span><span class="p">,</span>
-        <span class="s2">"method"</span><span class="p">:</span> <span class="n">method</span><span class="p">,</span>
-        <span class="s2">"timeout"</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
-        <span class="s2">"kwargs"</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">,</span>
-    <span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">api_call</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="k">return</span> <span class="p">{</span>
+<span class="linenos">3</span>        <span class="s2">"endpoint"</span><span class="p">:</span> <span class="n">endpoint</span><span class="p">,</span>
+<span class="linenos">4</span>        <span class="s2">"args"</span><span class="p">:</span> <span class="n">args</span><span class="p">,</span>
+<span class="linenos">5</span>        <span class="s2">"method"</span><span class="p">:</span> <span class="n">method</span><span class="p">,</span>
+<span class="linenos">6</span>        <span class="s2">"timeout"</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
+<span class="linenos">7</span>        <span class="s2">"kwargs"</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">,</span>
+<span class="linenos">8</span>    <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api_call</span><span class="p">(</span><span class="s2">"/users"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"POST"</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">{'endpoint': '/users', 'args': (1, 2), 'method': 'POST', 'timeout': 30, 'kwargs': {'page': 3}}</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">api_call</span><span class="p">(</span><span class="s2">"/users"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"POST"</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">{'endpoint': '/users', 'args': (1, 2), 'method': 'POST', 'timeout': 30, 'kwargs': {'page': 3}}</span>
 </pre></div>
 </div>
 <section id="unpacking-argument">
 <span id="unpacking-arguments"></span><h3>Unpacking Argument<a class="headerlink" href="#unpacking-argument" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code> និង <code class="docutils literal notranslate"><span class="pre">**</span></code> ក៏ប្រើដើម្បី <strong>បំបែក</strong> (unpack) iterable/dict ទៅជា
 argument ដែរ — ទិសដៅផ្ទុយគ្នា៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">)</span>                  <span class="c1"># unpack list → positional</span>
-<span class="go">(1, 2, 3)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>                 <span class="c1"># unpack dict → keyword</span>
-<span class="go">(1, 2, 3)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="gp">...</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">)</span>                  <span class="c1"># unpack list → positional</span>
+<span class="linenos"> 6</span><span class="go">(1, 2, 3)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>                 <span class="c1"># unpack dict → keyword</span>
+<span class="linenos">10</span><span class="go">(1, 2, 3)</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -609,13 +614,13 @@ argument ដែរ — ទិសដៅផ្ទុយគ្នា៖</p>
 <section id="lambda">
 <span id="id6"></span><h2>អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#lambda" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> បង្កើតអនុគមន៍អនាមិក (anonymous) ដែលមាន <strong>expression តែមួយ</strong>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="go">36</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="go">[(3, 'a'), (1, 'b'), (2, 'c')]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">36</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">)]</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">7</span><span class="go">[(3, 'a'), (1, 'b'), (2, 'c')]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -632,12 +637,12 @@ argument ដែរ — ទិសដៅផ្ទុយគ្នា៖</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>កុំផ្ដល់ <code class="docutils literal notranslate"><span class="pre">lambda</span></code> ទៅអថេរ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ មិនត្រឹមត្រូវ</span>
-<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
-
-<span class="c1"># ✅</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ❌ មិនត្រឹមត្រូវ</span>
+<span class="linenos">2</span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1"># ✅</span>
+<span class="linenos">5</span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos">6</span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>ហេតុផលគឺ traceback មិនអាចបង្ហាញឈ្មោះអនុគមន៍មានន័យបានទេ។</p>
@@ -649,20 +654,20 @@ argument ដែរ — ទិសដៅផ្ទុយគ្នា៖</p>
 <p>Annotation គឺជាព័ត៌មានប្រភេទ <strong>ស្រេចចិត្ត</strong> សម្រាប់ parameter និងតម្លៃ
 ត្រឡប់។ Python <strong>មិនពិនិត្យ</strong> វានៅពេលដំណើរការទេ — ឧបករណ៍ដូចជា
 <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pyright</span></code> និង IDE ប្រើវា៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""ត្រឡប់ពាក្យសួស្ដីដែលបានបញ្ចូលគ្នា times ដង។"""</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! "</span> <span class="o">*</span> <span class="n">times</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">scores</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"math"</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos">2</span><span class="w">    </span><span class="sd">"""ត្រឡប់ពាក្យសួស្ដីដែលបានបញ្ចូលគ្នា times ដង។"""</span>
+<span class="linenos">3</span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! "</span> <span class="o">*</span> <span class="n">times</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="k">def</span><span class="w"> </span><span class="nf">scores</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="linenos">6</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">"math"</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">'សួស្ដី សុខា! សួស្ដី សុខា! '</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__annotations__</span>
-<span class="go">{'name': &lt;class 'str'&gt;, 'times': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>                <span class="c1"># Python មិនរារាំងទេ!</span>
-<span class="go">'សួស្ដី 42! '</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">'សួស្ដី សុខា! សួស្ដី សុខា! '</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__annotations__</span>
+<span class="linenos">4</span><span class="go">{'name': &lt;class 'str'&gt;, 'times': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>                <span class="c1"># Python មិនរារាំងទេ!</span>
+<span class="linenos">6</span><span class="go">'សួស្ដី 42! '</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -678,30 +683,30 @@ argument ដែរ — ទិសដៅផ្ទុយគ្នា៖</p>
 <section id="recursion">
 <span id="id7"></span><h2>អនុគមន៍ហៅខ្លួនឯង (Recursion)<a class="headerlink" href="#recursion" title="Link to this heading"></a></h2>
 <p>អនុគមន៍អាចហៅខ្លួនឯងបាន។ ការហៅម្ដងៗបង្កើត symbol table local ថ្មី៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ត្រឡប់ n! ដោយប្រើ recursion។"""</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>              <span class="c1"># base case — ចាំបាច់!</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">2</span><span class="w">    </span><span class="sd">"""ត្រឡប់ n! ដោយប្រើ recursion។"""</span>
+<span class="linenos">3</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>              <span class="c1"># base case — ចាំបាច់!</span>
+<span class="linenos">4</span>        <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos">5</span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">120</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="go">1</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">120</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">4</span><span class="go">1</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>រាល់អនុគមន៍ recursive ត្រូវតែមាន <strong>base case</strong> ដែលឈប់ការហៅខ្លួនឯង។
 បើគ្មាន អ្នកនឹងទទួល <code class="docutils literal notranslate"><span class="pre">RecursionError</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">forever</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">forever</span><span class="p">()</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">forever</span><span class="p">()</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">RecursionError</span>: <span class="n">maximum recursion depth exceeded</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">forever</span><span class="p">():</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">forever</span><span class="p">()</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">forever</span><span class="p">()</span>
+<span class="linenos">5</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">6</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">7</span><span class="gr">RecursionError</span>: <span class="n">maximum recursion depth exceeded</span>
 </pre></div>
 </div>
 <p>ដែនកំណត់លំនាំដើមគឺ ១០០០ ជាន់។ ពិនិត្យដោយ
@@ -764,11 +769,11 @@ module ពីរអាចមានអនុគមន៍ឈ្មោះ <code cla
 <p>statement ដែលដំណើរការនៅកម្រិតខ្ពស់បំផុត (top-level) ត្រូវបានចាត់ទុក
 ជាផ្នែកនៃ module ឈ្មោះ <code class="docutils literal notranslate"><span class="pre">__main__</span></code>។ ឈ្មោះ built-in រស់នៅក្នុង module
 ឈ្មោះ <code class="docutils literal notranslate"><span class="pre">builtins</span></code>។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">builtins</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">builtins</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="go">'builtins'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">builtins</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">150</span>      <span class="c1"># ១៦៣ ឈ្មោះ built-in ក្នុង Python 3.15</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">builtins</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">builtins</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="linenos">3</span><span class="go">'builtins'</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">builtins</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">150</span>      <span class="c1"># ១៦៣ ឈ្មោះ built-in ក្នុង Python 3.15</span>
+<span class="linenos">5</span><span class="go">True</span>
 </pre></div>
 </div>
 </div>
@@ -811,22 +816,22 @@ module ពីរអាចមានអនុគមន៍ឈ្មោះ <code cla
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">"global"</span>        <span class="c1"># G — module level</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">"enclosing"</span>  <span class="c1"># E</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s2">"local"</span>   <span class="c1"># L</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>      <span class="c1"># → "local"</span>
-
-    <span class="n">inner</span><span class="p">()</span>
-
-<span class="n">outer</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"global"</span>        <span class="c1"># G — module level</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+<span class="linenos"> 4</span>    <span class="n">name</span> <span class="o">=</span> <span class="s2">"enclosing"</span>  <span class="c1"># E</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+<span class="linenos"> 7</span>        <span class="n">name</span> <span class="o">=</span> <span class="s2">"local"</span>   <span class="c1"># L</span>
+<span class="linenos"> 8</span>        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>      <span class="c1"># → "local"</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="n">inner</span><span class="p">()</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">outer</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>          <span class="c1"># នៅ module level → G</span>
-<span class="go">global</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>          <span class="c1"># នៅ module level → G</span>
+<span class="linenos">2</span><span class="go">global</span>
 </pre></div>
 </div>
 </section>
@@ -836,23 +841,23 @@ module ពីរអាចមានអនុគមន៍ឈ្មោះ <code cla
 អក្សរ</strong> (statically) ប៉ុន្តែ <strong>ប្រើតាមពេលដំណើរការ</strong> (dynamically)។</p>
 <p>scope global នៃអនុគមន៍មួយ គឺជា namespace នៃ <strong>module ដែលកំណត់អនុគមន៍នោះ</strong>
 — មិនមែន module ដែលហៅវាទេ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ឯកសារ module_a.py</span>
-<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">counter</span>
-    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">counter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ឯកសារ module_a.py</span>
+<span class="linenos">2</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+<span class="linenos">5</span>    <span class="k">global</span> <span class="n">counter</span>
+<span class="linenos">6</span>    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">7</span>    <span class="k">return</span> <span class="n">counter</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ឯកសារ module_b.py</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">module_a</span>
-
-<span class="n">counter</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c1"># អថេរផ្សេងដាច់ស្រឡះពី module_a.counter</span>
-
-<span class="n">module_a</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>   <span class="c1"># ប៉ះពាល់ module_a.counter មិនមែន counter នៅទីនេះ</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>         <span class="c1"># 100</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">module_a</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>  <span class="c1"># 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ឯកសារ module_b.py</span>
+<span class="linenos">2</span><span class="kn">import</span><span class="w"> </span><span class="nn">module_a</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c1"># អថេរផ្សេងដាច់ស្រឡះពី module_a.counter</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="n">module_a</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>   <span class="c1"># ប៉ះពាល់ module_a.counter មិនមែន counter នៅទីនេះ</span>
+<span class="linenos">7</span><span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>         <span class="c1"># 100</span>
+<span class="linenos">8</span><span class="nb">print</span><span class="p">(</span><span class="n">module_a</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>  <span class="c1"># 1</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -869,14 +874,14 @@ module ផ្សេងក៏ដោយ។</p>
 <p>លក្ខណៈពិសេសមួយរបស់ Python៖ បើគ្មានពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">global</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code>
 ទេ <strong>ការផ្ដល់តម្លៃ</strong> ទៅឈ្មោះណាមួយក្នុងអនុគមន៍ តែងតែបង្កើតអថេរ local
 នៅក្នុង scope ខាងក្នុងបំផុត។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">bump</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># ❌ count ខាងស្ដាំត្រូវបានចាត់ទុកជា local</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">bump</span><span class="p">()</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">UnboundLocalError</span>: <span class="n">cannot access local variable 'count' where it is not associated with a value</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">bump</span><span class="p">():</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># ❌ count ខាងស្ដាំត្រូវបានចាត់ទុកជា local</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">bump</span><span class="p">()</span>
+<span class="linenos">6</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">7</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">8</span><span class="gr">UnboundLocalError</span>: <span class="n">cannot access local variable 'count' where it is not associated with a value</span>
 </pre></div>
 </div>
 <p>Python ឃើញ <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">...</span></code> ហើយសម្រេចថា <code class="docutils literal notranslate"><span class="pre">count</span></code> ជាអថេរ local សម្រាប់
@@ -887,27 +892,27 @@ module ផ្សេងក៏ដោយ។</p>
 <span id="global-statement"></span><h3>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">global</span></code><a class="headerlink" href="#global" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">global</span></code> ប្រាប់ Python ថាឈ្មោះនេះស្ថិតនៅក្នុង scope global ហើយត្រូវ
 ផ្ដល់តម្លៃនៅទីនោះ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">global</span> <span class="n">counter</span>
-<span class="gp">... </span>    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">counter</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">increment</span><span class="p">()</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">increment</span><span class="p">()</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span>
-<span class="go">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">global</span> <span class="n">counter</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">counter</span>
+<span class="linenos"> 6</span><span class="gp">...</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">increment</span><span class="p">()</span>
+<span class="linenos"> 8</span><span class="go">1</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">increment</span><span class="p">()</span>
+<span class="linenos">10</span><span class="go">2</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span>
+<span class="linenos">12</span><span class="go">2</span>
 </pre></div>
 </div>
 <p><strong>ការអាន</strong> អថេរ global មិនត្រូវការ <code class="docutils literal notranslate"><span class="pre">global</span></code> ទេ — មានតែការ <strong>សរសេរ</strong> ប៉ុណ្ណោះ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">2</span>      <span class="c1"># អាន PI — មិនត្រូវការ global</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">circle_area</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">12.56636</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">2</span>      <span class="c1"># អាន PI — មិនត្រូវការ global</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">circle_area</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">12.56636</span>
 </pre></div>
 </div>
 </section>
@@ -915,23 +920,23 @@ module ផ្សេងក៏ដោយ។</p>
 <span id="nonlocal-statement"></span><h3>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code><a class="headerlink" href="#nonlocal" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> ធ្វើដូច <code class="docutils literal notranslate"><span class="pre">global</span></code> ប៉ុន្តែសម្រាប់ scope នៃអនុគមន៍ដែល
 <strong>រុំព័ទ្ធ</strong> (enclosing) — មិនមែន global ទេ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">make_counter</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="n">hits</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
-<span class="gp">... </span>        <span class="k">nonlocal</span> <span class="n">hits</span>       <span class="c1"># ចងទៅ hits របស់ make_counter</span>
-<span class="gp">... </span>        <span class="n">hits</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">hits</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">increment</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span> <span class="o">=</span> <span class="n">make_counter</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span><span class="p">()</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span><span class="p">()</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hits</span>                        <span class="c1"># មិនមាននៅ module level</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name 'hits' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">make_counter</span><span class="p">():</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="n">hits</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+<span class="linenos"> 4</span><span class="gp">... </span>        <span class="k">nonlocal</span> <span class="n">hits</span>       <span class="c1"># ចងទៅ hits របស់ make_counter</span>
+<span class="linenos"> 5</span><span class="gp">... </span>        <span class="n">hits</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 6</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">hits</span>
+<span class="linenos"> 7</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">increment</span>
+<span class="linenos"> 8</span><span class="gp">...</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span> <span class="o">=</span> <span class="n">make_counter</span><span class="p">()</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span><span class="p">()</span>
+<span class="linenos">11</span><span class="go">1</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span><span class="p">()</span>
+<span class="linenos">13</span><span class="go">2</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="n">hits</span>                        <span class="c1"># មិនមាននៅ module level</span>
+<span class="linenos">15</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">16</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">17</span><span class="gr">NameError</span>: <span class="n">name 'hits' is not defined</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -949,38 +954,38 @@ module ផ្សេងក៏ដោយ។</p>
 <section id="shadowing">
 <span id="id12"></span><h3>ការបិទបាំងឈ្មោះ (Shadowing)<a class="headerlink" href="#shadowing" title="Link to this heading"></a></h3>
 <p>អថេរ local អាច <strong>បិទបាំង</strong> ឈ្មោះនៅ scope ខាងក្រៅ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">()</span>
-<span class="go">local</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">'global'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">():</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
+<span class="linenos">4</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">5</span><span class="gp">...</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">7</span><span class="go">local</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="linenos">9</span><span class="go">'global'</span>
 </pre></div>
 </div>
 <p>កំហុសដែលគ្រោះថ្នាក់បំផុតគឺការបិទបាំង <strong>built-in</strong>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="nb">list</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>    <span class="c1"># ❌ បិទបាំង built-in list</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">process</span><span class="p">(</span><span class="s2">"a,b,c"</span><span class="p">)</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>                   <span class="c1"># ដំណើរការនៅ module level</span>
-<span class="go">['a', 'b', 'c']</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="nb">list</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>    <span class="c1"># ❌ បិទបាំង built-in list</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">process</span><span class="p">(</span><span class="s2">"a,b,c"</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">3</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>                   <span class="c1"># ដំណើរការនៅ module level</span>
+<span class="linenos">8</span><span class="go">['a', 'b', 'c']</span>
 </pre></div>
 </div>
 <p>ប៉ុន្តែបើការបិទបាំងកើតឡើងនៅ module level វា <strong>បំផ្លាញ</strong> built-in
 សម្រាប់ module ទាំងមូល៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c1"># ❌ បិទបាំង built-in sum() នៅ module level</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">'int' object is not callable</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="nb">sum</span>                  <span class="c1"># ស្ដារឡើងវិញក្នុង session</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">6</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c1"># ❌ បិទបាំង built-in sum() នៅ module level</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="linenos">3</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">4</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">5</span><span class="gr">TypeError</span>: <span class="n">'int' object is not callable</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="nb">sum</span>                  <span class="c1"># ស្ដារឡើងវិញក្នុង session</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="linenos">8</span><span class="go">6</span>
 </pre></div>
 </div>
 </section>
@@ -989,19 +994,19 @@ module ផ្សេងក៏ដោយ។</p>
 <span id="closures"></span><h2>Closure<a class="headerlink" href="#closure" title="Link to this heading"></a></h2>
 <p>អនុគមន៍ខាងក្នុងអាច <strong>ចងចាំ</strong> តម្លៃពី scope រុំព័ទ្ធ សូម្បីតែបន្ទាប់ពី
 អនុគមន៍ខាងក្រៅបានត្រឡប់រួច។ នេះហៅថា <strong>closure</strong>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">multiplier</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span>          <span class="c1"># n ត្រូវបានចងចាំ</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">multiply</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span> <span class="o">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">triple</span> <span class="o">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">20</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">triple</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">30</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span>
-<span class="go">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">multiplier</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos"> 3</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span>          <span class="c1"># n ត្រូវបានចងចាំ</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">multiply</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span> <span class="o">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">triple</span> <span class="o">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="go">20</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">triple</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">11</span><span class="go">30</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span>
+<span class="linenos">13</span><span class="go">2</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1013,25 +1018,25 @@ module ផ្សេងក៏ដោយ។</p>
 <span id="class-scope-note"></span><h3>ចំណាំអំពី Class Scope<a class="headerlink" href="#class-scope" title="Link to this heading"></a></h3>
 <p>Class បង្កើត namespace ថ្មីមួយទៀត ប៉ុន្តែវាមានលក្ខណៈពិសេស៖ class body
 <strong>មិនមែន</strong> ជា enclosing scope សម្រាប់អនុគមន៍ដែលកំណត់ក្នុងវាទេ។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Demo</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">value</span>          <span class="c1"># ❌ មើលមិនឃើញ Demo.value ទេ</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Demo</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name 'value' is not defined. Did you mean: 'self.value'?</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Demo2</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>     <span class="c1"># ✅</span>
-<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">show_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="n">Demo2</span><span class="o">.</span><span class="n">value</span>    <span class="c1"># ✅ ឬ type(self).value</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Demo2</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="go">10</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Demo</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="gp">... </span>    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">value</span>          <span class="c1"># ❌ មើលមិនឃើញ Demo.value ទេ</span>
+<span class="linenos"> 5</span><span class="gp">...</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Demo</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 9</span><span class="gr">NameError</span>: <span class="n">name 'value' is not defined. Did you mean: 'self.value'?</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Demo2</span><span class="p">:</span>
+<span class="linenos">12</span><span class="gp">... </span>    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos">13</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">14</span><span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>     <span class="c1"># ✅</span>
+<span class="linenos">15</span><span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">show_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">16</span><span class="gp">... </span>        <span class="k">return</span> <span class="n">Demo2</span><span class="o">.</span><span class="n">value</span>    <span class="c1"># ✅ ឬ type(self).value</span>
+<span class="linenos">17</span><span class="gp">...</span>
+<span class="linenos">18</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Demo2</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="linenos">19</span><span class="go">10</span>
 </pre></div>
 </div>
 <p>ហេតុផលគឺថា អនុគមន៍ក្នុង class ទទួលបាន scope local ផ្ទាល់របស់វា ហើយ

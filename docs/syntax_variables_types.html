@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/syntax_variables_types.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -197,10 +202,10 @@
 <p>សញ្ញា <code class="docutils literal notranslate"><span class="pre">#</span></code> ចាប់ផ្ដើមអត្ថាធិប្បាយ ហើយអ្វីៗពីក្រោយវារហូតដល់ចុងបន្ទាត់
 ត្រូវបាន Python មិនអើពើ។ អត្ថាធិប្បាយអាចនៅលើបន្ទាត់ដាច់ដោយឡែក
 ឬនៅចុងបន្ទាត់កូដ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># នេះជាអត្ថាធិប្បាយពេញមួយបន្ទាត់</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># នេះជាអត្ថាធិប្បាយនៅចុងបន្ទាត់</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># បោះពុម្ព 5</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># នេះជាអត្ថាធិប្បាយពេញមួយបន្ទាត់</span>
+<span class="linenos">2</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># នេះជាអត្ថាធិប្បាយនៅចុងបន្ទាត់</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># បោះពុម្ព 5</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -219,18 +224,18 @@
 <p>បន្ទាត់ដែលបញ្ចប់ដោយសញ្ញាពីរគូស <code class="docutils literal notranslate"><span class="pre">:</span></code> (ដូចជា <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>,
 <code class="docutils literal notranslate"><span class="pre">def</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">with</span></code>, <code class="docutils literal notranslate"><span class="pre">try</span></code>) បើក block មួយ ហើយបន្ទាត់ទាំងអស់
 ដែលចូលក្រោមវាជាផ្នែកនៃ block នោះ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
-
-<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ពេញវ័យ"</span><span class="p">)</span>        <span class="c1"># ចូល ៤ ដកឃ្លា — ក្នុង block</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"អាចបោះឆ្នោត"</span><span class="p">)</span>   <span class="c1"># ក្នុង block ដូចគ្នា</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"ចប់"</span><span class="p">)</span>                <span class="c1"># មិនចូល — ក្រៅ block ដំណើរការជានិច្ច</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+<span class="linenos">4</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ពេញវ័យ"</span><span class="p">)</span>        <span class="c1"># ចូល ៤ ដកឃ្លា — ក្នុង block</span>
+<span class="linenos">5</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"អាចបោះឆ្នោត"</span><span class="p">)</span>   <span class="c1"># ក្នុង block ដូចគ្នា</span>
+<span class="linenos">6</span><span class="nb">print</span><span class="p">(</span><span class="s2">"ចប់"</span><span class="p">)</span>                <span class="c1"># មិនចូល — ក្រៅ block ដំណើរការជានិច្ច</span>
 </pre></div>
 </div>
 <p>លទ្ធផល៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ពេញវ័យ
-អាចបោះឆ្នោត
-ចប់
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>ពេញវ័យ
+<span class="linenos">2</span>អាចបោះឆ្នោត
+<span class="linenos">3</span>ចប់
 </pre></div>
 </div>
 <p>ច្បាប់សំខាន់៖</p>
@@ -246,20 +251,20 @@
 <p>ជាធម្មតា មួយ statement ស្ថិតលើមួយបន្ទាត់។ ប៉ុន្តែអ្នកអាចបន្ត statement
 ទៅបន្ទាត់ថ្មីបានពីរវិធី៖</p>
 <p><strong>១. បន្តដោយស្វ័យប្រវត្តិក្នុងវង់ក្រចក</strong> — ណែនាំបំផុត៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span>
-         <span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span>
-
-<span class="n">names</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">"សុខា"</span><span class="p">,</span>
-    <span class="s2">"ដារ៉ា"</span><span class="p">,</span>
-    <span class="s2">"សុភា"</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span>
+<span class="linenos">2</span>         <span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">5</span>    <span class="s2">"សុខា"</span><span class="p">,</span>
+<span class="linenos">6</span>    <span class="s2">"ដារ៉ា"</span><span class="p">,</span>
+<span class="linenos">7</span>    <span class="s2">"សុភា"</span><span class="p">,</span>
+<span class="linenos">8</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><strong>២. ប្រើ backslash</strong> <code class="docutils literal notranslate"><span class="pre">\</span></code> នៅចុងបន្ទាត់៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> \
-   <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"វ័យធ្វើការ"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> \
+<span class="linenos">2</span>   <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span><span class="p">:</span>
+<span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"វ័យធ្វើការ"</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -269,7 +274,7 @@
 </div>
 <p>អ្នកក៏អាចដាក់ statement ច្រើនលើបន្ទាត់តែមួយដោយប្រើ <code class="docutils literal notranslate"><span class="pre">;</span></code> ប៉ុន្តែ
 វាមិនត្រូវបានណែនាំទេ ព្រោះអានពិបាក៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># ដំណើរការ ប៉ុន្តែមិនស្អាត</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># ដំណើរការ ប៉ុន្តែមិនស្អាត</span>
 </pre></div>
 </div>
 </section>
@@ -285,14 +290,14 @@
 <li><p>មិនអាចជាពាក្យគន្លឹះ។</p></li>
 <li><p>Case-sensitive៖ <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code> និង <code class="docutils literal notranslate"><span class="pre">AGE</span></code> ជាអត្តសញ្ញាណបីផ្សេងគ្នា។</p></li>
 </ul>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">user_name</span> <span class="o">=</span> <span class="s2">"sokha"</span>     <span class="c1"># ត្រឹមត្រូវ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_private</span> <span class="o">=</span> <span class="mi">42</span>           <span class="c1"># ត្រឹមត្រូវ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ឈ្មោះ</span> <span class="o">=</span> <span class="s2">"សុភា"</span>          <span class="c1"># ត្រឹមត្រូវ — Python 3 អនុញ្ញាត Unicode</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="n">nd_place</span> <span class="o">=</span> <span class="s2">"silver"</span>    <span class="c1"># ❌ ចាប់ផ្ដើមដោយលេខ</span>
-  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
-<span class="w">    </span><span class="o">...</span>
-<span class="gr">SyntaxError</span>: <span class="n">invalid decimal literal</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">user_name</span> <span class="o">=</span> <span class="s2">"sokha"</span>     <span class="c1"># ត្រឹមត្រូវ</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">_private</span> <span class="o">=</span> <span class="mi">42</span>           <span class="c1"># ត្រឹមត្រូវ</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">ឈ្មោះ</span> <span class="o">=</span> <span class="s2">"សុភា"</span>          <span class="c1"># ត្រឹមត្រូវ — Python 3 អនុញ្ញាត Unicode</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="n">nd_place</span> <span class="o">=</span> <span class="s2">"silver"</span>    <span class="c1"># ❌ ចាប់ផ្ដើមដោយលេខ</span>
+<span class="linenos">6</span>  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>
+<span class="linenos">7</span><span class="w">    </span><span class="o">...</span>
+<span class="linenos">8</span><span class="gr">SyntaxError</span>: <span class="n">invalid decimal literal</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -307,21 +312,21 @@
 <span id="keywords"></span><h3>ពាក្យគន្លឹះ (Keyword)<a class="headerlink" href="#keyword" title="Link to this heading"></a></h3>
 <p>ពាក្យគន្លឹះគឺជាពាក្យបម្រុងរបស់ភាសា — អ្នកមិនអាចប្រើវាជាឈ្មោះអថេរបានទេ។
 Python 3.15 មានពាក្យគន្លឹះ <strong>៣៥</strong>៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>False   None    True    and     as      assert  async   await
-break   class   continue        def     del     elif    else
-except  finally for     from    global  if      import  in
-is      lambda  nonlocal        not     or      pass    raise
-return  try     while   with    yield
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>False   None    True    and     as      assert  async   await
+<span class="linenos">2</span>break   class   continue        def     del     elif    else
+<span class="linenos">3</span>except  finally for     from    global  if      import  in
+<span class="linenos">4</span>is      lambda  nonlocal        not     or      pass    raise
+<span class="linenos">5</span>return  try     while   with    yield
 </pre></div>
 </div>
 <p>អ្នកអាចពិនិត្យបញ្ជីនេះដោយខ្លួនឯង៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
-<span class="go">35</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">"class"</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">"classy"</span><span class="p">)</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">35</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">"class"</span><span class="p">)</span>
+<span class="linenos">5</span><span class="go">True</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">"classy"</span><span class="p">)</span>
+<span class="linenos">7</span><span class="go">False</span>
 </pre></div>
 </div>
 <section id="soft-keyword">
@@ -329,13 +334,13 @@ return  try     while   with    yield
 <p>មានពាក្យមួយចំនួនដែលជាពាក្យគន្លឹះ <strong>តែក្នុងបរិបទជាក់លាក់</strong> ប៉ុណ្ណោះ។
 នៅកន្លែងផ្សេងវានៅតែអាចប្រើជាឈ្មោះអថេរបាន។ នៅក្នុង Python 3.15
 ពួកវាគឺ <code class="docutils literal notranslate"><span class="pre">_</span></code>, <code class="docutils literal notranslate"><span class="pre">case</span></code>, <code class="docutils literal notranslate"><span class="pre">lazy</span></code>, <code class="docutils literal notranslate"><span class="pre">match</span></code> និង <code class="docutils literal notranslate"><span class="pre">type</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">softkwlist</span>
-<span class="go">['_', 'case', 'lazy', 'match', 'type']</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">match</span> <span class="o">=</span> <span class="s2">"ការប្រកួត"</span>      <span class="c1"># ត្រឹមត្រូវ — 'match' ជាអថេរធម្មតានៅទីនេះ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
-<span class="go">ការប្រកួត</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">keyword</span><span class="o">.</span><span class="n">softkwlist</span>
+<span class="linenos">3</span><span class="go">['_', 'case', 'lazy', 'match', 'type']</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">match</span> <span class="o">=</span> <span class="s2">"ការប្រកួត"</span>      <span class="c1"># ត្រឹមត្រូវ — 'match' ជាអថេរធម្មតានៅទីនេះ</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+<span class="linenos">7</span><span class="go">ការប្រកួត</span>
 </pre></div>
 </div>
 <div class="versionadded">
@@ -407,17 +412,17 @@ return  try     while   with    yield
 <span id="variables"></span><h2>អថេរ និងការផ្ដល់តម្លៃ (Assignment)<a class="headerlink" href="#assignment" title="Link to this heading"></a></h2>
 <p>នៅក្នុង Python អ្នកមិន <strong>ប្រកាស</strong> អថេរទេ — អ្នកគ្រាន់តែ <strong>ផ្ដល់តម្លៃ</strong> ឱ្យវា។
 អថេរកើតឡើងភ្លាមៗនៅពេលផ្ដល់តម្លៃដំបូង។</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="s2">"ភ្នំពេញ"</span>      <span class="c1"># str</span>
-<span class="n">population</span> <span class="o">=</span> <span class="mi">2_281_951</span>  <span class="c1"># int  (សញ្ញា _ ធ្វើឱ្យលេខអានងាយ)</span>
-<span class="n">area_km2</span> <span class="o">=</span> <span class="mf">679.0</span>       <span class="c1"># float</span>
-<span class="n">is_capital</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># bool</span>
-<span class="n">mayor</span> <span class="o">=</span> <span class="kc">None</span>           <span class="c1"># NoneType</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">area_km2</span><span class="p">,</span> <span class="n">is_capital</span><span class="p">,</span> <span class="n">mayor</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">city</span> <span class="o">=</span> <span class="s2">"ភ្នំពេញ"</span>      <span class="c1"># ប្រភេទ str</span>
+<span class="linenos">2</span><span class="n">population</span> <span class="o">=</span> <span class="mi">2_281_951</span>  <span class="c1"># ប្រភេទ int  (សញ្ញា _ ធ្វើឱ្យលេខអានងាយ)</span>
+<span class="linenos">3</span><span class="n">area_km2</span> <span class="o">=</span> <span class="mf">679.0</span>       <span class="c1"># ប្រភេទ float</span>
+<span class="linenos">4</span><span class="n">is_capital</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># ប្រភេទ bool</span>
+<span class="linenos">5</span><span class="n">mayor</span> <span class="o">=</span> <span class="kc">None</span>           <span class="c1"># ប្រភេទ NoneType</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">area_km2</span><span class="p">,</span> <span class="n">is_capital</span><span class="p">,</span> <span class="n">mayor</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>លទ្ធផល៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ភ្នំពេញ 2281951 679.0 True None
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>ភ្នំពេញ 2281951 679.0 True None
 </pre></div>
 </div>
 <section id="dynamic-typing">
@@ -425,41 +430,41 @@ return  try     while   with    yield
 <p>អថេរមិនមានប្រភេទជាប់ជាមួយវាទេ — <strong>object</strong> ទេដែលមានប្រភេទ។ អថេរគ្រាន់តែ
 ជាឈ្មោះដែលចង្អុលទៅ object មួយ។ ដូច្នេះអ្នកអាចផ្ដល់តម្លៃប្រភេទផ្សេងទៅ
 អថេរដដែលបាន៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>        <span class="c1"># ចង្អុលទៅ int</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="go">&lt;class 'int'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="s2">"១០០"</span>       <span class="c1"># ឥឡូវចង្អុលទៅ str</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="go">&lt;class 'str'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># ឥឡូវចង្អុលទៅ list</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="go">&lt;class 'list'&gt;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>        <span class="c1"># ចង្អុលទៅ int</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">&lt;class 'int'&gt;</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="s2">"១០០"</span>       <span class="c1"># ឥឡូវចង្អុលទៅ str</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">&lt;class 'str'&gt;</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># ឥឡូវចង្អុលទៅ list</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="linenos">9</span><span class="go">&lt;class 'list'&gt;</span>
 </pre></div>
 </div>
 <p>ការដែលគ្មានការត្រួតពិនិត្យប្រភេទនៅពេលសរសេរ (compile time) ធ្វើឱ្យ Python
 រហ័សក្នុងការសរសេរ ប៉ុន្តែកំហុសប្រភេទនឹងលេចឡើង <strong>នៅពេលដំណើរការ</strong>
 (runtime) វិញ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"1"</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">can only concatenate str (not "int") to str</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"1"</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos">2</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">3</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">4</span><span class="gr">TypeError</span>: <span class="n">can only concatenate str (not "int") to str</span>
 </pre></div>
 </div>
 </section>
 <section id="multiple-assignment">
 <span id="id5"></span><h3>ការផ្ដល់តម្លៃច្រើនក្នុងពេលតែមួយ<a class="headerlink" href="#multiple-assignment" title="Link to this heading"></a></h3>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>          <span class="c1"># ផ្ដល់តម្លៃ ៣ ក្នុងពេលតែមួយ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>              <span class="c1"># តម្លៃដូចគ្នាទៅអថេរច្រើន</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>                <span class="c1"># ប្ដូរតម្លៃគ្នា (swap) ដោយមិនចាំបាច់អថេរជំនួយ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-<span class="go">(2, 1)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>   <span class="c1"># unpacking ជាមួយ *</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rest</span>
-<span class="go">[20, 30, 40]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>          <span class="c1"># ផ្ដល់តម្លៃ ៣ ក្នុងពេលតែមួយ</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>              <span class="c1"># តម្លៃដូចគ្នាទៅអថេរច្រើន</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>                <span class="c1"># ប្ដូរតម្លៃគ្នា (swap) ដោយមិនចាំបាច់អថេរជំនួយ</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="linenos"> 6</span><span class="go">(2, 1)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>   <span class="c1"># unpacking ជាមួយ *</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">first</span>
+<span class="linenos">10</span><span class="go">10</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">rest</span>
+<span class="linenos">12</span><span class="go">[20, 30, 40]</span>
 </pre></div>
 </div>
 </section>
@@ -513,17 +518,17 @@ return  try     while   with    yield
 <p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">1</span></code> <strong>មិនមែន</strong> ដូចគ្នាទាំងស្រុងទេសម្រាប់ object <em>mutable</em>។
 សម្រាប់ <code class="docutils literal notranslate"><span class="pre">list</span></code> ប្រតិបត្តិការ <code class="docutils literal notranslate"><span class="pre">+=</span></code> កែប្រែ list ដើមនៅនឹងកន្លែង
 (in-place) តាម <code class="docutils literal notranslate"><span class="pre">list.extend()</span></code> មិនមែនបង្កើត list ថ្មីទេ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>        <span class="c1"># កែប្រែ list ដើម</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[1, 2, 3]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>     <span class="c1"># បង្កើត list ថ្មី ហើយ a ចង្អុលទៅវា</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[1, 2]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>        <span class="c1"># កែប្រែ list ដើម</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="linenos"> 5</span><span class="go">[1, 2, 3]</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>     <span class="c1"># បង្កើត list ថ្មី ហើយ a ចង្អុលទៅវា</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="linenos">11</span><span class="go">[1, 2]</span>
 </pre></div>
 </div>
 </div>
@@ -531,34 +536,34 @@ return  try     while   with    yield
 </section>
 <section id="type-checking">
 <span id="id7"></span><h2>ការពិនិត្យប្រភេទ<a class="headerlink" href="#type-checking" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="go">&lt;class 'int'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
-<span class="go">&lt;class 'float'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">"Python"</span><span class="p">)</span>
-<span class="go">&lt;class 'str'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="go">&lt;class 'bool'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="go">&lt;class 'NoneType'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="go">&lt;class 'list'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="go">&lt;class 'tuple'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">({</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="go">&lt;class 'dict'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">})</span>
-<span class="go">&lt;class 'set'&gt;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="go">&lt;class 'int'&gt;</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="go">&lt;class 'float'&gt;</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">"Python"</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">&lt;class 'str'&gt;</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">&lt;class 'bool'&gt;</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">&lt;class 'NoneType'&gt;</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="linenos">12</span><span class="go">&lt;class 'list'&gt;</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos">14</span><span class="go">&lt;class 'tuple'&gt;</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">({</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="linenos">16</span><span class="go">&lt;class 'dict'&gt;</span>
+<span class="linenos">17</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">})</span>
+<span class="linenos">18</span><span class="go">&lt;class 'set'&gt;</span>
 </pre></div>
 </div>
 <p>ប្រើ <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> ដើម្បីពិនិត្យ — វាល្អជាង <code class="docutils literal notranslate"><span class="pre">type()</span></code> ព្រោះវាគោរព
 inheritance៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>      <span class="c1"># bool គឺជា subclass នៃ int</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>   <span class="c1"># ពិនិត្យច្រើនប្រភេទក្នុងពេលតែមួយ</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">True</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>      <span class="c1"># bool គឺជា subclass នៃ int</span>
+<span class="linenos">4</span><span class="go">True</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>   <span class="c1"># ពិនិត្យច្រើនប្រភេទក្នុងពេលតែមួយ</span>
+<span class="linenos">6</span><span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -634,22 +639,22 @@ inheritance៖</p>
 <span id="id9"></span><h3>ចំនួនគត់ (<code class="docutils literal notranslate"><span class="pre">int</span></code>)<a class="headerlink" href="#int" title="Link to this heading"></a></h3>
 <p>Python <code class="docutils literal notranslate"><span class="pre">int</span></code> មិនមានដែនកំណត់ទំហំទេ — វាអាចធំប៉ុណ្ណាក៏បាន
 (គ្រាន់តែកំណត់ដោយអង្គចងចាំរបស់ម៉ាស៊ីន)៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span>
-<span class="go">1267650600228229401496703205376</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">1000</span><span class="p">))</span>    <span class="c1"># លេខមាន ៣០២ ខ្ទង់</span>
-<span class="go">302</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span>
+<span class="linenos">2</span><span class="go">1267650600228229401496703205376</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">1000</span><span class="p">))</span>    <span class="c1"># លេខមាន ៣០២ ខ្ទង់</span>
+<span class="linenos">4</span><span class="go">302</span>
 </pre></div>
 </div>
 <p>សញ្ញា underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> អាចប្រើជាទីបំបែកលេខ ដើម្បីងាយអាន
 (Python មិនអើពើវាទេ)៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1_000_000</span> <span class="o">==</span> <span class="mi">1000000</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mb">0b1010</span>          <span class="c1"># binary</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mo">0o17</span>            <span class="c1"># octal</span>
-<span class="go">15</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mh">0xFF</span>            <span class="c1"># hexadecimal</span>
-<span class="go">255</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1_000_000</span> <span class="o">==</span> <span class="mi">1000000</span>
+<span class="linenos">2</span><span class="go">True</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="mb">0b1010</span>          <span class="c1"># ប្រព័ន្ធគោលពីរ (binary)</span>
+<span class="linenos">4</span><span class="go">10</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="mo">0o17</span>            <span class="c1"># ប្រព័ន្ធអុកតាល់ (octal)</span>
+<span class="linenos">6</span><span class="go">15</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="mh">0xFF</span>            <span class="c1"># ប្រព័ន្ធហែកសា (hexadecimal)</span>
+<span class="linenos">8</span><span class="go">255</span>
 </pre></div>
 </div>
 </section>
@@ -658,32 +663,32 @@ inheritance៖</p>
 <p><code class="docutils literal notranslate"><span class="pre">float</span></code> ក្នុង Python គឺជា IEEE 754 double precision (៦៤ bit)។ វាមិនអាច
 តំណាងចំនួនទសភាគមួយចំនួនបានត្រឹមត្រូវទេ ព្រោះកុំព្យូទ័រប្រើប្រព័ន្ធ
 គោលពីរ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
-<span class="go">0.30000000000000004</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+<span class="linenos">2</span><span class="go">0.30000000000000004</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+<span class="linenos">4</span><span class="go">False</span>
 </pre></div>
 </div>
 <p><strong>នេះមិនមែនជាកំហុសរបស់ Python ទេ</strong> — ភាសាដែលប្រើ IEEE 754 ទាំងអស់
 មានបញ្ហានេះ។ វិធីដោះស្រាយ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ១. ប្រៀបធៀបដោយមានភាពអត់ធ្មត់</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ២. ប្រើ math.isclose() — ណែនាំបំផុត</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ៣. សម្រាប់លុយ ប្រើ decimal</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.1"</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.2"</span><span class="p">)</span>
-<span class="go">Decimal('0.3')</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ៤. សម្រាប់ប្រភាគពិតប្រាកដ ប្រើ fractions</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fractions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fraction</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="go">Fraction(3, 10)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ១. ប្រៀបធៀបដោយមានភាពអត់ធ្មត់</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span>
+<span class="linenos"> 3</span><span class="go">True</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ២. ប្រើ math.isclose() — ណែនាំបំផុត</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">True</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ៣. សម្រាប់លុយ ប្រើ decimal</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.1"</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.2"</span><span class="p">)</span>
+<span class="linenos">13</span><span class="go">Decimal('0.3')</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ៤. សម្រាប់ប្រភាគពិតប្រាកដ ប្រើ fractions</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fractions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fraction</span>
+<span class="linenos">17</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="linenos">18</span><span class="go">Fraction(3, 10)</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -694,16 +699,16 @@ inheritance៖</p>
 <code class="docutils literal notranslate"><span class="pre">Decimal(0.1)</span></code> (ពី float) នឹងផ្ទុកកំហុសបង្គត់ដែលមានស្រាប់។</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">float</span></code> ក៏មានតម្លៃពិសេស៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
-<span class="go">(inf, -inf)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span>     <span class="c1"># NaN មិនស្មើខ្លួនឯងទេ!</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">))</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="go">(inf, -inf)</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span>     <span class="c1"># NaN មិនស្មើខ្លួនឯងទេ!</span>
+<span class="linenos"> 4</span><span class="go">False</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">))</span>
+<span class="linenos"> 6</span><span class="go">True</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="linenos"> 8</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">10</span><span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
 </pre></div>
 </div>
 </section>
@@ -766,20 +771,20 @@ inheritance៖</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">/</span> <span class="mi">2</span>       <span class="c1"># ចែកធម្មតា — តែងតែ float</span>
-<span class="go">3.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span>      <span class="c1"># floor division</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span>     <span class="c1"># floor ទៅរកចំនួនតូចជាង (មិនមែនទៅរកសូន្យទេ)</span>
-<span class="go">-4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">//</span> <span class="o">-</span><span class="mi">2</span>
-<span class="go">-4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span>      <span class="c1"># សំណល់មានសញ្ញាតាមភាគបែង</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">divmod</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">(-4, 1)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mf">0.5</span>    <span class="c1"># ស្វ័យគុណទសភាគ = ឫសការ៉េ</span>
-<span class="go">1.4142135623730951</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">/</span> <span class="mi">2</span>       <span class="c1"># ចែកធម្មតា — តែងតែ float</span>
+<span class="linenos"> 2</span><span class="go">3.5</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span>      <span class="c1"># ចែកយកផ្នែកគត់ (floor division)</span>
+<span class="linenos"> 4</span><span class="go">3</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span>     <span class="c1"># floor ទៅរកចំនួនតូចជាង (មិនមែនទៅរកសូន្យទេ)</span>
+<span class="linenos"> 6</span><span class="go">-4</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">//</span> <span class="o">-</span><span class="mi">2</span>
+<span class="linenos"> 8</span><span class="go">-4</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span>      <span class="c1"># សំណល់មានសញ្ញាតាមភាគបែង</span>
+<span class="linenos">10</span><span class="go">1</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">divmod</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">12</span><span class="go">(-4, 1)</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mf">0.5</span>    <span class="c1"># ស្វ័យគុណទសភាគ = ឫសការ៉េ</span>
+<span class="linenos">14</span><span class="go">1.4142135623730951</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -856,18 +861,18 @@ truncation ទៅរកសូន្យ ប្រើ <code class="docutils litera
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>          <span class="c1"># គុណមុនបូក</span>
-<span class="go">14</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>        <span class="c1"># វង់ក្រចកបង្ខំលំដាប់</span>
-<span class="go">20</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span>        <span class="c1"># ** ភ្ជាប់ពីស្ដាំទៅឆ្វេង</span>
-<span class="go">512</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span>            <span class="c1"># unary - មានអាទិភាពទាបជាង **</span>
-<span class="go">-4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="go">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">%</span> <span class="mi">4</span>          <span class="c1"># * និង % អាទិភាពស្មើគ្នា → ពីឆ្វេងទៅស្ដាំ</span>
-<span class="go">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>          <span class="c1"># គុណមុនបូក</span>
+<span class="linenos"> 2</span><span class="go">14</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>        <span class="c1"># វង់ក្រចកបង្ខំលំដាប់</span>
+<span class="linenos"> 4</span><span class="go">20</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span>        <span class="c1"># ** ភ្ជាប់ពីស្ដាំទៅឆ្វេង</span>
+<span class="linenos"> 6</span><span class="go">512</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span>            <span class="c1"># unary - មានអាទិភាពទាបជាង **</span>
+<span class="linenos"> 8</span><span class="go">-4</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="linenos">10</span><span class="go">4</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">%</span> <span class="mi">4</span>          <span class="c1"># * និង % អាទិភាពស្មើគ្នា → ពីឆ្វេងទៅស្ដាំ</span>
+<span class="linenos">12</span><span class="go">2</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -881,14 +886,14 @@ truncation ទៅរកសូន្យ ប្រើ <code class="docutils litera
 <span id="bool-and-truthiness"></span><h2><code class="docutils literal notranslate"><span class="pre">bool</span></code> និងភាពពិត (Truthiness)<a class="headerlink" href="#bool-truthiness" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">bool</span></code> មានតម្លៃតែពីរប៉ុណ្ណោះគឺ <code class="docutils literal notranslate"><span class="pre">True</span></code> និង <code class="docutils literal notranslate"><span class="pre">False</span></code> (ចាប់ផ្ដើមដោយ
 អក្សរធំ)។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">3</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">3</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="linenos">2</span><span class="go">True</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">3</span>
+<span class="linenos">4</span><span class="go">False</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">True</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">8</span><span class="go">False</span>
 </pre></div>
 </div>
 <section id="falsy-truthy">
@@ -926,30 +931,30 @@ truncation ទៅរកសូន្យ ប្រើ <code class="docutils litera
 </tbody>
 </table>
 <p>អ្វីៗក្រៅពីនេះគឺ <strong>truthy</strong>។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>          <span class="c1"># មានដកឃ្លាមួយ → មិនទទេទេ</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">([])</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>          <span class="c1"># មានធាតុមួយ → truthy ទោះជាធាតុនោះជា 0</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="go">False</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>          <span class="c1"># មានដកឃ្លាមួយ → មិនទទេទេ</span>
+<span class="linenos"> 4</span><span class="go">True</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">([])</span>
+<span class="linenos"> 6</span><span class="go">False</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>          <span class="c1"># មានធាតុមួយ → truthy ទោះជាធាតុនោះជា 0</span>
+<span class="linenos"> 8</span><span class="go">True</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">False</span>
 </pre></div>
 </div>
 <p>នេះធ្វើឱ្យអាចសរសេរលក្ខខណ្ឌខ្លី៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># វែង — មិនចាំបាច់</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"មានធាតុ"</span><span class="p">)</span>
-
-<span class="c1"># ខ្លី — Pythonic</span>
-<span class="k">if</span> <span class="n">items</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"មានធាតុ"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទទេ"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># វែង — មិនចាំបាច់</span>
+<span class="linenos"> 4</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មានធាតុ"</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># ខ្លី — Pythonic</span>
+<span class="linenos"> 8</span><span class="k">if</span> <span class="n">items</span><span class="p">:</span>
+<span class="linenos"> 9</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"មានធាតុ"</span><span class="p">)</span>
+<span class="linenos">10</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទទេ"</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -964,19 +969,19 @@ truncation ទៅរកសូន្យ ប្រើ <code class="docutils litera
 <span id="id13"></span><h2><code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#none" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">None</span></code> គឺជា object តែមួយគត់នៃប្រភេទ <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>។ វាមានន័យថា
 &quot;គ្មានតម្លៃ&quot; ឬ &quot;មិនបានកំណត់&quot;។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">None</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span>          <span class="c1"># វិធីត្រឹមត្រូវដើម្បីពិនិត្យ None</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="kc">None</span>          <span class="c1"># ដំណើរការដែរ ប៉ុន្តែមិនត្រូវបានណែនាំ</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">no_return</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="k">pass</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">no_return</span><span class="p">())</span>   <span class="c1"># អនុគមន៍គ្មាន return ត្រឡប់ None</span>
-<span class="go">None</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">None</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span>          <span class="c1"># វិធីត្រឹមត្រូវដើម្បីពិនិត្យ None</span>
+<span class="linenos"> 5</span><span class="go">True</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="kc">None</span>          <span class="c1"># ដំណើរការដែរ ប៉ុន្តែមិនត្រូវបានណែនាំ</span>
+<span class="linenos"> 7</span><span class="go">True</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">no_return</span><span class="p">():</span>
+<span class="linenos">10</span><span class="gp">... </span>    <span class="k">pass</span>
+<span class="linenos">11</span><span class="gp">...</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">no_return</span><span class="p">())</span>   <span class="c1"># អនុគមន៍គ្មាន return ត្រឡប់ None</span>
+<span class="linenos">13</span><span class="go">None</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -1052,28 +1057,28 @@ PEP 8 ណែនាំវាជាផ្លូវការ។</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"123"</span><span class="p">)</span>
-<span class="go">123</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"12.5"</span><span class="p">)</span>        <span class="c1"># មិនអាច — មានចុចទសភាគ</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: '12.5'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"12.5"</span><span class="p">))</span> <span class="c1"># បំលែងពីរដំណាក់កាល</span>
-<span class="go">12</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"ff"</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>      <span class="c1"># បញ្ជាក់ប្រព័ន្ធលេខជាគោល (base)</span>
-<span class="go">255</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"123"</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="go">123</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"12.5"</span><span class="p">)</span>        <span class="c1"># មិនអាច — មានចុចទសភាគ</span>
+<span class="linenos"> 4</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos"> 6</span><span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: '12.5'</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"12.5"</span><span class="p">))</span> <span class="c1"># បំលែងពីរដំណាក់កាល</span>
+<span class="linenos"> 8</span><span class="go">12</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">"ff"</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>      <span class="c1"># បញ្ជាក់ប្រព័ន្ធលេខជាគោល (base)</span>
+<span class="linenos">10</span><span class="go">255</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">round()</span></code> ប្រើ <strong>banker's rounding</strong> (round-half-to-even) មិនមែន
 round-half-up ដែលអ្នករំពឹងទេ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
-<span class="go">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">0</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="linenos">4</span><span class="go">2</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">2</span>
 </pre></div>
 </div>
 </div>
@@ -1108,59 +1113,59 @@ round-half-up ដែលអ្នករំពឹងទេ៖</p>
 </table>
 <p><strong>Immutable</strong> — object មិនអាចប្រែប្រួលបានទេ។ &quot;ការកែប្រែ&quot; គឺជាការបង្កើត
 object ថ្មី៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"abc"</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"z"</span>          <span class="c1"># មិនអនុញ្ញាត</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">'str' object does not support item assignment</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">"d"</span>         <span class="c1"># បង្កើតខ្សែអក្សរថ្មី ហើយ s ចង្អុលទៅវា</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
-<span class="go">'abcd'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"abc"</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"z"</span>          <span class="c1"># មិនអនុញ្ញាត</span>
+<span class="linenos">3</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">4</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">5</span><span class="gr">TypeError</span>: <span class="n">'str' object does not support item assignment</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">"d"</span>         <span class="c1"># បង្កើតខ្សែអក្សរថ្មី ហើយ s ចង្អុលទៅវា</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="linenos">8</span><span class="go">'abcd'</span>
 </pre></div>
 </div>
 <p><strong>Mutable</strong> — object អាចកែប្រែនៅនឹងកន្លែង៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>          <span class="c1"># កែប្រែផ្ទាល់</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span>
-<span class="go">[99, 2, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span>
-<span class="go">[99, 2, 3, 4]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>          <span class="c1"># កែប្រែផ្ទាល់</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span>
+<span class="linenos">4</span><span class="go">[99, 2, 3]</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span>
+<span class="linenos">7</span><span class="go">[99, 2, 3, 4]</span>
 </pre></div>
 </div>
 <section id="references">
 <span id="id15"></span><h3>អថេរគឺជាឈ្មោះ មិនមែនជាប្រអប់ទេ<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
 <p>ការផ្ដល់តម្លៃមិន <strong>ចម្លង</strong> object ទេ — វាគ្រាន់តែបង្កើតឈ្មោះថ្មីដែលចង្អុល
 ទៅ object <strong>ដដែល</strong>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>                <span class="c1"># b និង a ចង្អុលទៅ list តែមួយ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>                    <span class="c1"># a ក៏ផ្លាស់ប្ដូរដែរ!</span>
-<span class="go">[1, 2, 3, 4]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>                <span class="c1"># b និង a ចង្អុលទៅ list តែមួយ</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>                    <span class="c1"># a ក៏ផ្លាស់ប្ដូរដែរ!</span>
+<span class="linenos">5</span><span class="go">[1, 2, 3, 4]</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
+<span class="linenos">7</span><span class="go">True</span>
 </pre></div>
 </div>
 <p>ដើម្បីចម្លងពិតប្រាកដ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>         <span class="c1"># ឬ a[:] ឬ list(a)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">[1, 2, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[1, 2, 3, 4]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>         <span class="c1"># ឬ a[:] ឬ list(a)</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="linenos">5</span><span class="go">[1, 2, 3]</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="linenos">7</span><span class="go">[1, 2, 3, 4]</span>
 </pre></div>
 </div>
 <p>សម្រាប់ object ដែលមាន nested structure ប្រើ <code class="docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shallow</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">deep</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shallow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># shallow copy ចម្លងតែកម្រិតខាងក្រៅ</span>
-<span class="go">[1, 2, 99]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">deep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>              <span class="c1"># deep copy ចម្លងគ្រប់កម្រិត</span>
-<span class="go">[1, 2]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">shallow</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">deep</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">shallow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># shallow copy ចម្លងតែកម្រិតខាងក្រៅ</span>
+<span class="linenos">7</span><span class="go">[1, 2, 99]</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">deep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>              <span class="c1"># deep copy ចម្លងគ្រប់កម្រិត</span>
+<span class="linenos">9</span><span class="go">[1, 2]</span>
 </pre></div>
 </div>
 </section>
@@ -1197,14 +1202,14 @@ object ថ្មី៖</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>     <span class="c1"># តម្លៃដូចគ្នា</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>     <span class="c1"># object ពីរផ្សេងគ្នា</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="ow">is</span> <span class="n">x</span>               <span class="c1"># object តែមួយ</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>     <span class="c1"># តម្លៃដូចគ្នា</span>
+<span class="linenos">2</span><span class="go">True</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>     <span class="c1"># object ពីរផ្សេងគ្នា</span>
+<span class="linenos">4</span><span class="go">False</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="ow">is</span> <span class="n">x</span>               <span class="c1"># object តែមួយ</span>
+<span class="linenos">8</span><span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -1215,10 +1220,10 @@ object ថ្មី៖</p>
 នៃ implementation មិនមែនជាការធានាភាសាទេ។ ប្រើ <code class="docutils literal notranslate"><span class="pre">==</span></code> សម្រាប់តម្លៃ។</p>
 </div>
 <p>អ្នកអាចមើលអត្តសញ្ញាណ object ដោយ <code class="docutils literal notranslate"><span class="pre">id()</span></code>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">4</span><span class="go">True</span>
 </pre></div>
 </div>
 </section>

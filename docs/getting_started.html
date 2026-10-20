@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/getting_started.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -223,11 +228,11 @@ compile ជាមុន។</p></li>
 លើការចូលដំណើរការឯកសារក្រៅផ្ទះរបស់អ្នក។</p>
 <p><strong>ការផ្ទៀងផ្ទាត់</strong></p>
 <p>បើក Command Prompt (<code class="docutils literal notranslate"><span class="pre">cmd</span></code>) ឬ PowerShell ហើយវាយ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">C:\&gt; py -V</span>
-<span class="go">Python 3.15.0</span>
-
-<span class="go">C:\&gt; python --version</span>
-<span class="go">Python 3.15.0</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">C:\&gt; py -V</span>
+<span class="linenos">2</span><span class="go">Python 3.15.0</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="go">C:\&gt; python --version</span>
+<span class="linenos">5</span><span class="go">Python 3.15.0</span>
 </pre></div>
 </div>
 <p>នៅលើ Windows ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">py</span></code> គឺជា <strong>Python launcher</strong> ដែលអនុញ្ញាតឱ្យ
@@ -246,12 +251,12 @@ compile ជាមុន។</p></li>
 <code class="docutils literal notranslate"><span class="pre">pip</span></code> និង <code class="docutils literal notranslate"><span class="pre">urllib</span></code> ត្រូវការ ដើម្បីភ្ជាប់ទៅគេហទំព័រ HTTPS។</p></li>
 </ol>
 <p><strong>Homebrew</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>python@3.15
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>python@3.15
 </pre></div>
 </div>
 <p><strong>ការផ្ទៀងផ្ទាត់</strong> — បើក Terminal ហើយវាយ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>--version
-<span class="go">Python 3.15.0</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>--version
+<span class="linenos">2</span><span class="go">Python 3.15.0</span>
 </pre></div>
 </div>
 <div class="admonition attention">
@@ -263,24 +268,24 @@ compile ជាមុន។</p></li>
 <section id="linux">
 <span id="install-linux"></span><h3>Linux<a class="headerlink" href="#linux" title="Link to this heading"></a></h3>
 <p>ភាគច្រើននៃ distribution Linux សម័យថ្មីមាន Python 3 ដំឡើងរួចហើយ។ ពិនិត្យដោយ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>--version
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>--version
 </pre></div>
 </div>
 <p>បើមិនមាន សូមដំឡើងតាម package manager របស់អ្នក៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Debian<span class="w"> </span>/<span class="w"> </span>Ubuntu
-<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
-
-<span class="gp"># </span>Fedora<span class="w"> </span>/<span class="w"> </span>RHEL
-<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
-
-<span class="gp"># </span>Arch<span class="w"> </span>Linux
-<span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python<span class="w"> </span>python-pip
-
-<span class="gp"># </span>openSUSE
-<span class="gp">$ </span>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
-
-<span class="gp"># </span>Alpine
-<span class="gp">$ </span>sudo<span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>python3<span class="w"> </span>py3-pip
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp"># </span>Debian<span class="w"> </span>/<span class="w"> </span>Ubuntu
+<span class="linenos"> 2</span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="gp"># </span>Fedora<span class="w"> </span>/<span class="w"> </span>RHEL
+<span class="linenos"> 5</span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="gp"># </span>Arch<span class="w"> </span>Linux
+<span class="linenos"> 8</span><span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python<span class="w"> </span>python-pip
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gp"># </span>openSUSE
+<span class="linenos">11</span><span class="gp">$ </span>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp"># </span>Alpine
+<span class="linenos">14</span><span class="gp">$ </span>sudo<span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>python3<span class="w"> </span>py3-pip
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -294,15 +299,15 @@ compile ជាមុន។</p></li>
 <section id="verify-install">
 <span id="id4"></span><h3>ការផ្ទៀងផ្ទាត់ការដំឡើង<a class="headerlink" href="#verify-install" title="Link to this heading"></a></h3>
 <p>វិធីលឿនបំផុតគឺបើក REPL ហើយពិនិត្យព័ត៌មានកំណែ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3
-<span class="go">Python 3.15.0 (main, Oct 14 2026, 01:05:07) [Clang 23.1.3] on linux</span>
-<span class="go">Type "help", "copyright", "credits" or "license" for more information.</span>
-<span class="go">&gt;&gt;&gt; import sys</span>
-<span class="go">&gt;&gt;&gt; sys.version_info</span>
-<span class="go">sys.version_info(major=3, minor=15, micro=0, releaselevel='final', serial=0)</span>
-<span class="go">&gt;&gt;&gt; sys.executable</span>
-<span class="go">'/usr/local/bin/python3'</span>
-<span class="go">&gt;&gt;&gt; exit()</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3
+<span class="linenos">2</span><span class="go">Python 3.15.0 (main, Oct 14 2026, 01:05:07) [Clang 23.1.3] on linux</span>
+<span class="linenos">3</span><span class="go">Type "help", "copyright", "credits" or "license" for more information.</span>
+<span class="linenos">4</span><span class="go">&gt;&gt;&gt; import sys</span>
+<span class="linenos">5</span><span class="go">&gt;&gt;&gt; sys.version_info</span>
+<span class="linenos">6</span><span class="go">sys.version_info(major=3, minor=15, micro=0, releaselevel='final', serial=0)</span>
+<span class="linenos">7</span><span class="go">&gt;&gt;&gt; sys.executable</span>
+<span class="linenos">8</span><span class="go">'/usr/local/bin/python3'</span>
+<span class="linenos">9</span><span class="go">&gt;&gt;&gt; exit()</span>
 </pre></div>
 </div>
 </section>
@@ -312,13 +317,13 @@ compile ជាមុន។</p></li>
 <p><strong>REPL</strong> (Read–Eval–Print Loop) គឺជាម៉ូដអន្តរកម្ម ដែល Python អានបន្ទាត់កូដ
 ដំណើរការវា បោះពុម្ពលទ្ធផល ហើយរង់ចាំបន្ទាត់បន្ទាប់។ វាល្អបំផុតសម្រាប់សាកល្បង
 គំនិតតូចៗ និងរៀនភាសា។</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">"Python"</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="go">'PythonPython'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">"ខ្មែរ"</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
-<span class="go">សួស្ដី ខ្មែរ!</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="linenos">2</span><span class="go">5</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"Python"</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos">4</span><span class="go">'PythonPython'</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">"ខ្មែរ"</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
+<span class="linenos">7</span><span class="go">សួស្ដី ខ្មែរ!</span>
 </pre></div>
 </div>
 <p><strong>សញ្ញា prompt ពីរប្រភេទ៖</strong></p>
@@ -353,10 +358,10 @@ compile ជាមុន។</p></li>
 <p>Python ប្រើ <strong>ការចូលបន្ទាត់ (indentation)</strong> ដើម្បីកំណត់ block ជំនួសឱ្យ
 វង់ក្រចក <code class="docutils literal notranslate"><span class="pre">{}</span></code> ឬពាក្យ <code class="docutils literal notranslate"><span class="pre">begin</span></code>/<code class="docutils literal notranslate"><span class="pre">end</span></code>។ នៅក្នុង REPL អ្នកត្រូវចុច
 <kbd class="kbd docutils literal notranslate">Enter</kbd> ទទេម្ដងទៀតដើម្បីបញ្ចប់ block៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">0 1 2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="go">0 1 2</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -372,17 +377,17 @@ tab។ ការលាយឡំបណ្ដាលឱ្យមាន <code class=
 <p>ដាក់កូដក្នុងឯកសារដែលមានផ្នែកបន្ថែម <code class="docutils literal notranslate"><span class="pre">.py</span></code> ឧទាហរណ៍ <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>៖</p>
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">hello.py</span></code></span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""Script ដំបូង — បោះពុម្ពសារ និងធ្វើគណនាសាមញ្ញ។"""</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"សួស្ដីពី Python 3.15!"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"ផលបូក 1 + 2 ="</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="sd">"""Script ដំបូង — បោះពុម្ពសារ និងធ្វើគណនាសាមញ្ញ។"""</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="nb">print</span><span class="p">(</span><span class="s2">"សួស្ដីពី Python 3.15!"</span><span class="p">)</span>
+<span class="linenos">4</span><span class="nb">print</span><span class="p">(</span><span class="s2">"ផលបូក 1 + 2 ="</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>ដំណើរការវា៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>hello.py
-<span class="go">សួស្ដីពី Python 3.15!</span>
-<span class="go">ផលបូក 1 + 2 = 3</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>hello.py
+<span class="linenos">2</span><span class="go">សួស្ដីពី Python 3.15!</span>
+<span class="linenos">3</span><span class="go">ផលបូក 1 + 2 = 3</span>
 </pre></div>
 </div>
 <section id="command-line-options">
@@ -419,13 +424,13 @@ tab។ ការលាយឡំបណ្ដាលឱ្យមាន <code class=
 </tbody>
 </table>
 <p>ឧទាហរណ៍ជាក់ស្ដែង៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import platform; print(platform.python_version())"</span>
-<span class="go">3.15.0</span>
-
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>this<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
-<span class="go">The Zen of Python, by Tim Peters</span>
-
-<span class="go">Beautiful is better than ugly.</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import platform; print(platform.python_version())"</span>
+<span class="linenos">2</span><span class="go">3.15.0</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>this<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
+<span class="linenos">5</span><span class="go">The Zen of Python, by Tim Peters</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="go">Beautiful is better than ugly.</span>
 </pre></div>
 </div>
 </section>
@@ -433,13 +438,13 @@ tab។ ការលាយឡំបណ្ដាលឱ្យមាន <code class=
 <span id="shebang"></span><h3>Shebang នៅលើ Unix<a class="headerlink" href="#shebang-unix" title="Link to this heading"></a></h3>
 <p>ដើម្បីដំណើរការ script ដោយផ្ទាល់ (<code class="docutils literal notranslate"><span class="pre">./hello.py</span></code>) សូមដាក់បន្ទាត់ដំបូងជា
 <em>shebang</em>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="ch">#!/usr/bin/env python3</span>
 </pre></div>
 </div>
 <p>រួចផ្ដល់សិទ្ធិប្រតិបត្តិ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>hello.py
-<span class="gp">$ </span>./hello.py
-<span class="go">សួស្ដីពី Python 3.15!</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>hello.py
+<span class="linenos">2</span><span class="gp">$ </span>./hello.py
+<span class="linenos">3</span><span class="go">សួស្ដីពី Python 3.15!</span>
 </pre></div>
 </div>
 <p>វិធី <code class="docutils literal notranslate"><span class="pre">/usr/bin/env</span> <span class="pre">python3</span></code> ល្អជាង <code class="docutils literal notranslate"><span class="pre">/usr/bin/python3</span></code> ព្រោះវាស្វែងរក
@@ -451,24 +456,24 @@ Python ក្នុង <code class="docutils literal notranslate"><span class="p
 <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code> គឺឈ្មោះ script ខ្លួនឯង។</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">argv_demo.py</span></code></span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""បង្ហាញរបៀបទទួល argument ពីបន្ទាត់ពាក្យបញ្ជាតាម sys.argv។"""</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-
-<span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"ចំនួន argument (មិនរាប់ឈ្មោះឯកសារ):"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-
-<span class="k">if</span> <span class="n">args</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"argument ដំបូង:"</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">"""បង្ហាញរបៀបទទួល argument ពីបន្ទាត់ពាក្យបញ្ជាតាម sys.argv។"""</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="linenos"> 8</span><span class="nb">print</span><span class="p">(</span><span class="s2">"ចំនួន argument (មិនរាប់ឈ្មោះឯកសារ):"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"argument ដំបូង:"</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>argv_demo.py<span class="w"> </span>សុខា<span class="w"> </span>ដារ៉ា
-<span class="go">['argv_demo.py', 'សុខា', 'ដារ៉ា']</span>
-<span class="go">ចំនួន argument (មិនរាប់ឈ្មោះឯកសារ): 2</span>
-<span class="go">argument ដំបូង: សុខា</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>argv_demo.py<span class="w"> </span>សុខា<span class="w"> </span>ដារ៉ា
+<span class="linenos">2</span><span class="go">['argv_demo.py', 'សុខា', 'ដារ៉ា']</span>
+<span class="linenos">3</span><span class="go">ចំនួន argument (មិនរាប់ឈ្មោះឯកសារ): 2</span>
+<span class="linenos">4</span><span class="go">argument ដំបូង: សុខា</span>
 </pre></div>
 </div>
 </section>
@@ -478,13 +483,13 @@ Python ក្នុង <code class="docutils literal notranslate"><span class="p
 <p>ចាប់តាំងពី Python 3 មក ឯកសារប្រភព (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) ត្រូវបានអានជា <strong>UTF-8</strong>
 ជាលំនាំដើម។ ដូច្នេះអ្នកអាចប្រើអក្សរខ្មែរក្នុងខ្សែអក្សរ (string) និងក្នុង
 អត្ថាធិប្បាយ (comment) បានដោយសេរី៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">greeting</span> <span class="o">=</span> <span class="s2">"សួស្ដី ពិភពលោក"</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>                 <span class="c1"># ១៤ តួអក្សរ (រួមទាំងដកឃ្លាមួយ)</span>
-<span class="go">14</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">greeting</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span> <span class="c1"># ៤០ byte</span>
-<span class="go">40</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greeting</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">'ស'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greeting</span> <span class="o">=</span> <span class="s2">"សួស្ដី ពិភពលោក"</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>                 <span class="c1"># ១៤ តួអក្សរ (រួមទាំងដកឃ្លាមួយ)</span>
+<span class="linenos">3</span><span class="go">14</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">greeting</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span> <span class="c1"># ៤០ byte</span>
+<span class="linenos">5</span><span class="go">40</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greeting</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">7</span><span class="go">'ស'</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -540,22 +545,22 @@ space ៤, (៣) បង្ហាញលេខបន្ទាត់។ ការ�
 <p>សូមសរសេរឯកសារ <code class="docutils literal notranslate"><span class="pre">first.py</span></code> ដូចខាងក្រោម៖</p>
 <div class="literal-block-wrapper docutils container" id="id10">
 <div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">first.py</span></code></span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""កម្មវិធីដំបូង — ទទួលទិន្នន័យពីអ្នកប្រើ រួចបោះពុម្ពត្រឡប់វិញ។"""</span>
-
-<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"សូមបញ្ចូលឈ្មោះរបស់អ្នក: "</span><span class="p">)</span>
-<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"សូមបញ្ចូលអាយុរបស់អ្នក: "</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! អ្នកមានអាយុ </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> ឆ្នាំ។"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ក្នុងរយៈពេល ៥ ឆ្នាំទៀត អ្នកនឹងមានអាយុ </span><span class="si">{</span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2"> ឆ្នាំ។"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="sd">"""កម្មវិធីដំបូង — ទទួលទិន្នន័យពីអ្នកប្រើ រួចបោះពុម្ពត្រឡប់វិញ។"""</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"សូមបញ្ចូលឈ្មោះរបស់អ្នក: "</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"សូមបញ្ចូលអាយុរបស់អ្នក: "</span><span class="p">))</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! អ្នកមានអាយុ </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> ឆ្នាំ។"</span><span class="p">)</span>
+<span class="linenos">7</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ក្នុងរយៈពេល ៥ ឆ្នាំទៀត អ្នកនឹងមានអាយុ </span><span class="si">{</span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2"> ឆ្នាំ។"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>ដំណើរការ៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>first.py
-<span class="go">សូមបញ្ចូលឈ្មោះរបស់អ្នក: សុភា</span>
-<span class="go">សូមបញ្ចូលអាយុរបស់អ្នក: 20</span>
-<span class="go">សួស្ដី សុភា! អ្នកមានអាយុ 20 ឆ្នាំ។</span>
-<span class="go">ក្នុងរយៈពេល ៥ ឆ្នាំទៀត អ្នកនឹងមានអាយុ 25 ឆ្នាំ។</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>first.py
+<span class="linenos">2</span><span class="go">សូមបញ្ចូលឈ្មោះរបស់អ្នក: សុភា</span>
+<span class="linenos">3</span><span class="go">សូមបញ្ចូលអាយុរបស់អ្នក: 20</span>
+<span class="linenos">4</span><span class="go">សួស្ដី សុភា! អ្នកមានអាយុ 20 ឆ្នាំ។</span>
+<span class="linenos">5</span><span class="go">ក្នុងរយៈពេល ៥ ឆ្នាំទៀត អ្នកនឹងមានអាយុ 25 ឆ្នាំ។</span>
 </pre></div>
 </div>
 <p>ចំណុចគួរកត់សម្គាល់ពីឧទាហរណ៍នេះ៖</p>

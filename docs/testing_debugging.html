@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/testing_debugging.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -222,11 +227,11 @@
 </table>
 <section id="test-pyramid">
 <span id="id3"></span><h3>Test Pyramid<a class="headerlink" href="#test-pyramid" title="Link to this heading"></a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    /\        ← End-to-end (តិច យឺត ថ្លៃ)
-   /  \
-  /----\      ← Integration (មធ្យម)
- /      \
-/--------\    ← Unit (ច្រើន លឿន ថោក)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    /\        ← End-to-end (តិច យឺត ថ្លៃ)
+<span class="linenos">2</span>   /  \
+<span class="linenos">3</span>  /----\      ← Integration (មធ្យម)
+<span class="linenos">4</span> /      \
+<span class="linenos">5</span>/--------\    ← Unit (ច្រើន លឿន ថោក)
 </pre></div>
 </div>
 <ul class="simple">
@@ -243,39 +248,39 @@
 <span id="id4"></span><h2><code class="docutils literal notranslate"><span class="pre">doctest</span></code> — សាកល្បងពីឧទាហរណ៍<a class="headerlink" href="#doctest" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">doctest</span></code> ស្វែងរកឧទាហរណ៍ដែលមានទម្រង់ REPL (<code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>) ក្នុង docstring
 ហើយដំណើរការវា៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">celsius_to_fahrenheit</span><span class="p">(</span><span class="n">celsius</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""បំលែង Celsius ទៅ Fahrenheit។</span>
-
-<span class="sd">    &gt;&gt;&gt; celsius_to_fahrenheit(0)</span>
-<span class="sd">    32.0</span>
-<span class="sd">    &gt;&gt;&gt; celsius_to_fahrenheit(100)</span>
-<span class="sd">    212.0</span>
-<span class="sd">    &gt;&gt;&gt; round(celsius_to_fahrenheit(-40), 1)</span>
-<span class="sd">    -40.0</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">celsius_to_fahrenheit</span><span class="p">(</span><span class="n">celsius</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">"""បំលែង Celsius ទៅ Fahrenheit។</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="sd">    &gt;&gt;&gt; celsius_to_fahrenheit(0)</span>
+<span class="linenos"> 5</span><span class="sd">    32.0</span>
+<span class="linenos"> 6</span><span class="sd">    &gt;&gt;&gt; celsius_to_fahrenheit(100)</span>
+<span class="linenos"> 7</span><span class="sd">    212.0</span>
+<span class="linenos"> 8</span><span class="sd">    &gt;&gt;&gt; round(celsius_to_fahrenheit(-40), 1)</span>
+<span class="linenos"> 9</span><span class="sd">    -40.0</span>
+<span class="linenos">10</span><span class="sd">    """</span>
+<span class="linenos">11</span>    <span class="k">return</span> <span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">doctest</span><span class="o">.</span><span class="n">run_docstring_examples</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">celsius_to_fahrenheit</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="p">{</span><span class="s2">"celsius_to_fahrenheit"</span><span class="p">:</span> <span class="n">celsius_to_fahrenheit</span><span class="p">},</span>
-<span class="gp">... </span>    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="go">32.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="go">212.0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">doctest</span><span class="o">.</span><span class="n">run_docstring_examples</span><span class="p">(</span>
+<span class="linenos"> 3</span><span class="gp">... </span>    <span class="n">celsius_to_fahrenheit</span><span class="p">,</span>
+<span class="linenos"> 4</span><span class="gp">... </span>    <span class="p">{</span><span class="s2">"celsius_to_fahrenheit"</span><span class="p">:</span> <span class="n">celsius_to_fahrenheit</span><span class="p">},</span>
+<span class="linenos"> 5</span><span class="gp">... </span>    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 6</span><span class="gp">... </span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="go">32.0</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">212.0</span>
 </pre></div>
 </div>
 <p><strong>ដំណើរការពីបន្ទាត់ពាក្យបញ្ជា៖</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>doctest<span class="w"> </span>-v<span class="w"> </span>temperature.py
-<span class="go">Trying:</span>
-<span class="go">    celsius_to_fahrenheit(0)</span>
-<span class="go">Expecting:</span>
-<span class="go">    32.0</span>
-<span class="go">ok</span>
-<span class="go">1 items passed all tests</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>doctest<span class="w"> </span>-v<span class="w"> </span>temperature.py
+<span class="linenos">2</span><span class="go">Trying:</span>
+<span class="linenos">3</span><span class="go">    celsius_to_fahrenheit(0)</span>
+<span class="linenos">4</span><span class="go">Expecting:</span>
+<span class="linenos">5</span><span class="go">    32.0</span>
+<span class="linenos">6</span><span class="go">ok</span>
+<span class="linenos">7</span><span class="go">1 items passed all tests</span>
 </pre></div>
 </div>
 <table class="docutils align-default" id="id16">
@@ -318,64 +323,64 @@ docstring របស់អ្នកនឹងមិនអាចខុសពីក�
 <span id="id6"></span><h3>ឧទាហរណ៍ពេញលេញ<a class="headerlink" href="#unittest-example" title="Link to this heading"></a></h3>
 <div class="literal-block-wrapper docutils container" id="id17">
 <div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">test_calculator.py</span></code></span><a class="headerlink" href="#id17" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""ឧទាហរណ៍ unit test សម្រាប់ម៉ាស៊ីនគិតលេខសាមញ្ញ។"""</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""បូកលេខពីរ។"""</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""គុណលេខពីរ។"""</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ចែកលេខពីរ។ បញ្ចេញ ZeroDivisionError បើ b == 0។"""</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">TestCalculator</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""សាកល្បងអនុគមន៍គណនា។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs</span><span class="p">:</span>
-            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">subTest</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">expected</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_divide_by_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">):</span>
-            <span class="n">divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_divide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mf">0.3333333</span><span class="p">,</span> <span class="n">places</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">"""ឧទាហរណ៍ unit test សម្រាប់ម៉ាស៊ីនគិតលេខសាមញ្ញ។"""</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="sd">"""បូកលេខពីរ។"""</span>
+<span class="linenos"> 8</span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">12</span><span class="w">    </span><span class="sd">"""គុណលេខពីរ។"""</span>
+<span class="linenos">13</span>    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">17</span><span class="w">    </span><span class="sd">"""ចែកលេខពីរ។ បញ្ចេញ ZeroDivisionError បើ b == 0។"""</span>
+<span class="linenos">18</span>    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="k">class</span><span class="w"> </span><span class="nc">TestCalculator</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos">22</span><span class="w">    </span><span class="sd">"""សាកល្បងអនុគមន៍គណនា។"""</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span>    <span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)]</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">28</span>        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pairs</span><span class="p">:</span>
+<span class="linenos">29</span>            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">subTest</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">):</span>
+<span class="linenos">30</span>                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">expected</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">33</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span>
+<span class="linenos">34</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">35</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_divide_by_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">38</span>        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">):</span>
+<span class="linenos">39</span>            <span class="n">divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_divide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">42</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mf">0.3333333</span><span class="p">,</span> <span class="n">places</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="linenos">46</span>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_calculator<span class="w"> </span>-v
-<span class="go">test_add (test_calculator.TestCalculator.test_add) ... ok</span>
-<span class="go">test_divide_by_zero (test_calculator.TestCalculator.test_divide_by_zero) ... ok</span>
-<span class="go">test_multiply (test_calculator.TestCalculator.test_multiply) ... ok</span>
-
-<span class="go">----------------------------------------------------------------------</span>
-<span class="go">Ran 3 tests in 0.000s</span>
-
-<span class="go">OK</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_calculator<span class="w"> </span>-v
+<span class="linenos">2</span><span class="go">test_add (test_calculator.TestCalculator.test_add) ... ok</span>
+<span class="linenos">3</span><span class="go">test_divide_by_zero (test_calculator.TestCalculator.test_divide_by_zero) ... ok</span>
+<span class="linenos">4</span><span class="go">test_multiply (test_calculator.TestCalculator.test_multiply) ... ok</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="go">----------------------------------------------------------------------</span>
+<span class="linenos">7</span><span class="go">Ran 3 tests in 0.000s</span>
+<span class="linenos">8</span>
+<span class="linenos">9</span><span class="go">OK</span>
 </pre></div>
 </div>
 </section>
@@ -461,26 +466,26 @@ docstring របស់អ្នកនឹងមិនអាចខុសពីក�
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">TestAssertions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_floats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># ❌ មិនអាចទុកចិត្ត: 0.1 + 0.2 != 0.3</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">places</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_exceptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">):</span>
-            <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaisesRegex</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="s2">"invalid literal"</span><span class="p">):</span>
-            <span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_containers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">TestAssertions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_floats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 7</span>        <span class="c1"># ❌ មិនអាចទុកចិត្ត: 0.1 + 0.2 != 0.3</span>
+<span class="linenos"> 8</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">places</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_exceptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">12</span>        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">):</span>
+<span class="linenos">13</span>            <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="linenos">14</span>        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaisesRegex</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="s2">"invalid literal"</span><span class="p">):</span>
+<span class="linenos">15</span>            <span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_containers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="linenos">19</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="linenos">20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -492,46 +497,46 @@ docstring របស់អ្នកនឹងមិនអាចខុសពីក�
 </section>
 <section id="setup-teardown">
 <span id="id8"></span><h3><code class="docutils literal notranslate"><span class="pre">setUp</span></code> និង <code class="docutils literal notranslate"><span class="pre">tearDown</span></code><a class="headerlink" href="#setup-teardown" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">TestFileOps</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""ដំណើរការមុន test នីមួយៗ។"""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"test_data.txt"</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tmp</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកា"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""ដំណើរការក្រោយ test នីមួយៗ — សូម្បីតែបើ test បរាជ័យ។"""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tmp</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="s2">"មាតិកា"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">TestFileOps</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="sd">"""ដំណើរការមុន test នីមួយៗ។"""</span>
+<span class="linenos"> 8</span>        <span class="bp">self</span><span class="o">.</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"test_data.txt"</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">tmp</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"មាតិកា"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">12</span><span class="w">        </span><span class="sd">"""ដំណើរការក្រោយ test នីមួយៗ — សូម្បីតែបើ test បរាជ័យ។"""</span>
+<span class="linenos">13</span>        <span class="bp">self</span><span class="o">.</span><span class="n">tmp</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">16</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="s2">"មាតិកា"</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>ប្រើ <code class="docutils literal notranslate"><span class="pre">addCleanup()</span></code> ឬ context manager ជំនួស <code class="docutils literal notranslate"><span class="pre">tearDown</span></code> បើអ្នកមាន
 ការសម្អាតច្រើន — វាដំណើរការតាមលំដាប់ច្រាស (LIFO) ហើយមិនអាចបំភ្លេចបាន៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
+<span class="linenos">3</span>    <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </section>
 <section id="subtest-test">
 <span id="subtest"></span><h3><code class="docutils literal notranslate"><span class="pre">subTest</span></code> — សាកល្បងករណីច្រើនក្នុង test មួយ<a class="headerlink" href="#subtest-test" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">TestIsEven</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_many_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">cases</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]</span>
-        <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
-            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">subTest</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">class</span><span class="w"> </span><span class="nc">TestIsEven</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos">5</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_many_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">6</span>        <span class="n">cases</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="linenos">7</span>        <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+<span class="linenos">8</span>            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">subTest</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">):</span>
+<span class="linenos">9</span>                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -543,26 +548,26 @@ docstring របស់អ្នកនឹងមិនអាចខុសពីក�
 </section>
 <section id="skip">
 <span id="id9"></span><h3>ការរំលង និងកំហុសដែលរំពឹងទុក<a class="headerlink" href="#skip" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">TestSkips</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">"មិនទាន់អនុវត្ត"</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_future_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">"មិនគួរដំណើរការ"</span><span class="p">)</span>
-
-    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skipIf</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">"win32"</span><span class="p">,</span> <span class="s2">"Unix តែប៉ុណ្ណោះ"</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_unix_only</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skipUnless</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="s2">"ត្រូវការ 3.12+"</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_modern_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-    <span class="nd">@unittest</span><span class="o">.</span><span class="n">expectedFailure</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_known_bug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>          <span class="c1"># រំពឹងថាបរាជ័យ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">TestSkips</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">"មិនទាន់អនុវត្ត"</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_future_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 8</span>        <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">"មិនគួរដំណើរការ"</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skipIf</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">"win32"</span><span class="p">,</span> <span class="s2">"Unix តែប៉ុណ្ណោះ"</span><span class="p">)</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_unix_only</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">12</span>        <span class="k">pass</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skipUnless</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="s2">"ត្រូវការ 3.12+"</span><span class="p">)</span>
+<span class="linenos">15</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_modern_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">16</span>        <span class="k">pass</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="nd">@unittest</span><span class="o">.</span><span class="n">expectedFailure</span>
+<span class="linenos">19</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_known_bug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>          <span class="c1"># រំពឹងថាបរាជ័យ</span>
 </pre></div>
 </div>
 </section>
@@ -571,25 +576,25 @@ docstring របស់អ្នកនឹងមិនអាចខុសពីក�
 <span id="mock"></span><h2><code class="docutils literal notranslate"><span class="pre">unittest.mock</span></code> — ជំនួស dependency<a class="headerlink" href="#unittest-mock-dependency" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">mock</span></code> អនុញ្ញាតឱ្យអ្នកជំនួស object ពិត (API, database, ពេលវេលា)
 ដោយ object ក្លែងដែលអ្នកគ្រប់គ្រងបាន៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">unittest</span><span class="w"> </span><span class="kn">import</span> <span class="n">mock</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">fetch_temperature</span><span class="p">(</span><span class="n">city</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""ហៅ API អាកាសធាតុ (ឧទាហរណ៍)។"""</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
-
-    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="sa">f</span><span class="s2">"https://api.example.com/</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">unittest</span><span class="w"> </span><span class="kn">import</span> <span class="n">mock</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">def</span><span class="w"> </span><span class="nf">fetch_temperature</span><span class="p">(</span><span class="n">city</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="linenos">5</span><span class="w">    </span><span class="sd">"""ហៅ API អាកាសធាតុ (ឧទាហរណ៍)។"""</span>
+<span class="linenos">6</span>    <span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span>    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="sa">f</span><span class="s2">"https://api.example.com/</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+<span class="linenos">9</span>        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">"urllib.request.urlopen"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fake</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">fake</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="fm">__enter__</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"27.5"</span>
-<span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">fetch_temperature</span><span class="p">(</span><span class="s2">"phnom-penh"</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span>
-<span class="go">27.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fake</span><span class="o">.</span><span class="n">called</span><span class="p">,</span> <span class="n">fake</span><span class="o">.</span><span class="n">call_count</span>
-<span class="go">(True, 1)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">"urllib.request.urlopen"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fake</span><span class="p">:</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="n">fake</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="fm">__enter__</span><span class="o">.</span><span class="n">return_value</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"27.5"</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">fetch_temperature</span><span class="p">(</span><span class="s2">"phnom-penh"</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span>
+<span class="linenos">6</span><span class="go">27.5</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">fake</span><span class="o">.</span><span class="n">called</span><span class="p">,</span> <span class="n">fake</span><span class="o">.</span><span class="n">call_count</span>
+<span class="linenos">8</span><span class="go">(True, 1)</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -639,20 +644,20 @@ argument ជំនួសការហៅវាដោយផ្ទាល់។</p>
 </section>
 <section id="test">
 <span id="running-tests"></span><h2>ការដំណើរការ Test<a class="headerlink" href="#test" title="Link to this heading"></a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>ស្វែងរក<span class="w"> </span>និងដំណើរការ<span class="w"> </span><span class="nb">test</span><span class="w"> </span>ទាំងអស់
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
-
-<span class="gp"># </span>ឯកសារជាក់លាក់
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_calculator
-
-<span class="gp"># </span>class<span class="w"> </span>ឬ<span class="w"> </span>method<span class="w"> </span>ជាក់លាក់
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_calculator.TestCalculator.test_add
-
-<span class="gp"># </span>លម្អិត
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>-v
-
-<span class="gp"># </span>ឈប់នៅកំហុសដំបូង
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>--failfast
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp"># </span>ស្វែងរក<span class="w"> </span>និងដំណើរការ<span class="w"> </span><span class="nb">test</span><span class="w"> </span>ទាំងអស់
+<span class="linenos"> 2</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="gp"># </span>ឯកសារជាក់លាក់
+<span class="linenos"> 5</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_calculator
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="gp"># </span>class<span class="w"> </span>ឬ<span class="w"> </span>method<span class="w"> </span>ជាក់លាក់
+<span class="linenos"> 8</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_calculator.TestCalculator.test_add
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="gp"># </span>លម្អិត
+<span class="linenos">11</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>-v
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp"># </span>ឈប់នៅកំហុសដំបូង
+<span class="linenos">14</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>--failfast
 </pre></div>
 </div>
 </section>
@@ -660,39 +665,39 @@ argument ជំនួសការហៅវាដោយផ្ទាល់។</p>
 <span id="id10"></span><h2><code class="docutils literal notranslate"><span class="pre">pytest</span></code> (ភាគីទីបី)<a class="headerlink" href="#pytest" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pytest</span></code> គឺជា framework ដែលពេញនិយមបំផុតក្នុងសហគមន៍ Python។
 វាដំណើរការ test <code class="docutils literal notranslate"><span class="pre">unittest</span></code> បានដែរ ប៉ុន្តែផ្ដល់វាក្យសម្ពន្ធសាមញ្ញជាង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># test_example.py — pytest style</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_add</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_add_negative</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span>
-
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"value, expected"</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">)])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">test_square</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">value</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">expected</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># test_example.py — សរសេរតាមស្ទីល pytest</span>
+<span class="linenos"> 2</span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos"> 3</span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">def</span><span class="w"> </span><span class="nf">test_add</span><span class="p">():</span>
+<span class="linenos"> 7</span>    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">def</span><span class="w"> </span><span class="nf">test_add_negative</span><span class="p">():</span>
+<span class="linenos">11</span>    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"value, expected"</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">)])</span>
+<span class="linenos">18</span><span class="k">def</span><span class="w"> </span><span class="nf">test_square</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<span class="linenos">19</span>    <span class="k">assert</span> <span class="n">value</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">expected</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pytest
-<span class="gp">$ </span>pytest<span class="w"> </span>-v
-<span class="go">============================= test session starts ==============================</span>
-<span class="go">collected 5 items</span>
-
-<span class="go">test_example.py::test_add PASSED</span>
-<span class="go">test_example.py::test_add_negative PASSED</span>
-<span class="go">test_example.py::test_square[0-0] PASSED</span>
-<span class="go">test_example.py::test_square[1-1] PASSED</span>
-<span class="go">test_example.py::test_square[5-25] PASSED</span>
-
-<span class="go">=============================== 5 passed in 0.02s ===============================</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pytest
+<span class="linenos"> 2</span><span class="gp">$ </span>pytest<span class="w"> </span>-v
+<span class="linenos"> 3</span><span class="go">============================= test session starts ==============================</span>
+<span class="linenos"> 4</span><span class="go">collected 5 items</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="go">test_example.py::test_add PASSED</span>
+<span class="linenos"> 7</span><span class="go">test_example.py::test_add_negative PASSED</span>
+<span class="linenos"> 8</span><span class="go">test_example.py::test_square[0-0] PASSED</span>
+<span class="linenos"> 9</span><span class="go">test_example.py::test_square[1-1] PASSED</span>
+<span class="linenos">10</span><span class="go">test_example.py::test_square[5-25] PASSED</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="go">=============================== 5 passed in 0.02s ===============================</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -747,14 +752,14 @@ argument ជំនួសការហៅវាដោយផ្ទាល់។</p>
 <section id="code-coverage">
 <span id="coverage"></span><h3>Code Coverage<a class="headerlink" href="#code-coverage" title="Link to this heading"></a></h3>
 <p>Coverage វាស់ថា <strong>ប៉ុន្មានភាគរយ</strong> នៃកូដរបស់អ្នកត្រូវបានសាកល្បង៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>coverage
-<span class="gp">$ </span>coverage<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
-<span class="gp">$ </span>coverage<span class="w"> </span>report<span class="w"> </span>-m
-<span class="go">Name                  Stmts   Miss  Cover   Missing</span>
-<span class="go">---------------------------------------------------</span>
-<span class="go">calculator.py            42      4    90%   38-41</span>
-<span class="go">---------------------------------------------------</span>
-<span class="go">TOTAL                    42      4    90%</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>coverage
+<span class="linenos">2</span><span class="gp">$ </span>coverage<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
+<span class="linenos">3</span><span class="gp">$ </span>coverage<span class="w"> </span>report<span class="w"> </span>-m
+<span class="linenos">4</span><span class="go">Name                  Stmts   Miss  Cover   Missing</span>
+<span class="linenos">5</span><span class="go">---------------------------------------------------</span>
+<span class="linenos">6</span><span class="go">calculator.py            42      4    90%   38-41</span>
+<span class="linenos">7</span><span class="go">---------------------------------------------------</span>
+<span class="linenos">8</span><span class="go">TOTAL                    42      4    90%</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -780,21 +785,21 @@ argument ជំនួសការហៅវាដោយផ្ទាល់។</p>
 </section>
 <section id="pdb-python-debugger">
 <span id="pdb"></span><h3><code class="docutils literal notranslate"><span class="pre">pdb</span></code> — Python Debugger<a class="headerlink" href="#pdb-python-debugger" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">buggy_average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-    <span class="nb">breakpoint</span><span class="p">()</span>                 <span class="c1"># ឈប់នៅទីនេះ ហើយបើក pdb</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">buggy_average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="nb">breakpoint</span><span class="p">()</span>                 <span class="c1"># ឈប់នៅទីនេះ ហើយបើក pdb</span>
+<span class="linenos">3</span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>app.py
-<span class="go">&gt; /home/user/app.py(3)buggy_average()</span>
-<span class="go">-&gt; return sum(numbers) / len(numbers)</span>
-<span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">numbers</span>
-<span class="go">[1, 2, 3]</span>
-<span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">len(numbers)</span>
-<span class="go">3</span>
-<span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">sum(numbers)</span>
-<span class="go">6</span>
-<span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">continue</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">$ </span>python3<span class="w"> </span>app.py
+<span class="linenos"> 2</span><span class="go">&gt; /home/user/app.py(3)buggy_average()</span>
+<span class="linenos"> 3</span><span class="go">-&gt; return sum(numbers) / len(numbers)</span>
+<span class="linenos"> 4</span><span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">numbers</span>
+<span class="linenos"> 5</span><span class="go">[1, 2, 3]</span>
+<span class="linenos"> 6</span><span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">len(numbers)</span>
+<span class="linenos"> 7</span><span class="go">3</span>
+<span class="linenos"> 8</span><span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">sum(numbers)</span>
+<span class="linenos"> 9</span><span class="go">6</span>
+<span class="linenos">10</span><span class="gp gp-VirtualEnv">(Pdb)</span> <span class="go">continue</span>
 </pre></div>
 </div>
 <table class="docutils align-default" id="id18">
@@ -862,18 +867,18 @@ argument ជំនួសការហៅវាដោយផ្ទាល់។</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>ចាប់ផ្ដើង debugger ដោយផ្ទាល់លើ script៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>pdb<span class="w"> </span>app.py<span class="w">            </span><span class="c1"># ឈប់នៅបន្ទាត់ដំបូង</span>
-<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>pdb<span class="w"> </span>-c<span class="w"> </span><span class="k">continue</span><span class="w"> </span>app.py<span class="w">  </span><span class="c1"># ដំណើរការរហូតដល់កំហុស</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>pdb<span class="w"> </span>app.py<span class="w">            </span><span class="c1"># ឈប់នៅបន្ទាត់ដំបូង</span>
+<span class="linenos">2</span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>pdb<span class="w"> </span>-c<span class="w"> </span><span class="k">continue</span><span class="w"> </span>app.py<span class="w">  </span><span class="c1"># ដំណើរការរហូតដល់កំហុស</span>
 </pre></div>
 </div>
 <p><strong>Post-mortem debugging</strong> — ស៊ើបអង្កេតកំហុសដែលបានកើតឡើងរួច៖</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import pdb, sys; ..."</span>
-<span class="go">&gt;&gt;&gt; import pdb</span>
-<span class="go">&gt;&gt;&gt; try:</span>
-<span class="go">...     1 / 0</span>
-<span class="go">... except ZeroDivisionError:</span>
-<span class="go">...     pdb.post_mortem()</span>
-<span class="go">...</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import pdb, sys; ..."</span>
+<span class="linenos">2</span><span class="go">&gt;&gt;&gt; import pdb</span>
+<span class="linenos">3</span><span class="go">&gt;&gt;&gt; try:</span>
+<span class="linenos">4</span><span class="go">...     1 / 0</span>
+<span class="linenos">5</span><span class="go">... except ZeroDivisionError:</span>
+<span class="linenos">6</span><span class="go">...     pdb.post_mortem()</span>
+<span class="linenos">7</span><span class="go">...</span>
 </pre></div>
 </div>
 </div>
@@ -914,11 +919,11 @@ argument ជំនួសការហៅវាដោយផ្ទាល់។</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Development<span class="w"> </span>mode<span class="w"> </span>—<span class="w"> </span>បើក<span class="w"> </span>warning<span class="w"> </span>និងការពិនិត្យបន្ថែម
-<span class="gp">$ </span>python3<span class="w"> </span>-X<span class="w"> </span>dev<span class="w"> </span>app.py
-
-<span class="gp"># </span>បើក<span class="w"> </span>faulthandler<span class="w"> </span>ដោយស្វ័យប្រវត្តិ
-<span class="gp">$ </span><span class="nv">PYTHONFAULTHANDLER</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python3<span class="w"> </span>app.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp"># </span>Development<span class="w"> </span>mode<span class="w"> </span>—<span class="w"> </span>បើក<span class="w"> </span>warning<span class="w"> </span>និងការពិនិត្យបន្ថែម
+<span class="linenos">2</span><span class="gp">$ </span>python3<span class="w"> </span>-X<span class="w"> </span>dev<span class="w"> </span>app.py
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="gp"># </span>បើក<span class="w"> </span>faulthandler<span class="w"> </span>ដោយស្វ័យប្រវត្តិ
+<span class="linenos">5</span><span class="gp">$ </span><span class="nv">PYTHONFAULTHANDLER</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python3<span class="w"> </span>app.py
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -932,17 +937,17 @@ argument ជំនួសការហៅវាដោយផ្ទាល់។</p>
 <span id="testing-best-practices"></span><h2>Best Practices សរុប<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
 <section id="the-zen-of-python">
 <span id="zen"></span><h3>The Zen of Python<a class="headerlink" href="#the-zen-of-python" title="Link to this heading"></a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import this"</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import this"</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-...
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>Beautiful is better than ugly.
+<span class="linenos">2</span>Explicit is better than implicit.
+<span class="linenos">3</span>Simple is better than complex.
+<span class="linenos">4</span>Complex is better than complicated.
+<span class="linenos">5</span>Flat is better than nested.
+<span class="linenos">6</span>Sparse is better than dense.
+<span class="linenos">7</span>Readability counts.
+<span class="linenos">8</span>...
 </pre></div>
 </div>
 <p>គោលការណ៍សំខាន់ៗដែលអនុវត្តបានភ្លាម៖</p>
@@ -1020,22 +1025,22 @@ Readability counts.
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ មិនតាម PEP 8</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">CalculateTotal</span><span class="p">(</span> <span class="n">Items</span><span class="p">,</span><span class="n">tax_rate</span> <span class="o">=</span><span class="mf">0.1</span> <span class="p">):</span>
-    <span class="n">Total</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Items</span><span class="p">:</span><span class="n">Total</span><span class="o">=</span><span class="n">Total</span><span class="o">+</span><span class="n">i</span>
-    <span class="k">return</span> <span class="n">Total</span><span class="o">*</span><span class="n">tax_rate</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ❌ មិនតាម PEP 8</span>
+<span class="linenos">2</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos">3</span><span class="k">def</span><span class="w"> </span><span class="nf">CalculateTotal</span><span class="p">(</span> <span class="n">Items</span><span class="p">,</span><span class="n">tax_rate</span> <span class="o">=</span><span class="mf">0.1</span> <span class="p">):</span>
+<span class="linenos">4</span>    <span class="n">Total</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">5</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Items</span><span class="p">:</span><span class="n">Total</span><span class="o">=</span><span class="n">Total</span><span class="o">+</span><span class="n">i</span>
+<span class="linenos">6</span>    <span class="k">return</span> <span class="n">Total</span><span class="o">*</span><span class="n">tax_rate</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ តាម PEP 8</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">calculate_total</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Decimal</span><span class="p">],</span> <span class="n">tax_rate</span><span class="p">:</span> <span class="n">Decimal</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.1"</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Decimal</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""ត្រឡប់ផលបូករួមពន្ធ។"""</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">total</span> <span class="o">*</span> <span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ✅ តាម PEP 8</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_total</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Decimal</span><span class="p">],</span> <span class="n">tax_rate</span><span class="p">:</span> <span class="n">Decimal</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">"0.1"</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Decimal</span><span class="p">:</span>
+<span class="linenos">6</span><span class="w">    </span><span class="sd">"""ត្រឡប់ផលបូករួមពន្ធ។"""</span>
+<span class="linenos">7</span>    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="linenos">8</span>    <span class="k">return</span> <span class="n">total</span> <span class="o">*</span> <span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1072,42 +1077,42 @@ Readability counts.
 </tr>
 </tbody>
 </table>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># .pre-commit-config.yaml</span>
-<span class="nt">repos</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/astral-sh/ruff-pre-commit</span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v0.6.9</span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruff</span>
-<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--fix</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruff-format</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-mypy</span>
-<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.11.2</span>
-<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mypy</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># .pre-commit-config.yaml</span>
+<span class="linenos"> 2</span><span class="nt">repos</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/astral-sh/ruff-pre-commit</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v0.6.9</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruff</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">--fix</span><span class="p p-Indicator">]</span>
+<span class="linenos"> 8</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ruff-format</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-mypy</span>
+<span class="linenos">10</span><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.11.2</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="linenos">12</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mypy</span>
 </pre></div>
 </div>
 </section>
 <section id="project-layout">
 <span id="id14"></span><h3>រចនាសម្ព័ន្ធគម្រោង<a class="headerlink" href="#project-layout" title="Link to this heading"></a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my-project/
-├── .gitignore
-├── .pre-commit-config.yaml
-├── README.md
-├── LICENSE
-├── pyproject.toml
-├── requirements.txt          (ឬ uv.lock / poetry.lock)
-├── src/
-│   └── my_project/           ← package ពិត
-│       ├── __init__.py
-│       ├── cli.py
-│       ├── core.py
-│       └── py.typed          ← បញ្ជាក់ថាមាន type hints
-├── tests/
-│   ├── __init__.py
-│   ├── test_core.py
-│   └── test_cli.py
-└── docs/
-    └── ...
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>my-project/
+<span class="linenos"> 2</span>├── .gitignore
+<span class="linenos"> 3</span>├── .pre-commit-config.yaml
+<span class="linenos"> 4</span>├── README.md
+<span class="linenos"> 5</span>├── LICENSE
+<span class="linenos"> 6</span>├── pyproject.toml
+<span class="linenos"> 7</span>├── requirements.txt          (ឬ uv.lock / poetry.lock)
+<span class="linenos"> 8</span>├── src/
+<span class="linenos"> 9</span>│   └── my_project/           ← package ពិត
+<span class="linenos">10</span>│       ├── __init__.py
+<span class="linenos">11</span>│       ├── cli.py
+<span class="linenos">12</span>│       ├── core.py
+<span class="linenos">13</span>│       └── py.typed          ← បញ្ជាក់ថាមាន type hints
+<span class="linenos">14</span>├── tests/
+<span class="linenos">15</span>│   ├── __init__.py
+<span class="linenos">16</span>│   ├── test_core.py
+<span class="linenos">17</span>│   └── test_cli.py
+<span class="linenos">18</span>└── docs/
+<span class="linenos">19</span>    └── ...
 </pre></div>
 </div>
 <div class="admonition note">

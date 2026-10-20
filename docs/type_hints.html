@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/type_hints.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -217,13 +222,13 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>Python មិនរារាំងទេ</strong> បើអ្នកបញ្ជូនប្រភេទខុស៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span>            <span class="c1"># មិនមានកំហុសទេ!</span>
-<span class="go">'abab'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos">2</span><span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos">3</span><span class="gp">...</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">5</span><span class="go">10</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span>            <span class="c1"># មិនមានកំហុសទេ!</span>
+<span class="linenos">7</span><span class="go">'abab'</span>
 </pre></div>
 </div>
 <p>Type hint គឺជា <strong>ឯកសារដែលម៉ាស៊ីនអានបាន</strong> មិនមែនជាការត្រួតពិនិត្យ
@@ -233,27 +238,27 @@ type checker (<code class="docutils literal notranslate"><span class="pre">mypy<
 </section>
 <section id="basic-syntax">
 <span id="id4"></span><h2>វាក្យសម្ពន្ធមូលដ្ឋាន<a class="headerlink" href="#basic-syntax" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameter និងតម្លៃត្រឡប់</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! "</span> <span class="o">*</span> <span class="n">times</span>
-
-
-<span class="c1"># អថេរ</span>
-<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"timeout"</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
-
-<span class="c1"># ប្រកាសដោយមិនផ្ដល់តម្លៃ</span>
-<span class="n">total</span><span class="p">:</span> <span class="nb">float</span>
-
-<span class="c1"># ថេរកម្រិត module</span>
-<span class="n">MAX_RETRIES</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Parameter និងតម្លៃត្រឡប់</span>
+<span class="linenos"> 2</span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos"> 3</span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! "</span> <span class="o">*</span> <span class="n">times</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># អថេរ</span>
+<span class="linenos"> 7</span><span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 8</span><span class="n">names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 9</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"timeout"</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># ប្រកាសដោយមិនផ្ដល់តម្លៃ</span>
+<span class="linenos">12</span><span class="n">total</span><span class="p">:</span> <span class="nb">float</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># ថេរកម្រិត module</span>
+<span class="linenos">15</span><span class="n">MAX_RETRIES</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__annotations__</span>
-<span class="go">{'name': &lt;class 'str'&gt;, 'times': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="go">'int'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__annotations__</span>
+<span class="linenos">2</span><span class="go">{'name': &lt;class 'str'&gt;, 'times': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="linenos">4</span><span class="go">'int'</span>
 </pre></div>
 </div>
 </section>
@@ -306,13 +311,13 @@ type checker (<code class="docutils literal notranslate"><span class="pre">mypy<
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">top_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">"""ត្រឡប់ពិន្ទុខ្ពស់បំផុត n ។"""</span>
-    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span> <span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">top_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="linenos">2</span><span class="w">    </span><span class="sd">"""ត្រឡប់ពិន្ទុខ្ពស់បំផុត n ។"""</span>
+<span class="linenos">3</span>    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span> <span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">top_scores</span><span class="p">({</span><span class="s2">"math"</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span> <span class="s2">"physics"</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">"chem"</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s2">"bio"</span><span class="p">:</span> <span class="mi">95</span><span class="p">},</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">[('bio', 95), ('physics', 92)]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">top_scores</span><span class="p">({</span><span class="s2">"math"</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span> <span class="s2">"physics"</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">"chem"</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s2">"bio"</span><span class="p">:</span> <span class="mi">95</span><span class="p">},</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">2</span><span class="go">[('bio', 95), ('physics', 92)]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -327,21 +332,21 @@ built-in។</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.10: </span>សញ្ញា <code class="docutils literal notranslate"><span class="pre">|</span></code> ជំនួស <code class="docutils literal notranslate"><span class="pre">typing.Union</span></code>។</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
-
-
-<span class="c1"># ទម្រង់ថ្មី (3.10+) — ណែនាំ</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">find_user</span><span class="p">(</span><span class="n">uid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>      <span class="c1"># អាចរកមិនឃើញ</span>
-    <span class="o">...</span>
-
-
-<span class="c1"># ទម្រង់ចាស់</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">parse_old</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">find_user_old</span><span class="p">(</span><span class="n">uid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">User</span><span class="p">]:</span> <span class="o">...</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># ទម្រង់ថ្មី (3.10+) — ណែនាំ</span>
+<span class="linenos"> 5</span><span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos"> 6</span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span><span class="w"> </span><span class="nf">find_user</span><span class="p">(</span><span class="n">uid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>      <span class="c1"># អាចរកមិនឃើញ</span>
+<span class="linenos">10</span>    <span class="o">...</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># ទម្រង់ចាស់</span>
+<span class="linenos">14</span><span class="k">def</span><span class="w"> </span><span class="nf">parse_old</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+<span class="linenos">15</span><span class="k">def</span><span class="w"> </span><span class="nf">find_user_old</span><span class="p">(</span><span class="n">uid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">User</span><span class="p">]:</span> <span class="o">...</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -374,11 +379,11 @@ built-in។</p>
 <p><code class="docutils literal notranslate"><span class="pre">Optional[X]</span></code> <strong>មិនមានន័យថា parameter នេះមិនចាំបាច់</strong> ទេ។
 វាមានន័យថាតម្លៃអាចជា <code class="docutils literal notranslate"><span class="pre">None</span></code>។ ដើម្បីធ្វើឱ្យ parameter មិនចាំបាច់
 អ្នកត្រូវផ្ដល់ <strong>តម្លៃលំនាំដើម</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ត្រូវបញ្ជូន name ជានិច្ច (ប៉ុន្តែអាចជា None)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
-
-<span class="c1"># មិនចាំបាច់បញ្ជូន name</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ត្រូវបញ្ជូន name ជានិច្ច (ប៉ុន្តែអាចជា None)</span>
+<span class="linenos">2</span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1"># មិនចាំបាច់បញ្ជូន name</span>
+<span class="linenos">5</span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
 </pre></div>
 </div>
 </div>
@@ -410,21 +415,21 @@ built-in។</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Never</span><span class="p">,</span> <span class="n">NoReturn</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">fail</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Never</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""មិនដែលត្រឡប់ទេ។"""</span>
-    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">quit_app</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Never</span><span class="p">,</span> <span class="n">NoReturn</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span><span class="w"> </span><span class="nf">fail</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Never</span><span class="p">:</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="sd">"""មិនដែលត្រឡប់ទេ។"""</span>
+<span class="linenos"> 7</span>    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">def</span><span class="w"> </span><span class="nf">quit_app</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -435,18 +440,18 @@ built-in។</p>
 </section>
 <section id="callable">
 <span id="id6"></span><h2><code class="docutils literal notranslate"><span class="pre">Callable</span></code><a class="headerlink" href="#callable" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">],</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">apply</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>          <span class="c1"># 7</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">],</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos"> 9</span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">result</span> <span class="o">=</span> <span class="n">apply</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>          <span class="c1"># 7</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -483,44 +488,44 @@ built-in។</p>
 </section>
 <section id="literal-final-type-alias">
 <span id="literal-final"></span><h2><code class="docutils literal notranslate"><span class="pre">Literal</span></code>, <code class="docutils literal notranslate"><span class="pre">Final</span></code> និង Type Alias<a class="headerlink" href="#literal-final-type-alias" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Literal</span>
-
-<span class="c1"># តម្លៃជាក់លាក់តែប៉ុណ្ណោះ</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">set_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"write"</span><span class="p">,</span> <span class="s2">"append"</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="o">...</span>
-
-
-<span class="n">set_mode</span><span class="p">(</span><span class="s2">"read"</span><span class="p">)</span>        <span class="c1"># ✅</span>
-<span class="n">set_mode</span><span class="p">(</span><span class="s2">"delete"</span><span class="p">)</span>      <span class="c1"># ❌ type checker បញ្ចេញកំហុស</span>
-
-<span class="c1"># ថេរដែលមិនគួរប្ដូរ</span>
-<span class="n">MAX_SIZE</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">1024</span>
-<span class="n">TIMEOUT</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">30.0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Literal</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># តម្លៃជាក់លាក់តែប៉ុណ្ណោះ</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">set_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"write"</span><span class="p">,</span> <span class="s2">"append"</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="o">...</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">set_mode</span><span class="p">(</span><span class="s2">"read"</span><span class="p">)</span>        <span class="c1"># ✅</span>
+<span class="linenos"> 9</span><span class="n">set_mode</span><span class="p">(</span><span class="s2">"delete"</span><span class="p">)</span>      <span class="c1"># ❌ type checker បញ្ចេញកំហុស</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># ថេរដែលមិនគួរប្ដូរ</span>
+<span class="linenos">12</span><span class="n">MAX_SIZE</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="linenos">13</span><span class="n">TIMEOUT</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">30.0</span>
 </pre></div>
 </div>
 <section id="type-alias">
 <span id="id7"></span><h3>Type Alias<a class="headerlink" href="#type-alias" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ទម្រង់ចាស់ — ការផ្ដល់តម្លៃធម្មតា</span>
-<span class="n">UserId</span> <span class="o">=</span> <span class="nb">int</span>
-<span class="n">Coordinates</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
-<span class="n">Matrix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
-
-<span class="c1"># ទម្រង់ថ្មី (3.12+) — PEP 695</span>
-<span class="nb">type</span> <span class="n">UserId</span> <span class="o">=</span> <span class="nb">int</span>
-<span class="nb">type</span> <span class="n">Coordinates</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
-<span class="nb">type</span> <span class="n">Matrix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
-<span class="nb">type</span> <span class="n">JsonValue</span> <span class="o">=</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s2">"JsonValue"</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">"JsonValue"</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ទម្រង់ចាស់ — ការផ្ដល់តម្លៃធម្មតា</span>
+<span class="linenos"> 2</span><span class="n">UserId</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="linenos"> 3</span><span class="n">Coordinates</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="linenos"> 4</span><span class="n">Matrix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># ទម្រង់ថ្មី (3.12+) — PEP 695</span>
+<span class="linenos"> 7</span><span class="nb">type</span> <span class="n">UserId</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="linenos"> 8</span><span class="nb">type</span> <span class="n">Coordinates</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="nb">type</span> <span class="n">Matrix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
+<span class="linenos">10</span><span class="nb">type</span> <span class="n">JsonValue</span> <span class="o">=</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s2">"JsonValue"</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">"JsonValue"</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.12: </span>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">type</span></code> (PEP 695)។ វាបង្កើត <code class="docutils literal notranslate"><span class="pre">TypeAliasType</span></code> object
 ដែល <strong>lazy</strong> និងអាចយោងទៅខ្លួនឯងបានដោយមិនចាំបាច់ខ្សែអក្សរ។</p>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span> <span class="n">Vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>          <span class="c1"># 3.12+</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Vec</span>                             <span class="c1"># TypeAliasType — repr ជាឈ្មោះ alias</span>
-<span class="go">Vec</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Vec</span><span class="o">.</span><span class="n">__value__</span>                   <span class="c1"># តម្លៃពិតនៅពីក្រោយ</span>
-<span class="go">list[float]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span> <span class="n">Vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>          <span class="c1"># 3.12+</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vec</span>                             <span class="c1"># TypeAliasType — repr ជាឈ្មោះ alias</span>
+<span class="linenos">3</span><span class="go">Vec</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vec</span><span class="o">.</span><span class="n">__value__</span>                   <span class="c1"># តម្លៃពិតនៅពីក្រោយ</span>
+<span class="linenos">5</span><span class="go">list[float]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -570,38 +575,38 @@ built-in។</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">NotRequired</span><span class="p">,</span> <span class="n">TypedDict</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">UserDict</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">email</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">UserTuple</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
-
-
-<span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">UserClass</span><span class="p">:</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">NotRequired</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">UserDict</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<span class="linenos"> 7</span>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="linenos"> 8</span>    <span class="n">email</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">class</span><span class="w"> </span><span class="nc">UserTuple</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="linenos">12</span>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<span class="linenos">13</span>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="linenos">14</span>    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="nd">@dataclass</span>
+<span class="linenos">18</span><span class="k">class</span><span class="w"> </span><span class="nc">UserClass</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<span class="linenos">20</span>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="linenos">21</span>    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u1</span><span class="p">:</span> <span class="n">UserDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">u1</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
-<span class="go">'សុខា'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">u2</span> <span class="o">=</span> <span class="n">UserTuple</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"ដារ៉ា"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">u2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">u2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">('ដារ៉ា', 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">u3</span> <span class="o">=</span> <span class="n">UserClass</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"សុភា"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">u3</span>
-<span class="go">UserClass(id=3, name='សុភា', email='')</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">u1</span><span class="p">:</span> <span class="n">UserDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">}</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">u1</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
+<span class="linenos">3</span><span class="go">'សុខា'</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">u2</span> <span class="o">=</span> <span class="n">UserTuple</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"ដារ៉ា"</span><span class="p">)</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">u2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">u2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">6</span><span class="go">('ដារ៉ា', 2)</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">u3</span> <span class="o">=</span> <span class="n">UserClass</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"សុភា"</span><span class="p">)</span>
+<span class="linenos">8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">u3</span>
+<span class="linenos">9</span><span class="go">UserClass(id=3, name='សុភា', email='')</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -620,36 +625,36 @@ type checker។</p>
 <p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Protocol</span></code> អនុញ្ញាតឱ្យអ្នកកំណត់ <strong>interface</strong> ដោយមិនចាំបាច់ inheritance៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
-
-
-<span class="nd">@runtime_checkable</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Drawable</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Object ណាក៏បានដែលមាន method draw()។"""</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>                          <span class="c1"># មិនបានប្រកាសថា implement ទេ</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"○"</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Square</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"□"</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Drawable</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shapes</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="nd">@runtime_checkable</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">Drawable</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="sd">"""Object ណាក៏បានដែលមាន method draw()។"""</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>                          <span class="c1"># មិនបានប្រកាសថា implement ទេ</span>
+<span class="linenos">12</span>    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="k">return</span> <span class="s2">"○"</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="k">class</span><span class="w"> </span><span class="nc">Square</span><span class="p">:</span>
+<span class="linenos">17</span>    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos">18</span>        <span class="k">return</span> <span class="s2">"□"</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Drawable</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos">22</span>    <span class="k">return</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shapes</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">render</span><span class="p">([</span><span class="n">Circle</span><span class="p">(),</span> <span class="n">Square</span><span class="p">()])</span>
-<span class="go">'○ □'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Circle</span><span class="p">(),</span> <span class="n">Drawable</span><span class="p">)</span>     <span class="c1"># ត្រូវការ @runtime_checkable</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="s2">"not drawable"</span><span class="p">,</span> <span class="n">Drawable</span><span class="p">)</span>
-<span class="go">False</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">render</span><span class="p">([</span><span class="n">Circle</span><span class="p">(),</span> <span class="n">Square</span><span class="p">()])</span>
+<span class="linenos">2</span><span class="go">'○ □'</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Circle</span><span class="p">(),</span> <span class="n">Drawable</span><span class="p">)</span>     <span class="c1"># ត្រូវការ @runtime_checkable</span>
+<span class="linenos">4</span><span class="go">True</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="s2">"not drawable"</span><span class="p">,</span> <span class="n">Drawable</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">False</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -665,60 +670,60 @@ type checker។</p>
 <section id="typevar-generic">
 <span id="typevar-generics"></span><h2>TypeVar និង Generic<a class="headerlink" href="#typevar-generic" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">TypeVar</span></code> អនុញ្ញាតឱ្យអ្នកសរសេរកូដដែល <strong>រក្សាប្រភេទ</strong> តាមរយៈការហៅ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ទម្រង់ចាស់</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Generic</span>
-
-<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"T"</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">first_old</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ទម្រង់ចាស់</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Generic</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"T"</span><span class="p">)</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="k">def</span><span class="w"> </span><span class="nf">first_old</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="linenos">8</span>    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ទម្រង់ថ្មី (3.12+) — PEP 695</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">first</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ទម្រង់ថ្មី (3.12+) — PEP 695</span>
+<span class="linenos"> 2</span><span class="k">def</span><span class="w"> </span><span class="nf">first</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="linenos"> 3</span>    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 8</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">11</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="linenos">14</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>          <span class="c1"># checker ដឹងថាត្រឡប់ int</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>         <span class="c1"># checker ដឹងថាត្រឡប់ str</span>
-<span class="go">'a'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>          <span class="c1"># checker ដឹងថាត្រឡប់ int</span>
+<span class="linenos">2</span><span class="go">1</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>         <span class="c1"># checker ដឹងថាត្រឡប់ str</span>
+<span class="linenos">4</span><span class="go">'a'</span>
 </pre></div>
 </div>
 <p><strong>ប្រៀបធៀបជាមួយ ``Any``៖</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">first_any</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>   <span class="c1"># ❌ បាត់បង់ព័ត៌មានប្រភេទ</span>
-    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">first_t</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>      <span class="c1"># ✅ រក្សាប្រភេទ</span>
-    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">def</span><span class="w"> </span><span class="nf">first_any</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>   <span class="c1"># ❌ បាត់បង់ព័ត៌មានប្រភេទ</span>
+<span class="linenos">5</span>    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="k">def</span><span class="w"> </span><span class="nf">first_t</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>      <span class="c1"># ✅ រក្សាប្រភេទ</span>
+<span class="linenos">9</span>    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">TypeVar</span></code> អាចមាន <strong>constraint</strong> ឬ <strong>bound</strong>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span>
-
-<span class="c1"># ត្រូវតែជាប្រភេទណាមួយក្នុងបញ្ជី</span>
-<span class="n">StrOrBytes</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"StrOrBytes"</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
-
-<span class="c1"># ត្រូវតែជា subclass នៃ bound</span>
-<span class="n">NumberT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"NumberT"</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="c1"># ត្រូវតែជាប្រភេទណាមួយក្នុងបញ្ជី</span>
+<span class="linenos">4</span><span class="n">StrOrBytes</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"StrOrBytes"</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="c1"># ត្រូវតែជា subclass នៃ bound</span>
+<span class="linenos">7</span><span class="n">NumberT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"NumberT"</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>PEP 695 ផ្ដល់វាក្យសម្ពន្ធខ្លីជាង៖ <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f[T:</span> <span class="pre">(str,</span> <span class="pre">bytes)](...)</span></code> និង
@@ -736,36 +741,36 @@ type checker។</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code> អនុញ្ញាតឱ្យ decorator រក្សា signature ពេញលេញនៃអនុគមន៍
 ដែលវា decorate៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParamSpec</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-
-<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">"P"</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"R"</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">logged</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">"""រក្សាទាំង parameter និងតម្លៃត្រឡប់។"""</span>
-
-    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ហៅ </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">wrapper</span>
-
-
-<span class="nd">@logged</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParamSpec</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">"P"</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">R</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"R"</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span><span class="w"> </span><span class="nf">logged</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span>
+<span class="linenos">10</span><span class="w">    </span><span class="sd">"""រក្សាទាំង parameter និងតម្លៃត្រឡប់។"""</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="p">:</span>
+<span class="linenos">14</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ហៅ </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="linenos">15</span>        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="nd">@logged</span>
+<span class="linenos">21</span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="linenos">22</span>    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">divide</span><span class="p">)</span>
-<span class="go">&lt;Signature (a: int, b: int) -&gt; float&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="go">ហៅ divide</span>
-<span class="go">2.5</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">divide</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">&lt;Signature (a: int, b: int) -&gt; float&gt;</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">5</span><span class="go">ហៅ divide</span>
+<span class="linenos">6</span><span class="go">2.5</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -779,30 +784,30 @@ parameter មួយ។</p>
 </section>
 <section id="self-classvar">
 <span id="id8"></span><h2><code class="docutils literal notranslate"><span class="pre">Self</span></code> និង <code class="docutils literal notranslate"><span class="pre">ClassVar</span></code><a class="headerlink" href="#self-classvar" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Self</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Builder</span><span class="p">:</span>
-    <span class="n">version</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"1.0"</span>      <span class="c1"># របស់ class មិនមែន instance</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">part</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>   <span class="c1"># ត្រឡប់ instance នៃ class បច្ចុប្បន្ន</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">SubBuilder</span><span class="p">(</span><span class="n">Builder</span><span class="p">):</span>
-    <span class="k">pass</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Self</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">Builder</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="n">version</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"1.0"</span>      <span class="c1"># របស់ class មិនមែន instance</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 8</span>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">part</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>   <span class="c1"># ត្រឡប់ instance នៃ class បច្ចុប្បន្ន</span>
+<span class="linenos">11</span>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+<span class="linenos">12</span>        <span class="k">return</span> <span class="bp">self</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="k">class</span><span class="w"> </span><span class="nc">SubBuilder</span><span class="p">(</span><span class="n">Builder</span><span class="p">):</span>
+<span class="linenos">16</span>    <span class="k">pass</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Builder</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># chaining</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">parts</span>
-<span class="go">['a', 'b']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">SubBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>                    <span class="c1"># ✅ SubBuilder មិនមែន Builder</span>
-<span class="go">'SubBuilder'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Builder</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># ហៅជាខ្សែ (chaining)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">parts</span>
+<span class="linenos">3</span><span class="go">['a', 'b']</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">SubBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>                    <span class="c1"># ✅ SubBuilder មិនមែន Builder</span>
+<span class="linenos">6</span><span class="go">'SubBuilder'</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -818,15 +823,15 @@ parameter មួយ។</p>
 <span id="id9"></span><h2><code class="docutils literal notranslate"><span class="pre">TypeGuard</span></code> និង <code class="docutils literal notranslate"><span class="pre">TypeIs</span></code><a class="headerlink" href="#typeguard-typeis" title="Link to this heading"></a></h2>
 <p><strong>Type narrowing</strong> — ប្រាប់ type checker ថាប្រភេទត្រូវបានកំណត់ច្បាស់
 ក្នុង scope មួយ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeGuard</span><span class="p">,</span> <span class="n">TypeIs</span><span class="p">,</span> <span class="n">assert_never</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">is_str_list_old</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">is_str_list</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TypeIs</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeGuard</span><span class="p">,</span> <span class="n">TypeIs</span><span class="p">,</span> <span class="n">assert_never</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">def</span><span class="w"> </span><span class="nf">is_str_list_old</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="linenos">5</span>    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="p">)</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="k">def</span><span class="w"> </span><span class="nf">is_str_list</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TypeIs</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="linenos">9</span>    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="p">)</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -855,18 +860,18 @@ parameter មួយ។</p>
 បំលែងប្រភេទទាំងស្រុង (ឧ. ពី JSON dict ទៅ dataclass)។</p>
 </div>
 <p><strong>Exhaustiveness check</strong> ជាមួយ <code class="docutils literal notranslate"><span class="pre">assert_never</span></code>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">assert_never</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"a"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"អក្សរ a"</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"b"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"អក្សរ b"</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># បើមានតម្លៃថ្មីត្រូវបានបន្ថែមទៅ Literal ខាងលើ</span>
-        <span class="c1"># type checker នឹងបញ្ចេញកំហុសនៅទីនេះ</span>
-        <span class="n">assert_never</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">assert_never</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"a"</span><span class="p">:</span>
+<span class="linenos"> 6</span>        <span class="k">return</span> <span class="s2">"អក្សរ a"</span>
+<span class="linenos"> 7</span>    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"b"</span><span class="p">:</span>
+<span class="linenos"> 8</span>        <span class="k">return</span> <span class="s2">"អក្សរ b"</span>
+<span class="linenos"> 9</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="c1"># បើមានតម្លៃថ្មីត្រូវបានបន្ថែមទៅ Literal ខាងលើ</span>
+<span class="linenos">11</span>        <span class="c1"># type checker នឹងបញ្ចេញកំហុសនៅទីនេះ</span>
+<span class="linenos">12</span>        <span class="n">assert_never</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -875,18 +880,18 @@ parameter មួយ។</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.12.</span></p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="o">...</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
-    <span class="nd">@override</span>                        <span class="c1"># បញ្ជាក់ថា override method របស់ class មេ</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="o">...</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 6</span>        <span class="o">...</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="nd">@override</span>                        <span class="c1"># បញ្ជាក់ថា override method របស់ class មេ</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">12</span>        <span class="o">...</span>
 </pre></div>
 </div>
 <p>បើ <code class="docutils literal notranslate"><span class="pre">Base.process</span></code> ត្រូវបានប្ដូរឈ្មោះ ឬលុប type checker នឹងបញ្ចេញ
@@ -894,25 +899,25 @@ parameter មួយ។</p>
 </section>
 <section id="introspection">
 <span id="id11"></span><h2>Introspection នៅពេលដំណើរការ<a class="headerlink" href="#introspection" title="Link to this heading"></a></h2>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_origin</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
-<span class="go">&lt;class 'list'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
-<span class="go">(&lt;class 'int'&gt;,)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
-<span class="go">(&lt;class 'str'&gt;, &lt;class 'int'&gt;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_origin</span><span class="p">(</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span>
-<span class="go">&lt;class 'typing.Union'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span>
-<span class="go">(&lt;class 'int'&gt;, &lt;class 'str'&gt;)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="kc">True</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="vm">__annotations__</span>
-<span class="go">{'a': &lt;class 'int'&gt;, 'b': &lt;class 'str'&gt;, 'return': &lt;class 'bool'&gt;}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_type_hints</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="go">{'a': &lt;class 'int'&gt;, 'b': &lt;class 'str'&gt;, 'return': &lt;class 'bool'&gt;}</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_origin</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="linenos"> 3</span><span class="go">&lt;class 'list'&gt;</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="linenos"> 5</span><span class="go">(&lt;class 'int'&gt;,)</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
+<span class="linenos"> 7</span><span class="go">(&lt;class 'str'&gt;, &lt;class 'int'&gt;)</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_origin</span><span class="p">(</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="go">&lt;class 'typing.Union'&gt;</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span>
+<span class="linenos">11</span><span class="go">(&lt;class 'int'&gt;, &lt;class 'str'&gt;)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="linenos">14</span><span class="gp">... </span>    <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">15</span><span class="gp">...</span>
+<span class="linenos">16</span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="vm">__annotations__</span>
+<span class="linenos">17</span><span class="go">{'a': &lt;class 'int'&gt;, 'b': &lt;class 'str'&gt;, 'return': &lt;class 'bool'&gt;}</span>
+<span class="linenos">18</span><span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_type_hints</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="linenos">19</span><span class="go">{'a': &lt;class 'int'&gt;, 'b': &lt;class 'str'&gt;, 'return': &lt;class 'bool'&gt;}</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -953,9 +958,9 @@ parameter មួយ។</p>
 <p>អត្ថប្រយោជន៍៖</p>
 <ul>
 <li><p>អ្នកអាចយោងទៅ class ដែល <strong>មិនទាន់បានកំណត់</strong> ដោយមិនចាំបាច់ខ្សែអក្សរ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">child</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Node</span><span class="p">:</span>      <span class="c1"># ✅ ដំណើរការ — មិនចាំបាច់ "Node"</span>
-        <span class="o">...</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="k">def</span><span class="w"> </span><span class="nf">child</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Node</span><span class="p">:</span>      <span class="c1"># ✅ ដំណើរការ — មិនចាំបាច់ "Node"</span>
+<span class="linenos">3</span>        <span class="o">...</span>
 </pre></div>
 </div>
 </li>
@@ -1002,10 +1007,10 @@ parameter មួយ។</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>mypy
-<span class="gp">$ </span>mypy<span class="w"> </span>--strict<span class="w"> </span>src/
-<span class="go">src/app.py:12: error: Argument 1 to "double" has incompatible type "str"; expected "int"</span>
-<span class="go">Found 1 error in 1 file (checked 3 source files)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>mypy
+<span class="linenos">2</span><span class="gp">$ </span>mypy<span class="w"> </span>--strict<span class="w"> </span>src/
+<span class="linenos">3</span><span class="go">src/app.py:12: error: Argument 1 to "double" has incompatible type "str"; expected "int"</span>
+<span class="linenos">4</span><span class="go">Found 1 error in 1 file (checked 3 source files)</span>
 </pre></div>
 </div>
 </section>

@@ -10,10 +10,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=904fbcd2" />
 
   
-    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="shortcut icon" href="_static/python-favicon.ico"/>
     <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/modules_packages.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -58,12 +58,17 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #1f2328" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Python
+          <a href="index.html" class="icon icon-home kh-logo-link">
+            <span class="kh-logo-wrap">
+              <img src="_static/python-logo.svg" class="logo" alt="Python logo"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
           </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -186,59 +191,59 @@
 <p><strong>Module</strong> គឺជាឯកសារ <code class="docutils literal notranslate"><span class="pre">.py</span></code> មួយដែលមានកូដ Python។ ឈ្មោះឯកសារ (ដក
 <code class="docutils literal notranslate"><span class="pre">.py</span></code> ចេញ) ក្លាយជាឈ្មោះ module។</p>
 <p>ឧទាហរណ៍ បង្កើតឯកសារ <code class="docutils literal notranslate"><span class="pre">greetings.py</span></code>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""ម៉ូឌុលសាកល្បង — ផ្ដល់ពាក្យសួស្ដីជាច្រើនភាសា។"""</span>
-
-<span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s2">"km"</span>
-
-<span class="n">_TRANSLATIONS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"km"</span><span class="p">:</span> <span class="s2">"សួស្ដី"</span><span class="p">,</span>
-    <span class="s2">"en"</span><span class="p">:</span> <span class="s2">"Hello"</span><span class="p">,</span>
-    <span class="s2">"ja"</span><span class="p">:</span> <span class="s2">"こんにちは"</span><span class="p">,</span>
-<span class="p">}</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""ត្រឡប់ពាក្យសួស្ដីសម្រាប់មនុស្សម្នាក់។"""</span>
-    <span class="n">word</span> <span class="o">=</span> <span class="n">_TRANSLATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lang</span> <span class="ow">or</span> <span class="n">DEFAULT_LANGUAGE</span><span class="p">,</span> <span class="n">_TRANSLATIONS</span><span class="p">[</span><span class="s2">"en"</span><span class="p">])</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">supported_languages</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">"""ត្រឡប់បញ្ជីភាសាដែលគាំទ្រ។"""</span>
-    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_TRANSLATIONS</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">"""ម៉ូឌុលសាកល្បង — ផ្ដល់ពាក្យសួស្ដីជាច្រើនភាសា។"""</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s2">"km"</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">_TRANSLATIONS</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 6</span>    <span class="s2">"km"</span><span class="p">:</span> <span class="s2">"សួស្ដី"</span><span class="p">,</span>
+<span class="linenos"> 7</span>    <span class="s2">"en"</span><span class="p">:</span> <span class="s2">"Hello"</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="s2">"ja"</span><span class="p">:</span> <span class="s2">"こんにちは"</span><span class="p">,</span>
+<span class="linenos"> 9</span><span class="p">}</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos">13</span><span class="w">    </span><span class="sd">"""ត្រឡប់ពាក្យសួស្ដីសម្រាប់មនុស្សម្នាក់។"""</span>
+<span class="linenos">14</span>    <span class="n">word</span> <span class="o">=</span> <span class="n">_TRANSLATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lang</span> <span class="ow">or</span> <span class="n">DEFAULT_LANGUAGE</span><span class="p">,</span> <span class="n">_TRANSLATIONS</span><span class="p">[</span><span class="s2">"en"</span><span class="p">])</span>
+<span class="linenos">15</span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="k">def</span><span class="w"> </span><span class="nf">supported_languages</span><span class="p">():</span>
+<span class="linenos">19</span><span class="w">    </span><span class="sd">"""ត្រឡប់បញ្ជីភាសាដែលគាំទ្រ។"""</span>
+<span class="linenos">20</span>    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_TRANSLATIONS</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="import">
 <span id="importing"></span><h2>ការនាំចូល (Import)<a class="headerlink" href="#import" title="Link to this heading"></a></h2>
 <p>មានវិធីនាំចូលបួនយ៉ាង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ១. នាំចូល module ទាំងមូល — ចូលដំណើរការតាមឈ្មោះ module</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">))</span>
-
-<span class="c1"># ២. នាំចូលធាតុជាក់លាក់</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span><span class="p">,</span> <span class="n">supported_languages</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">"ដារ៉ា"</span><span class="p">))</span>
-
-<span class="c1"># ៣. នាំចូលដោយដាក់ឈ្មោះហៅក្រៅ (alias)</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gr</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុភា"</span><span class="p">))</span>
-
-<span class="c1"># ៤. នាំចូលទាំងអស់ — ⚠ មិនណែនាំ</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># ១. នាំចូល module ទាំងមូល — ចូលដំណើរការតាមឈ្មោះ module</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="linenos"> 3</span><span class="nb">print</span><span class="p">(</span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">))</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># ២. នាំចូលធាតុជាក់លាក់</span>
+<span class="linenos"> 6</span><span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span><span class="p">,</span> <span class="n">supported_languages</span>
+<span class="linenos"> 7</span><span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">"ដារ៉ា"</span><span class="p">))</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># ៣. នាំចូលដោយដាក់ឈ្មោះហៅក្រៅ (alias)</span>
+<span class="linenos">10</span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
+<span class="linenos">11</span><span class="nb">print</span><span class="p">(</span><span class="n">gr</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុភា"</span><span class="p">))</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># ៤. នាំចូលទាំងអស់ — ⚠ មិនណែនាំ</span>
+<span class="linenos">14</span><span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
-<span class="go">'សួស្ដី, សុខា!'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">DEFAULT_LANGUAGE</span>
-<span class="go">'km'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">supported_languages</span><span class="p">()</span>
-<span class="go">['en', 'ja', 'km']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="go">'greetings'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">'ម៉ូឌុលសាកល្បង — ផ្ដល់ពាក្យសួស្ដីជាច្រើនភាសា។'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">'សួស្ដី, សុខា!'</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">DEFAULT_LANGUAGE</span>
+<span class="linenos"> 5</span><span class="go">'km'</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">supported_languages</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="go">['en', 'ja', 'km']</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="linenos"> 9</span><span class="go">'greetings'</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">11</span><span class="go">'ម៉ូឌុលសាកល្បង — ផ្ដល់ពាក្យសួស្ដីជាច្រើនភាសា។'</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -261,10 +266,10 @@
 <p class="admonition-title">Important</p>
 <p>Module ត្រូវបានដំណើរការ <strong>តែម្ដងគត់</strong>។ ការ <code class="docutils literal notranslate"><span class="pre">import</span></code> លើកទីពីរ
 យកពី cache មិនមែនដំណើរការឯកសារម្ដងទៀតទេ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>           <span class="c1"># លើកទីពីរ — គ្មានការដំណើរការឡើងវិញ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s2">"greetings"</span><span class="p">]</span> <span class="ow">is</span> <span class="n">greetings</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>           <span class="c1"># លើកទីពីរ — គ្មានការដំណើរការឡើងវិញ</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s2">"greetings"</span><span class="p">]</span> <span class="ow">is</span> <span class="n">greetings</span>
+<span class="linenos">4</span><span class="go">True</span>
 </pre></div>
 </div>
 <p>ដូច្នេះកូដកម្រិត module (ការកំណត់អថេរ, <code class="docutils literal notranslate"><span class="pre">print</span></code>, ការភ្ជាប់បណ្ដាញ)
@@ -276,12 +281,12 @@
 <span id="module-namespace"></span><h3>Namespace របស់ Module<a class="headerlink" href="#namespace-module" title="Link to this heading"></a></h3>
 <p>Module គឺជា <strong>object</strong> ដែលមាន attribute។ អថេរ អនុគមន៍ និង class ទាំងអស់
 ក្នុងឯកសារក្លាយជា attribute របស់វា៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)]</span>
-<span class="go">['DEFAULT_LANGUAGE', 'greet', 'supported_languages']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s2">"en"</span>     <span class="c1"># attribute អាចកែប្រែបាន</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
-<span class="go">'Hello, សុខា!'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)]</span>
+<span class="linenos">3</span><span class="go">['DEFAULT_LANGUAGE', 'greet', 'supported_languages']</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s2">"en"</span>     <span class="c1"># attribute អាចកែប្រែបាន</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greetings</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">'Hello, សុខា!'</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -317,26 +322,26 @@
 </table>
 <p>នេះអនុញ្ញាតឱ្យឯកសារមួយដំណើរការជា <strong>កម្មវិធី</strong> ផង និងជា <strong>បណ្ណាល័យ</strong>
 ផង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># greetings.py</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">word</span> <span class="o">=</span> <span class="n">_TRANSLATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lang</span> <span class="ow">or</span> <span class="n">DEFAULT_LANGUAGE</span><span class="p">,</span> <span class="n">_TRANSLATIONS</span><span class="p">[</span><span class="s2">"en"</span><span class="p">])</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">_self_test</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"សួស្ដី, សុខា!"</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"self-test passed"</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="c1"># ដំណើរការតែពេលចាក់ `python3 greetings.py` ប៉ុណ្ណោះ</span>
-    <span class="n">_self_test</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">"ពិភពលោក"</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># greetings.py</span>
+<span class="linenos"> 2</span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos"> 3</span>    <span class="n">word</span> <span class="o">=</span> <span class="n">_TRANSLATIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lang</span> <span class="ow">or</span> <span class="n">DEFAULT_LANGUAGE</span><span class="p">,</span> <span class="n">_TRANSLATIONS</span><span class="p">[</span><span class="s2">"en"</span><span class="p">])</span>
+<span class="linenos"> 4</span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">def</span><span class="w"> </span><span class="nf">_self_test</span><span class="p">():</span>
+<span class="linenos"> 8</span>    <span class="k">assert</span> <span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"សួស្ដី, សុខា!"</span>
+<span class="linenos"> 9</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"self-test passed"</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="linenos">13</span>    <span class="c1"># ដំណើរការតែពេលចាក់ `python3 greetings.py` ប៉ុណ្ណោះ</span>
+<span class="linenos">14</span>    <span class="n">_self_test</span><span class="p">()</span>
+<span class="linenos">15</span>    <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">"ពិភពលោក"</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>greetings.py
-<span class="go">self-test passed</span>
-<span class="go">សួស្ដី, ពិភពលោក!</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">$ </span>python3<span class="w"> </span>greetings.py
+<span class="linenos">2</span><span class="go">self-test passed</span>
+<span class="linenos">3</span><span class="go">សួស្ដី, ពិភពលោក!</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -360,14 +365,14 @@
 </ol>
 </li>
 </ol>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>      <span class="c1"># បញ្ជីនៃខ្សែអក្សរ (ផ្លូវថត)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"/tmp/my_libs"</span><span class="p">)</span> <span class="c1"># អាចបន្ថែមដោយផ្ទាល់ (មិនណែនាំ)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">"/tmp/my_libs"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>      <span class="c1"># បញ្ជីនៃខ្សែអក្សរ (ផ្លូវថត)</span>
+<span class="linenos">3</span><span class="go">True</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="linenos">5</span><span class="go">True</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"/tmp/my_libs"</span><span class="p">)</span> <span class="c1"># អាចបន្ថែមដោយផ្ទាល់ (មិនណែនាំ)</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"/tmp/my_libs"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="linenos">8</span><span class="go">True</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -387,10 +392,10 @@
 <span id="pycache"></span><h2><code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> — Compiled Modules<a class="headerlink" href="#pycache-compiled-modules" title="Link to this heading"></a></h2>
 <p>Python បកប្រែកូដប្រភពទៅជា <strong>bytecode</strong> ហើយរក្សាទុកវាក្នុងថត
 <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> ជាឯកសារ <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> ដើម្បីឱ្យការនាំចូលលើកក្រោយលឿន៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>project/
-├── greetings.py
-└── __pycache__/
-    └── greetings.cpython-315.pyc
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>project/
+<span class="linenos">2</span>├── greetings.py
+<span class="linenos">3</span>└── __pycache__/
+<span class="linenos">4</span>    └── greetings.cpython-315.pyc
 </pre></div>
 </div>
 <ul class="simple">
@@ -409,20 +414,20 @@
 <section id="dir">
 <span id="dir-function"></span><h2>អនុគមន៍ <code class="docutils literal notranslate"><span class="pre">dir()</span></code><a class="headerlink" href="#dir" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">dir()</span></code> រាយឈ្មោះដែល module កំណត់៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)]</span>
-<span class="go">['DEFAULT_LANGUAGE', 'greet', 'supported_languages']</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">"_TRANSLATIONS"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>      <span class="c1"># ឈ្មោះផ្ទៃក្នុងក៏នៅតែមាន</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">"__file__"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>           <span class="c1"># attribute ពិសេសរបស់ module</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">"greetings"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span>           <span class="c1"># dir() គ្មាន argument = namespace បច្ចុប្បន្ន</span>
-<span class="go">True</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">builtins</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">builtins</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">150</span>       <span class="c1"># ឈ្មោះ built-in ទាំងអស់</span>
-<span class="go">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)]</span>
+<span class="linenos"> 3</span><span class="go">['DEFAULT_LANGUAGE', 'greet', 'supported_languages']</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"_TRANSLATIONS"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>      <span class="c1"># ឈ្មោះផ្ទៃក្នុងក៏នៅតែមាន</span>
+<span class="linenos"> 5</span><span class="go">True</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"__file__"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>           <span class="c1"># attribute ពិសេសរបស់ module</span>
+<span class="linenos"> 7</span><span class="go">True</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"greetings"</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span>           <span class="c1"># dir() គ្មាន argument = namespace បច្ចុប្បន្ន</span>
+<span class="linenos">10</span><span class="go">True</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">builtins</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">builtins</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">150</span>       <span class="c1"># ឈ្មោះ built-in ទាំងអស់</span>
+<span class="linenos">14</span><span class="go">True</span>
 </pre></div>
 </div>
 <table class="docutils align-default" id="id9">
@@ -466,19 +471,19 @@
 <span id="id4"></span><h2>Packages<a class="headerlink" href="#packages" title="Link to this heading"></a></h2>
 <p><strong>Package</strong> គឺជា module ដែលមានរចនាសម្ព័ន្ធ — វាជា <strong>ថត</strong> ដែលមាន
 ឯកសារ <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>។</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>shop/                          ← package កម្រិតខ្ពស់
-├── __init__.py
-├── cart.py                    ← module
-├── models/                    ← sub-package
-│   ├── __init__.py
-│   ├── product.py
-│   └── order.py
-└── payments/
-    ├── __init__.py
-    ├── stripe_provider.py
-    └── tests/
-        ├── __init__.py
-        └── test_stripe.py
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>shop/                          ← package កម្រិតខ្ពស់
+<span class="linenos"> 2</span>├── __init__.py
+<span class="linenos"> 3</span>├── cart.py                    ← module
+<span class="linenos"> 4</span>├── models/                    ← sub-package
+<span class="linenos"> 5</span>│   ├── __init__.py
+<span class="linenos"> 6</span>│   ├── product.py
+<span class="linenos"> 7</span>│   └── order.py
+<span class="linenos"> 8</span>└── payments/
+<span class="linenos"> 9</span>    ├── __init__.py
+<span class="linenos">10</span>    ├── stripe_provider.py
+<span class="linenos">11</span>    └── tests/
+<span class="linenos">12</span>        ├── __init__.py
+<span class="linenos">13</span>        └── test_stripe.py
 </pre></div>
 </div>
 <ul class="simple">
@@ -489,20 +494,20 @@
 </ul>
 <section id="package">
 <span id="package-imports"></span><h3>ការនាំចូលពី Package<a class="headerlink" href="#package" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># នាំចូល module ពេញលេញ</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">shop.models.product</span>
-<span class="n">shop</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
-
-<span class="c1"># នាំចូលធាតុជាក់លាក់</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">shop.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
-<span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
-
-<span class="c1"># នាំចូល module ពី package</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">shop.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
-<span class="n">product</span><span class="o">.</span><span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
-
-<span class="c1"># ជាមួយ alias</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">shop.payments</span><span class="w"> </span><span class="kn">import</span> <span class="n">stripe_provider</span> <span class="k">as</span> <span class="n">stripe</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># នាំចូល module ពេញលេញ</span>
+<span class="linenos"> 2</span><span class="kn">import</span><span class="w"> </span><span class="nn">shop.models.product</span>
+<span class="linenos"> 3</span><span class="n">shop</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># នាំចូលធាតុជាក់លាក់</span>
+<span class="linenos"> 6</span><span class="kn">from</span><span class="w"> </span><span class="nn">shop.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
+<span class="linenos"> 7</span><span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># នាំចូល module ពី package</span>
+<span class="linenos">10</span><span class="kn">from</span><span class="w"> </span><span class="nn">shop.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
+<span class="linenos">11</span><span class="n">product</span><span class="o">.</span><span class="n">Product</span><span class="p">(</span><span class="s2">"សៀវភៅ"</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># ជាមួយ alias</span>
+<span class="linenos">14</span><span class="kn">from</span><span class="w"> </span><span class="nn">shop.payments</span><span class="w"> </span><span class="kn">import</span> <span class="n">stripe_provider</span> <span class="k">as</span> <span class="n">stripe</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -515,24 +520,24 @@
 <span id="id5"></span><h3>តួនាទីរបស់ <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code><a class="headerlink" href="#init-py" title="Link to this heading"></a></h3>
 <p>វាអាចធ្វើបានបីយ៉ាង៖</p>
 <p><strong>១. ទទេ</strong> — គ្រាន់តែសម្គាល់ថតជា package៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/__init__.py  (ទទេ)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># shop/__init__.py  (ទទេ)</span>
 </pre></div>
 </div>
 <p><strong>២. លើកកម្ពស់ API សាមញ្ញ</strong> — ដើម្បីឱ្យអ្នកប្រើមិនចាំបាច់វាយផ្លូវវែង៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/__init__.py</span>
-<span class="sd">"""បណ្ណាល័យហាងលក់ទំនិញអនឡាញ។"""</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">.cart</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cart</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.models.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>
-
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Cart"</span><span class="p">,</span> <span class="s2">"Product"</span><span class="p">,</span> <span class="s2">"Order"</span><span class="p">]</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"1.4.0"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># shop/__init__.py</span>
+<span class="linenos">2</span><span class="sd">"""បណ្ណាល័យហាងលក់ទំនិញអនឡាញ។"""</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="kn">from</span><span class="w"> </span><span class="nn">.cart</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cart</span>
+<span class="linenos">5</span><span class="kn">from</span><span class="w"> </span><span class="nn">.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
+<span class="linenos">6</span><span class="kn">from</span><span class="w"> </span><span class="nn">.models.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Cart"</span><span class="p">,</span> <span class="s2">"Product"</span><span class="p">,</span> <span class="s2">"Order"</span><span class="p">]</span>
+<span class="linenos">9</span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"1.4.0"</span>
 </pre></div>
 </div>
 <p>ឥឡូវអ្នកប្រើអាចសរសេរ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">shop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cart</span><span class="p">,</span> <span class="n">Product</span>        <span class="c1"># ខ្លី ជាជាង</span>
-<span class="c1"># from shop.models.product import Product</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">shop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cart</span><span class="p">,</span> <span class="n">Product</span>        <span class="c1"># ខ្លី ជាជាង</span>
+<span class="linenos">2</span><span class="c1"># from shop.models.product import Product</span>
 </pre></div>
 </div>
 <p><strong>៣. ធ្វើការកំណត់រចនាសម្ព័ន្ធ</strong> — ប៉ុន្តែចៀសវាងកូដធ្ងន់ៗ ព្រោះវាដំណើរការ
@@ -576,16 +581,16 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/payments/stripe_provider.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..models.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>        <span class="c1"># absolute សម្រាប់ cross-package</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>                    <span class="c1"># relative សម្រាប់ module ជិតខាង</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># shop/payments/stripe_provider.py</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">..models.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>        <span class="c1"># absolute សម្រាប់ cross-package</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>                    <span class="c1"># relative សម្រាប់ module ជិតខាង</span>
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Relative import <strong>ដំណើរការតែក្នុង package</strong> ប៉ុណ្ណោះ។ បើអ្នកដំណើរការ
 ឯកសារដោយផ្ទាល់ (<code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">stripe_provider.py</span></code>) អ្នកនឹងទទួល៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ImportError: attempted relative import with no known parent package
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>ImportError: attempted relative import with no known parent package
 </pre></div>
 </div>
 <p>ដំណោះស្រាយ៖ ដំណើរការជា module ពីឫស project៖
@@ -602,21 +607,21 @@
 <span id="all-variable"></span><h2><code class="docutils literal notranslate"><span class="pre">__all__</span></code> និង <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code><a class="headerlink" href="#all-import" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">__all__</span></code> គឺជាបញ្ជីឈ្មោះដែលកំណត់ថាអ្វីត្រូវបាននាំចេញនៅពេលមាន
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">*</span></code>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shop/models/__init__.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">_internal_helper</span>     <span class="c1"># ផ្ទៃក្នុង</span>
-
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Product"</span><span class="p">,</span> <span class="s2">"Order"</span><span class="p">]</span>            <span class="c1"># មិនរួម _internal_helper</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># shop/models/__init__.py</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">.order</span><span class="w"> </span><span class="kn">import</span> <span class="n">Order</span>
+<span class="linenos">4</span><span class="kn">from</span><span class="w"> </span><span class="nn">.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">_internal_helper</span>     <span class="c1"># ផ្ទៃក្នុង</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Product"</span><span class="p">,</span> <span class="s2">"Order"</span><span class="p">]</span>            <span class="c1"># មិនរួម _internal_helper</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">shop.models</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Product</span>          <span class="c1"># ✅ មាន</span>
-<span class="go">&lt;class 'shop.models.product.Product'&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_internal_helper</span> <span class="c1"># ❌ មិនត្រូវបាននាំចេញ</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name '_internal_helper' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">shop.models</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">Product</span>          <span class="c1"># ✅ មាន</span>
+<span class="linenos">3</span><span class="go">&lt;class 'shop.models.product.Product'&gt;</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">_internal_helper</span> <span class="c1"># ❌ មិនត្រូវបាននាំចេញ</span>
+<span class="linenos">5</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">6</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">7</span><span class="gr">NameError</span>: <span class="n">name '_internal_helper' is not defined</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">__all__</span></code> ក៏ជា <strong>ឯកសារ</strong> នៃ API សាធារណៈរបស់ package ផងដែរ —
@@ -627,15 +632,15 @@
 <p>បើថតមួយ <strong>គ្មាន</strong> <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> Python 3.3+ នៅតែអាចនាំចូលវាជា
 <em>namespace package</em>។ វាអនុញ្ញាតឱ្យ package មួយរីករាលដាលលើថតច្រើន
 (ឬ distribution ច្រើន)៖</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/libs-a/shared/plugins/one.py      ← គ្មាន __init__.py ណាមួយ
-/libs-b/shared/plugins/two.py
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>/libs-a/shared/plugins/one.py      ← គ្មាន __init__.py ណាមួយ
+<span class="linenos">2</span>/libs-b/shared/plugins/two.py
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"/libs-a"</span><span class="p">,</span> <span class="s2">"/libs-b"</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">shared.plugins.one</span><span class="o">,</span><span class="w"> </span><span class="nn">shared.plugins.two</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shared</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span class="n">__path__</span>          <span class="c1"># មានផ្លូវច្រើន</span>
-<span class="go">_NamespacePath(['/libs-a/shared/plugins', '/libs-b/shared/plugins'])</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"/libs-a"</span><span class="p">,</span> <span class="s2">"/libs-b"</span><span class="p">]</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">shared.plugins.one</span><span class="o">,</span><span class="w"> </span><span class="nn">shared.plugins.two</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">shared</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span class="n">__path__</span>          <span class="c1"># មានផ្លូវច្រើន</span>
+<span class="linenos">5</span><span class="go">_NamespacePath(['/libs-a/shared/plugins', '/libs-b/shared/plugins'])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -649,19 +654,19 @@ ecosystem ដែល distribution ផ្សេងគ្នាត្រូវច�
 <span id="id6"></span><h2>ការផ្ទុក Module ឡើងវិញ<a class="headerlink" href="#reloading" title="Link to this heading"></a></h2>
 <p>Python cache module ក្នុង <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code> ដូច្នេះការកែឯកសារប្រភព
 <strong>មិន</strong> មានឥទ្ធិពលលើ session ដែលកំពុងដំណើរការទេ។ ដើម្បីផ្ទុកឡើងវិញ៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span><span class="o">,</span><span class="w"> </span><span class="nn">greetings</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>
-<span class="go">&lt;module 'greetings' from '.../greetings.py'&gt;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span><span class="o">,</span><span class="w"> </span><span class="nn">greetings</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">&lt;module 'greetings' from '.../greetings.py'&gt;</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><code class="docutils literal notranslate"><span class="pre">reload()</span></code> មានគ្រោះថ្នាក់។ វាដំណើរការឯកសារឡើងវិញក្នុង namespace
 ដើម ប៉ុន្តែ <strong>object ចាស់ដែលបាននាំចេញរួចហើយនៅតែចង្អុលទៅកំណែចាស់</strong>៖</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span>      <span class="c1"># ចាប់យកអនុគមន៍ចាស់</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>  <span class="c1"># ផ្ទុកឡើងវិញ</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>                     <span class="c1"># នៅតែប្រើកំណែចាស់!</span>
-<span class="go">'សួស្ដី, សុខា!'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">greetings</span><span class="w"> </span><span class="kn">import</span> <span class="n">greet</span>      <span class="c1"># ចាប់យកអនុគមន៍ចាស់</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>  <span class="c1"># ផ្ទុកឡើងវិញ</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>                     <span class="c1"># នៅតែប្រើកំណែចាស់!</span>
+<span class="linenos">4</span><span class="go">'សួស្ដី, សុខា!'</span>
 </pre></div>
 </div>
 <p>កុំពឹងផ្អែកលើ <code class="docutils literal notranslate"><span class="pre">reload()</span></code> ក្នុងកូដផលិតកម្ម។ ចាប់ផ្ដើង interpreter
@@ -671,20 +676,20 @@ ecosystem ដែល distribution ផ្សេងគ្នាត្រូវច�
 <section id="circular-import">
 <span id="circular-imports"></span><h2>Circular Import<a class="headerlink" href="#circular-import" title="Link to this heading"></a></h2>
 <p>កំហុសទូទៅបំផុតក្នុងការរៀបចំ module៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">b</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_b</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">helper_a</span><span class="p">():</span> <span class="k">return</span> <span class="s2">"a"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># a.py</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">b</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_b</span>
+<span class="linenos">3</span><span class="k">def</span><span class="w"> </span><span class="nf">helper_a</span><span class="p">():</span> <span class="k">return</span> <span class="s2">"a"</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># b.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">a</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_a</span>          <span class="c1"># ❌ ត្រឡប់ទៅ a វិញ</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">helper_b</span><span class="p">():</span> <span class="k">return</span> <span class="s2">"b"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># b.py</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">a</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_a</span>          <span class="c1"># ❌ ត្រឡប់ទៅ a វិញ</span>
+<span class="linenos">3</span><span class="k">def</span><span class="w"> </span><span class="nf">helper_b</span><span class="p">():</span> <span class="k">return</span> <span class="s2">"b"</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">a</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">  </span><span class="c">...</span>
-<span class="gr">ImportError</span>: <span class="n">cannot import name 'helper_a' from partially initialized module 'a' (most likely due to a circular import)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">a</span>
+<span class="linenos">2</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos">3</span><span class="w">  </span><span class="c">...</span>
+<span class="linenos">4</span><span class="gr">ImportError</span>: <span class="n">cannot import name 'helper_a' from partially initialized module 'a' (most likely due to a circular import)</span>
 </pre></div>
 </div>
 <p><strong>វិធីដោះស្រាយ៖</strong></p>
@@ -692,15 +697,15 @@ ecosystem ដែល distribution ផ្សេងគ្នាត្រូវច�
 <li><p><strong>រៀបចំរចនាសម្ព័ន្ធឡើងវិញ</strong> — ដកកូដដែលចែករំលែកទៅ module ទីបី
 (ឧ. <code class="docutils literal notranslate"><span class="pre">common.py</span></code>) ដែល <code class="docutils literal notranslate"><span class="pre">a</span></code> និង <code class="docutils literal notranslate"><span class="pre">b</span></code> ទាំងពីរនាំចូល។</p></li>
 <li><p><strong>នាំចូលយឺត</strong> — ផ្លាស់ទី <code class="docutils literal notranslate"><span class="pre">import</span></code> ទៅក្នុងអនុគមន៍៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># b.py</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">helper_b</span><span class="p">():</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">a</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_a</span>       <span class="c1"># នាំចូលពេលហៅ មិនមែនពេលផ្ទុក</span>
-    <span class="k">return</span> <span class="n">helper_a</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># b.py</span>
+<span class="linenos">2</span><span class="k">def</span><span class="w"> </span><span class="nf">helper_b</span><span class="p">():</span>
+<span class="linenos">3</span>    <span class="kn">from</span><span class="w"> </span><span class="nn">a</span><span class="w"> </span><span class="kn">import</span> <span class="n">helper_a</span>       <span class="c1"># នាំចូលពេលហៅ មិនមែនពេលផ្ទុក</span>
+<span class="linenos">4</span>    <span class="k">return</span> <span class="n">helper_a</span><span class="p">()</span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>ប្រើ type annotation ជាខ្សែអក្សរ</strong> សម្រាប់បញ្ហាដែលកើតពី type hints តែប៉ុណ្ណោះ៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>   <span class="c1"># ឬ ប្រើ "ClassName" ជាខ្សែអក្សរ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>   <span class="c1"># ឬ ប្រើ "ClassName" ជាខ្សែអក្សរ</span>
 </pre></div>
 </div>
 </li>
@@ -709,7 +714,7 @@ ecosystem ដែល distribution ផ្សេងគ្នាត្រូវច�
 <p><span class="versionmodified added">Added in version 3.15: </span><code class="docutils literal notranslate"><span class="pre">lazy</span> <span class="pre">import</span></code> (PEP 810) ពន្យារការផ្ទុក module រហូតដល់ឈ្មោះត្រូវបាន
 ប្រើពិតប្រាកដ។ វាជួយកាត់បន្ថយពេលចាប់ផ្ដើម និងអាចដោះស្រាយ circular
 import ខ្លះបាន៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">lazy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>      <span class="c1"># មិនផ្ទុក numpy ទេ រហូតដល់ np ត្រូវបានប្រើ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">lazy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>      <span class="c1"># មិនផ្ទុក numpy ទេ រហូតដល់ np ត្រូវបានប្រើ</span>
 </pre></div>
 </div>
 </div>
@@ -721,12 +726,12 @@ import ខ្លះបាន៖</p>
 <li><p><strong>លំដាប់</strong> (PEP 8)៖ (១) standard library (២) ភាគីទីបី (៣) កូដផ្ទៃក្នុង
 project។ ញែកក្រុមដោយបន្ទាត់ទទេ។</p></li>
 <li><p><strong>មួយ module មួយបន្ទាត់</strong> សម្រាប់ <code class="docutils literal notranslate"><span class="pre">import</span></code>៖</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="c1"># ❌ (អនុញ្ញាតសម្រាប់ from-import ប៉ុណ្ណោះ)</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># ✅</span>
+<span class="linenos">2</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos">3</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="c1"># ❌ (អនុញ្ញាតសម្រាប់ from-import ប៉ុណ្ណោះ)</span>
+<span class="linenos">6</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
 </pre></div>
 </div>
 </li>
