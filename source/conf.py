@@ -34,6 +34,8 @@ CodeBlock.option_spec["no-test"] = directives.flag
 copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
 copybutton_prompt_is_regexp = True
 copybutton_only_copy_prompt_lines = False
+# line numbers must never end up in the clipboard
+copybutton_exclude = ".linenos"
 
 templates_path = ["_templates"]
 html_static_path = ["_static"]
@@ -56,8 +58,14 @@ html_theme_options = {
     "style_nav_header_background": "#1f2328",
 }
 
-html_favicon = "_static/favicon.svg"
-html_logo = None  # គ្មានរូបសញ្ញា — ចៀសវាងបញ្ហា trademark/licence
+# Python logo និង favicon ផ្លូវការរបស់ PSF — ប្រើដោយ **មិនកែប្រែ**
+# (unaltered)។ PSF Trademark Usage Policy អនុញ្ញាត nominative use នៃ
+# unaltered logo សម្រាប់គោលបំណងមិនមែនពាណិជ្ជកម្ម ដើម្បីលើកកម្ពស់
+# ភាសាកម្មវិធី Python ដោយមិនចាំបាច់ការអនុញ្ញាតជាមុន។
+# សូមមើល source/license_attribution.rst សម្រាប់សេចក្ដីថ្លែងការណ៍ trademark។
+html_logo = "_static/python-logo.svg"
+html_favicon = "_static/python-favicon.ico"
+logo_url = None
 
 # Edit on GitHub (តំណកែសម្រួលក្នុង breadcrumb)
 html_context = {
@@ -86,6 +94,41 @@ html_css_files = ["khmer.css"]
 html_baseurl = "https://seyhalite.github.io/Python-Documentation/"
 sitemap_url_scheme = "{link}"
 sitemap_filename = "sitemap.xml"
+
+# -- code blocks: Python highlighting + line numbers on every block -----------
+highlight_language = "python"
+
+# Turn line numbering ON by default for every code-block / literalinclude.
+# Sphinx's CodeBlock.run() enables numbering only when 'linenos' is present in
+# self.options, so injecting it there is the minimal, version-stable hook.
+# A block can opt out with `:no-linenos:`.
+from docutils.parsers.rst import directives  # noqa: E402
+from sphinx.directives.code import CodeBlock, LiteralInclude  # noqa: E402
+
+
+def _register_no_linenos(cls):
+    cls.option_spec = dict(cls.option_spec)
+    cls.option_spec["no-linenos"] = directives.flag
+    return cls
+
+
+def _wrap_run(cls):
+    original = cls.run
+
+    def run(self):
+        if "no-linenos" not in self.options:
+            self.options.setdefault("linenos", True)
+        else:
+            self.options.pop("linenos", None)
+            self.options.pop("no-linenos", None)
+        return original(self)
+
+    cls.run = run
+    return cls
+
+
+for _cls in (CodeBlock, LiteralInclude):
+    _wrap_run(_register_no_linenos(_cls))
 
 # -- nitpicky build -----------------------------------------------------------
 # បើកការពិនិត្យ cross-reference ដើម្បីឱ្យ sphinx-build -W ចាប់យកតំណខូច

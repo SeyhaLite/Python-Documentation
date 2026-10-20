@@ -33,3 +33,35 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ title|striptags|e }}">
 {% endblock %}
+
+{#- Sidebar title: the official, unaltered PSF Python logo plus the ™ symbol
+    that the PSF Trademark Usage Policy requires to accompany the logo, and a
+    Khmer subtitle. The logo image itself is never modified. -#}
+{%- block sidebartitle %}
+          {%- set _logo_url = logo_url|default(pathto('_static/' + (logo or ""), 1)) %}
+          {%- set _root_doc = root_doc|default(master_doc) %}
+          <a href="{{ pathto(_root_doc) }}" class="icon icon-home kh-logo-link">
+            {%- if logo or logo_url %}
+            <span class="kh-logo-wrap">
+              <img src="{{ _logo_url }}" class="logo" alt="{{ _('Python logo') }}"/>
+              <span class="kh-tm" title="Python logo — trademark of the Python Software Foundation">&#8482;</span>
+            </span>
+            {%- endif %}
+            <span class="kh-site-title">ឯកសារ Python ជាភាសាខ្មែរ</span>
+          </a>
+          <div class="kh-trademark-note">
+            “Python” និងរូបសញ្ញា Python គឺជា trademark របស់
+            Python Software Foundation។
+          </div>
+
+          {%- if READTHEDOCS or DEBUG %}
+            {%- if theme_version_selector or theme_language_selector %}
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+            {%- endif %}
+          {%- endif %}
+
+          {%- include "searchbox.html" %}
+{%- endblock %}
