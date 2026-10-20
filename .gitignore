@@ -1,0 +1,27 @@
+# Build artefacts (docs/ IS committed — it serves GitHub Pages)
+source/_build/
+_build/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Never commit credentials
+.env
+.env.*
+*.pem
+*.key
+secrets.*
