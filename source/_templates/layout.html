@@ -1,0 +1,35 @@
+{% extends "!layout.html" %}
+
+{#- Khmer web fonts + flash-free theme init. Everything else stays stock RTD. -#}
+{% block extrahead %}
+{{ super() }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet">
+
+{#- Apply the saved theme BEFORE the body paints, so there is no flash.
+    Default (no attribute) = dark, matching khmer.css. -#}
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+
+{#- SEO: bilingual meta + Open Graph -#}
+{%- set relpage = '' if pagename == master_doc else pagename + '.html' %}
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/{{ relpage }}">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="{{ title|striptags|e }}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/{{ relpage }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title|striptags|e }}">
+{% endblock %}
