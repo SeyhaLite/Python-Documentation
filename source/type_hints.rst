@@ -625,7 +625,7 @@ TypeVar និង Generic
 
 .. code-block:: pycon
 
-   >>> b = Builder().add("a").add("b")     # chaining
+   >>> b = Builder().add("a").add("b")     # ហៅជាខ្សែ (chaining)
    >>> b.parts
    ['a', 'b']
    >>> s = SubBuilder().add("x")

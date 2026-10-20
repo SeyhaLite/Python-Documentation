@@ -177,7 +177,7 @@ Short-circuit Evaluation
 
    # ✅ បើ x == 0 នឹងមិនដល់ការចែកទេ
    result = x != 0 and 10 / x
-   print(result)          # False
+   print(result)          # លទ្ធផល: False
 
 .. note::
 

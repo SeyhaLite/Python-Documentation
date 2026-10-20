@@ -172,7 +172,7 @@ Text Mode និង Binary Mode
    ):
        dst.write(src.read().upper())
 
-   print(Path("output.txt").read_text(encoding="utf-8"))   # ABC
+   print(Path("output.txt").read_text(encoding="utf-8"))   # លទ្ធផល: ABC
 
 .. note::
 
@@ -445,7 +445,7 @@ Method សម្រាប់អាន
    >>> [p.name for p in sorted(root.glob("*.txt"))]    # តែកម្រិតបច្ចុប្បន្ន
    ['notes.txt']
    >>> [p.relative_to(root).as_posix()
-   ...  for p in sorted(root.rglob("*.txt"))]         # recursive
+   ...  for p in sorted(root.rglob("*.txt"))]         # recursive — គ្រប់កម្រិត
    ['data/reports/2026.txt', 'notes.txt']
 
    >>> Path.cwd() == Path(".").resolve()   # ថតបច្ចុប្បន្ន

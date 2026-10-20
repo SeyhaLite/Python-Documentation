@@ -722,12 +722,12 @@ List Comprehension
 
 .. code-block:: pycon
 
-   >>> # Stack — LIFO (Last In, First Out)
+   >>> # Stack — LIFO (ចូលក្រោយ ចេញមុន)
    >>> stack = [1, 2]
-   >>> stack.append(3)      # push
+   >>> stack.append(3)      # push — ដាក់ចូល
    >>> stack
    [1, 2, 3]
-   >>> stack.pop()          # pop
+   >>> stack.pop()          # pop — ដកចេញ
    3
 
 សម្រាប់ **queue** (FIFO) ``list.pop(0)`` យឺតណាស់ ព្រោះវាត្រូវរុញធាតុ
@@ -804,7 +804,7 @@ Packing និង Unpacking
 
    >>> # ត្រឡប់ច្រើនតម្លៃពីអនុគមន៍
    >>> def min_max(nums):
-   ...     return min(nums), max(nums)      # tuple
+   ...     return min(nums), max(nums)      # ត្រឡប់ជា tuple
    ...
    >>> lo, hi = min_max([3, 1, 4])
    >>> lo, hi
@@ -1168,7 +1168,7 @@ Dict Comprehension
    for i in range(len(fruits)):
        print(i, fruits[i])
 
-   # ✅ Pythonic
+   # ✅ សរសេរតាមស្ទីល Python
    for i, fruit in enumerate(fruits):
        print(i, fruit)
 

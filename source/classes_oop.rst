@@ -42,11 +42,11 @@ Class ដំបូងរបស់អ្នក
    class Product:
        """តំណាងឱ្យទំនិញមួយក្នុងហាង។"""
 
-       tax_rate = 0.10                     # class attribute
+       tax_rate = 0.10                     # attribute របស់ class
 
        def __init__(self, name, price):
            """បង្កើតផលិតផលថ្មី។"""
-           self.name = name                # instance attributes
+           self.name = name                # attribute របស់ instance
            self.price = price
            self.sold = 0
 
@@ -237,7 +237,7 @@ Class Attribute និង Instance Attribute
    >>> t = Temperature(25)
    >>> t.to_fahrenheit()
    77.0
-   >>> hot = Temperature.from_fahrenheit(212)    # alternative constructor
+   >>> hot = Temperature.from_fahrenheit(212)    # constructor ជំនួស
    >>> round(hot.celsius)
    100
    >>> Temperature.count()
@@ -851,10 +851,10 @@ Composition ធៀបនឹង Inheritance
    class FlyingSwimmingElectricCar(Car, Boat, Drone):
        pass
 
-   # ✅ composition
+   # ✅ composition (ការផ្សំ)
    class Car:
        def __init__(self, engine: Engine, gps: GPS | None = None):
-           self.engine = engine          # has-a
+           self.engine = engine          # has-a — មាន
            self.gps = gps
 
        def drive(self):

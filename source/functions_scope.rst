@@ -126,7 +126,7 @@ Docstring
    ...
    >>> min_max([4, 1, 7])
    (1, 7)
-   >>> lo, hi = min_max([4, 1, 7])      # unpacking
+   >>> lo, hi = min_max([4, 1, 7])      # unpacking — បំបែកតម្លៃ
    >>> lo, hi
    (1, 7)
 

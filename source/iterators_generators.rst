@@ -109,7 +109,7 @@ Iterable ធៀបនឹង Iterator
 
    .. code-block:: pycon
 
-      >>> data = (x * 2 for x in range(3))    # generator expression
+      >>> data = (x * 2 for x in range(3))    # generator expression — ខ្ជិល
       >>> sum(data)
       6
       >>> sum(data)                            # ❌ 0 — អស់ហើយ!
@@ -363,7 +363,7 @@ Generator អាចផលិតលំដាប់គ្មានទីបញ្�
    >>> def flatten(nested):
    ...     for item in nested:
    ...         if isinstance(item, list):
-   ...             yield from flatten(item)     # recursive delegation
+   ...             yield from flatten(item)     # បញ្ជូនបន្តជា recursion
    ...         else:
    ...             yield item
    ...

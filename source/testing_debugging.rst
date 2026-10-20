@@ -415,7 +415,7 @@ Assertion សំខាន់ៗ
 .. code-block:: python
    :no-test:
 
-   # test_example.py — pytest style
+   # test_example.py — សរសេរតាមស្ទីល pytest
    def add(a, b):
        return a + b
 

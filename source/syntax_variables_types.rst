@@ -253,11 +253,11 @@ Soft Keyword
 
 .. code-block:: python
 
-   city = "ភ្នំពេញ"      # str
-   population = 2_281_951  # int  (សញ្ញា _ ធ្វើឱ្យលេខអានងាយ)
-   area_km2 = 679.0       # float
-   is_capital = True      # bool
-   mayor = None           # NoneType
+   city = "ភ្នំពេញ"      # ប្រភេទ str
+   population = 2_281_951  # ប្រភេទ int  (សញ្ញា _ ធ្វើឱ្យលេខអានងាយ)
+   area_km2 = 679.0       # ប្រភេទ float
+   is_capital = True      # ប្រភេទ bool
+   mayor = None           # ប្រភេទ NoneType
 
    print(city, population, area_km2, is_capital, mayor)
 
@@ -485,11 +485,11 @@ Python ``int`` មិនមានដែនកំណត់ទំហំទេ — 
 
    >>> 1_000_000 == 1000000
    True
-   >>> 0b1010          # binary
+   >>> 0b1010          # ប្រព័ន្ធគោលពីរ (binary)
    10
-   >>> 0o17            # octal
+   >>> 0o17            # ប្រព័ន្ធអុកតាល់ (octal)
    15
-   >>> 0xFF            # hexadecimal
+   >>> 0xFF            # ប្រព័ន្ធហែកសា (hexadecimal)
    255
 
 .. _float:
@@ -605,7 +605,7 @@ Python ``int`` មិនមានដែនកំណត់ទំហំទេ — 
 
    >>> 7 / 2       # ចែកធម្មតា — តែងតែ float
    3.5
-   >>> 7 // 2      # floor division
+   >>> 7 // 2      # ចែកយកផ្នែកគត់ (floor division)
    3
    >>> -7 // 2     # floor ទៅរកចំនួនតូចជាង (មិនមែនទៅរកសូន្យទេ)
    -4

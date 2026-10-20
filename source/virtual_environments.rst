@@ -258,12 +258,12 @@ Version Specifier
 .. code-block:: text
 
    # requirements.txt
-   # ---- runtime ----
+   # ---- ពេលដំណើរការ (runtime) ----
    requests==2.32.3
    click>=8.1,<9
    pydantic~=2.9
 
-   # ---- development ----
+   # ---- សម្រាប់អភិវឌ្ឍន៍ (development) ----
    -r requirements-dev.txt
 
    # ---- ពី git ----
