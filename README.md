@@ -176,8 +176,11 @@ python3 tools/check_contrast.py     # ពិនិត្យ contrast ≥ 4.5:1
 [`source/license_attribution.rst`](source/license_attribution.rst)
 សម្រាប់ព័ត៌មានលម្អិត រួមទាំងសង្ខេបអំពីការផ្លាស់ប្ដូរដែលបានធ្វើ។
 
-"Python" និងរូបសញ្ញា Python គឺជា trademark របស់ PSF។ គម្រោងនេះមិន
-ទទួលបានការអនុម័ត ឬឧបត្ថម្ភពី PSF ទេ។
+"Python" និងរូបសញ្ញា Python គឺជា trademark ឬ registered trademark របស់ PSF
+ដែលគម្រោងនេះប្រើប្រាស់ដោយមានការអនុញ្ញាតពីមូលនិធិ។ រូបសញ្ញាដែលប្រើគឺជា
+ឯកសារផ្លូវការ **មិនបានកែប្រែ** របស់ PSF (nominative use តាម
+[PSF Trademark Usage Policy](https://www.python.org/psf/trademarks/))។
+គម្រោងនេះមិនទទួលបានការអនុម័ត ឬឧបត្ថម្ភពី PSF ទេ។
 
 **ប្រភពផ្លូវការ៖**
 

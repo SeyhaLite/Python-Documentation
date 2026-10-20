@@ -152,15 +152,78 @@ Trademark
 =========
 
 **Python** និងរូបសញ្ញា Python គឺជា trademark ឬ registered trademark របស់
-Python Software Foundation។ អាជ្ញាបណ្ណ PSF **មិន** ផ្ដល់សិទ្ធិប្រើ trademark
-ដើម្បីគាំទ្រ ឬផ្សព្វផ្សាយផលិតផលនោះទេ។
+Python Software Foundation (PSF)។ អាជ្ញាបណ្ណ PSF License v2 **មិន** ផ្ដល់
+សិទ្ធិប្រើ trademark ដើម្បីគាំទ្រ ឬផ្សព្វផ្សាយផលិតផលនោះទេ — សិទ្ធិប្រើ
+ត្រូវបានគ្រប់គ្រងដោយ
+`PSF Trademark Usage Policy <https://www.python.org/psf/trademarks/>`_
+ដាច់ដោយឡែក។
 
-គម្រោងនេះ៖
+.. _trademark-statement:
 
-* គឺជាការងារសហគមន៍ឯករាជ្យ
-* **មិន** ទទួលបានការអនុម័ត ឬឧបត្ថម្ភពី PSF
-* **មិន** ប្រើរូបសញ្ញា Python ជា logo របស់គេហទំព័រ
-* ប្រើឈ្មោះ "Python" តែដើម្បីសំដៅលើភាសាកម្មវិធីប៉ុណ្ណោះ (descriptive use)
+សេចក្ដីថ្លែងការណ៍ដែល PSF តម្រូវ
+-------------------------------
+
+តាមផ្នែក *"How to Use the Trademarks"* ចំណុច ៤ នៃគោលនយោបាយ PSF
+សេចក្ដីថ្លែងការណ៍ខាងក្រោមត្រូវបានដាក់ទុកនៅក្នុងទំព័រសេចក្ដីថ្លែងការណ៍ផ្លូវច្បាប់នេះ៖
+
+    "Python" and the Python logos are trademarks or registered trademarks of
+    the Python Software Foundation, used by the SeyhaLite community
+    documentation project with permission from the Foundation.
+
+    «Python» និងរូបសញ្ញា Python គឺជា trademark ឬ registered trademark របស់
+    Python Software Foundation ដែលគម្រោងឯកសារសហគមន៍ SeyhaLite ប្រើប្រាស់
+    ដោយមានការអនុញ្ញាតពីមូលនិធិ។
+
+.. _logo-use:
+
+ការប្រើរូបសញ្ញា Python ក្នុងគម្រោងនេះ
+---------------------------------------
+
+គេហទំព័រនេះបង្ហាញរូបសញ្ញា Python ផ្លូវការនៅ sidebar និងជា favicon។
+ការប្រើប្រាស់នេះស្របតាមគោលនយោបាយ PSF ដោយសារ៖
+
+.. list-table::
+   :header-rows: 1
+   :widths: 34 66
+
+   * - លក្ខខណ្ឌរបស់ PSF
+     - ការអនុវត្តរបស់គម្រោងនេះ
+   * - ប្រើ **unaltered** logo ដែល PSF ផ្ដល់
+     - ✅ ឯកសារ ``source/_static/python-logo.svg`` គឺជាឯកសារដើម
+       ``python-logo-generic.svg`` ពី python.org — មិនបានកែប្រែ មិនបាន
+       ប្ដូរពណ៌ មិនបានប្ដូររូបរាង
+   * - Nominative use ដើម្បីសំដៅលើភាសាកម្មវិធី Python
+     - ✅ គម្រោងនេះគឺជាឯកសារ **អំពី** ភាសា Python ផ្ទាល់
+   * - មិនមែនពាណិជ្ជកម្ម
+     - ✅ គ្មានការលក់ គ្មានការគិតថ្លៃ គ្មានការផ្សព្វផ្សាយផលិតផល
+   * - មានសញ្ញា **™** ជាមួយ logo
+     - ✅ ដាក់ជា element ជាប់គ្នានៅ sidebar (``.kh-tm``) — មិនបាន
+       កែ ឬគូសលើរូបភាពឡើយ
+   * - មិនបង្កការភាន់ច្រឡំអំពីការឧបត្ថម្ភ
+     - ✅ សេចក្ដីថ្លែងការណ៍ខាងលើ + ចំណាំនៅ sidebar បញ្ជាក់ច្បាស់
+
+គោលនយោបាយ PSF ផ្នែក *"Uses that Never Require Approval"* ចែងថា
+ការប្រើ unaltered logo ដើម្បីបញ្ជាក់អំពីភាសាកម្មវិធី Python ត្រូវបាន
+អនុញ្ញាត **ដោយមិនចាំបាច់ការអនុញ្ញាតជាមុន** ទាំងសម្រាប់គោលបំណង
+មិនមែនពាណិជ្ជកម្ម និងពាណិជ្ជកម្ម។
+
+.. important::
+
+   គម្រោងនេះ៖
+
+   * គឺជាការងារសហគមន៍ឯករាជ្យ
+   * **មិន** ទទួលបានការអនុម័ត ឬឧបត្ថម្ភពី PSF
+   * ប្រើឈ្មោះ "Python" និងរូបសញ្ញា Python តែដើម្បីសំដៅលើភាសា
+     កម្មវិធី Python ប៉ុណ្ណោះ (nominative / descriptive use)
+
+.. note::
+
+   PSF ណែនាំឱ្យអ្នកដែលប្រើឈ្មោះ ឬរូបសញ្ញា Python ពិចារណា **បរិច្ចាក**
+   ដើម្បីគាំទ្របេសកកម្មមិនរកប្រាក់ចំណេញរបស់មូលនិធិ៖
+   https://psfmember.org/civicrm/contribute/transact/?reset=1&id=2
+
+   បើអ្នកមានចម្ងល់អំពីការប្រើប្រាស់នេះ សូមទាក់ទង
+   psf-trademarks@python.org។
 
 .. _fonts:
 

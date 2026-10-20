@@ -40,6 +40,7 @@ PAIRS: list[tuple[str, str, str, bool]] = [
     ("code.literal on chip bg", "kh-literal-fg", "kh-chip-bg", False),
     # --- code blocks -------------------------------------------------------
     ("code text on code bg", "kh-code-fg", "kh-code-bg", False),
+    ("line numbers on code bg", "kh-lineno-fg", "kh-code-bg", False),
     # --- tables ------------------------------------------------------------
     ("table header text", "kh-heading", "kh-thead-bg", False),
     ("table cell text", "kh-text", "kh-card-bg", False),
@@ -94,6 +95,7 @@ DECORATIVE: list[tuple[str, str, str]] = [
     ("table soft border (decorative separator)", "kh-border-soft", "kh-card-bg"),
     ("code block border (decorative)", "kh-border", "kh-page-bg"),
     ("chip border (decorative)", "kh-chip-border", "kh-page-bg"),
+    ("line-number gutter rule (decorative)", "kh-lineno-border", "kh-code-bg"),
 ]
 
 LIGHT_ONLY: list[tuple[str, str, str, bool]] = [

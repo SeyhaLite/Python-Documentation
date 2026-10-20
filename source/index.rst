@@ -161,6 +161,9 @@
 ការផ្លាស់ប្ដូរដែលបានធ្វើ។ សូមអាន :doc:`license_attribution` និងឯកសារ
 ``LICENSE`` ក្នុង repository សម្រាប់ព័ត៌មានលម្អិត។
 
-"Python" និងរូបសញ្ញា Python គឺជា trademark របស់ Python Software Foundation។
-គម្រោងនេះមិនទទួលបានការអនុម័ត ឬឧបត្ថម្ភពី PSF ទេ។
+"Python" និងរូបសញ្ញា Python គឺជា trademark ឬ registered trademark របស់
+Python Software Foundation ដែលគម្រោងនេះប្រើប្រាស់ដោយមានការអនុញ្ញាត
+ពីមូលនិធិ។ រូបសញ្ញាដែលបង្ហាញនៅទីនេះគឺជាឯកសារផ្លូវការរបស់ PSF
+ដែល **មិនបានកែប្រែ**។ គម្រោងនេះមិនទទួលបានការអនុម័ត ឬឧបត្ថម្ភ
+ពី PSF ទេ។ សូមអាន :ref:`trademark-statement` សម្រាប់ព័ត៌មានលម្អិត។
 
