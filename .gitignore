@@ -27,3 +27,6 @@ Thumbs.db
 secrets.*
 __pycache__/
 *.pyc
+
+# Sphinx internal build cache (docs/ HTML IS committed for GitHub Pages)
+docs/.doctrees/
