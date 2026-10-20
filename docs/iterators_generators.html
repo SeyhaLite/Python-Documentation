@@ -1,0 +1,938 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iterators និង Generators &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/iterators_generators.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Decorators" href="decorators.html" />
+    <link rel="prev" title="Classes និង Object-Oriented Programming" href="classes_oop.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/iterators_generators.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="Iterators និង Generators">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/iterators_generators.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Iterators និង Generators">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules_packages.html">Modules និង Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions និងការគ្រប់គ្រងកំហុស</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes_oop.html">Classes និង Object-Oriented Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Iterators និង Generators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#iteration-protocol">Iteration Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iterable-iterator">Iterable ធៀបនឹង Iterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterator">ការបង្កើត Iterator ផ្ទាល់ខ្លួន</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iter-sentinel"><code class="docutils literal notranslate"><span class="pre">iter()</span></code> ជាមួយ Sentinel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generators">Generators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generator-lazy">Generator ជា Lazy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-memory">អត្ថប្រយោជន៍អង្គចងចាំ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-pipeline">Generator Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator">Generator គ្មានទីបញ្ចប់</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yield-from"><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generator-expression">Generator Expression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-throw-close"><code class="docutils literal notranslate"><span class="pre">send()</span></code>, <code class="docutils literal notranslate"><span class="pre">throw()</span></code> និង <code class="docutils literal notranslate"><span class="pre">close()</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#return-generator"><code class="docutils literal notranslate"><span class="pre">return</span></code> ក្នុង Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#itertools">ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">itertools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iterator-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type_hints.html">Type Hints</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Iterators និង Generators</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/iterators_generators.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="iterators-generators">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/tutorial/classes.rst</span></code> (ផ្នែក <em>Iterators</em>,
+<em>Generators</em>, <em>Generator Expressions</em>), <code class="docutils literal notranslate"><span class="pre">Doc/library/itertools.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/reference/expressions.rst</span></code> (<code class="docutils literal notranslate"><span class="pre">yield</span></code>), <code class="docutils literal notranslate"><span class="pre">Doc/glossary.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#iterators">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>Iterators និង Generators<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<p>ជំពូកនេះពន្យល់អំពី <strong>iteration protocol</strong> — យន្តការដែលធ្វើឱ្យ
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">y:</span></code> ដំណើរការ — និងអំពី <strong>generator</strong> ដែលជាវិធីសាមញ្ញបំផុត
+ក្នុងការបង្កើត iterator។</p>
+<section id="iteration-protocol">
+<span id="id3"></span><h2>Iteration Protocol<a class="headerlink" href="#iteration-protocol" title="Link to this heading"></a></h2>
+<p>នៅពីក្រោយរង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span></code> Python ធ្វើការពីរជំហាន៖</p>
+<ol class="arabic simple">
+<li><p>ហៅ <code class="docutils literal notranslate"><span class="pre">iter(y)</span></code> ដើម្បីទទួល <strong>iterator</strong> object</p></li>
+<li><p>ហៅ <code class="docutils literal notranslate"><span class="pre">next()</span></code> លើ iterator នោះម្ដងហើយម្ដងទៀត រហូតដល់វាបញ្ចេញ
+<code class="docutils literal notranslate"><span class="pre">StopIteration</span></code></p></li>
+</ol>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"abc"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="go">'a'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="go">'b'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="go">'c'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">StopIteration</span>
+</pre></div>
+</div>
+<p>រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">char</span> <span class="pre">in</span> <span class="pre">s:</span></code> គឺស្មើនឹង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">char</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> loop <strong>ចាប់យក</strong> <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> ដោយស្វ័យប្រវត្តិ។ នេះជា
+ករណីមួយក្នុងចំណោមករណីមិនច្រើនទេដែល Python ប្រើ exception ជា
+ផ្នែកធម្មតានៃ control flow។</p>
+</div>
+<section id="iterable-iterator">
+<span id="iterable-vs-iterator"></span><h3>Iterable ធៀបនឹង Iterator<a class="headerlink" href="#iterable-iterator" title="Link to this heading"></a></h3>
+<p>នេះជាភាពខុសគ្នាសំខាន់បំផុតដែលមនុស្សជាច្រើនច្រឡំ៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 39.0%" />
+<col style="width: 39.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p><strong>Iterable</strong></p></th>
+<th class="head"><p><strong>Iterator</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ត្រូវមាន</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__iter__()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> <strong>និង</strong> <code class="docutils literal notranslate"><span class="pre">__next__()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>អាចដើរលើបានច្រើនដង?</p></td>
+<td><p>✅ បាទ/ចាស</p></td>
+<td><p>❌ ទេ — ដើរបានតែ <strong>ម្ដង</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ឧទាហរណ៍</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">iter(list)</span></code>, generator, file object, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> object</p></td>
+</tr>
+<tr class="row-odd"><td><p>ទទួលបានដោយ</p></td>
+<td><p>សរសេរផ្ទាល់</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">iter(iterable)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>              <span class="c1"># ប្រើអស់ហើយ</span>
+<span class="go">[1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>              <span class="c1"># ❌ ទទេ — iterator ដើរបានតែម្ដង</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>            <span class="c1"># ✅ list ដើមនៅតែដើរបានច្រើនដង</span>
+<span class="go">[1, 2, 3]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="ow">is</span> <span class="n">nums</span>            <span class="c1"># list មិនមែនជា iterator ទេ</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="ow">is</span> <span class="n">it</span>                <span class="c1"># iterator ត្រឡប់ខ្លួនឯង</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ភាពខុសគ្នានេះបង្កើត bug ស្ងាត់៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># generator expression</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>                            <span class="c1"># ❌ 0 — អស់ហើយ!</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>បើអ្នកត្រូវការដើរលើទិន្នន័យច្រើនដង សូមប្រើ <code class="docutils literal notranslate"><span class="pre">list</span></code> ឬហៅ
+generator function ម្ដងទៀត។</p>
+</div>
+</section>
+<section id="iterator">
+<span id="custom-iterator"></span><h3>ការបង្កើត Iterator ផ្ទាល់ខ្លួន<a class="headerlink" href="#iterator" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Countdown</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""រាប់ថយក្រោយពី start ដល់ 1។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="n">start</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>                    <span class="c1"># ខ្លួនឯងជា iterator</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">3 2 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>                            <span class="c1"># ដើរបានតែម្ដង</span>
+<span class="go">[1]</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">__next__()</span></code> <strong>ត្រូវតែ</strong> បញ្ចេញ <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> នៅពេលអស់ទិន្នន័យ។
+បើវាត្រឡប់ <code class="docutils literal notranslate"><span class="pre">None</span></code> ឬបន្តរហូត រង្វិលជុំ <code class="docutils literal notranslate"><span class="pre">for</span></code> នឹងមិនឈប់ទេ។</p>
+</div>
+</section>
+<section id="iter-sentinel">
+<span id="id4"></span><h3><code class="docutils literal notranslate"><span class="pre">iter()</span></code> ជាមួយ Sentinel<a class="headerlink" href="#iter-sentinel" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">iter(callable,</span> <span class="pre">sentinel)</span></code> ហៅ callable រហូតដល់វាត្រឡប់ sentinel៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s2">"data.bin"</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="sa">b</span><span class="s2">"AB</span><span class="se">\x00</span><span class="s2">CD"</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.bin"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">chunks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chunks</span>
+<span class="go">[b'AB', b'\x00C', b'D']</span>
+</pre></div>
+</div>
+<p>នេះមានប្រយោជន៍សម្រាប់អានឯកសារ ឬទិន្នន័យបណ្ដាញជាដុំៗ។</p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="generators">
+<span id="id5"></span><h2>Generators<a class="headerlink" href="#generators" title="Link to this heading"></a></h2>
+<p><strong>Generator</strong> គឺជាវិធីសាមញ្ញបំផុតក្នុងការបង្កើត iterator។ អ្នកសរសេរវា
+ដូចអនុគមន៍ធម្មតា ប៉ុន្តែប្រើ <code class="docutils literal notranslate"><span class="pre">yield</span></code> ជំនួស <code class="docutils literal notranslate"><span class="pre">return</span></code>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""រាប់ថយក្រោយពី n ដល់ 1។"""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ចាប់ផ្ដើម"</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">n</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ចប់"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span>                      <span class="c1"># មិនទាន់ដំណើរការទេ!</span>
+<span class="go">&lt;generator object countdown at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="go">ចាប់ផ្ដើម</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="go">ចប់</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">StopIteration</span>
+</pre></div>
+</div>
+<section id="generator-lazy">
+<span id="id6"></span><h3>Generator ជា Lazy<a class="headerlink" href="#generator-lazy" title="Link to this heading"></a></h3>
+<p>អ្វីដែលមាននៅក្នុង generator function <strong>មិនដំណើរការទេ</strong> រហូតដល់មាន
+ការហៅ <code class="docutils literal notranslate"><span class="pre">next()</span></code>។ ហើយវាឈប់នៅត្រង់ <code class="docutils literal notranslate"><span class="pre">yield</span></code> រួច <strong>ចងចាំ</strong> ស្ថានភាព
+ទាំងអស់ (អថេរ local, ទីតាំងកូដ) រហូតដល់ការហៅបន្ទាប់។</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">traced</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">2</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">traced</span><span class="p">()</span>             <span class="c1"># គ្មានអ្វីត្រូវបានបោះពុម្ពទេ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="go">A</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="go">B</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="go">C</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">StopIteration</span>
+</pre></div>
+</div>
+</section>
+<section id="generator-memory">
+<span id="id7"></span><h3>អត្ថប្រយោជន៍អង្គចងចាំ<a class="headerlink" href="#generator-memory" title="Link to this heading"></a></h3>
+<p>Generator ផលិតតម្លៃ <strong>ម្ដងមួយៗ</strong> ដូច្នេះវាមិនត្រូវការផ្ទុកទិន្នន័យទាំងអស់
+ក្នុងអង្គចងចាំទេ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">big_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">big_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">big_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8_000_000</span>     <span class="c1"># រាប់លាន byte</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">big_gen</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">300</span>            <span class="c1"># តែរាប់រយ byte</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><strong>ឧទាហរណ៍ជាក់ស្ដែង</strong> — អានឯកសារធំដោយមិនផ្ទុកទាំងមូល៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">Path</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"line </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100_000</span><span class="p">)),</span>
+                           <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">errors_only</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""ផលិតតែបន្ទាត់ដែលមានពាក្យ ERROR។"""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>                    <span class="c1"># អានម្ដងមួយបន្ទាត់</span>
+            <span class="k">if</span> <span class="s2">"ERROR"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+
+<span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">errors_only</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">))</span>   <span class="c1"># គ្មាន list ក្នុងអង្គចងចាំ</span>
+</pre></div>
+</div>
+</section>
+<section id="generator-pipeline">
+<span id="generator-pipelines"></span><h3>Generator Pipeline<a class="headerlink" href="#generator-pipeline" title="Link to this heading"></a></h3>
+<p>Generator អាចត្រូវបាន <strong>តភ្ជាប់</strong> គ្នាដូចបំពង់ — ទិន្នន័យហូរកាត់ម្ដងមួយធាតុ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_lines</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">filter_errors</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">"ERROR"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_messages</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">extract_messages</span><span class="p">(</span><span class="n">filter_errors</span><span class="p">(</span><span class="n">read_lines</span><span class="p">(</span><span class="s2">"big.log"</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">pipeline</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pipeline នេះ <strong>មិនអានឯកសារទេ</strong> រហូតដល់មានការទាញយកតម្លៃដំបូង។
+ហើយវាប្រើអង្គចងចាំតែប៉ុន្មានបន្ទាត់ប៉ុណ្ណោះ ទោះបីជាឯកសារមាន
+រាប់លានបន្ទាត់ក៏ដោយ។ នេះជាគុណសម្បត្តិធំបំផុតរបស់ generator។</p>
+</div>
+</section>
+<section id="generator">
+<span id="infinite-generators"></span><h3>Generator គ្មានទីបញ្ចប់<a class="headerlink" href="#generator" title="Link to this heading"></a></h3>
+<p>Generator អាចផលិតលំដាប់គ្មានទីបញ្ចប់បាន ព្រោះវាផលិតតាមតម្រូវការ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">natural_numbers</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">start</span>
+<span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">yield</span> <span class="n">n</span>
+<span class="gp">... </span>        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">natural_numbers</span><span class="p">(),</span> <span class="mi">5</span><span class="p">))</span>
+<span class="go">[1, 2, 3, 4, 5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">natural_numbers</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">[100, 101, 102]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>កុំសរសេរ <code class="docutils literal notranslate"><span class="pre">list(natural_numbers())</span></code> — វានឹងព្យាយាមផ្ទុកលេខគ្មានទីបញ្ចប់
+ហើយអស់អង្គចងចាំ។ ប្រើ <code class="docutils literal notranslate"><span class="pre">itertools.islice()</span></code> ដើម្បីយកតែចំនួនកំណត់។</p>
+</div>
+</section>
+<section id="yield-from">
+<span id="id8"></span><h3><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code><a class="headerlink" href="#yield-from" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> បញ្ជូនតម្លៃទាំងអស់ពី iterable ឬ generator ផ្សេងទៀត៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">flatten</span><span class="p">(</span><span class="n">nested</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">nested</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="gp">... </span>            <span class="k">yield from</span> <span class="n">flatten</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>     <span class="c1"># recursive delegation</span>
+<span class="gp">... </span>        <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">yield</span> <span class="n">item</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">flatten</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="go">[1, 2, 3, 4, 5]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">chained</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">yield from</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">yield from</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">yield from</span> <span class="s2">"ab"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">chained</span><span class="p">())</span>
+<span class="go">[1, 2, 3, 4, 'a', 'b']</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span> <span class="pre">x</span></code> ខ្លីជាង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">yield</span> <span class="n">item</span>
+</pre></div>
+</div>
+<p>ប៉ុន្តែវាខ្លាំងជាង ព្រោះវាក៏បញ្ជូន <code class="docutils literal notranslate"><span class="pre">send()</span></code>, <code class="docutils literal notranslate"><span class="pre">throw()</span></code> និង <code class="docutils literal notranslate"><span class="pre">close()</span></code>
+ទៅ generator រងផងដែរ។</p>
+</section>
+</section>
+<section id="generator-expression">
+<span id="generator-expressions"></span><h2>Generator Expression<a class="headerlink" href="#generator-expression" title="Link to this heading"></a></h2>
+<p>Generator expression ដូច list comprehension ប៉ុន្តែប្រើវង់ក្រចកមូល <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>
+ជំនួសវង់ក្រចកការ៉េ <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>     <span class="c1"># list — ផ្ទុកភ្លាម</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squares_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># generator — ខ្ជិល</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squares_list</span>
+<span class="go">[0, 1, 4, 9, 16]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squares_gen</span>
+<span class="go">&lt;generator object &lt;genexpr&gt; at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">squares_gen</span><span class="p">)</span>
+<span class="go">[0, 1, 4, 9, 16]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">squares_gen</span><span class="p">)</span>                             <span class="c1"># អស់ហើយ</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 37.0%" />
+<col style="width: 37.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>List comprehension <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code></p></th>
+<th class="head"><p>Generator expression <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ផ្ទុកក្នុងអង្គចងចាំ</p></td>
+<td><p>ទាំងអស់ភ្លាមៗ</p></td>
+<td><p>ម្ដងមួយធាតុ</p></td>
+</tr>
+<tr class="row-odd"><td><p>ដើរបានច្រើនដង</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>ល្បឿន (ទិន្នន័យតូច)</p></td>
+<td><p>លឿនជាងបន្តិច</p></td>
+<td><p>យឺតជាងបន្តិច</p></td>
+</tr>
+<tr class="row-odd"><td><p>ប្រើពេលណា</p></td>
+<td><p>ត្រូវការ list ពិត ឬដើរច្រើនដង</p></td>
+<td><p>ទិន្នន័យធំ ឬប្រើតែម្ដង</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>នៅពេលបញ្ជូន generator expression ជា <strong>argument តែមួយគត់</strong> អ្នកអាចលុប
+វង់ក្រចកមួយជាន់៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>       <span class="c1"># គ្មានវង់ក្រចកពីរជាន់</span>
+<span class="go">30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"bbb"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">])</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>នេះមានប្រសិទ្ធភាពជាង <code class="docutils literal notranslate"><span class="pre">sum([x</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">range(5)])</span></code> ព្រោះវា
+មិនបង្កើត list កណ្ដាលទេ។</p>
+</div>
+</section>
+<section id="send-throw-close">
+<span id="generator-methods"></span><h2><code class="docutils literal notranslate"><span class="pre">send()</span></code>, <code class="docutils literal notranslate"><span class="pre">throw()</span></code> និង <code class="docutils literal notranslate"><span class="pre">close()</span></code><a class="headerlink" href="#send-throw-close" title="Link to this heading"></a></h2>
+<p>Generator អាច <strong>ទទួល</strong> តម្លៃពីខាងក្រៅបានផងដែរ (coroutine)៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">accumulator</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">total</span>        <span class="c1"># ទទួលតម្លៃ ហើយបញ្ជូន total ចេញ</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">break</span>
+<span class="gp">... </span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span> <span class="o">=</span> <span class="n">accumulator</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span>                          <span class="c1"># ចាប់ផ្ដើម (prime the generator)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                        <span class="c1"># បញ្ឈប់</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>ឥទ្ធិពល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">next(g)</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">g.send(None)</span></code></p></td>
+<td><p>ដំណើរការបន្ត រហូតដល់ <code class="docutils literal notranslate"><span class="pre">yield</span></code> បន្ទាប់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">g.send(value)</span></code></p></td>
+<td><p>ដំណើរការបន្ត ហើយធ្វើឱ្យ <code class="docutils literal notranslate"><span class="pre">yield</span></code> ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">g.throw(exc)</span></code></p></td>
+<td><p>បញ្ចេញ exception នៅត្រង់ <code class="docutils literal notranslate"><span class="pre">yield</span></code> បច្ចុប្បន្ន</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">g.close()</span></code></p></td>
+<td><p>បញ្ចេញ <code class="docutils literal notranslate"><span class="pre">GeneratorExit</span></code> ខាងក្នុង · generator ត្រូវបញ្ចប់</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>អ្នក <strong>ត្រូវតែ</strong> ហៅ <code class="docutils literal notranslate"><span class="pre">next(g)</span></code> (ឬ <code class="docutils literal notranslate"><span class="pre">g.send(None)</span></code>) មុន <code class="docutils literal notranslate"><span class="pre">send()</span></code>
+លើកដំបូង ព្រោះ generator មិនទាន់ដំណើរការដល់ <code class="docutils literal notranslate"><span class="pre">yield</span></code> ដំបូងទេ។
+បើមិនដូច្នោះ អ្នកនឹងទទួល <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>។</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">close()</span></code> បញ្ចេញ <code class="docutils literal notranslate"><span class="pre">GeneratorExit</span></code> នៅត្រង់ <code class="docutils literal notranslate"><span class="pre">yield</span></code>។ Generator អាច
+ចាប់យកវាដើម្បីសម្អាតធនធាន ប៉ុន្តែ <strong>មិនអាច</strong> <code class="docutils literal notranslate"><span class="pre">yield</span></code> បន្ទាប់ពីនោះទេ —
+វានឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code>។</p>
+<p>សម្រាប់ការសម្អាតធនធាន វិធីសាមញ្ញបំផុតគឺប្រើ <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">finally</span></code> ក្នុង
+generator៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_rows</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>          <span class="c1"># ដំណើរការទោះបី generator ត្រូវបាន close()</span>
+</pre></div>
+</div>
+</div>
+<section id="return-generator">
+<span id="return-in-generator"></span><h3><code class="docutils literal notranslate"><span class="pre">return</span></code> ក្នុង Generator<a class="headerlink" href="#return-generator" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">value</span></code> ក្នុង generator បញ្ចប់វា ហើយដាក់ <code class="docutils literal notranslate"><span class="pre">value</span></code> ទៅក្នុង
+<code class="docutils literal notranslate"><span class="pre">StopIteration.value</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">gen_with_return</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="mi">2</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="s2">"លទ្ធផលចុងក្រោយ"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">gen_with_return</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="go">(1, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"StopIteration.value ="</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">StopIteration.value = លទ្ធផលចុងក្រោយ</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> ចាប់យកតម្លៃនេះដោយស្វ័យប្រវត្តិ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">gen_with_return</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"ទទួលបានពី sub-generator:"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">wrapper</span><span class="p">())</span>
+<span class="go">ទទួលបានពី sub-generator: លទ្ធផលចុងក្រោយ</span>
+<span class="go">[1, 2]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="itertools">
+<span id="id9"></span><h2>ម៉ូឌុល <code class="docutils literal notranslate"><span class="pre">itertools</span></code><a class="headerlink" href="#itertools" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">itertools</span></code> ផ្ដល់ generator ដែលមានប្រសិទ្ធភាពខ្ពស់សម្រាប់ដំណើរការលើ
+លំដាប់។ ទាំងអស់ជា <strong>lazy</strong>។</p>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">បង្កើតលំដាប់</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 68.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អនុគមន៍</p></th>
+<th class="head"><p>លទ្ធផល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">count(start,</span> <span class="pre">step)</span></code></p></td>
+<td><p>លេខគ្មានទីបញ្ចប់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cycle(iterable)</span></code></p></td>
+<td><p>ដើរម្ដងទៀតគ្មានទីបញ្ចប់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">repeat(x,</span> <span class="pre">n)</span></code></p></td>
+<td><p>តម្លៃដដែល <code class="docutils literal notranslate"><span class="pre">n</span></code> ដង</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">range()</span></code> (built-in)</p></td>
+<td><p>លេខគត់ក្នុងជួរ</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">បញ្ចប់លំដាប់</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 68.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អនុគមន៍</p></th>
+<th class="head"><p>លទ្ធផល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">islice(it,</span> <span class="pre">stop)</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">islice(it,</span> <span class="pre">start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code></p></td>
+<td><p>យកផ្នែកមួយ (ដូច slicing ប៉ុន្តែសម្រាប់ iterator)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">takewhile(pred,</span> <span class="pre">it)</span></code></p></td>
+<td><p>យកធាតុខណៈពេល <code class="docutils literal notranslate"><span class="pre">pred</span></code> ពិត</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dropwhile(pred,</span> <span class="pre">it)</span></code></p></td>
+<td><p>រំលងធាតុខណៈពេល <code class="docutils literal notranslate"><span class="pre">pred</span></code> ពិត រួចយកទាំងអស់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">filterfalse(pred,</span> <span class="pre">it)</span></code></p></td>
+<td><p>យកធាតុដែល <code class="docutils literal notranslate"><span class="pre">pred</span></code> <strong>មិន</strong> ពិត</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">រួមបញ្ចូល</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 68.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អនុគមន៍</p></th>
+<th class="head"><p>លទ្ធផល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">chain(a,</span> <span class="pre">b,</span> <span class="pre">...)</span></code></p></td>
+<td><p>ភ្ជាប់លំដាប់ជាបន្តបន្ទាប់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">chain.from_iterable(it)</span></code></p></td>
+<td><p>ដូចគ្នា ប៉ុន្តែពី iterable នៃ iterables</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">zip_longest(a,</span> <span class="pre">b,</span> <span class="pre">fillvalue=…)</span></code></p></td>
+<td><p>ដូច <code class="docutils literal notranslate"><span class="pre">zip()</span></code> ប៉ុន្តែបន្តរហូតដល់លំដាប់ <strong>វែងបំផុត</strong> អស់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">product(a,</span> <span class="pre">b)</span></code></p></td>
+<td><p>ផលគុណ Cartesian</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">permutations(a,</span> <span class="pre">r)</span></code></p></td>
+<td><p>ការរៀបចំលំដាប់</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">combinations(a,</span> <span class="pre">r)</span></code> / <code class="docutils literal notranslate"><span class="pre">combinations_with_replacement</span></code></p></td>
+<td><p>ការជ្រើសរើសដោយមិនគិតលំដាប់</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">ក្រុម និងសម្រួល</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 68.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អនុគមន៍</p></th>
+<th class="head"><p>លទ្ធផល</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">groupby(it,</span> <span class="pre">key)</span></code></p></td>
+<td><p>ក្រុមធាតុជាប់គ្នាដែលមាន key ដូចគ្នា (<strong>ត្រូវតម្រៀបជាមុន</strong>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">accumulate(it,</span> <span class="pre">func)</span></code></p></td>
+<td><p>ផលបូកបង្គរ (ឬ func ផ្សេង)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pairwise(it)</span></code></p></td>
+<td><p>គូជាប់គ្នា <code class="docutils literal notranslate"><span class="pre">(a,b),</span> <span class="pre">(b,c),</span> <span class="pre">(c,d)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">batched(it,</span> <span class="pre">n)</span></code></p></td>
+<td><p>បែងចែកជាដុំនៃ <code class="docutils literal notranslate"><span class="pre">n</span></code> (Python 3.12+)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">starmap(func,</span> <span class="pre">it)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">func(*args)</span></code> សម្រាប់ tuple នីមួយៗ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">"ab"</span><span class="p">))</span>
+<span class="go">[1, 2, 'a', 'b']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="go">[10, 15, 20, 25]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">takewhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="go">[1, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">accumulate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="go">[1, 3, 6, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">pairwise</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="go">[(1, 2), (2, 3), (3, 4)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">"ab"</span><span class="p">))</span>
+<span class="go">[(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">[(1, 2), (1, 3), (2, 3)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">[(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.10: </span><code class="docutils literal notranslate"><span class="pre">pairwise()</span></code>។</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.12: </span><code class="docutils literal notranslate"><span class="pre">batched()</span></code>។</p>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">batched</span><span class="p">(</span><span class="s2">"ABCDEFG"</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">[('A', 'B', 'C'), ('D', 'E', 'F'), ('G',)]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> ក្រុមតែធាតុ <strong>ជាប់គ្នា</strong> ប៉ុណ្ណោះ។ អ្នកត្រូវតម្រៀបទិន្នន័យ
+តាម key ជាមុន៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ❌ 'b' ពីរក្រុម</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+<span class="go">[('b', 1), ('a', 1), ('b', 1)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ✅</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">data_sorted</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+<span class="go">[('a', 1), ('b', 2)]</span>
+</pre></div>
+</div>
+<p>ចំណាំថា <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> ត្រូវបាន <strong>ប្រើប្រាស់ភ្លាម</strong> — បើអ្នកមិនបំលែង
+sub-iterator <code class="docutils literal notranslate"><span class="pre">g</span></code> ទៅ list មុនពេលដើរទៅក្រុមបន្ទាប់ វានឹងទទេ។</p>
+</div>
+<hr class="docutils" />
+</section>
+<section id="iterator-summary">
+<span id="id10"></span><h2>សង្ខេប<a class="headerlink" href="#iterator-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 72.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>គោលគំនិត</p></th>
+<th class="head"><p>សង្ខេប</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Iterable</p></td>
+<td><p>មាន <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> · ដើរបានច្រើនដង</p></td>
+</tr>
+<tr class="row-odd"><td><p>Iterator</p></td>
+<td><p>មាន <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> + <code class="docutils literal notranslate"><span class="pre">__next__()</span></code> · ដើរបានតែម្ដង · បញ្ចេញ <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">iter(y)</span></code> រួច <code class="docutils literal notranslate"><span class="pre">next()</span></code> ម្ដងហើយម្ដងទៀត</p></td>
+</tr>
+<tr class="row-odd"><td><p>Generator function</p></td>
+<td><p>អនុគមន៍ដែលមាន <code class="docutils literal notranslate"><span class="pre">yield</span></code> · ត្រឡប់ generator object</p></td>
+</tr>
+<tr class="row-even"><td><p>Generator expression</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">y)</span></code> · lazy · ប្រើអង្គចងចាំតិច</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code></p></td>
+<td><p>បញ្ជូនទៅ sub-iterator រួមទាំង <code class="docutils literal notranslate"><span class="pre">send</span></code>/<code class="docutils literal notranslate"><span class="pre">throw</span></code>/<code class="docutils literal notranslate"><span class="pre">close</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">send()</span></code> / <code class="docutils literal notranslate"><span class="pre">throw()</span></code> / <code class="docutils literal notranslate"><span class="pre">close()</span></code></p></td>
+<td><p>ទំនាក់ទំនងពីរទិសជាមួយ generator</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">itertools</span></code></p></td>
+<td><p>generator ស្តង់ដារដែលមានប្រសិទ្ធភាពខ្ពស់</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>ជ្រើសរើស generator ពេលណា?</strong></p>
+<ul class="simple">
+<li><p>ទិន្នន័យធំ ឬគ្មានទីបញ្ចប់ → generator</p></li>
+<li><p>ដើរលើទិន្នន័យតែម្ដង (ឧ. pipeline) → generator</p></li>
+<li><p>ត្រូវការ index, ប្រវែង ឬដើរច្រើនដង → list</p></li>
+<li><p>ទិន្នន័យតូចហើយច្បាស់ → list (សាមញ្ញជាង)</p></li>
+</ul>
+</div>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#iterators">Iterators</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#generators">Generators</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#generator-expressions">Generator Expressions</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html">itertools — Functions creating iterators</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterator">Glossary: iterator / iterable / generator</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0255/">PEP 255 — Simple Generators</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0289/">PEP 289 — Generator Expressions</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0342/">PEP 342 — Coroutines via Enhanced Generators</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0380/">PEP 380 — Syntax for Delegating to a Subgenerator</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classes_oop.html" class="btn btn-neutral float-left" title="Classes និង Object-Oriented Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="decorators.html" class="btn btn-neutral float-right" title="Decorators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

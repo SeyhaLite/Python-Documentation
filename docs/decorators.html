@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decorators &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/decorators.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Type Hints" href="type_hints.html" />
+    <link rel="prev" title="Iterators និង Generators" href="iterators_generators.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/decorators.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="Decorators">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/decorators.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Decorators">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules_packages.html">Modules និង Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions និងការគ្រប់គ្រងកំហុស</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes_oop.html">Classes និង Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iterators_generators.html">Iterators និង Generators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Decorators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#decorator">តើ Decorator ជាអ្វី?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-decorator">Decorator ដំបូងរបស់អ្នក</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functools-wraps"><code class="docutils literal notranslate"><span class="pre">functools.wraps</span></code> — កុំភ្លេច</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorator-argument">Decorator ដែលមាន Argument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stacking">ការដាក់ Decorator ច្រើនជាន់</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorator-syntax">វាក្យសម្ពន្ធ Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#builtin-decorators">Decorator ស្តង់ដារដែលអ្នកគួរស្គាល់</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lru-cache-caching"><code class="docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> — Caching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#class-decorator">Class ជា Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorator-method">Decorator លើ Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorator-class">Decorator សម្រាប់ Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#real-world">ឧទាហរណ៍ជាក់ស្ដែង</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorators-best-practices">ការអនុវត្តល្អបំផុត</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorators-summary">សង្ខេប</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type_hints.html">Type Hints</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Decorators</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/decorators.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="decorators">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/glossary.rst</span></code> (<em>decorator</em>),
+<code class="docutils literal notranslate"><span class="pre">Doc/reference/compound_stmts.rst</span></code> (<em>Function definitions</em>),
+<code class="docutils literal notranslate"><span class="pre">Doc/library/functools.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">Doc/whatsnew/2.4.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-decorator">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>Decorators<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<p><strong>Decorator</strong> គឺជាអនុគមន៍ដែលទទួលអនុគមន៍ (ឬ class) មួយ ហើយត្រឡប់
+កំណែដែលបាន <strong>ពង្រីក</strong> ឬ <strong>កែប្រែ</strong> វិញ។ វាអនុញ្ញាតឱ្យអ្នកបន្ថែមអាកប្បកិរិយា
+ដោយមិនកែកូដដើម។</p>
+<section id="decorator">
+<span id="what-is-decorator"></span><h2>តើ Decorator ជាអ្វី?<a class="headerlink" href="#decorator" title="Link to this heading"></a></h2>
+<p>វាក្យសម្ពន្ធ <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> គ្រាន់តែជាការហៅអនុគមន៍ធម្មតាមួយប៉ុណ្ណោះ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@my_decorator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>គឺស្មើនឹង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
+    <span class="o">...</span>
+<span class="n">func</span> <span class="o">=</span> <span class="n">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">shout</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@shout</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="go">'សួស្ដី សុខា'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__name__</span>                  <span class="c1"># ⚠ ឈ្មោះបានបាត់បង់</span>
+<span class="go">'wrapper'</span>
+</pre></div>
+</div>
+</section>
+<section id="first-decorator">
+<span id="id3"></span><h2>Decorator ដំបូងរបស់អ្នក<a class="headerlink" href="#first-decorator" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""វាស់ពេលដំណើរការរបស់អនុគមន៍។"""</span>
+
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>                       <span class="c1"># ← សំខាន់ណាស់</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ចំណាយ </span><span class="si">{</span><span class="n">elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="nd">@timer</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sum_range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""បូកលេខពី 0 ដល់ n។"""</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">total</span> <span class="o">=</span> <span class="n">sum_range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="go">sum_range ចំណាយ ... ms</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sum_range</span><span class="o">.</span><span class="vm">__name__</span>            <span class="c1"># ✅ ឈ្មោះដើមត្រូវបានរក្សា</span>
+<span class="go">'sum_range'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sum_range</span><span class="o">.</span><span class="vm">__doc__</span>
+<span class="go">'បូកលេខពី 0 ដល់ n។'</span>
+</pre></div>
+</div>
+</section>
+<section id="functools-wraps">
+<span id="id4"></span><h2><code class="docutils literal notranslate"><span class="pre">functools.wraps</span></code> — កុំភ្លេច<a class="headerlink" href="#functools-wraps" title="Link to this heading"></a></h2>
+<p>បើគ្មាន <code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps</span></code> អនុគមន៍ដែលបាន decorate នឹង <strong>បាត់បង់
+metadata</strong> ទាំងអស់របស់វា៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>គ្មាន <code class="docutils literal notranslate"><span class="pre">wraps</span></code></p></th>
+<th class="head"><p>មាន <code class="docutils literal notranslate"><span class="pre">wraps</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'wrapper'</span></code></p></td>
+<td><p>ឈ្មោះដើម</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__doc__</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>docstring ដើម</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__module__</span></code></p></td>
+<td><p>របស់ decorator</p></td>
+<td><p>របស់អនុគមន៍ដើម</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__qualname__</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'timer.&lt;locals&gt;.wrapper'</span></code></p></td>
+<td><p>qualname ដើម</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__annotations__</span></code></p></td>
+<td><p>របស់ wrapper</p></td>
+<td><p>របស់អនុគមន៍ដើម</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__dict__</span></code></p></td>
+<td><p>ទទេ</p></td>
+<td><p>បានបញ្ចូលគ្នា</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__wrapped__</span></code></p></td>
+<td><p>គ្មាន</p></td>
+<td><p>ចង្អុលទៅអនុគមន៍ដើម</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span><span class="o">,</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">plain</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@plain</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">original</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span><span class="w">    </span><span class="sd">"""docstring ដើម"""</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">original</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="go">'wrapper'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+<span class="go">&lt;Signature (*a, **k)&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">polite</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapper</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@polite</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">original2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="gp">... </span><span class="w">    </span><span class="sd">"""docstring ដើម"""</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">original2</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="go">'original2'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">original2</span><span class="p">)</span>          <span class="c1"># ផ្ទៀងផ្ទាត់តាម REAL_SCRIPT_CHECKS</span>
+<span class="go">&lt;Signature (x: int) -&gt; str&gt;</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps</span></code> ធ្វើឱ្យ <strong>debugging</strong>, <strong>documentation</strong>,
+<strong>introspection</strong> និង <strong>framework</strong> ដំណើរការត្រឹមត្រូវ។ សរសេរវា
+<strong>ជានិច្ច</strong> នៅពេលអ្នកបង្កើត decorator។</p>
+<p>វាក៏កំណត់ <code class="docutils literal notranslate"><span class="pre">__wrapped__</span></code> ផងដែរ ដែលអនុញ្ញាតឱ្យអ្នកចូលទៅអនុគមន៍ដើម៖
+<code class="docutils literal notranslate"><span class="pre">original2.__wrapped__</span></code>។</p>
+</div>
+</section>
+<section id="decorator-argument">
+<span id="decorators-with-arguments"></span><h2>Decorator ដែលមាន Argument<a class="headerlink" href="#decorator-argument" title="Link to this heading"></a></h2>
+<p>Decorator ដែលទទួល argument ត្រូវការ <strong>បីជាន់</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""ហៅអនុគមន៍ ``times`` ដង។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="nd">@repeat</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">say_hello</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="go">សួស្ដី សុខា</span>
+<span class="go">សួស្ដី សុខា</span>
+<span class="go">សួស្ដី សុខា</span>
+<span class="go">'សុខា'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">say_hello</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="go">'say_hello'</span>
+</pre></div>
+</div>
+<p><strong>លំដាប់នៃការដំណើរការ៖</strong></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">repeat(times=3)</span></code> ត្រូវបានហៅភ្លាម → ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">decorator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decorator(say_hello)</span></code> ត្រូវបានហៅ → ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">wrapper</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">say_hello</span></code> ឥឡូវចង្អុលទៅ <code class="docutils literal notranslate"><span class="pre">wrapper</span></code></p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ចងចាំថា <code class="docutils literal notranslate"><span class="pre">&#64;repeat(times=3)</span></code> មាន <strong>វង់ក្រចក</strong> — វាហៅ <code class="docutils literal notranslate"><span class="pre">repeat</span></code> ជាមុន។
+<code class="docutils literal notranslate"><span class="pre">&#64;repeat</span></code> ដោយគ្មានវង់ក្រចក នឹងព្យាយាមប្រើ <code class="docutils literal notranslate"><span class="pre">times</span></code> ជាអនុគមន៍។</p>
+<p>អ្នកអាចធ្វើឱ្យ decorator មួយដំណើរការទាំងពីររបៀប ដោយពិនិត្យ
+ប្រភេទ argument ដំបូង៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">"INFO"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""ដំណើរការទាំង @log និង @log(level="DEBUG")។"""</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="stacking">
+<span id="id5"></span><h2>ការដាក់ Decorator ច្រើនជាន់<a class="headerlink" href="#stacking" title="Link to this heading"></a></h2>
+<p>Decorator ត្រូវបានអនុវត្ត <strong>ពីក្រោមឡើងលើ</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bold</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;b&gt;</span><span class="si">{</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/b&gt;"</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">italic</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;i&gt;</span><span class="si">{</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/i&gt;"</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="nd">@bold</span>
+<span class="nd">@italic</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">label</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span><span class="p">(</span><span class="s2">"សួស្ដី"</span><span class="p">)</span>
+<span class="go">'&lt;b&gt;&lt;i&gt;សួស្ដី&lt;/i&gt;&lt;/b&gt;'</span>
+</pre></div>
+</div>
+<p>នេះស្មើនឹង <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">bold(italic(label))</span></code>។ ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">&#64;bold</span></code> ដែលនៅ
+<strong>ខាងលើ</strong> ដំណើរការ <strong>ចុងក្រោយ</strong>។</p>
+</section>
+<section id="decorator-syntax">
+<span id="id6"></span><h2>វាក្យសម្ពន្ធ Decorator<a class="headerlink" href="#decorator-syntax" title="Link to this heading"></a></h2>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.9: </span>PEP 614 ធ្វើឱ្យវាក្យសម្ពន្ធធូររលុង — decorator អាចជា <strong>expression ណាក៏បាន</strong>
+ដែលត្រឡប់ callable មិនមែនត្រឹមតែឈ្មោះ ឬការហៅមានចុចប៉ុណ្ណោះទេ។</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># មុន Python 3.9 — ត្រូវប្រើអថេរជំនួយ</span>
+<span class="n">decorator</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="s2">"debug"</span><span class="p">]</span>
+<span class="nd">@decorator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span> <span class="o">...</span>
+
+<span class="c1"># Python 3.9+ — អនុញ្ញាតផ្ទាល់</span>
+<span class="nd">@registry</span><span class="p">[</span><span class="s2">"debug"</span><span class="p">]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span> <span class="o">...</span>
+
+<span class="nd">@buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_click</span><span class="p">():</span> <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="builtin-decorators">
+<span id="id7"></span><h2>Decorator ស្តង់ដារដែលអ្នកគួរស្គាល់<a class="headerlink" href="#builtin-decorators" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Decorator</p></th>
+<th class="head"><p>ការប្រើប្រាស់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps(f)</span></code></p></td>
+<td><p>រក្សា metadata របស់អនុគមន៍ដែលបាន decorate</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;property</span></code></p></td>
+<td><p>បំលែង method ទៅជា attribute ដែលអានបាន</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;x.setter</span></code> / <code class="docutils literal notranslate"><span class="pre">&#64;x.deleter</span></code></p></td>
+<td><p>កំណត់ setter/deleter សម្រាប់ property</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code></p></td>
+<td><p>method ដែលទទួល <code class="docutils literal notranslate"><span class="pre">cls</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code></p></td>
+<td><p>method ដែលមិនទទួល <code class="docutils literal notranslate"><span class="pre">self</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">cls</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;functools.lru_cache(maxsize=…)</span></code></p></td>
+<td><p>រក្សាទុកលទ្ធផល (cache) ដោយផ្អែកលើ argument</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;functools.cache</span></code></p></td>
+<td><p>cache គ្មានដែនកំណត់ (Python 3.9+)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;functools.cached_property</span></code></p></td>
+<td><p>គណនាម្ដងគត់ រួចរក្សាទុកជា instance attribute</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;functools.singledispatch</span></code></p></td>
+<td><p>overloading តាមប្រភេទ argument ដំបូង</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;functools.total_ordering</span></code></p></td>
+<td><p>បង្កើតប្រមាណវិធីប្រៀបធៀបដែលនៅសល់ពី <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> + មួយទៀត</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;dataclasses.dataclass</span></code></p></td>
+<td><p>បង្កើត <code class="docutils literal notranslate"><span class="pre">__init__</span></code>/<code class="docutils literal notranslate"><span class="pre">__repr__</span></code>/<code class="docutils literal notranslate"><span class="pre">__eq__</span></code> ស្វ័យប្រវត្តិ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;abc.abstractmethod</span></code></p></td>
+<td><p>បង្ខំឱ្យ subclass អនុវត្ត</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;contextlib.contextmanager</span></code></p></td>
+<td><p>បង្កើត context manager ពី generator</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;typing.override</span></code></p></td>
+<td><p>បញ្ជាក់ថា method នេះ override method របស់ class មេ (3.12+)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;functools.partial</span></code> (មិនមែន decorator ប៉ុន្តែស្រដៀង)</p></td>
+<td><p>កំណត់ argument ខ្លះជាមុន</p></td>
+</tr>
+</tbody>
+</table>
+<section id="lru-cache-caching">
+<span id="lru-cache"></span><h3><code class="docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> — Caching<a class="headerlink" href="#lru-cache-caching" title="Link to this heading"></a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">n</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="go">832040</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>
+<span class="go">CacheInfo(hits=28, misses=31, maxsize=None, currsize=31)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_clear</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="o">.</span><span class="n">cache_info</span><span class="p">()</span>
+<span class="go">CacheInfo(hits=0, misses=0, maxsize=None, currsize=0)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> តម្រូវឱ្យ argument ទាំងអស់ <strong>hashable</strong>។ Argument
+mutable (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>) នឹងបញ្ចេញ <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
+<span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">unhashable type: 'list'</span>
+</pre></div>
+</div>
+<p>ចំណាំថា cache ក៏រក្សា <strong>reference</strong> ទៅ argument និងលទ្ធផលផងដែរ
+ដូច្នេះវាអាចបណ្ដាលឱ្យអស់អង្គចងចាំបើប្រើដោយប្រុងប្រយ័ត្ន។
+<code class="docutils literal notranslate"><span class="pre">&#64;functools.cache</span></code> គឺជាផ្លូវកាត់សម្រាប់ <code class="docutils literal notranslate"><span class="pre">lru_cache(maxsize=None)</span></code>។</p>
+</div>
+</section>
+</section>
+<section id="class-decorator">
+<span id="class-decorators"></span><h2>Class ជា Decorator<a class="headerlink" href="#class-decorator" title="Link to this heading"></a></h2>
+<p>Object ណាដែលមាន <code class="docutils literal notranslate"><span class="pre">__call__</span></code> អាចជា decorator បាន៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CountCalls</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""រាប់ចំនួនដងដែលអនុគមន៍ត្រូវបានហៅ។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="n">functools</span><span class="o">.</span><span class="n">update_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="nd">@CountCalls</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">"pong"</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="p">(),</span> <span class="n">ping</span><span class="p">()</span>
+<span class="go">('pong', 'pong')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="o">.</span><span class="n">count</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ping</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="go">'ping'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">functools.update_wrapper(self,</span> <span class="pre">func)</span></code> ជំនួស
+<code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps</span></code> ព្រោះ <code class="docutils literal notranslate"><span class="pre">wraps</span></code> គឺជា decorator សម្រាប់អនុគមន៍
+ខណៈ <code class="docutils literal notranslate"><span class="pre">update_wrapper</span></code> គឺជាអនុគមន៍ដែលនៅពីក្រោយវា។</p>
+</div>
+</section>
+<section id="decorator-method">
+<span id="decorating-methods"></span><h2>Decorator លើ Method<a class="headerlink" href="#decorator-method" title="Link to this heading"></a></h2>
+<p>Decorator ដំណើរការមុនពេល method ក្លាយជា bound method ដូច្នេះ <code class="docutils literal notranslate"><span class="pre">self</span></code>
+គ្រាន់តែជា argument ធម្មតាមួយ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">requires_auth</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">logged_in</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">"ត្រូវតែចូលគណនីជាមុន"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logged_in</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@requires_auth</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">}</span><span class="s2"> បានដក </span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s2">"សុខា"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">PermissionError</span>: <span class="n">ត្រូវតែចូលគណនីជាមុន</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">logged_in</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">acc</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="go">'សុខា បានដក 100'</span>
+</pre></div>
+</div>
+</section>
+<section id="decorator-class">
+<span id="class-decorator-target"></span><h2>Decorator សម្រាប់ Class<a class="headerlink" href="#decorator-class" title="Link to this heading"></a></h2>
+<p>Decorator ក៏អាចកែប្រែ class បានដែរ៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">add_repr</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="bp">cls</span><span class="o">.</span><span class="fm">__repr__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"&lt;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&gt;"</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="bp">cls</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@add_repr</span>
+<span class="gp">... </span><span class="k">class</span><span class="w"> </span><span class="nc">Thing</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Thing</span><span class="p">()</span>
+<span class="go">&lt;Thing&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;dataclasses.dataclass</span></code> គឺជាឧទាហរណ៍ដ៏ល្បីបំផុតនៃ class decorator —
+វាបន្ថែម <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> និង method ផ្សេងទៀត
+ទៅក្នុង class។ សូមមើលជំពូក <a class="reference internal" href="classes_oop.html"><span class="doc">Classes និង Object-Oriented Programming</span></a>។</p>
+</div>
+</section>
+<section id="real-world">
+<span id="id8"></span><h2>ឧទាហរណ៍ជាក់ស្ដែង<a class="headerlink" href="#real-world" title="Link to this heading"></a></h2>
+<p><strong>១. Retry logic</strong> — សាកល្បងម្ដងទៀតពេលបរាជ័យ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">retry</span><span class="p">(</span><span class="n">attempts</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">exceptions</span><span class="o">=</span><span class="p">(</span><span class="ne">OSError</span><span class="p">,)):</span>
+<span class="w">    </span><span class="sd">"""សាកល្បងម្ដងទៀតរហូតដល់ជោគជ័យ ឬអស់ attempts។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">last</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">exceptions</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                    <span class="n">last</span> <span class="o">=</span> <span class="n">exc</span>
+                    <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">attempts</span><span class="p">:</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">last</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+</pre></div>
+</div>
+<p><strong>២. Validation</strong> — ពិនិត្យ argument៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">positive</span><span class="p">(</span><span class="o">*</span><span class="n">param_names</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""ធានាថា parameter ដែលបានបញ្ជាក់មានតម្លៃវិជ្ជមាន។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+
+        <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">bound</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">bound</span><span class="o">.</span><span class="n">apply_defaults</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">param_names</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> ត្រូវតែវិជ្ជមាន"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+</pre></div>
+</div>
+<p><strong>៣. Deprecation warning</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">deprecated</span><span class="p">(</span><span class="n">reason</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ហួសសម័យហើយ: </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                <span class="ne">DeprecationWarning</span><span class="p">,</span>
+                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+</pre></div>
+</div>
+</section>
+<section id="decorators-best-practices">
+<span id="id9"></span><h2>ការអនុវត្តល្អបំផុត<a class="headerlink" href="#decorators-best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>ប្រើ ``&#64;functools.wraps`` ជានិច្ច</strong> — បើគ្មានវា metadata ទាំងអស់បាត់។</p></li>
+<li><p><strong>កុំប្រើ decorator ច្រើនជាន់ពេក</strong> — លើសពី ២–៣ ជាន់ កូដពិបាកយល់
+និងពិបាក debug។</p></li>
+<li><p><strong>Decorator ត្រូវតែថ្លា</strong> — វាមិនគួរប្ដូរអាកប្បកិរិយាដែលអ្នកប្រើ
+មិនរំពឹងទេ។ ឧ. កុំបំលែង argument ឬតម្លៃត្រឡប់ដោយស្ងាត់។</p></li>
+<li><p><strong>ប្រើ decorator សម្រាប់ *cross-cutting concerns*</strong> — logging,
+timing, caching, authorization, validation, retry។ កុំដាក់
+business logic ក្នុង decorator។</p></li>
+<li><p><strong>គិតអំពីលំដាប់</strong> — decorator ខាងលើដំណើរការចុងក្រោយ។
+<code class="docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> គួរនៅ <strong>ក្រោម</strong> decorator ផ្សេង បើអ្នកចង់ cache
+លទ្ធផលចុងក្រោយ។</p></li>
+<li><p><strong>សាកល្បងអនុគមន៍ដើម</strong> — <code class="docutils literal notranslate"><span class="pre">__wrapped__</span></code> អនុញ្ញាតឱ្យអ្នកហៅអនុគមន៍
+ដែលមិនបាន decorate។</p></li>
+<li><p><strong>បើអ្នកមិនត្រូវការអាកប្បកិរិយា &quot;decorate&quot; ទេ</strong> គ្រាន់តែហៅអនុគមន៍
+ធម្មតា។ កុំប្រើ decorator គ្រាន់តែដើម្បីស្ទីល។</p></li>
+</ol>
+</section>
+<section id="decorators-summary">
+<span id="id10"></span><h2>សង្ខេប<a class="headerlink" href="#decorators-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>គោលគំនិត</p></th>
+<th class="head"><p>សង្ខេប</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;dec</span></code> លើ <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f</span></code></p></td>
+<td><p>ស្មើនឹង <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">dec(f)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;dec(args)</span></code></p></td>
+<td><p>ស្មើនឹង <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">dec(args)(f)</span></code> — ត្រូវការបីជាន់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">functools.wraps</span></code></p></td>
+<td><p>រក្សា <code class="docutils literal notranslate"><span class="pre">__name__</span></code>, <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>, <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>, <code class="docutils literal notranslate"><span class="pre">__wrapped__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ច្រើនជាន់</p></td>
+<td><p>អនុវត្តពីក្រោមឡើងលើ</p></td>
+</tr>
+<tr class="row-even"><td><p>Class decorator</p></td>
+<td><p>object ដែលមាន <code class="docutils literal notranslate"><span class="pre">__call__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Decorate class</p></td>
+<td><p>decorator អាចកែប្រែ ឬជំនួស class</p></td>
+</tr>
+<tr class="row-even"><td><p>PEP 614 (3.9+)</p></td>
+<td><p>decorator អាចជា expression ណាក៏បាន</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-decorator">Glossary: decorator</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions">Function definitions</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functools.html">functools — Higher-order functions</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0318/">PEP 318 — Decorators for Functions and Methods</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-3129/">PEP 3129 — Class Decorators</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0614/">PEP 614 — Relaxing Grammar Restrictions On Decorators</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iterators_generators.html" class="btn btn-neutral float-left" title="Iterators និង Generators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="type_hints.html" class="btn btn-neutral float-right" title="Type Hints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

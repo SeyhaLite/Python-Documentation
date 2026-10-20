@@ -25,7 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ប្រភព និងអាជ្ញាបណ្ណ" href="license_attribution.html" />
+    <link rel="next" title="Iterators និង Generators" href="iterators_generators.html" />
     <link rel="prev" title="Exceptions និងការគ្រប់គ្រងកំហុស" href="exceptions.html" />
  
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,6 +111,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#classes-summary">សង្ខេប</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="iterators_generators.html">Iterators និង Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type_hints.html">Type Hints</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
 <ul>
@@ -488,7 +491,7 @@ attribute លើកលែងតែអ្នក <strong>ចង់</strong> ឱ្
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> មានប្រយោជន៍ព្រោះអ្នកអាច <strong>ចាប់ផ្ដើមពី attribute ធម្មតា</strong>
-ហើយបំលែងវាទៅជា property ภายหลัง <strong>ដោយមិនបំបែកកូដអ្នកប្រើ</strong>៖</p>
+ហើយបំលែងវាទៅជា property នៅពេលក្រោយ <strong>ដោយមិនបំបែកកូដអ្នកប្រើ</strong>៖</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># កំណែ ១</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
@@ -614,7 +617,7 @@ attribute លើកលែងតែអ្នក <strong>ចង់</strong> ឱ្
 <p class="admonition-title">Note</p>
 <p>លទ្ធផល <code class="docutils literal notranslate"><span class="pre">'DBCA'</span></code> បង្ហាញថា <code class="docutils literal notranslate"><span class="pre">super()</span></code> ក្នុង <code class="docutils literal notranslate"><span class="pre">B</span></code> ហៅ <strong>``C``</strong>
 មិនមែន <code class="docutils literal notranslate"><span class="pre">A</span></code> ទេ — ព្រោះ MRO របស់ <code class="docutils literal notranslate"><span class="pre">D</span></code> គឺ <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">→</span> <span class="pre">B</span> <span class="pre">→</span> <span class="pre">C</span> <span class="pre">→</span> <span class="pre">A</span> <span class="pre">→</span> <span class="pre">object</span></code>។
-នេះហៅថា <strong>C3 linearization</strong> ហើយវារับประกันថា method នីមួយៗ
+នេះហៅថា <strong>C3 linearization</strong> ហើយវាធានាថា method នីមួយៗ
 ដំណើរការតែម្ដងគត់។</p>
 </div>
 </section>
@@ -1163,7 +1166,7 @@ reflected operation។</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="exceptions.html" class="btn btn-neutral float-left" title="Exceptions និងការគ្រប់គ្រងកំហុស" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="license_attribution.html" class="btn btn-neutral float-right" title="ប្រភព និងអាជ្ញាបណ្ណ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="iterators_generators.html" class="btn btn-neutral float-right" title="Iterators និង Generators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,0 +1,1128 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="km" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Type Hints &mdash; ឯកសារ Python ជាភាសាខ្មែរ</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/khmer.css?v=d5607baa" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.svg"/>
+    <link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/type_hints.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b293984a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=7a06b15b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ប្រភព និងអាជ្ញាបណ្ណ" href="license_attribution.html" />
+    <link rel="prev" title="Decorators" href="decorators.html" />
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&amp;family=Noto+Serif+Khmer:wght@500;600;700&amp;display=swap" rel="stylesheet"><script>
+(function () {
+  try {
+    var saved = localStorage.getItem("py-km-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) { /* private mode / storage blocked — stay on the default */ }
+})();
+</script>
+<link rel="canonical" href="https://seyhalite.github.io/Python-Documentation/type_hints.html">
+<meta name="keywords" content="Python, Python ខ្មែរ, រៀន Python, Python tutorial Khmer, ភាសាខ្មែរ, Python documentation Khmer, កម្មវិធី Python, ការសរសេរកូដ">
+<meta property="og:site_name" content="ឯកសារ Python ជាភាសាខ្មែរ">
+<meta property="og:title" content="Type Hints">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="km_KH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://seyhalite.github.io/Python-Documentation/type_hints.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Type Hints">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1f2328" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">មេរៀន</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">ចាប់ផ្ដើម និងការដំឡើង Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_variables_types.html">វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings_collections.html">ខ្សែអក្សរ និងសំណុំទិន្នន័យ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control_flow.html">លក្ខខណ្ឌ និងរង្វិលជុំ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions_scope.html">អនុគមន៍ និងវិសាលភាពអថេរ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_handling.html">ការគ្រប់គ្រងឯកសារ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules_packages.html">Modules និង Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions និងការគ្រប់គ្រងកំហុស</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes_oop.html">Classes និង Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iterators_generators.html">Iterators និង Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Type Hints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why">ហេតុអ្វីប្រើ Type Hints?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-syntax">វាក្យសម្ពន្ធមូលដ្ឋាន</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#built-in-generic">ប្រភេទ Built-in ជា Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#union-optional">Union និង Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#none-noreturn-never"><code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">NoReturn</span></code> និង <code class="docutils literal notranslate"><span class="pre">Never</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#callable"><code class="docutils literal notranslate"><span class="pre">Callable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#literal-final-type-alias"><code class="docutils literal notranslate"><span class="pre">Literal</span></code>, <code class="docutils literal notranslate"><span class="pre">Final</span></code> និង Type Alias</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#type-alias">Type Alias</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#typeddict-namedtuple-dataclass">TypedDict, NamedTuple និង dataclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#protocol-structural-typing"><code class="docutils literal notranslate"><span class="pre">Protocol</span></code> — Structural Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typevar-generic">TypeVar និង Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paramspec-signature"><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code> — រក្សា Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#self-classvar"><code class="docutils literal notranslate"><span class="pre">Self</span></code> និង <code class="docutils literal notranslate"><span class="pre">ClassVar</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typeguard-typeis"><code class="docutils literal notranslate"><span class="pre">TypeGuard</span></code> និង <code class="docutils literal notranslate"><span class="pre">TypeIs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#override"><code class="docutils literal notranslate"><span class="pre">&#64;override</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introspection">Introspection នៅពេលដំណើរការ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pep-649-annotation">PEP 649 — Annotation ដំណើរការយឺត</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">ឧបករណ៍ពិនិត្យប្រភេទ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typehints-best-practices">ការអនុវត្តល្អបំផុត</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typehints-summary">សង្ខេប</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ព័ត៌មានអំពីគម្រោង</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_attribution.html">ប្រភព និងអាជ្ញាបណ្ណ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1f2328" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Type Hints</li>
+      <li class="wy-breadcrumbs-aside">
+        <button type="button" class="theme-toggle" id="kh-theme-toggle"
+                aria-live="polite" aria-pressed="false">ពណ៌ងងឹត</button>
+        <script>
+        (function () {
+          var root = document.documentElement;
+          var btn = document.getElementById("kh-theme-toggle");
+          if (!btn) { return; }
+
+          function current() {
+            return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+          }
+          function render() {
+            var isLight = current() === "light";
+            /* the label names the mode that is CURRENTLY shown */
+            btn.textContent = isLight ? "ពណ៌ភ្លឺ" : "ពណ៌ងងឹត";
+            btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+            btn.setAttribute("title", isLight ? "ប្ដូរទៅពណ៌ងងឹត" : "ប្ដូរទៅពណ៌ភ្លឺ");
+          }
+
+          btn.addEventListener("click", function () {
+            var next = current() === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try { localStorage.setItem("py-km-theme", next); } catch (e) {}
+            render();
+          });
+
+          render();
+        })();
+        </script>
+            <a href="https://github.com/SeyhaLite/Python-Documentation/edit/main/source/type_hints.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="src-note docutils container" id="type-hints">
+<p>ប្រភពដើម៖ CPython <code class="docutils literal notranslate"><span class="pre">Doc/library/typing.rst</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Doc/tutorial/controlflow.rst</span></code> (<em>Function Annotations</em>),
+<code class="docutils literal notranslate"><span class="pre">Doc/reference/compound_stmts.rst</span></code> (<em>Annotated parameter lists</em>),
+<code class="docutils literal notranslate"><span class="pre">Doc/howto/annotations.rst</span></code> ·
+<a class="reference external" href="https://docs.python.org/3/library/typing.html">ឯកសារផ្លូវការ</a></p>
+</div>
+<section id="id2">
+<h1>Type Hints<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<p><strong>Type hint</strong> (ឬ <em>type annotation</em>) គឺជាព័ត៌មានប្រភេទដែលអ្នកភ្ជាប់ទៅ
+អថេរ parameter និងតម្លៃត្រឡប់។ Python <strong>មិនពិនិត្យ</strong> វានៅពេលដំណើរការទេ —
+ឧបករណ៍ខាងក្រៅដូចជា <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pyright</span></code> និង IDE ប្រើវា។</p>
+<section id="why">
+<span id="id3"></span><h2>ហេតុអ្វីប្រើ Type Hints?<a class="headerlink" href="#why" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 74.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>អត្ថប្រយោជន៍</p></th>
+<th class="head"><p>ការពន្យល់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>រកកំហុសមុនដំណើរការ</p></td>
+<td><p>type checker រកឃើញ <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> ជាច្រើនដោយមិនចាំបាច់ដំណើរការកូដ</p></td>
+</tr>
+<tr class="row-odd"><td><p>IDE ល្អជាង</p></td>
+<td><p>autocomplete, go-to-definition, refactor ត្រឹមត្រូវជាង</p></td>
+</tr>
+<tr class="row-even"><td><p>ឯកសារខ្លួនឯង</p></td>
+<td><p>signature ប្រាប់អ្នកអានថាត្រូវបញ្ជូនអ្វី ដោយមិនចាំបាច់អាន docstring</p></td>
+</tr>
+<tr class="row-odd"><td><p>Refactor ដោយទំនុកចិត្ត</p></td>
+<td><p>ប្ដូរ signature រួច checker ប្រាប់កន្លែងទាំងអស់ដែលត្រូវកែ</p></td>
+</tr>
+<tr class="row-even"><td><p>មិនប៉ះពាល់ល្បឿន</p></td>
+<td><p>Python មិនពិនិត្យ annotation នៅពេលដំណើរការទេ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Python មិនរារាំងទេ</strong> បើអ្នកបញ្ជូនប្រភេទខុស៖</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">double</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span>            <span class="c1"># មិនមានកំហុសទេ!</span>
+<span class="go">'abab'</span>
+</pre></div>
+</div>
+<p>Type hint គឺជា <strong>ឯកសារដែលម៉ាស៊ីនអានបាន</strong> មិនមែនជាការត្រួតពិនិត្យ
+ពេលដំណើរការទេ។ ដើម្បីទទួលបានអត្ថប្រយោជន៍ អ្នកត្រូវដំណើរការ
+type checker (<code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pyright</span></code>) ជាផ្នែកនៃ CI របស់អ្នក។</p>
+</div>
+</section>
+<section id="basic-syntax">
+<span id="id4"></span><h2>វាក្យសម្ពន្ធមូលដ្ឋាន<a class="headerlink" href="#basic-syntax" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameter និងតម្លៃត្រឡប់</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"សួស្ដី </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! "</span> <span class="o">*</span> <span class="n">times</span>
+
+
+<span class="c1"># អថេរ</span>
+<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"timeout"</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+
+<span class="c1"># ប្រកាសដោយមិនផ្ដល់តម្លៃ</span>
+<span class="n">total</span><span class="p">:</span> <span class="nb">float</span>
+
+<span class="c1"># ថេរកម្រិត module</span>
+<span class="n">MAX_RETRIES</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">greet</span><span class="o">.</span><span class="vm">__annotations__</span>
+<span class="go">{'name': &lt;class 'str'&gt;, 'times': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="go">'int'</span>
+</pre></div>
+</div>
+</section>
+<section id="built-in-generic">
+<span id="builtin-generics"></span><h2>ប្រភេទ Built-in ជា Generic<a class="headerlink" href="#built-in-generic" title="Link to this heading"></a></h2>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.9: </span>អ្នកអាចប្រើប្រភេទ built-in ដោយផ្ទាល់ជា generic — មិនចាំបាច់
+<code class="docutils literal notranslate"><span class="pre">typing.List</span></code>, <code class="docutils literal notranslate"><span class="pre">typing.Dict</span></code> ទៀតទេ។</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 34.0%" />
+<col style="width: 32.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ទម្រង់ថ្មី (3.9+)</p></th>
+<th class="head"><p>ទម្រង់ចាស់</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list[int]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typing.List[int]</span></code></p></td>
+<td><p>list នៃ <code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dict[str,</span> <span class="pre">int]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typing.Dict[str,</span> <span class="pre">int]</span></code></p></td>
+<td><p>dict ពី <code class="docutils literal notranslate"><span class="pre">str</span></code> ទៅ <code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set[str]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typing.Set[str]</span></code></p></td>
+<td><p>set នៃ <code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tuple[int,</span> <span class="pre">str]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typing.Tuple[int,</span> <span class="pre">str]</span></code></p></td>
+<td><p>tuple មានធាតុ ២ ជាក់លាក់</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tuple[int,</span> <span class="pre">...]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typing.Tuple[int,</span> <span class="pre">...]</span></code></p></td>
+<td><p>tuple ប្រវែងណាក៏បាន នៃ <code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">frozenset[int]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typing.FrozenSet[int]</span></code></p></td>
+<td><p>frozenset</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type[MyClass]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typing.Type[MyClass]</span></code></p></td>
+<td><p>class ខ្លួនឯង (មិនមែន instance)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">top_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""ត្រឡប់ពិន្ទុខ្ពស់បំផុត n ។"""</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span> <span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">top_scores</span><span class="p">({</span><span class="s2">"math"</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span> <span class="s2">"physics"</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">"chem"</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s2">"bio"</span><span class="p">:</span> <span class="mi">95</span><span class="p">},</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">[('bio', 95), ('physics', 92)]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ទម្រង់ចាស់ <code class="docutils literal notranslate"><span class="pre">typing.List</span></code> ជាដើម <strong>នៅតែដំណើរការ</strong> ប៉ុន្តែត្រូវបាន
+ចាត់ទុកជា <em>deprecated</em> ក្នុងឯកសារ។ សម្រាប់កូដថ្មី សូមប្រើទម្រង់
+built-in។</p>
+</div>
+</section>
+<section id="union-optional">
+<span id="id5"></span><h2>Union និង Optional<a class="headerlink" href="#union-optional" title="Link to this heading"></a></h2>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>សញ្ញា <code class="docutils literal notranslate"><span class="pre">|</span></code> ជំនួស <code class="docutils literal notranslate"><span class="pre">typing.Union</span></code>។</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+
+<span class="c1"># ទម្រង់ថ្មី (3.10+) — ណែនាំ</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_user</span><span class="p">(</span><span class="n">uid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>      <span class="c1"># អាចរកមិនឃើញ</span>
+    <span class="o">...</span>
+
+
+<span class="c1"># ទម្រង់ចាស់</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_old</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_user_old</span><span class="p">(</span><span class="n">uid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">User</span><span class="p">]:</span> <span class="o">...</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 68.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>វាក្យសម្ពន្ធ</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">\|</span> <span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">\|</span> <span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">None</span></code> — ស្មើនឹង <code class="docutils literal notranslate"><span class="pre">Optional[X]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Optional[X]</span></code></p></td>
+<td><p>ដូច <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">\|</span> <span class="pre">None</span></code> <strong>មិនមែន</strong> &quot;មិនចាំបាច់&quot; ទេ</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Any</span></code></p></td>
+<td><p>ប្រភេទណាក៏បាន — បិទការត្រួតពិនិត្យ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">Optional[X]</span></code> <strong>មិនមានន័យថា parameter នេះមិនចាំបាច់</strong> ទេ។
+វាមានន័យថាតម្លៃអាចជា <code class="docutils literal notranslate"><span class="pre">None</span></code>។ ដើម្បីធ្វើឱ្យ parameter មិនចាំបាច់
+អ្នកត្រូវផ្ដល់ <strong>តម្លៃលំនាំដើម</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ត្រូវបញ្ជូន name ជានិច្ច (ប៉ុន្តែអាចជា None)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+
+<span class="c1"># មិនចាំបាច់បញ្ជូន name</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="none-noreturn-never">
+<span id="none-vs-noreturn"></span><h2><code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">NoReturn</span></code> និង <code class="docutils literal notranslate"><span class="pre">Never</span></code><a class="headerlink" href="#none-noreturn-never" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 76.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Annotation</p></th>
+<th class="head"><p>ប្រើសម្រាប់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">None</span></code></p></td>
+<td><p>អនុគមន៍ដែលមិនត្រឡប់អ្វីមានន័យ (ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">NoReturn</span></code></p></td>
+<td><p>អនុគមន៍ដែល <strong>មិនដែលត្រឡប់</strong> ដោយធម្មតា — បញ្ចេញ exception ឬ <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">Never</span></code></p></td>
+<td><p>ដូច <code class="docutils literal notranslate"><span class="pre">NoReturn</span></code> (3.11+) — ឈ្មោះច្បាស់ជាង។ <code class="docutils literal notranslate"><span class="pre">NoReturn</span></code> គឺជា alias</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code> ជាប្រភេទ</p></td>
+<td><p>ប្រភេទនៃ object <code class="docutils literal notranslate"><span class="pre">None</span></code> ផ្ទាល់ (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Never</span><span class="p">,</span> <span class="n">NoReturn</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fail</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Never</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""មិនដែលត្រឡប់ទេ។"""</span>
+    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">quit_app</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">Never</span></code> មានប្រយោជន៍ពិសេសក្នុងការពិនិត្យ <strong>exhaustiveness</strong>។
+សូមមើលផ្នែក <a class="reference internal" href="#typeguard-typeis"><span class="std std-ref">TypeGuard និង TypeIs</span></a>។</p>
+</div>
+</section>
+<section id="callable">
+<span id="id6"></span><h2><code class="docutils literal notranslate"><span class="pre">Callable</span></code><a class="headerlink" href="#callable" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">],</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">apply</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>          <span class="c1"># 7</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>វាក្យសម្ពន្ធ</p></th>
+<th class="head"><p>អត្ថន័យ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Callable[[int,</span> <span class="pre">str],</span> <span class="pre">bool]</span></code></p></td>
+<td><p>អនុគមន៍យក <code class="docutils literal notranslate"><span class="pre">(int,</span> <span class="pre">str)</span></code> ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Callable[[],</span> <span class="pre">None]</span></code></p></td>
+<td><p>អនុគមន៍គ្មាន argument មិនត្រឡប់អ្វី</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Callable[...,</span> <span class="pre">int]</span></code></p></td>
+<td><p>argument ណាក៏បាន ត្រឡប់ <code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Callable[[int,</span> <span class="pre">...],</span> <span class="pre">None]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code> ច្រើនតាមចិត្ត (variadic)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>នៅក្នុង Python 3.9+ សូមនាំចូល <code class="docutils literal notranslate"><span class="pre">Callable</span></code> ពី <code class="docutils literal notranslate"><span class="pre">collections.abc</span></code>
+ជាជាង <code class="docutils literal notranslate"><span class="pre">typing</span></code>។ <code class="docutils literal notranslate"><span class="pre">typing.Callable</span></code> នៅតែដំណើរការ ប៉ុន្តែទម្រង់
+<code class="docutils literal notranslate"><span class="pre">collections.abc</span></code> ជាទម្រង់ដែលណែនាំ។</p>
+</div>
+</section>
+<section id="literal-final-type-alias">
+<span id="literal-final"></span><h2><code class="docutils literal notranslate"><span class="pre">Literal</span></code>, <code class="docutils literal notranslate"><span class="pre">Final</span></code> និង Type Alias<a class="headerlink" href="#literal-final-type-alias" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Literal</span>
+
+<span class="c1"># តម្លៃជាក់លាក់តែប៉ុណ្ណោះ</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"write"</span><span class="p">,</span> <span class="s2">"append"</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="o">...</span>
+
+
+<span class="n">set_mode</span><span class="p">(</span><span class="s2">"read"</span><span class="p">)</span>        <span class="c1"># ✅</span>
+<span class="n">set_mode</span><span class="p">(</span><span class="s2">"delete"</span><span class="p">)</span>      <span class="c1"># ❌ type checker បញ្ចេញកំហុស</span>
+
+<span class="c1"># ថេរដែលមិនគួរប្ដូរ</span>
+<span class="n">MAX_SIZE</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">TIMEOUT</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">30.0</span>
+</pre></div>
+</div>
+<section id="type-alias">
+<span id="id7"></span><h3>Type Alias<a class="headerlink" href="#type-alias" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ទម្រង់ចាស់ — ការផ្ដល់តម្លៃធម្មតា</span>
+<span class="n">UserId</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">Coordinates</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="n">Matrix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
+
+<span class="c1"># ទម្រង់ថ្មី (3.12+) — PEP 695</span>
+<span class="nb">type</span> <span class="n">UserId</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="nb">type</span> <span class="n">Coordinates</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+<span class="nb">type</span> <span class="n">Matrix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
+<span class="nb">type</span> <span class="n">JsonValue</span> <span class="o">=</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="s2">"JsonValue"</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">"JsonValue"</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.12: </span>ពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">type</span></code> (PEP 695)។ វាបង្កើត <code class="docutils literal notranslate"><span class="pre">TypeAliasType</span></code> object
+ដែល <strong>lazy</strong> និងអាចយោងទៅខ្លួនឯងបានដោយមិនចាំបាច់ខ្សែអក្សរ។</p>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span> <span class="n">Vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>          <span class="c1"># 3.12+</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Vec</span>                             <span class="c1"># TypeAliasType — repr ជាឈ្មោះ alias</span>
+<span class="go">Vec</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Vec</span><span class="o">.</span><span class="n">__value__</span>                   <span class="c1"># តម្លៃពិតនៅពីក្រោយ</span>
+<span class="go">list[float]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">type</span></code> ក្លាយជា <strong>soft keyword</strong> ក្នុង Python 3.12។ អ្នកនៅតែអាចប្រើវា
+ជាឈ្មោះអថេរបាន នៅកន្លែងដែលវាមិនចាប់ផ្ដើមពាក្យបញ្ជា <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">X</span> <span class="pre">=</span> <span class="pre">...</span></code>។</p>
+</div>
+</section>
+</section>
+<section id="typeddict-namedtuple-dataclass">
+<span id="typed-structures"></span><h2>TypedDict, NamedTuple និង dataclass<a class="headerlink" href="#typeddict-namedtuple-dataclass" title="Link to this heading"></a></h2>
+<p>មានវិធីបីយ៉ាងដើម្បីតំណាងទិន្នន័យរចនាសម្ព័ន្ធ៖</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 26.0%" />
+<col style="width: 26.0%" />
+<col style="width: 26.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">TypedDict</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">NamedTuple</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ប្រភេទមូលដ្ឋាន</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></td>
+<td><p>class ផ្ទាល់ខ្លួន</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mutable</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>✅ (ឬ ❌ ដោយ <code class="docutils literal notranslate"><span class="pre">frozen</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>ចូលដំណើរការ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">d[&quot;key&quot;]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">t.key</span></code> ឬ <code class="docutils literal notranslate"><span class="pre">t[0]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj.attr</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ប្រើសម្រាប់</p></td>
+<td><p>JSON, config, API response</p></td>
+<td><p>កំណត់ត្រាថេរសាមញ្ញ</p></td>
+<td><p>domain model ពេញលេញ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">NotRequired</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">UserDict</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="n">NotRequired</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">UserTuple</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UserClass</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u1</span><span class="p">:</span> <span class="n">UserDict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"សុខា"</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u1</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
+<span class="go">'សុខា'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u2</span> <span class="o">=</span> <span class="n">UserTuple</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"ដារ៉ា"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">u2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">('ដារ៉ា', 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u3</span> <span class="o">=</span> <span class="n">UserClass</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"សុភា"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u3</span>
+<span class="go">UserClass(id=3, name='សុភា', email='')</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> គ្រាន់តែជា <code class="docutils literal notranslate"><span class="pre">dict</span></code> ធម្មតានៅពេលដំណើរការ — Python
+<strong>មិន</strong> បង្កើតប្រភេទថ្មី ឬពិនិត្យ key ទេ។ វាមានប្រយោជន៍តែសម្រាប់
+type checker។</p>
+<p><code class="docutils literal notranslate"><span class="pre">NotRequired[...]</span></code> (3.11+) បញ្ជាក់ថា key នេះអាចអវត្តមាន។
+<code class="docutils literal notranslate"><span class="pre">Required[...]</span></code> បញ្ជាក់ផ្ទុយវិញ (មានប្រយោជន៍ក្នុង
+<code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> ដែលមាន <code class="docutils literal notranslate"><span class="pre">total=False</span></code>)។</p>
+</div>
+</section>
+<section id="protocol-structural-typing">
+<span id="protocol"></span><h2><code class="docutils literal notranslate"><span class="pre">Protocol</span></code> — Structural Typing<a class="headerlink" href="#protocol-structural-typing" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Protocol</span></code> អនុញ្ញាតឱ្យអ្នកកំណត់ <strong>interface</strong> ដោយមិនចាំបាច់ inheritance៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
+
+
+<span class="nd">@runtime_checkable</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Drawable</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Object ណាក៏បានដែលមាន method draw()។"""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">:</span>                          <span class="c1"># មិនបានប្រកាសថា implement ទេ</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"○"</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Square</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"□"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="n">shapes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Drawable</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shapes</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">render</span><span class="p">([</span><span class="n">Circle</span><span class="p">(),</span> <span class="n">Square</span><span class="p">()])</span>
+<span class="go">'○ □'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Circle</span><span class="p">(),</span> <span class="n">Drawable</span><span class="p">)</span>     <span class="c1"># ត្រូវការ @runtime_checkable</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="s2">"not drawable"</span><span class="p">,</span> <span class="n">Drawable</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>នេះហៅថា <strong>structural typing</strong> (&quot;static duck typing&quot;) — ប្រភេទត្រូវបាន
+កំណត់ដោយ <strong>រចនាសម្ព័ន្ធ</strong> ដែល object មាន មិនមែនដោយឈ្មោះ class
+ដែលវាប្រកាសទេ។ វាខុសពី <code class="docutils literal notranslate"><span class="pre">abc.ABC</span></code> ដែលតម្រូវឱ្យប្រកាស inheritance
+ដោយច្បាស់ (<em>nominal typing</em>)។</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;runtime_checkable</span></code> ធ្វើឱ្យ <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> ដំណើរការ ប៉ុន្តែវាពិនិត្យ
+តែ <strong>វត្តមាន method</strong> មិនមែន signature ទេ។</p>
+</div>
+</section>
+<section id="typevar-generic">
+<span id="typevar-generics"></span><h2>TypeVar និង Generic<a class="headerlink" href="#typevar-generic" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">TypeVar</span></code> អនុញ្ញាតឱ្យអ្នកសរសេរកូដដែល <strong>រក្សាប្រភេទ</strong> តាមរយៈការហៅ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ទម្រង់ចាស់</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Generic</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"T"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">first_old</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ទម្រង់ថ្មី (3.12+) — PEP 695</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">first</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>          <span class="c1"># checker ដឹងថាត្រឡប់ int</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>         <span class="c1"># checker ដឹងថាត្រឡប់ str</span>
+<span class="go">'a'</span>
+</pre></div>
+</div>
+<p><strong>ប្រៀបធៀបជាមួយ ``Any``៖</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">first_any</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>   <span class="c1"># ❌ បាត់បង់ព័ត៌មានប្រភេទ</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">first_t</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>      <span class="c1"># ✅ រក្សាប្រភេទ</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">TypeVar</span></code> អាចមាន <strong>constraint</strong> ឬ <strong>bound</strong>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span>
+
+<span class="c1"># ត្រូវតែជាប្រភេទណាមួយក្នុងបញ្ជី</span>
+<span class="n">StrOrBytes</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"StrOrBytes"</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
+
+<span class="c1"># ត្រូវតែជា subclass នៃ bound</span>
+<span class="n">NumberT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"NumberT"</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>PEP 695 ផ្ដល់វាក្យសម្ពន្ធខ្លីជាង៖ <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f[T:</span> <span class="pre">(str,</span> <span class="pre">bytes)](...)</span></code> និង
+<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">g[T:</span> <span class="pre">int](...)</span></code>។</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.13: </span><code class="docutils literal notranslate"><span class="pre">TypeVar</span></code> អាចមាន <strong>តម្លៃលំនាំដើម</strong> (PEP 696)៖
+<code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">TypeVar(&quot;T&quot;,</span> <span class="pre">default=int)</span></code>។</p>
+</div>
+</section>
+<section id="paramspec-signature">
+<span id="paramspec"></span><h2><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code> — រក្សា Signature<a class="headerlink" href="#paramspec-signature" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code> អនុញ្ញាតឱ្យ decorator រក្សា signature ពេញលេញនៃអនុគមន៍
+ដែលវា decorate៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParamSpec</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">"P"</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"R"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">logged</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""រក្សាទាំង parameter និងតម្លៃត្រឡប់។"""</span>
+
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ហៅ </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="nd">@logged</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">divide</span><span class="p">)</span>
+<span class="go">&lt;Signature (a: int, b: int) -&gt; float&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">ហៅ divide</span>
+<span class="go">2.5</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>បើគ្មាន <code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code> អ្នកត្រូវប្រើ <code class="docutils literal notranslate"><span class="pre">Callable[...,</span> <span class="pre">R]</span></code> ដែលបាត់បង់
+ព័ត៌មាន parameter។ <code class="docutils literal notranslate"><span class="pre">P.args</span></code> និង <code class="docutils literal notranslate"><span class="pre">P.kwargs</span></code> តំណាងឱ្យ positional
+និង keyword argument រៀងៗខ្លួន។</p>
+<p><code class="docutils literal notranslate"><span class="pre">typing.Concatenate[X,</span> <span class="pre">P]</span></code> អនុញ្ញាតឱ្យ decorator បន្ថែម ឬដក
+parameter មួយ។</p>
+</div>
+</section>
+<section id="self-classvar">
+<span id="id8"></span><h2><code class="docutils literal notranslate"><span class="pre">Self</span></code> និង <code class="docutils literal notranslate"><span class="pre">ClassVar</span></code><a class="headerlink" href="#self-classvar" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Self</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Builder</span><span class="p">:</span>
+    <span class="n">version</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"1.0"</span>      <span class="c1"># របស់ class មិនមែន instance</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">part</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>   <span class="c1"># ត្រឡប់ instance នៃ class បច្ចុប្បន្ន</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SubBuilder</span><span class="p">(</span><span class="n">Builder</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Builder</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>     <span class="c1"># chaining</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">parts</span>
+<span class="go">['a', 'b']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">SubBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>                    <span class="c1"># ✅ SubBuilder មិនមែន Builder</span>
+<span class="go">'SubBuilder'</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">Self</span></code> (3.11+) មានប្រយោជន៍សម្រាប់ method ដែលត្រឡប់ instance
+ខ្លួនឯង (fluent interface)។ បើអ្នកសរសេរ <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">&quot;Builder&quot;</span></code> នោះ
+<code class="docutils literal notranslate"><span class="pre">SubBuilder().add()</span></code> នឹងត្រូវបាន checker យល់ថាត្រឡប់ <code class="docutils literal notranslate"><span class="pre">Builder</span></code>។</p>
+<p><code class="docutils literal notranslate"><span class="pre">ClassVar</span></code> ប្រាប់ type checker ថា attribute នេះជារបស់ <strong>class</strong>
+មិនមែន instance។ <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> ក៏មិនចាត់ទុក <code class="docutils literal notranslate"><span class="pre">ClassVar</span></code> ជា field ដែរ។</p>
+</div>
+</section>
+<section id="typeguard-typeis">
+<span id="id9"></span><h2><code class="docutils literal notranslate"><span class="pre">TypeGuard</span></code> និង <code class="docutils literal notranslate"><span class="pre">TypeIs</span></code><a class="headerlink" href="#typeguard-typeis" title="Link to this heading"></a></h2>
+<p><strong>Type narrowing</strong> — ប្រាប់ type checker ថាប្រភេទត្រូវបានកំណត់ច្បាស់
+ក្នុង scope មួយ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeGuard</span><span class="p">,</span> <span class="n">TypeIs</span><span class="p">,</span> <span class="n">assert_never</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_str_list_old</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_str_list</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TypeIs</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 76.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>ភាពខុសគ្នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TypeGuard[X]</span></code> (3.10+)</p></td>
+<td><p>បើ <code class="docutils literal notranslate"><span class="pre">True</span></code> → ប្រភេទគឺ <code class="docutils literal notranslate"><span class="pre">X</span></code>។ បើ <code class="docutils literal notranslate"><span class="pre">False</span></code> → ប្រភេទដើម <strong>មិនផ្លាស់ប្ដូរ</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TypeIs[X]</span></code> (3.13+)</p></td>
+<td><p>បើ <code class="docutils literal notranslate"><span class="pre">True</span></code> → <code class="docutils literal notranslate"><span class="pre">X</span></code>។ បើ <code class="docutils literal notranslate"><span class="pre">False</span></code> → ប្រភេទដើម <strong>ត្រូវបានធ្វើឱ្យតូច</strong> ដោយដក <code class="docutils literal notranslate"><span class="pre">X</span></code> ចេញ។ ដូច <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> ពិតប្រាកដ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ប្រើ <code class="docutils literal notranslate"><span class="pre">TypeIs</span></code> សម្រាប់កូដថ្មី — វាមានឥរិយាបថស្របនឹងអ្វីដែល
+អ្នកសរសេរកូដរំពឹង។ <code class="docutils literal notranslate"><span class="pre">TypeGuard</span></code> នៅតែមានប្រយោជន៍ពេលអ្នកចង់
+បំលែងប្រភេទទាំងស្រុង (ឧ. ពី JSON dict ទៅ dataclass)។</p>
+</div>
+<p><strong>Exhaustiveness check</strong> ជាមួយ <code class="docutils literal notranslate"><span class="pre">assert_never</span></code>៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">assert_never</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"a"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"អក្សរ a"</span>
+    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"b"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"អក្សរ b"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># បើមានតម្លៃថ្មីត្រូវបានបន្ថែមទៅ Literal ខាងលើ</span>
+        <span class="c1"># type checker នឹងបញ្ចេញកំហុសនៅទីនេះ</span>
+        <span class="n">assert_never</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="override">
+<span id="id10"></span><h2><code class="docutils literal notranslate"><span class="pre">&#64;override</span></code><a class="headerlink" href="#override" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.12.</span></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="o">...</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="nd">@override</span>                        <span class="c1"># បញ្ជាក់ថា override method របស់ class មេ</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>បើ <code class="docutils literal notranslate"><span class="pre">Base.process</span></code> ត្រូវបានប្ដូរឈ្មោះ ឬលុប type checker នឹងបញ្ចេញ
+កំហុសលើ <code class="docutils literal notranslate"><span class="pre">Child.process</span></code>។ នេះការពារកំហុសនៅពេល refactor។</p>
+</section>
+<section id="introspection">
+<span id="id11"></span><h2>Introspection នៅពេលដំណើរការ<a class="headerlink" href="#introspection" title="Link to this heading"></a></h2>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">typing</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_origin</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">&lt;class 'list'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="go">(&lt;class 'int'&gt;,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
+<span class="go">(&lt;class 'str'&gt;, &lt;class 'int'&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_origin</span><span class="p">(</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span>
+<span class="go">&lt;class 'typing.Union'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_args</span><span class="p">(</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span>
+<span class="go">(&lt;class 'int'&gt;, &lt;class 'str'&gt;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="kc">True</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="vm">__annotations__</span>
+<span class="go">{'a': &lt;class 'int'&gt;, 'b': &lt;class 'str'&gt;, 'return': &lt;class 'bool'&gt;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">typing</span><span class="o">.</span><span class="n">get_type_hints</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="go">{'a': &lt;class 'int'&gt;, 'b': &lt;class 'str'&gt;, 'return': &lt;class 'bool'&gt;}</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឧបករណ៍</p></th>
+<th class="head"><p>ការប្រើប្រាស់</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obj.__annotations__</span></code></p></td>
+<td><p>dict នៃ annotation (អាចជាខ្សែអក្សរ បើ lazy)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">typing.get_type_hints(obj)</span></code></p></td>
+<td><p>ដោះស្រាយ annotation ទៅជា object ពិត — <strong>ណែនាំ</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">typing.get_origin(t)</span></code></p></td>
+<td><p>ប្រភេទមូលដ្ឋាន (<code class="docutils literal notranslate"><span class="pre">list[int]</span></code> → <code class="docutils literal notranslate"><span class="pre">list</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">typing.get_args(t)</span></code></p></td>
+<td><p>parameter នៃ generic</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inspect.signature(f)</span></code></p></td>
+<td><p>signature ពេញលេញរួមទាំងតម្លៃលំនាំដើម</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pep-649-annotation">
+<span id="pep649"></span><h2>PEP 649 — Annotation ដំណើរការយឺត<a class="headerlink" href="#pep-649-annotation" title="Link to this heading"></a></h2>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.14: </span>Annotation ត្រូវបានវាយតម្លៃ <strong>យឺត</strong> (lazily)។ <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>
+ត្រូវបានគណនានៅពេលអ្នកចូលដំណើរការវា មិនមែននៅពេលកំណត់អនុគមន៍ទេ។</p>
+</div>
+<p>អត្ថប្រយោជន៍៖</p>
+<ul>
+<li><p>អ្នកអាចយោងទៅ class ដែល <strong>មិនទាន់បានកំណត់</strong> ដោយមិនចាំបាច់ខ្សែអក្សរ៖</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">child</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Node</span><span class="p">:</span>      <span class="c1"># ✅ ដំណើរការ — មិនចាំបាច់ "Node"</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p>ការនាំចូល module លឿនជាង ព្រោះ annotation មិនត្រូវបានវាយតម្លៃ។</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> (PEP 563) ធ្វើឱ្យ annotation
+ទាំងអស់ក្លាយជា <strong>ខ្សែអក្សរ</strong>។ វានៅតែដំណើរការ ប៉ុន្តែ PEP 649
+ជាដំណោះស្រាយផ្លូវការចាប់ពី 3.14។ សម្រាប់កូដថ្មី អ្នកមិនចាំបាច់
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> ទៀតទេ។</p>
+<p>បើអ្នកប្រើ <code class="docutils literal notranslate"><span class="pre">typing.get_type_hints()</span></code> លើកូដដែលមាន
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> អ្នកត្រូវធានាថាឈ្មោះទាំងអស់
+អាចដោះស្រាយបានក្នុង scope របស់ module។</p>
+</div>
+</section>
+<section id="tools">
+<span id="id12"></span><h2>ឧបករណ៍ពិនិត្យប្រភេទ<a class="headerlink" href="#tools" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 78.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ឧបករណ៍</p></th>
+<th class="head"><p>ការពិពណ៌នា</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>mypy</strong></p></td>
+<td><p>type checker ដើម សរសេរដោយ Python។ <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mypy</span></code> រួច <code class="docutils literal notranslate"><span class="pre">mypy</span> <span class="pre">src/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>pyright</strong></p></td>
+<td><p>សរសេរជា TypeScript លឿនជាង។ ជាមូលដ្ឋាននៃ Pylance របស់ VS Code</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>pyre</strong></p></td>
+<td><p>សរសេរជា OCaml ដោយ Meta</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ruff</strong></p></td>
+<td><p>linter/formatter លឿន (Rust) — មិនមែន type checker ពេញលេញទេ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>pytype</strong></p></td>
+<td><p>ដោយ Google អាចសន្និដ្ឋានប្រភេទដោយស្វ័យប្រវត្តិ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>mypy
+<span class="gp">$ </span>mypy<span class="w"> </span>--strict<span class="w"> </span>src/
+<span class="go">src/app.py:12: error: Argument 1 to "double" has incompatible type "str"; expected "int"</span>
+<span class="go">Found 1 error in 1 file (checked 3 source files)</span>
+</pre></div>
+</div>
+</section>
+<section id="typehints-best-practices">
+<span id="id13"></span><h2>ការអនុវត្តល្អបំផុត<a class="headerlink" href="#typehints-best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>ចាប់ផ្ដើមត្រង់ព្រំដែន</strong> — annotate អនុគមន៍សាធារណៈ API boundary
+និងទិន្នន័យដែលមកពីខាងក្រៅជាមុន។ កូដផ្ទៃក្នុងអាចបន្ថែមបន្តិចម្ដងៗ។</p></li>
+<li><p><strong>Gradual typing</strong> — អ្នកមិនចាំបាច់ annotate គ្រប់យ៉ាងទេ។ Python
+អនុញ្ញាតឱ្យលាយឡំកូដដែលមាន និងគ្មាន annotation។</p></li>
+<li><p><strong>កុំប្រើ ``Any`` ដើម្បីបំបាត់កំហុស</strong> — វាបិទការត្រួតពិនិត្យទាំងស្រុង។
+បើចាំបាច់ ប្រើ <code class="docutils literal notranslate"><span class="pre">object</span></code> វិញ ដែលនៅតែតម្រូវឱ្យពិនិត្យប្រភេទមុនប្រើ។</p></li>
+<li><p><strong>ប្រើប្រភេទ built-in generic</strong> (<code class="docutils literal notranslate"><span class="pre">list[int]</span></code> មិនមែន <code class="docutils literal notranslate"><span class="pre">List[int]</span></code>)។</p></li>
+<li><p><strong>ប្រើ ``X | None``</strong> ជាជាង <code class="docutils literal notranslate"><span class="pre">Optional[X]</span></code> ក្នុងកូដថ្មី។</p></li>
+<li><p><strong>ប្រើ PEP 695 syntax</strong> (<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f[T](...)</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">X</span> <span class="pre">=</span> <span class="pre">...</span></code>) សម្រាប់
+គម្រោងដែលតម្រូវ Python 3.12+។</p></li>
+<li><p><strong>ដំណើរការ type checker ក្នុង CI</strong> — annotation ដែលមិនត្រូវបាន
+ពិនិត្យគឺគ្រាន់តែជាអត្ថាធិប្បាយដែលអាចខុសបាន។</p></li>
+<li><p><strong>កុំពឹងផ្អែកលើ annotation សម្រាប់ validation</strong> — សម្រាប់ទិន្នន័យ
+ពីអ្នកប្រើ ប្រើបណ្ណាល័យដូចជា <code class="docutils literal notranslate"><span class="pre">pydantic</span></code> ឬការពិនិត្យដោយផ្ទាល់។</p></li>
+<li><p><strong>Annotate ``self`` និង ``cls`` មិនចាំបាច់</strong> — type checker ដឹងរួចហើយ។</p></li>
+<li><p><strong>ប្រើ ``from __future__ import annotations``</strong> តែនៅពេលអ្នកត្រូវការ
+គាំទ្រ Python &lt; 3.10 ហើយចង់បានវាក្យសម្ពន្ធ <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">|</span> <span class="pre">Y</span></code>។</p></li>
+</ol>
+</section>
+<section id="typehints-summary">
+<span id="id14"></span><h2>សង្ខេប<a class="headerlink" href="#typehints-summary" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>វាក្យសម្ពន្ធ</p></th>
+<th class="head"><p>កំណែដែលបានណែនាំ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(x:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code></p></td>
+<td><p>3.0 (PEP 3107)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></code></p></td>
+<td><p>3.6 (PEP 526)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list[int]</span></code>, <code class="docutils literal notranslate"><span class="pre">dict[str,</span> <span class="pre">int]</span></code></p></td>
+<td><p>3.9 (PEP 585)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">\|</span> <span class="pre">None</span></code></p></td>
+<td><p>3.10 (PEP 604)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code>, <code class="docutils literal notranslate"><span class="pre">Concatenate</span></code></p></td>
+<td><p>3.10 (PEP 612)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TypeGuard</span></code></p></td>
+<td><p>3.10 (PEP 647)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Self</span></code>, <code class="docutils literal notranslate"><span class="pre">assert_never</span></code>, <code class="docutils literal notranslate"><span class="pre">LiteralString</span></code></p></td>
+<td><p>3.11 (PEP 673, 645, 675)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TypeVarTuple</span></code>, <code class="docutils literal notranslate"><span class="pre">Unpack</span></code>, <code class="docutils literal notranslate"><span class="pre">dataclass_transform</span></code></p></td>
+<td><p>3.11 (PEP 646, 681)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">f[T](...)</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">C[T]</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">X</span> <span class="pre">=</span> <span class="pre">...</span></code></p></td>
+<td><p>3.12 (PEP 695)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;override</span></code>, <code class="docutils literal notranslate"><span class="pre">TypeAliasType</span></code></p></td>
+<td><p>3.12 (PEP 698, 695)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TypeIs</span></code>, <code class="docutils literal notranslate"><span class="pre">ReadOnly</span></code>, <code class="docutils literal notranslate"><span class="pre">NoDefault</span></code></p></td>
+<td><p>3.13 (PEP 742, 705, 696)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Annotation ដំណើរការយឺត</p></td>
+<td><p>3.14 (PEP 649)</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">ប្រភពយោង</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/typing.html">typing — Support for type hints</a></p></li>
+<li><p><a class="reference external" href="https://typing.python.org/en/latest/spec/index.html">Type Hints Specification</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/howto/annotations.html">Annotations Best Practices</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#module-typing">typing — Python documentation</a></p></li>
+<li><p><a class="reference external" href="https://mypy.readthedocs.io/">mypy documentation</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0484/">PEP 484 — Type Hints</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0585/">PEP 585 — Type Hinting Generics In Standard Collections</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0604/">PEP 604 — X | Y syntax for unions</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0695/">PEP 695 — Type Parameter Syntax</a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/pep-0649/">PEP 649 — Deferred Evaluation Of Annotations</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="decorators.html" class="btn btn-neutral float-left" title="Decorators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license_attribution.html" class="btn btn-neutral float-right" title="ប្រភព និងអាជ្ញាបណ្ណ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright ឯកសារដើម © 2001 Python Software Foundation; All Rights Reserved (PSF License v2) · កំណែបកប្រែខ្មែរ © សហគមន៍ SeyhaLite.
+      <span class="lastupdated">Last updated on 20 តុលា 2026.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
