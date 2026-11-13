@@ -68,6 +68,7 @@ Build configuration observation:
 - The source mapping was validated against the pinned tree: **41** upstream RST files mapped; **0** unresolved references.
 - `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.
 
+
 ## 4.1 Automated metadata extraction
 
 - Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.
