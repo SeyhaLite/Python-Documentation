@@ -42,7 +42,7 @@ Repository metadata:
 - Existing source: **17 .rst files** = 15 teaching chapters + `index.rst` + `license_attribution.rst`.
 - Existing generated output: **19 HTML pages** under `docs/`.
 - Current README explicitly says the 15-chapter scope is **not** a complete translation of CPython `Doc/`.
-- `source/index.rst` maps the existing 15 chapters to **43** upstream RST files after PR #4 added `Doc/using/cmdline.rst` and this follow-up added `Doc/builtins/stdtypes.rst` to the `iterators_generators` source mapping. All 43 mapped paths resolve against the pinned CPython tree; this mapping does not claim full translation coverage.
+- `source/index.rst` maps the existing 15 chapters to **42 distinct** upstream RST files. This follow-up adds `Doc/builtins/stdtypes.rst` as an additional source mapping for `iterators_generators`; that file was already mapped to two other chapters. All 42 distinct paths resolve against the pinned CPython tree; mapping does not claim full translation coverage.
 - Approximate existing source baseline: **23,500 Unicode word-like tokens** across the 17 RST files, including headings, code identifiers, directives, index and licensing text. This is an approximate regex count, not human-language-only word count.
 
 Phase 0 version baseline and Phase 1 update:
@@ -65,7 +65,7 @@ Build configuration observation:
   - `build_config`: 9
 - Exact visible RST titles extracted: **554 / 554 standalone pages**; include fragments: **3**; filename fallback: **0**.
 - `word_count` and `dependencies` populated for **557** RST files; word-like tokens: **1,784,681**; files with dependencies: **124** (701 dependency references).
-- The source mapping was validated against the pinned tree: **43** upstream RST files mapped after the PR #4 and async-generator source-mapping updates; **0** unresolved references.
+- The source mapping was validated against the pinned tree: **42 distinct** upstream RST files mapped, with `Doc/builtins/stdtypes.rst` also linked to `iterators_generators`; **0** unresolved references.
 - `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.
 
 
@@ -76,13 +76,13 @@ Build configuration observation:
 - Visible titles: **554**; include fragments: **3**; filename fallback: **0**.
 - Unicode word-like tokens: **1,784,681** (includes prose, directives, identifiers and code).
 - Files with dependencies: **124**; dependency references: **701**.
-- Valid existing Khmer mapping: **43** upstream RST files; unresolved references: **0**.
+- Valid existing Khmer mapping: **42 distinct** upstream RST files; unresolved references: **0**.
 - Source archive integrity: **PASS**.
 
 ## 5. Gaps and risks
 
 1. The 21-entry glossary has been reviewed and normalized by the automated audit, but every entry remains `ai_reviewed_pending_human`. A Khmer-language reviewer should approve or revise these terms before large translation batches begin.
-2. The existing 15 teaching chapters currently map to 43 upstream RST sources. This records source relationships, not full translation coverage. The remaining upstream pages are intentionally marked `not_started` and should be mapped batch by batch as translation proceeds.
+2. The existing 15 teaching chapters currently map to 42 distinct upstream RST sources; `Doc/builtins/stdtypes.rst` is shared by three Khmer chapters. This records source relationships, not full translation coverage. The remaining upstream pages are intentionally marked `not_started` and should be mapped batch by batch as translation proceeds.
 3. PR #4 aligns Sphinx, README and index version metadata with CPython 3.15.2 and refreshes selected version transcripts. Explanatory prose, static console transcripts not covered by the runner, and platform-specific installation guidance still need a separate Phase 1 technical review.
 4. The annotated Git tag `v3.15.2` itself is unsigned. The official Python.org source archive SHA-256 and Sigstore identity were verified, and all 669 Doc/ file blobs match the pinned Git tree. Keep the distinction between unsigned tag metadata and verified release archive explicit.
 5. File-by-file copyright, third-party asset and attribution review remains necessary before copying or adapting every upstream asset. `Doc/license.rst` states that documentation is under PSF License Version 2 and examples/recipes/other code are dual-licensed under PSF License Version 2 and Zero-Clause BSD from Python 3.8.6 onward.
@@ -100,7 +100,7 @@ Build configuration observation:
 - [x] Extracted visible titles for 554 standalone RST pages; classified 3 RST include fragments separately; zero filename fallbacks.
 - [x] Populated Unicode word-like token counts for all 557 RST files: 1,784,681 tokens.
 - [x] Populated dependency fields for all 557 RST files: 701 references across 124 files; `none` is explicit when a page has no dependency.
-- [x] Validated the existing Khmer source mapping: 43 upstream RST mappings after PR #4 and the async-generator source update, zero unresolved references.
+- [x] Validated the existing Khmer source mapping: 42 distinct upstream RST paths, including the additional `iterators_generators` mapping to `Doc/builtins/stdtypes.rst`, with zero unresolved references.
 - [x] Reviewed and normalized 21 glossary entries; human terminology approval remains pending.
 - [x] Sphinx strict HTML build: `sphinx-build -b html source <output> -W --keep-going` — PASS.
 - [x] Sphinx external link check: `sphinx-build -b linkcheck source <output> -W --keep-going` — PASS.
