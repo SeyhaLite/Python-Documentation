@@ -179,8 +179,14 @@ def update_report(path: Path, summary: dict) -> None:
         report = re.sub(r"^- \[ \] Independently verify the official source archive/Sigstore attestation\.$",
             "- [x] Verify official Python.org source archive SHA-256 and Sigstore identity; the separate Git tag remains unsigned.",
             report, flags=re.MULTILINE)
-    if "## 4.1 Automated metadata extraction" in report:
-        report = report.split("## 4.1 Automated metadata extraction")[0].rstrip()
+    metadata_marker = "## 4.1 Automated metadata extraction"
+    if metadata_marker in report:
+        prefix, suffix = report.split(metadata_marker, 1)
+        section5 = re.search(r"(?m)^## 5\. Gaps and risks\s*$", suffix)
+        if section5:
+            report = prefix.rstrip() + "\n\n" + suffix[section5.start():]
+        else:
+            report = prefix.rstrip()
     report += (
         "\n\n## 4.1 Automated metadata extraction\n\n"
         f"- Source tree commit: `{UPSTREAM_COMMIT}`.\n"
