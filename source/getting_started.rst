@@ -46,37 +46,64 @@ Python គឺជាភាសាកម្មវិធី (programming language) �
 Windows
 -------
 
-មានជម្រើសធំៗពីរ៖
+សម្រាប់ Windows គម្រោង CPython ណែនាំឱ្យប្រើ **Python install manager**។
+វាជាកម្មវិធីដាច់ដោយឡែកដែលគ្រប់គ្រងការដំឡើង Python runtime ច្រើនកំណែ
+និងធ្វើបច្ចុប្បន្នភាពកម្មវិធីគ្រប់គ្រងដោយស្វ័យប្រវត្តិ។
 
-**ជម្រើសទី ១ — Installer ផ្លូវការពី python.org (ណែនាំ)**
+**១. ដំឡើង Python install manager**
 
-1. ទៅកាន់ https://www.python.org/downloads/windows/ ហើយទាញយកកំណែ
-   *Windows installer (64-bit)* ចុងក្រោយ។
-2. ដំណើរការឯកសារ ``.exe`` ដែលបានទាញយក។
-3. **សំខាន់បំផុត៖** ក្នុងអេក្រង់ដំបូង សូមធីកប្រអប់
-   ``Add python.exe to PATH`` មុនចុច *Install Now*។ បើអ្នកភ្លេចធីក
-   ពាក្យបញ្ជា ``python`` នឹងមិនដំណើរការក្នុង Command Prompt ទេ។
+អ្នកអាចដំឡើងតាមរយៈ Microsoft Store ឬទាញយកពីគេហទំព័រ៖
 
-**ជម្រើសទី ២ — Microsoft Store**
+https://www.python.org/downloads/
 
-ស្វែងរក "Python" ក្នុងកម្មវិធី Microsoft Store ហើយចុច *Get*។ វិធីនេះងាយ
-បំផុត ហើយធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ ប៉ុន្តែមានដែនកំណត់មួយចំនួន
-លើការចូលដំណើរការឯកសារក្រៅផ្ទះរបស់អ្នក។
-
-**ការផ្ទៀងផ្ទាត់**
-
-បើក Command Prompt (``cmd``) ឬ PowerShell ហើយវាយ៖
+បើអ្នកទាញយកឯកសារ MSIX ពី python.org អាចបើកឯកសារនោះហើយចុច *Install*
+ឬដំណើរការ PowerShell ដោយប្រើ៖
 
 .. code-block:: console
 
-   C:\> py -V
+   PS> Add-AppxPackage <path to MSIX>
+
+ក្រោយដំឡើងរួច ពាក្យបញ្ជា ``python``, ``py`` និង ``pymanager``
+គួរតែអាចប្រើបាន។ បើមាន Python ចាស់ ឬបានកែ ``PATH`` ពីមុន អ្នកអាច
+ត្រូវកែសម្រួលការកំណត់នោះ ដើម្បីជៀសវាងការប៉ះទង្គិច។
+
+**២. ដំឡើង Python 3.15.2**
+
+បើក Command Prompt ឬ PowerShell ហើយប្រើ៖
+
+.. code-block:: console
+
+   PS> py install 3.15.2
+   PS> py list
+
+ពាក្យបញ្ជា ``py list`` បង្ហាញ Python runtime ដែលបានដំឡើង។
+អ្នកអាចដំឡើងកំណែផ្សេងទៀតបានដែរ ដោយប្ដូរ version tag ក្នុង ``py install``។
+
+**៣. ពិនិត្យការដំឡើង**
+
+.. code-block:: console
+
+   PS> python --version
    Python 3.15.2
 
-   C:\> python --version
+   PS> py -V:3.15.2 --version
    Python 3.15.2
 
-នៅលើ Windows ពាក្យបញ្ជា ``py`` គឺជា **Python launcher** ដែលអនុញ្ញាតឱ្យ
-អ្នកជ្រើសរើសកំណែជាក់លាក់បាន ឧទាហរណ៍ ``py -3.13`` ឬ ``py -3.15``។
+.. note::
+
+   Python install manager កំណត់ថត command ជា ``PATH`` ដោយអាចជ្រើសរើសបាន។
+   បើប្រើ ``python`` មិនដំណើរការ សូមពិនិត្យការកំណត់ ``PATH`` និង
+   ផ្នែក Troubleshooting ក្នុងឯកសារផ្លូវការ។
+
+**ជម្រើសផ្សេង**
+
+នៅពេលមានតម្រូវការពិសេស អ្នកអាចប្រើ distribution ផ្សេងៗដូចជា NuGet
+ឬ embeddable package។ សម្រាប់អ្នកចាប់ផ្ដើម រៀនប្រើ Python install manager
+ជាជម្រើសដំបូងគឺសាមញ្ញជាង។
+
+នៅលើ Windows ពាក្យបញ្ជា ``py`` អាចប្រើជ្រើស runtime ជាក់លាក់
+តាម tag ដូចជា ``py -V:3.15.2``។ ពាក្យបញ្ជា ``pymanager``
+មានប្រយោជន៍សម្រាប់ script ដែលមិនចង់ប៉ះទង្គិចនឹងការដំឡើងចាស់។
 
 .. _install-macos:
 
