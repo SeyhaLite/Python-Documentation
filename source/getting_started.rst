@@ -73,7 +73,7 @@ Windows
    Python 3.15.2
 
    C:\> python --version
-   Python 3.15.0
+   Python 3.15.2
 
 នៅលើ Windows ពាក្យបញ្ជា ``py`` គឺជា **Python launcher** ដែលអនុញ្ញាតឱ្យ
 អ្នកជ្រើសរើសកំណែជាក់លាក់បាន ឧទាហរណ៍ ``py -3.13`` ឬ ``py -3.15``។
@@ -104,7 +104,7 @@ macOS
 .. code-block:: console
 
    $ python3 --version
-   Python 3.15.0
+   Python 3.15.2
 
 .. attention::
 
