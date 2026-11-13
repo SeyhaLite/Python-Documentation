@@ -63,8 +63,8 @@ Build configuration observation:
   - `generated_reference_data`: 4
   - `templates`: 9
   - `build_config`: 9
-- Titles are still provisional filename-based values; exact RST heading extraction remains pending.
-- `word_count` and `dependencies` remain unfilled; full RST text parsing and recursive toctree/include extraction remain pending.
+- Exact RST titles extracted: **459 / 557**; filename fallback used for **98** files.
+- `word_count` and `dependencies` populated for **557** RST files; word-like tokens: **1,784,681**; files with dependencies: **124** (701 dependency references).
 - The preliminary mapping in `source/index.rst` names 42 upstream `.rst` paths. 39 match the pinned tree directly; two legacy paths (`library/stdtypes.rst` and `library/exceptions.rst`) have been normalized to current `builtins/` paths in the manifest; one reference (`develop/testing.rst`) does not exist in the pinned `Doc/` tree and remains unresolved. The manifest now records 41 mapped upstream files against the existing 15 chapter pages. This is only a preliminary source map, not evidence that every referenced page is fully translated.
 - `translation-glossary.csv` is a starter glossary; entries remain `draft_review_required`. No term is approved. The draft for `object` was normalized to `វត្ថុ (object)` with a context note, but it still requires human review.
 
@@ -87,7 +87,8 @@ Build configuration observation:
 - [x] Reviewed `Doc/contents.rst` and `Doc/license.rst` for navigation and licensing scope.
 - [ ] Exact title extraction for all 557 RST pages.
 - [ ] Word/token counts and dependency extraction for all source pages.
-- [x] Register the existing 15-chapter source mapping for 41 matching upstream files; one obsolete reference remains unresolved.\n- [ ] Review mapping accuracy and map the remaining upstream pages.
+- [x] Register the existing 15-chapter source mapping for 41 matching upstream files; one obsolete reference remains unresolved.
+- [ ] Review mapping accuracy and map the remaining upstream pages.
 - [ ] Independently verify the official source archive/Sigstore attestation.
 - [ ] Human review and approval of glossary terminology.
 - [x] Read the Docs preview build for PR #3 returned a successful status (`docs/readthedocs.org:python-documentation-khmer`). This confirms the configured preview build only; `.readthedocs.yaml` still has `fail_on_warning: false`.
@@ -98,3 +99,14 @@ Build configuration observation:
 **Phase 0: IN PROGRESS — source pin and complete path/SHA inventory exist; the detailed metadata and validation gates remain open.**
 
 No translation batch was started. Do not mark the project complete or close Issue #2 until the remaining Phase 0 items are reviewed and passed.
+
+
+## 4.1 Automated metadata extraction
+
+- Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.
+- RST pages parsed: **557**.
+- Exact titles: **459**; filename fallback: **98**.
+- Unicode word-like tokens: **1,784,681** (regex `\b[\w]+(?:['’][\w]+)*\b`; includes prose, directives, identifiers and code).
+- Files with dependencies: **124**; dependency references: **701**.
+- Valid existing Khmer mapping: **41** upstream RST files.
+- Unresolved source references: **0** (none).
