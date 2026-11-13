@@ -133,6 +133,105 @@ Modules និង Packages
 
 .. versionadded:: 3.15
 
+ការគ្រប់គ្រង Lazy Imports កម្រិតខ្ពស់
+-----------------------------------
+
+សម្រាប់កម្មវិធីដែលត្រូវគ្រប់គ្រងការនាំចូលច្រើន អ្នកអាចប្រើ API ក្នុង
+module \`\`sys\`\`៖
+
+- \`\`sys.get_lazy_imports()\`\` ត្រឡប់ mode បច្ចុប្បន្នជា \`\`"normal"\`\`
+  ឬ \`\`"all"\`\`។
+- \`\`sys.set_lazy_imports("normal")\`\` ធ្វើឱ្យមានតែ import ដែលដាក់
+  \`\`lazy\`\` ដោយច្បាស់ប៉ុណ្ណោះដែលពន្យារពេល។
+- \`\`sys.set_lazy_imports("all")\`\` ធ្វើឱ្យ import នៅកម្រិត module
+  ទាំងអស់អាចត្រូវបានពន្យារពេល លុះត្រាតែ filter បង្ខំឱ្យផ្ទុកភ្លាម។
+
+.. warning::
+
+   \`\`sys.set_lazy_imports()\`\` ប្ដូរឥរិយាបថ import ទូទាំង interpreter។
+   វាសម្រាប់អ្នកដែលគ្រប់គ្រងកម្មវិធីទាំងមូល។ អ្នកសរសេរ library ជាទូទៅ
+   មិនគួរប្ដូរ global mode របស់កម្មវិធីដែលនាំចូល library នោះទេ។
+
+**Filter សម្រេចថា import មួយគួរពន្យារពេលឬអត់**
+
+\`\`sys.set_lazy_imports_filter(callback)\`\` អាចកំណត់ function មួយ
+ដែល Python ហៅសម្រាប់ import នីមួយៗដែលអាច lazy បាន។ Function នោះទទួល
+argument បី៖
+
+1. \`\`importing_module\`\` — ឈ្មោះ module ដែលកំពុងធ្វើ import។
+2. \`\`imported_module\`\` — ឈ្មោះពេញលេញរបស់ module ដែលនឹងត្រូវនាំចូល។
+3. \`\`fromlist\`\` — tuple នៃឈ្មោះដែលនាំចូលតាម \`\`from ... import ...\`\`
+   ឬ \`\`None\`\` សម្រាប់ \`\`import module\`\` ធម្មតា។
+
+វាត្រូវត្រឡប់ \`\`True\`\` ដើម្បីអនុញ្ញាតឱ្យ import នោះជា lazy ឬ \`\`False\`\`
+ដើម្បីបង្ខំឱ្យ import ភ្លាម។ ផ្ដល់ \`\`None\`\` ទៅ function នេះដើម្បីលុប filter។
+
+.. code-block:: python
+   :no-test:
+
+   import sys
+
+   def optional_import_filter(importing_module, imported_module, fromlist):
+       # ពន្យារពេលតែ module ដែលចាប់ផ្ដើមដោយ "optional_"
+       return imported_module.startswith("optional_")
+
+   # កំណត់ callback និងពិនិត្យ callback បច្ចុប្បន្ន
+   sys.set_lazy_imports_filter(optional_import_filter)
+   current_filter = sys.get_lazy_imports_filter()
+
+   # លុប filter ពេលមិនត្រូវការទៀត
+   sys.set_lazy_imports_filter(None)
+
+.. seealso::
+
+   ឯកសារ \`\`sys\`\` មាន \`\`sys.get_lazy_imports_filter()\`\` និង
+   \`\`sys.set_lazy_imports_filter()\`\` សម្រាប់ពិនិត្យ និងកំណត់ callback។
+
+**ពិនិត្យ import ដែលមិនទាន់ផ្ទុក**
+
+\`\`sys.lazy_modules\`\` ជា \`\`set\`\` នៃឈ្មោះ module ពេញលេញ ដែលបាននាំចូល
+បែប lazy ក្នុង interpreter បច្ចុប្បន្ន ប៉ុន្តែមិនទាន់ផ្ទុកជាក់ស្ដែង។
+ពេលប្រើឈ្មោះនោះលើកដំបូង វាជាទូទៅត្រូវបានដកចេញពី set នេះ។
+
+.. note::
+
+   \`\`sys.lazy_modules\`\` មានគោលបំណងសម្រាប់ debugging និង introspection
+   ប៉ុណ្ណោះ។ ក្នុង implementation បច្ចុប្បន្ន វាអាចមានឈ្មោះ attribute
+   (មិនមែន module) ឬឈ្មោះដែលបានប្រើរួចផងដែរ។ កុំសន្និដ្ឋានពីធាតុនៅក្នុង
+   set ដោយមិនពិនិត្យស្ថានភាពពិតរបស់វា។
+
+**ជម្រើសសម្រាប់ភាពឆបគ្នា៖ \`\`__lazy_modules__\`\`**
+
+បើអ្នកមិនចង់កែ import statement នីមួយៗ អ្នកអាចដាក់អថេរ
+\`\`__lazy_modules__\`\` នៅកម្រិត module។ វាជា list ឬ container ផ្សេង
+ដែលមានឈ្មោះ module ពេញលេញ។ នៅ Python 3.15 import ធម្មតាដែលឈ្មោះ
+module ត្រូវនឹងបញ្ជីនេះ នឹងត្រូវបានពន្យារពេលដូច \`\`lazy import\`\`។
+
+.. code-block:: python
+   :no-test:
+
+   # optional_features.py
+   __lazy_modules__ = ["json", "pathlib", "mypackage.sub.utils"]
+
+   import json       # lazy នៅក្នុង Python 3.15
+   import os         # eager ព្រោះមិនមានក្នុងបញ្ជី
+
+   from pathlib import Path  # lazy; match ឈ្មោះ module "pathlib"
+
+ចំណុចដែលត្រូវចងចាំ៖
+
+- ត្រូវប្រើឈ្មោះ module ពេញលេញ។ Relative import ត្រូវបានបម្លែងទៅជា
+  absolute name មុនពេលពិនិត្យបញ្ជី។
+- សម្រាប់ \`\`from package import item\`\` Python ពិនិត្យឈ្មោះ module
+  ក្រោយ \`\`from\`\` មិនមែនឈ្មោះ \`\`item\`\` ទេ។
+- Import នៅក្នុង function, class body ឬ block \`\`try\`\`/\`\`except\`\`/
+  \`\`finally\`\` នៅតែដំណើរការភ្លាម ទោះបីមានឈ្មោះក្នុង \`\`__lazy_modules__\`\`
+  ក៏ដោយ។
+- នៅ Python ចាស់ជាង 3.15 អថេរនេះគ្រាន់តែជាអថេរ module ធម្មតា ហើយមិន
+  ផ្លាស់ប្ដូរឥរិយាបថ \`\`import\`\` ទេ។
+
+.. versionadded:: 3.15
+
 ----
 
 .. _import-mechanics:
