@@ -276,14 +276,7 @@ def main() -> int:
     if extra or absent:
         raise ValueError(f"Doc path mismatch: extra={extra[:10]}, absent={absent[:10]}")
     write_manifest(manifest_path, fields, rows)
-    summary = {
-        "source_commit": UPSTREAM_COMMIT, "doc_files": len(rows), "rst_files": len(rst_paths),
-        "rst_titles_exact": sum(1 for p in rst_paths if by_path[p].get("title_source") == "rst_heading"),
-        "rst_titles_fallback": len(fallbacks),
-        "rst_include_fragments": sum(1 for p in rst_paths if by_path[p].get("title_source") == "include_fragment"),
-        "rst_title_fallback_paths": fallbacks, "rst_word_like_tokens": word_total,
-        "rst_files_with_dependencies": dependency_files, "dependency_edges": dependency_edges,
-        category_counts = {}
+    category_counts = {}
     for row in rows:
         category = row.get("category", "uncategorized")
         category_counts[category] = category_counts.get(category, 0) + 1
