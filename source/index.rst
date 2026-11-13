@@ -77,7 +77,7 @@
    * - ៧
      - :doc:`modules_packages` — Modules និង Packages
      - ✅ បញ្ចប់
-     - ``tutorial/modules.rst``, ``reference/import.rst``, ``library/sys.rst``, ``library/importlib.rst``
+     - ``tutorial/modules.rst``, ``reference/import.rst``, ``reference/simple_stmts.rst``, ``library/sys.rst``, ``library/importlib.rst``
    * - ៨
      - :doc:`exceptions` — Exceptions និងការគ្រប់គ្រងកំហុស
      - ✅ បញ្ចប់
