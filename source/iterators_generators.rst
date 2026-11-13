@@ -710,11 +710,11 @@ Asynchronous Iterators និង Async Generators
 **Asynchronous iterator** ជា object ដែលអាចផ្ដល់ធាតុម្តងមួយៗ ខណៈពេល
 រង់ចាំប្រតិបត្តិការមិនទាន់រួច។ វាមាន protocol សំខាន់ពីរ៖
 
-- __aiter__() ត្រឡប់ asynchronous iterator។
-- __anext__() ត្រឡប់ awaitable សម្រាប់ទទួលធាតុបន្ទាប់។ ពេលអស់ធាតុ
-  វាបញ្ចប់ដោយ StopAsyncIteration។
+- ``__aiter__()`` ត្រឡប់ asynchronous iterator។
+- ``__anext__()`` ត្រឡប់ awaitable សម្រាប់ទទួលធាតុបន្ទាប់។ ពេលអស់ធាតុ
+  វាបញ្ចប់ដោយ ``StopAsyncIteration``។
 
-ជាទូទៅ អ្នកប្រើវាតាមរយៈ async for៖
+ជាទូទៅ អ្នកប្រើវាតាមរយៈ ``async for``៖
 
 .. code-block:: pycon
 
@@ -729,7 +729,7 @@ Asynchronous Iterators និង Async Generators
    >>> asyncio.run(collect_messages())
    ['សួស្ដី', 'លាហើយ']
 
-**Async generator** ជា function ដែលប្រើ async def ហើយមាន yield។
+**Async generator** ជា function ដែលប្រើ ``async def`` ហើយមាន ``yield``។
 វាអាចផ្អាករង់ចាំ I/O ឬប្រតិបត្តិការផ្សេង មុនពេលផ្ដល់ធាតុបន្ទាប់។
 
 Async generator មាន method សម្រាប់គ្រប់គ្រងដំណើរការរបស់វា៖
@@ -740,18 +740,18 @@ Async generator មាន method សម្រាប់គ្រប់គ្រ�
 
    * - Method
      - អត្ថន័យ
-   * - agen.__anext__()
+   * - ``agen.__anext__()``
      - ចាប់ផ្ដើម ឬបន្ត generator ដើម្បីទទួលធាតុបន្ទាប់។
-   * - agen.asend(value)
-     - បញ្ជូនតម្លៃទៅកាន់ yield បច្ចុប្បន្ន។
-   * - agen.athrow(exc)
+   * - ``agen.asend(value)``
+     - បញ្ជូនតម្លៃទៅកាន់ ``yield`` បច្ចុប្បន្ន។
+   * - ``agen.athrow(exc)``
      - បញ្ចូល exception ទៅកន្លែងដែល generator កំពុងផ្អាក។
-   * - agen.aclose()
-     - ផ្ញើ GeneratorExit ដើម្បីបញ្ចប់ generator និងរត់ cleanup។
+   * - ``agen.aclose()``
+     - ផ្ញើ ``GeneratorExit`` ដើម្បីបញ្ចប់ generator និងរត់ cleanup។
 
-Method ទាំងនេះត្រឡប់ **awaitable**។ អ្នកត្រូវប្រើ await ដើម្បីឱ្យវាដំណើរការ។
-នៅពេលចាប់ផ្ដើម async generator ដោយ asend() តម្លៃដំបូងត្រូវតែជា None
-ព្រោះមិនទាន់មាន yield ដែលអាចទទួលតម្លៃបាន។
+Method ទាំងនេះត្រឡប់ **awaitable**។ អ្នកត្រូវប្រើ ``await`` ដើម្បីឱ្យវាដំណើរការ។
+នៅពេលចាប់ផ្ដើម async generator ដោយ ``asend()`` តម្លៃដំបូងត្រូវតែជា ``None``
+ព្រោះមិនទាន់មាន ``yield`` ដែលអាចទទួលតម្លៃបាន។
 
 .. code-block:: pycon
 
@@ -769,7 +769,7 @@ Method ទាំងនេះត្រឡប់ **awaitable**។ អ្នកត�
    >>> asyncio.run(use_controlled())
    ('ready', 'បានទទួល')
 
-**បញ្ចូល exception ដោយ athrow()**
+**បញ្ចូល exception ដោយ ``athrow()``**
 
 អ្នកអាចបញ្ចូល exception ទៅ generator នៅកន្លែងដែលវាកំពុងផ្អាក។
 បើ generator ចាប់យក exception នោះ វាអាចបន្តផ្ដល់ធាតុបាន៖
@@ -792,19 +792,19 @@ Method ទាំងនេះត្រឡប់ **awaitable**។ អ្នកត�
    >>> asyncio.run(use_athrow())
    ('ready', 'បានចាប់កំហុស')
 
-ជាទូទៅ សូមប្រើ exception instance ដូចជា athrow(ValueError("sample"))។
-ទម្រង់ចាស់ athrow(type[, value[, traceback]]) ត្រូវបានសម្គាល់ថា
+ជាទូទៅ សូមប្រើ exception instance ដូចជា ``athrow(ValueError("sample"))``។
+ទម្រង់ចាស់ ``athrow(type[, value[, traceback]])`` ត្រូវបានសម្គាល់ថា
 deprecated ចាប់ពី Python 3.12 ហើយអាចត្រូវដកចេញនៅកំណែអនាគត។
 
 .. versionchanged:: 3.12
-   ទម្រង់ athrow(type[, value[, traceback]]) ត្រូវបានសម្គាល់ថា deprecated។
+   ទម្រង់ ``athrow(type[, value[, traceback]])`` ត្រូវបានសម្គាល់ថា deprecated។
 
 **បិទ Async Generator ឱ្យបានត្រឹមត្រូវ**
 
-បើអ្នកចាកចេញពី async for មុនពេល generator អស់ធាតុ (ឧទាហរណ៍ប្រើ break)
-អ្នកគួរបិទវាឱ្យច្បាស់ ដើម្បីឱ្យ finally និងការសម្អាត resource បានដំណើរការ។
-aclose() ផ្ញើ GeneratorExit ទៅ generator។ បើ generator បញ្ចេញធាតុថ្មី
-ក្រោយទទួល GeneratorExit វានឹងបង្កើត RuntimeError។
+បើអ្នកចាកចេញពី ``async for`` មុនពេល generator អស់ធាតុ (ឧទាហរណ៍ប្រើ ``break``)
+អ្នកគួរបិទវាឱ្យច្បាស់ ដើម្បីឱ្យ ``finally`` និងការសម្អាត resource បានដំណើរការ។
+``aclose()`` ផ្ញើ ``GeneratorExit`` ទៅ generator។ បើ generator បញ្ចេញធាតុថ្មី
+ក្រោយទទួល ``GeneratorExit`` វានឹងបង្កើត ``RuntimeError``។
 
 .. code-block:: pycon
 
@@ -827,11 +827,11 @@ aclose() ផ្ញើ GeneratorExit ទៅ generator។ បើ generator បញ�
 .. important::
 
    កុំទុក async generator ដែលបានចាប់ផ្ដើមឱ្យបើកចោលក្រោយចេញពី function
-   ឬ task។ ប្រសិនបើចង់បញ្ឈប់ loop មុនកំណត់ សូមហៅ await gen.aclose()
-   ឬប្រើ contextlib.aclosing() ដើម្បីឱ្យ cleanup បានដំណើរការ។
+   ឬ task។ ប្រសិនបើចង់បញ្ឈប់ loop មុនកំណត់ សូមហៅ ``await gen.aclose()``
+   ឬប្រើ ``contextlib.aclosing()`` ដើម្បីឱ្យ cleanup បានដំណើរការ។
 
-ក្នុង async generator function មិនអាចប្រើ yield from បានទេ។
-សម្រាប់ការដើរតាម async iterable មួយទៀត សូមប្រើ async for ហើយ yield
+ក្នុង async generator function មិនអាចប្រើ ``yield from`` បានទេ។
+សម្រាប់ការដើរតាម async iterable មួយទៀត សូមប្រើ ``async for`` ហើយ ``yield``
 ធាតុនីមួយៗចេញវិញ។
 
 .. versionadded:: 3.6
