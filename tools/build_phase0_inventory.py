@@ -189,7 +189,10 @@ def main() -> int:
             missing.append(upstream_path)
             continue
         data = disk_path.read_bytes()
-        actual_sha = git_blob_sha(data)
+        # The source archive expands Git eol=crlf for Windows batch files.
+        # Normalize that one text format back to canonical Git blob bytes.
+        blob_data = data.replace(b"\r\n", b"\n") if upstream_path.lower().endswith(".bat") else data
+        actual_sha = git_blob_sha(blob_data)
         if actual_sha != row.get("upstream_sha", ""):
             mismatches.append({"path": upstream_path, "expected": row.get("upstream_sha"), "actual": actual_sha})
             continue
