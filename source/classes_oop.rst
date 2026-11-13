@@ -101,6 +101,24 @@ Class ដំបូងរបស់អ្នក
      (ទោះបីជាអ្នកមិនប្រើវាក៏ដោយ)។
    * ``book.method()`` = ``Class.method(book)``។ នេះហៅថា **bound method**។
 
+.. note::
+
+   **Built-in function** ក៏មាន attribute ពិសេស ``__self__`` ដែរ។
+   នៅទីនេះវាបង្ហាញ module ដែលបង្កើត function នោះ (ឬ ``None``
+   បើមិនមានព័ត៌មាន)។ កុំច្រឡំវាជាមួយ ``self`` ក្នុង instance method៖
+
+   .. code-block:: pycon
+
+      >>> len.__self__.__name__
+      'builtins'
+      >>> import math
+      >>> math.sin.__self__.__name__
+      'math'
+
+   ចំណាំ៖ ``method.__self__`` លើ bound method វិញ សំដៅលើ instance
+   ឬ class ដែល method ត្រូវបានភ្ជាប់។ វាជា attribute របស់ bound method
+   មិនមែនជា parameter ``self`` ក្នុង function definition ទេ។
+
 .. _init-vs-new:
 
 ``__init__`` មិនមែនជា constructor ទេ
