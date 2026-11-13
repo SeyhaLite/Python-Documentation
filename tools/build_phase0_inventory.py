@@ -30,7 +30,7 @@ def extract_title(text: str) -> str:
         current = line.strip()
         if not current:
             continue
-        module_title = re.match(r":mod:`!?([^`]+)`\s*(?:---|:)\s*(.+)$", current)
+        module_title = re.match(r":mod:`!?([^`]+)`\s*(?:-{2,3}|:)\s*(.+)$", current)
         if module_title and i + 1 < len(lines):
             underline = lines[i + 1].strip()
             if (len(underline) >= len(current) and len(underline) >= 3
@@ -251,7 +251,7 @@ def main() -> int:
             row["word_count"] = str(count)
             word_total += count
             dependencies = extract_dependencies(text)
-            row["dependencies"] = "; ".join(dependencies)
+            row["dependencies"] = "; ".join(dependencies) if dependencies else "none"
             if dependencies:
                 dependency_files += 1
                 dependency_edges += len(dependencies)
