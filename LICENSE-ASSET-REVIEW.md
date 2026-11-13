@@ -16,8 +16,8 @@
 | Repository path | Current classification | Review status |
 |---|---|---|
 | `source/_static/python-logo.svg` | Official, unaltered PSF Python logo; trademark rules apply; excluded from MIT site-code scope | Reviewed for scope only; trademark use statement retained |
-| `source/_static/python-favicon.ico` | Official Python mark/icon; trademark rules apply; excluded from MIT site-code scope | Reviewed for scope only; trademark use statement retained |
-| `source/_static/favicon.svg` | Project-authored favicon | MIT site-code scope |
+| `source/_static/python-favicon.ico` | Official PSF mark/icon retained in the repository but not used by Sphinx as the browser favicon; excluded from MIT site-code scope | Reviewed for scope only; not referenced by `html_favicon` |
+| `source/_static/favicon.svg` | Project-authored SVG used as the active Sphinx/browser favicon | MIT site-code scope |
 | `source/_static/khmer.css` | Project-authored stylesheet | MIT site-code scope |
 | `source/_templates/breadcrumbs.html` | Project-authored template | MIT site-code scope |
 | `source/_templates/layout.html` | Project-authored template with PSF logo usage | Template code is MIT; embedded PSF mark remains excluded |
