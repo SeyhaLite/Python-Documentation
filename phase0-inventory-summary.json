@@ -63,9 +63,7 @@
     "include_fragments": 3,
     "templates": 9
   },
-  "unresolved_source_refs": [
-    "Doc/source/*.rst"
-  ],
+  "unresolved_source_refs": [],
   "missing_files": [],
   "sha_mismatches": [],
   "extra_doc_files": [],

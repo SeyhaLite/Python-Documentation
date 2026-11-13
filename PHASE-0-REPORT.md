@@ -76,7 +76,7 @@ Build configuration observation:
 - Visible titles: **554**; include fragments: **3**; filename fallback: **0**.
 - Unicode word-like tokens: **1,784,681** (includes prose, directives, identifiers and code).
 - Files with dependencies: **124**; dependency references: **701**.
-- Valid existing Khmer mapping: **41** upstream RST files; unresolved references: **1**.
+- Valid existing Khmer mapping: **41** upstream RST files; unresolved references: **0**.
 - Source archive integrity: **PASS**.
 
 ## 5. Gaps and risks
