@@ -70,10 +70,10 @@ Windows
 .. code-block:: console
 
    C:\> py -V
-   Python 3.15.0
+   Python 3.15.2
 
    C:\> python --version
-   Python 3.15.0
+   Python 3.15.2
 
 នៅលើ Windows ពាក្យបញ្ជា ``py`` គឺជា **Python launcher** ដែលអនុញ្ញាតឱ្យ
 អ្នកជ្រើសរើសកំណែជាក់លាក់បាន ឧទាហរណ៍ ``py -3.13`` ឬ ``py -3.15``។
@@ -104,7 +104,7 @@ macOS
 .. code-block:: console
 
    $ python3 --version
-   Python 3.15.0
+   Python 3.15.2
 
 .. attention::
 
@@ -158,11 +158,11 @@ Linux
 .. code-block:: console
 
    $ python3
-   Python 3.15.0 (main, Oct 14 2026, 01:05:07) [Clang 23.1.3] on linux
+   Python 3.15.2
    Type "help", "copyright", "credits" or "license" for more information.
    >>> import sys
    >>> sys.version_info
-   sys.version_info(major=3, minor=15, micro=0, releaselevel='final', serial=0)
+   sys.version_info(major=3, minor=15, micro=2, releaselevel='final', serial=0)
    >>> sys.executable
    '/usr/local/bin/python3'
    >>> exit()
@@ -276,7 +276,7 @@ Python ប្រើ **ការចូលបន្ទាត់ (indentation)** �
 .. code-block:: console
 
    $ python3 -c "import platform; print(platform.python_version())"
-   3.15.0
+   3.15.2
 
    $ python3 -m this | head -3
    The Zen of Python, by Tim Peters

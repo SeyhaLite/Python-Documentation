@@ -7,8 +7,12 @@
 .. admonition:: កំណែ Python ដែលឯកសារនេះយោង
    :class: note
 
-   មាតិកាទាំងអស់សរសេរសម្រាប់ **Python 3.15** (កំណែ stable ចេញថ្ងៃ ៩ តុលា ២០២៦)។
-   ឧទាហរណ៍កូដនីមួយៗត្រូវបានដំណើរការផ្ទៀងផ្ទាត់ជាក់ស្ដែងលើ CPython 3.15.0។
+   គោលដៅកំណែរបស់គម្រោងគឺ **CPython 3.15.2** (ចេញផ្សាយថ្ងៃទី ២៥ តុលា ២០២៦)។
+   CI របស់ repository បានដំណើរការ ``tools/run_examples.py`` លើ CPython 3.15.2 ដោយជោគជ័យ។
+   Runner សាកល្បងប្លុក ``python`` និង ``pycon`` ក្នុងឯកសារ RST របស់មេរៀននៅថត source ព្រមទាំង scripts
+   ដែលបានកំណត់ក្នុង test harness។ ការត្រួតពិនិត្យនេះមិនស្មើនឹងការពិនិត្យអត្ថបទពន្យល់,
+   output គំរូក្នុង ``console`` blocks ឬការណែនាំដំឡើងតាមប្រព័ន្ធប្រតិបត្តិការទាំងអស់ទេ;
+   ផ្នែកទាំងនេះនៅត្រូវការការពិនិត្យបច្ចេកទេសក្នុង Phase 1។
    Python 2 មិនត្រូវបានគាំទ្រទេ — សូមកុំប្រើវា។
 
 សូមស្វាគមន៍មកកាន់ឯកសារបង្រៀនភាសា **Python** ជាភាសាខ្មែរ។ គម្រោងនេះយោងតាម
@@ -49,7 +53,7 @@
    * - ១
      - :doc:`getting_started` — ចាប់ផ្ដើម និងការដំឡើង
      - ✅ បញ្ចប់
-     - ``tutorial/appetite.rst``, ``tutorial/interpreter.rst``, ``using/unix.rst``, ``using/windows.rst``, ``using/mac.rst``
+     - ``tutorial/appetite.rst``, ``tutorial/interpreter.rst``, ``using/unix.rst``, ``using/windows.rst``, ``using/mac.rst``, ``using/cmdline.rst``
    * - ២
      - :doc:`syntax_variables_types` — វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ
      - ✅ បញ្ចប់
@@ -101,7 +105,7 @@
    * - ១៤
      - :doc:`virtual_environments` — Virtual Environments និង Packages
      - ✅ បញ្ចប់
-     - ``tutorial/venv.rst``, ``library/venv.rst``, ``installing/index.rst``
+     - ``tutorial/venv.rst``, ``library/venv.rst``, ``installing/index.rst``, ``using/cmdline.rst``
    * - ១៥
      - :doc:`testing_debugging` — Testing, Debugging និង Best Practices
      - ✅ បញ្ចប់
