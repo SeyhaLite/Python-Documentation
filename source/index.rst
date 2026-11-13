@@ -89,7 +89,7 @@
    * - ១០
      - :doc:`iterators_generators` — Iterators និង Generators
      - ✅ បញ្ចប់
-     - ``tutorial/classes.rst`` (Iterators/Generators), ``library/itertools.rst``, ``reference/expressions.rst``
+     - ``tutorial/classes.rst`` (Iterators/Generators), ``library/itertools.rst``, ``reference/expressions.rst``, ``builtins/stdtypes.rst``
    * - ១១
      - :doc:`decorators` — Decorators
      - ✅ បញ្ចប់
