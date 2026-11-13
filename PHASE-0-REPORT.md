@@ -100,12 +100,11 @@ Build configuration observation:
 
 No translation batch was started. Do not mark the project complete or close Issue #2 until the remaining Phase 0 items are reviewed and passed.
 
-
 ## 4.1 Automated metadata extraction
 
 - Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.
 - RST pages parsed: **557**.
-- Exact titles: **459**; filename fallback: **98**.
+- Exact titles: **540**; filename fallback: **14**.
 - Unicode word-like tokens: **1,784,681** (regex `\b[\w]+(?:['’][\w]+)*\b`; includes prose, directives, identifiers and code).
 - Files with dependencies: **124**; dependency references: **701**.
 - Valid existing Khmer mapping: **41** upstream RST files.
