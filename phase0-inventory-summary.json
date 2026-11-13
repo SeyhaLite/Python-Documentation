@@ -9,7 +9,7 @@
   "rst_word_like_tokens": 1784681,
   "rst_files_with_dependencies": 124,
   "dependency_edges": 701,
-  "mapped_rst_files": 42,
+  "mapped_rst_files": 43,
   "mapped_paths": [
     "Doc/builtins/exceptions.rst",
     "Doc/builtins/stdtypes.rst",
@@ -37,6 +37,7 @@
     "Doc/reference/expressions.rst",
     "Doc/reference/import.rst",
     "Doc/reference/lexical_analysis.rst",
+    "Doc/reference/simple_stmts.rst",
     "Doc/tutorial/appetite.rst",
     "Doc/tutorial/classes.rst",
     "Doc/tutorial/controlflow.rst",
