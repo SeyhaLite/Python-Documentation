@@ -30,7 +30,7 @@ def extract_title(text: str) -> str:
         current = line.strip()
         if not current:
             continue
-        module_title = re.match(r":mod:`!?([^`]+)`\s+---\s+(.+)$", current)
+        module_title = re.match(r":mod:`!?([^`]+)`\s*(?:---|:)\s*(.+)$", current)
         if module_title and i + 1 < len(lines):
             underline = lines[i + 1].strip()
             if (len(underline) >= len(current) and len(underline) >= 3
@@ -142,34 +142,64 @@ def update_report(path: Path, summary: dict) -> None:
     if not path.exists():
         return
     report = path.read_text(encoding="utf-8")
-    report = report.replace(
-        "- Titles are still provisional filename-based values; exact RST heading extraction remains pending.",
-        f"- Exact RST titles extracted: **{summary['rst_titles_exact']} / {summary['rst_files']}**; "
-        f"filename fallback used for **{summary['rst_titles_fallback']}** files.",
+    report = re.sub(
+        r"^- (?:Titles are still provisional filename-based values.*|Exact RST titles extracted:.*)$",
+        f"- Exact visible RST titles extracted: **{summary['rst_titles_exact']} / {summary['rst_files']}**; "
+        f"include fragments: **{summary['rst_include_fragments']}**; filename fallback: **{summary['rst_titles_fallback']}**.",
+        report, flags=re.MULTILINE,
     )
-    report = report.replace(
-        "- `word_count` and `dependencies` remain unfilled; full RST text parsing and recursive toctree/include extraction remain pending.",
+    report = re.sub(
+        r"^- `word_count` and `dependencies` (?:remain unfilled.*|populated.*)$",
         f"- `word_count` and `dependencies` populated for **{summary['rst_files']}** RST files; "
         f"word-like tokens: **{summary['rst_word_like_tokens']:,}**; files with dependencies: "
         f"**{summary['rst_files_with_dependencies']}** ({summary['dependency_edges']} dependency references).",
+        report, flags=re.MULTILINE,
     )
-    report = re.sub(r"\\n- \[ \] Review mapping accuracy", "\n- [ ] Review mapping accuracy", report)
+    report = re.sub(
+        r"^- The preliminary mapping in `source/index\.rst` names .*?$",
+        f"- The source mapping was validated against the pinned tree: **{summary['mapped_rst_files']}** upstream RST files mapped; "
+        f"**{len(summary['unresolved_source_refs'])}** unresolved references.",
+        report, flags=re.MULTILINE,
+    )
+    for category, count in summary['category_counts'].items():
+        report = re.sub(
+            rf"^  - `{re.escape(category)}`: \\d+$",
+            f"  - `{category}`: {count}", report, flags=re.MULTILINE,
+        )
+    report = re.sub(
+        r"^- `translation-glossary\.csv` is a starter glossary;.*$",
+        "- `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.",
+        report, flags=re.MULTILINE,
+    )
+    report = re.sub(r"\\\\n- \\[ \\] Review mapping accuracy", "\\n- [ ] Review mapping accuracy", report)
+    if summary.get('release_integrity_verified'):
+        report = report.replace(
+            "The release page advertises Sigstore metadata, but this audit did **not** independently verify the downloaded archive or its attestation. Keep that as a release gate.",
+            "CI verified the official Python.org source archive SHA-256 and Sigstore identity (`hugo@python.org`, issuer `https://github.com/login/oauth`). The Git tag itself remains unsigned; the archive digest, attestation and pinned Doc blob hashes are the integrity evidence used for this inventory.",
+        )
+        report = re.sub(r"^- \\[ \\] Independently verify the official source archive/Sigstore attestation\\.$",
+            "- [x] Verify official Python.org source archive SHA-256 and Sigstore identity; the separate Git tag remains unsigned.",
+            report, flags=re.MULTILINE)
     if "## 4.1 Automated metadata extraction" in report:
         report = report.split("## 4.1 Automated metadata extraction")[0].rstrip()
     report += (
-        "\n\n## 4.1 Automated metadata extraction\n\n"
-        f"- Source tree commit: `{UPSTREAM_COMMIT}`.\n"
-        f"- RST pages parsed: **{summary['rst_files']}**.\n"
-        f"- Exact titles: **{summary['rst_titles_exact']}**; filename fallback: **{summary['rst_titles_fallback']}**.\n"
-        f"- Unicode word-like tokens: **{summary['rst_word_like_tokens']:,}** "
-        "(regex `\\b[\\w]+(?:['’][\\w]+)*\\b`; includes prose, directives, identifiers and code).\n"
-        f"- Files with dependencies: **{summary['rst_files_with_dependencies']}**; "
-        f"dependency references: **{summary['dependency_edges']}**.\n"
-        f"- Valid existing Khmer mapping: **{summary['mapped_rst_files']}** upstream RST files.\n"
-        f"- Unresolved source references: **{len(summary['unresolved_source_refs'])}** "
-        f"({', '.join(summary['unresolved_source_refs']) if summary['unresolved_source_refs'] else 'none'}).\n"
+        "\\n\\n## 4.1 Automated metadata extraction\\n\\n"
+        f"- Source tree commit: `{UPSTREAM_COMMIT}`.\\n"
+        f"- RST files parsed: **{summary['rst_files']}**.\\n"
+        f"- Visible titles: **{summary['rst_titles_exact']}**; include fragments: **{summary['rst_include_fragments']}**; filename fallback: **{summary['rst_titles_fallback']}**.\\n"
+        f"- Unicode word-like tokens: **{summary['rst_word_like_tokens']:,}** (includes prose, directives, identifiers and code).\\n"
+        f"- Files with dependencies: **{summary['rst_files_with_dependencies']}**; dependency references: **{summary['dependency_edges']}**.\\n"
+        f"- Valid existing Khmer mapping: **{summary['mapped_rst_files']}** upstream RST files; unresolved references: **{len(summary['unresolved_source_refs'])}**.\\n"
+        f"- Source archive integrity: **{'PASS' if summary.get('release_integrity_verified') else 'NOT VERIFIED'}**.\\n"
     )
-    path.write_text(report, encoding="utf-8")
+    marker = "\\n\\n## 4.1 Automated metadata extraction"
+    base, appendix = report.split(marker, 1)
+    section5 = "\\n## 5. Gaps and risks"
+    if section5 in base:
+        base = base.replace(section5, marker + appendix + section5, 1)
+    else:
+        base += marker + appendix
+    path.write_text(base, encoding="utf-8")
 
 
 def main() -> int:
@@ -253,8 +283,19 @@ def main() -> int:
         "rst_include_fragments": sum(1 for p in rst_paths if by_path[p].get("title_source") == "include_fragment"),
         "rst_title_fallback_paths": fallbacks, "rst_word_like_tokens": word_total,
         "rst_files_with_dependencies": dependency_files, "dependency_edges": dependency_edges,
+        category_counts = {}
+    for row in rows:
+        category = row.get("category", "uncategorized")
+        category_counts[category] = category_counts.get(category, 0) + 1
+    summary = {
+        "source_commit": UPSTREAM_COMMIT, "doc_files": len(rows), "rst_files": len(rst_paths),
+        "rst_titles_exact": sum(1 for p in rst_paths if by_path[p].get("title_source") == "rst_heading"),
+        "rst_titles_fallback": len(fallbacks),
+        "rst_include_fragments": sum(1 for p in rst_paths if by_path[p].get("title_source") == "include_fragment"),
+        "rst_title_fallback_paths": fallbacks, "rst_word_like_tokens": word_total,
+        "rst_files_with_dependencies": dependency_files, "dependency_edges": dependency_edges,
         "mapped_rst_files": len(mapping), "mapped_paths": sorted(mapping),
-        "release_integrity_verified": args.release_verified,
+        "release_integrity_verified": args.release_verified, "category_counts": category_counts,
         "unresolved_source_refs": unresolved, "missing_files": missing, "sha_mismatches": mismatches,
         "extra_doc_files": extra, "absent_doc_files": absent,
     }
