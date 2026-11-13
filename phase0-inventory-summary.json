@@ -9,7 +9,7 @@
   "rst_word_like_tokens": 1784681,
   "rst_files_with_dependencies": 124,
   "dependency_edges": 701,
-  "mapped_rst_files": 41,
+  "mapped_rst_files": 42,
   "mapped_paths": [
     "Doc/builtins/exceptions.rst",
     "Doc/builtins/stdtypes.rst",
@@ -49,6 +49,7 @@
     "Doc/tutorial/stdlib.rst",
     "Doc/tutorial/stdlib2.rst",
     "Doc/tutorial/venv.rst",
+    "Doc/using/cmdline.rst",
     "Doc/using/mac.rst",
     "Doc/using/unix.rst",
     "Doc/using/windows.rst"
