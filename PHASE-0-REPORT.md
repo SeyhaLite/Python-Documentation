@@ -42,12 +42,12 @@ Repository metadata:
 - Existing source: **17 .rst files** = 15 teaching chapters + `index.rst` + `license_attribution.rst`.
 - Existing generated output: **19 HTML pages** under `docs/`.
 - Current README explicitly says the 15-chapter scope is **not** a complete translation of CPython `Doc/`.
-- `source/index.rst` records the current mapping from the existing 15 chapters to 41 upstream RST files. All 41 mapped paths now resolve against the pinned CPython tree. The rest of Doc/ remains unstarted and will be mapped as translation batches are created.
+- `source/index.rst` maps the existing 15 chapters to **42** upstream RST files after PR #4 added `Doc/using/cmdline.rst` to the `getting_started` and `virtual_environments` source mappings. All 42 mapped paths resolve against the pinned CPython tree; this mapping does not claim full translation coverage.
 - Approximate existing source baseline: **23,500 Unicode word-like tokens** across the 17 RST files, including headings, code identifiers, directives, index and licensing text. This is an approximate regex count, not human-language-only word count.
 
-Current version alignment needs work:
-- `source/conf.py` declares `version = "3.15"` and `release = "3.15.0"`.
-- `source/index.rst` and README still describe the original manual verification on CPython 3.15.0. This audit's CI reran `tools/run_examples.py` on CPython 3.15.2 and passed. Update the user-facing version metadata in a follow-up source/docs review; do not infer that every explanatory paragraph has been reviewed for 3.15.2.
+Phase 0 version baseline and Phase 1 update:
+- At the Phase 0 baseline, `source/conf.py` declared `version = "3.15"` and `release = "3.15.0"`.
+- PR #4 updates the Sphinx release metadata, README and index to CPython 3.15.2, and refreshes the version output examples in `getting_started.rst` and `virtual_environments.rst`. The CI runner validates executable Python/REPL examples; prose, static `console` output and platform-specific setup guidance still need separate technical review.
 
 Build configuration observation:
 - `.readthedocs.yaml` now sets `fail_on_warning: true`; the PR preview build also passed with this strict setting.
@@ -65,7 +65,7 @@ Build configuration observation:
   - `build_config`: 9
 - Exact visible RST titles extracted: **554 / 554 standalone pages**; include fragments: **3**; filename fallback: **0**.
 - `word_count` and `dependencies` populated for **557** RST files; word-like tokens: **1,784,681**; files with dependencies: **124** (701 dependency references).
-- The source mapping was validated against the pinned tree: **41** upstream RST files mapped; **0** unresolved references.
+- The source mapping was validated against the pinned tree: **42** upstream RST files mapped after the PR #4 source-mapping update; **0** unresolved references.
 - `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.
 
 
@@ -82,8 +82,8 @@ Build configuration observation:
 ## 5. Gaps and risks
 
 1. The 21-entry glossary has been reviewed and normalized by the automated audit, but every entry remains `ai_reviewed_pending_human`. A Khmer-language reviewer should approve or revise these terms before large translation batches begin.
-2. The existing 15 teaching chapters map to 41 upstream RST sources. The remaining upstream pages are intentionally marked `not_started`; their Khmer mappings should be added batch by batch as translation proceeds.
-3. `source/conf.py`, `source/index.rst` and README still contain original Python 3.15.0 version metadata. The code-example runner now passes on Python 3.15.2, but explanatory prose and version statements still need a separate Phase 1 technical review.
+2. The existing 15 teaching chapters currently map to 42 upstream RST sources. This records source relationships, not full translation coverage. The remaining upstream pages are intentionally marked `not_started` and should be mapped batch by batch as translation proceeds.
+3. PR #4 aligns Sphinx, README and index version metadata with CPython 3.15.2 and refreshes selected version transcripts. Explanatory prose, static console transcripts not covered by the runner, and platform-specific installation guidance still need a separate Phase 1 technical review.
 4. The annotated Git tag `v3.15.2` itself is unsigned. The official Python.org source archive SHA-256 and Sigstore identity were verified, and all 669 Doc/ file blobs match the pinned Git tree. Keep the distinction between unsigned tag metadata and verified release archive explicit.
 5. File-by-file copyright, third-party asset and attribution review remains necessary before copying or adapting every upstream asset. `Doc/license.rst` states that documentation is under PSF License Version 2 and examples/recipes/other code are dual-licensed under PSF License Version 2 and Zero-Clause BSD from Python 3.8.6 onward.
 6. The repository checks in generated `docs/`; treat `source/` as the authoritative translation source and `docs/` as build output.
@@ -100,7 +100,7 @@ Build configuration observation:
 - [x] Extracted visible titles for 554 standalone RST pages; classified 3 RST include fragments separately; zero filename fallbacks.
 - [x] Populated Unicode word-like token counts for all 557 RST files: 1,784,681 tokens.
 - [x] Populated dependency fields for all 557 RST files: 701 references across 124 files; `none` is explicit when a page has no dependency.
-- [x] Validated the existing Khmer source mapping: 41 upstream RST mappings, zero unresolved or stale references.
+- [x] Validated the existing Khmer source mapping: 42 upstream RST mappings after PR #4, zero unresolved references.
 - [x] Reviewed and normalized 21 glossary entries; human terminology approval remains pending.
 - [x] Sphinx strict HTML build: `sphinx-build -b html source <output> -W --keep-going` — PASS.
 - [x] Sphinx external link check: `sphinx-build -b linkcheck source <output> -W --keep-going` — PASS.
