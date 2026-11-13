@@ -1115,6 +1115,36 @@ Dict Comprehension
 
 ----
 
+.. _frozendict-type:
+
+វចនានុក្រមមិនអាចកែប្រែបាន (``frozendict``)
+============================================
+
+ចាប់ពី Python 3.15 មានប្រភេទ ``frozendict`` សម្រាប់រក្សាទុកគូ
+**key → value** ដូច ``dict`` ដែរ ប៉ុន្តែមិនអាចបន្ថែម កែ ឬលុបធាតុក្រោយ
+ពេលបង្កើតបានទេ។ វាមិនមែនជា subclass របស់ ``dict`` ទេ។
+
+.. code-block:: pycon
+
+   >>> frozen = frozendict({"name": "សុខា", "age": 25})
+   >>> frozen["name"]
+   'សុខា'
+   >>> isinstance(frozen, dict)
+   False
+   >>> frozen["age"] = 26
+   Traceback (most recent call last):
+     ...
+   TypeError: 'frozendict' object does not support item assignment
+
+``frozendict`` អាចប្រើជា hash បាន លុះត្រាតែ **key និង value ទាំងអស់**
+អាច hash បាន។ វាសមស្របនៅពេលអ្នកចង់ចែករំលែក mapping ដែលមិនអាចកែប្រែបាន។
+ចំណាំថា immutable នៅទីនេះសំដៅលើគូ key/value របស់ mapping មិនមែនមានន័យថា
+object ដែលដាក់ជាតម្លៃខាងក្នុងទាំងអស់សុទ្ធតែ immutable នោះទេ។
+
+.. versionadded:: 3.15
+
+----
+
 .. _looping:
 
 បច្ចេកទេសរង្វិលជុំ
