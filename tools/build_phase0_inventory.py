@@ -267,7 +267,15 @@ def main() -> int:
             )
         else:
             row["title_source"] = row.get("title_source") or "filename"
-        row["khmer_path"] = "; ".join(sorted(mapping.get(upstream_path, set())))
+        mapped_paths = sorted(mapping.get(upstream_path, set()))
+        row["khmer_path"] = "; ".join(mapped_paths)
+        if mapped_paths:
+            if row.get("status") == "not_started":
+                row["status"] = "mapped_existing_chapter"
+            row["notes"] = (
+                (row.get("notes", "") + " Existing Khmer chapter source mapping; this does not assert full translation coverage.")
+                .strip()
+            )
     if missing:
         raise FileNotFoundError(f"Missing {len(missing)} upstream files: {missing[:10]}")
     if mismatches:
