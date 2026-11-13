@@ -77,7 +77,7 @@
    * - ៧
      - :doc:`modules_packages` — Modules និង Packages
      - ✅ បញ្ចប់
-     - ``tutorial/modules.rst``, ``reference/import.rst``, ``library/sys.rst``, ``library/importlib.rst``
+     - ``tutorial/modules.rst``, ``reference/import.rst``, ``reference/simple_stmts.rst``, ``library/sys.rst``, ``library/importlib.rst``
    * - ៨
      - :doc:`exceptions` — Exceptions និងការគ្រប់គ្រងកំហុស
      - ✅ បញ្ចប់
@@ -89,7 +89,7 @@
    * - ១០
      - :doc:`iterators_generators` — Iterators និង Generators
      - ✅ បញ្ចប់
-     - ``tutorial/classes.rst`` (Iterators/Generators), ``library/itertools.rst``, ``reference/expressions.rst``
+     - ``tutorial/classes.rst`` (Iterators/Generators), ``library/itertools.rst``, ``reference/expressions.rst``, ``builtins/stdtypes.rst``
    * - ១១
      - :doc:`decorators` — Decorators
      - ✅ បញ្ចប់

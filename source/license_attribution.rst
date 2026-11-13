@@ -57,13 +57,13 @@
    * - :doc:`file_handling`
      - ``tutorial/inputoutput.rst``, ``library/functions.rst``, ``library/pathlib.rst``, ``library/json.rst``, ``library/os.rst``, ``library/csv.rst``
    * - :doc:`modules_packages`
-     - ``tutorial/modules.rst``, ``reference/import.rst``, ``library/sys.rst``, ``library/importlib.rst``
+     - ``tutorial/modules.rst``, ``reference/import.rst``, ``reference/simple_stmts.rst``, ``library/sys.rst``, ``library/importlib.rst``
    * - :doc:`exceptions`
      - ``tutorial/errors.rst``, ``library/exceptions.rst``, ``library/contextlib.rst``, ``reference/simple_stmts.rst``
    * - :doc:`classes_oop`
      - ``tutorial/classes.rst``, ``reference/datamodel.rst``, ``library/dataclasses.rst``, ``library/abc.rst``
    * - :doc:`iterators_generators`
-     - ``tutorial/classes.rst`` (Iterators, Generators, Generator Expressions), ``library/itertools.rst``, ``reference/expressions.rst``
+     - ``tutorial/classes.rst`` (Iterators, Generators, Generator Expressions), ``library/itertools.rst``, ``reference/expressions.rst``, ``builtins/stdtypes.rst``
    * - :doc:`decorators`
      - ``glossary.rst``, ``reference/compound_stmts.rst``, ``library/functools.rst``, ``library/contextlib.rst``
    * - :doc:`type_hints`
