@@ -68,45 +68,12 @@ Build configuration observation:
 - The source mapping was validated against the pinned tree: **41** upstream RST files mapped; **0** unresolved references.
 - `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.
 
-
 ## 4.1 Automated metadata extraction
 
 - Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.
 - RST files parsed: **557**.
-- Visible titles: **553**; include fragments: **3**; filename fallback: **1**.
+- Visible titles: **554**; include fragments: **3**; filename fallback: **0**.
 - Unicode word-like tokens: **1,784,681** (includes prose, directives, identifiers and code).
 - Files with dependencies: **124**; dependency references: **701**.
 - Valid existing Khmer mapping: **41** upstream RST files; unresolved references: **0**.
 - Source archive integrity: **PASS**.
-
-## 5. Gaps and risks
-
-1. Complete manifest metadata still requires exact titles, word-like token counts, dependencies and reviewed Khmer source mapping.
-2. Existing Khmer content is 15 curated chapters, not a page-by-page translation of all upstream Doc pages.
-3. The current project release metadata and code-validation claims are still at 3.15.0.
-4. The Git tag is unsigned; verify the official source archive/attestation through Python.org's published Sigstore materials before treating source authenticity as independently confirmed.
-5. File-by-file copyright and license review remains necessary. Upstream `Doc/license.rst` states that Python software/documentation use PSF License Version 2 and that examples, recipes and other code in the documentation are dual-licensed under PSF License Version 2 and Zero-Clause BSD from Python 3.8.6 onward. Some assets or vendored material may have separate notices.
-6. The repository checks in generated `docs/`; treat `source/` as the authoritative translation source and `docs/` as build output.
-7. Read the Docs warning policy currently does not fail on warnings. Build/link validation must be configured and run before a completeness claim.
-
-## 6. Validation performed
-
-- [x] Confirmed upstream tag `v3.15.2` exists and resolves to the pinned commit.
-- [x] Confirmed the recursive upstream `Doc/` tree is not truncated.
-- [x] Confirmed manifest row count and exact upstream file-path/SHA inventory when the skeleton was generated.
-- [x] Compared repository source layout, README scope, Sphinx configuration, and the current 15-chapter mapping.
-- [x] Reviewed `Doc/contents.rst` and `Doc/license.rst` for navigation and licensing scope.
-- [ ] Exact title extraction for all 557 RST pages.
-- [ ] Word/token counts and dependency extraction for all source pages.
-- [x] Register the existing 15-chapter source mapping for 41 matching upstream files; one obsolete reference remains unresolved.
-- [ ] Review mapping accuracy and map the remaining upstream pages.
-- [x] Verify official Python.org source archive SHA-256 and Sigstore identity; the separate Git tag remains unsigned.
-- [ ] Human review and approval of glossary terminology.
-- [x] Read the Docs preview build for PR #3 returned a successful status (`docs/readthedocs.org:python-documentation-khmer`). This confirms the configured preview build only; `.readthedocs.yaml` still has `fail_on_warning: false`.
-- [ ] Run a local/CI strict Sphinx HTML build with `-W --keep-going`, link checks, coverage checks and existing code-example tests.
-
-## 7. Completion status
-
-**Phase 0: IN PROGRESS — source pin and complete path/SHA inventory exist; the detailed metadata and validation gates remain open.**
-
-No translation batch was started. Do not mark the project complete or close Issue #2 until the remaining Phase 0 items are reviewed and passed.\n\n

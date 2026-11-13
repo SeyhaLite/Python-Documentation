@@ -2,12 +2,10 @@
   "source_commit": "5e58eaad7c58df58dfa8ea549c87996e01dd1077",
   "doc_files": 669,
   "rst_files": 557,
-  "rst_titles_exact": 553,
-  "rst_titles_fallback": 1,
+  "rst_titles_exact": 554,
+  "rst_titles_fallback": 0,
   "rst_include_fragments": 3,
-  "rst_title_fallback_paths": [
-    "Doc/library/importlib.resources.abc.rst"
-  ],
+  "rst_title_fallback_paths": [],
   "rst_word_like_tokens": 1784681,
   "rst_files_with_dependencies": 124,
   "dependency_edges": 701,
