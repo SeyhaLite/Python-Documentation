@@ -13,7 +13,7 @@ author = "SeyhaLite"
 
 # កំណែ Python ដែលឯកសារនេះយោងទៅ
 version = "3.15"
-release = "3.15.0"
+release = "3.15.2"
 
 language = "km"
 
