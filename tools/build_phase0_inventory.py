@@ -16,7 +16,7 @@ from pathlib import Path
 
 UPSTREAM_COMMIT = "5e58eaad7c58df58dfa8ea549c87996e01dd1077"
 WORD_RE = re.compile(r"\b[\w]+(?:['’][\w]+)*\b", re.UNICODE)
-HEADING_CHARS = set("=-~^'\"`#*+_:")
+HEADING_CHARS = set("=-~^'\"\x60#*+_:%<>")
 
 
 def git_blob_sha(data: bytes) -> str:
@@ -243,7 +243,7 @@ def main() -> int:
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     update_report(repo_root / "PHASE-0-REPORT.md", summary)
-    print(json.dumps(summary, ensure_ascki=False, indent=2))
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 
 
