@@ -63,7 +63,7 @@
    * - :doc:`classes_oop`
      - ``tutorial/classes.rst``, ``reference/datamodel.rst``, ``library/dataclasses.rst``, ``library/abc.rst``
    * - :doc:`iterators_generators`
-     - ``tutorial/classes.rst`` (Iterators, Generators, Generator Expressions), ``library/itertools.rst``, ``reference/expressions.rst``
+     - ``tutorial/classes.rst`` (Iterators, Generators, Generator Expressions), ``library/itertools.rst``, ``reference/expressions.rst``, ``builtins/stdtypes.rst``
    * - :doc:`decorators`
      - ``glossary.rst``, ``reference/compound_stmts.rst``, ``library/functools.rst``, ``library/contextlib.rst``
    * - :doc:`type_hints`
