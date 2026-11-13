@@ -65,7 +65,7 @@ Build configuration observation:
   - `build_config`: 9
 - Titles are still provisional filename-based values; exact RST heading extraction remains pending.
 - `word_count` and `dependencies` remain unfilled; full RST text parsing and recursive toctree/include extraction remain pending.
-- The `khmer_path` field is not yet populated from the preliminary mapping in `source/index.rst`; that mapping needs a reviewed, many-to-many representation.
+- The preliminary mapping in `source/index.rst` names 42 upstream `.rst` paths. 39 match the pinned tree directly; two legacy paths (`library/stdtypes.rst` and `library/exceptions.rst`) have been normalized to current `builtins/` paths in the manifest; one reference (`develop/testing.rst`) does not exist in the pinned `Doc/` tree and remains unresolved. The manifest now records 41 mapped upstream files against the existing 15 chapter pages. This is only a preliminary source map, not evidence that every referenced page is fully translated.
 - `translation-glossary.csv` is a starter glossary; entries remain `draft_review_required`. No term is approved. The draft for `object` was normalized to `វត្ថុ (object)` with a context note, but it still requires human review.
 
 ## 5. Gaps and risks
@@ -87,7 +87,7 @@ Build configuration observation:
 - [x] Reviewed `Doc/contents.rst` and `Doc/license.rst` for navigation and licensing scope.
 - [ ] Exact title extraction for all 557 RST pages.
 - [ ] Word/token counts and dependency extraction for all source pages.
-- [ ] Populate and review the manifest's many-to-many Khmer mapping.
+- [x] Register the existing 15-chapter source mapping for 41 matching upstream files; one obsolete reference remains unresolved.\n- [ ] Review mapping accuracy and map the remaining upstream pages.
 - [ ] Independently verify the official source archive/Sigstore attestation.
 - [ ] Human review and approval of glossary terminology.
 - [ ] Run local Sphinx HTML build with `-W --keep-going`, link checks, coverage checks and existing code-example tests.
