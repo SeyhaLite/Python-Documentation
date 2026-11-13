@@ -2,7 +2,7 @@
 "interpreter","កម្មវិធីបកប្រែ និងប្រតិបត្តិកូដ","រក្សា interpreter ជា English ក្នុង API/identifier; ប្រើពាក្យខ្មែរនៅការពន្យល់","draft_review_required"
 "statement","សេចក្ដីបញ្ជា","កុំច្រឡំជាមួយ expression","draft_review_required"
 "expression","កន្សោម","រក្សាពាក្យ expression នៅពេលចាំបាច់សម្រាប់ភាពច្បាស់លាស់","draft_review_required"
-"object","អ object / វត្ថុ","ពិនិត្យបរិបទ Python object ទល់នឹងវត្ថុទូទៅ","draft_review_required"
+"object","វត្ថុ (object)","ក្នុង Python សំដៅលើ entity ដែលមាន identity, type និង value; បកប្រែតាមបរិបទ និងរក្សា object ក្នុង API/identifier","draft_review_required"
 "class","ថ្នាក់ (class)","រក្សា class នៅក្នុង syntax និង API names","draft_review_required"
 "module","ម៉ូឌុល (module)","ប្រើស្របគ្នាទូទាំងឯកសារ","draft_review_required"
 "package","កញ្ចប់ (package)","កុំច្រឡំជាមួយ distribution package","draft_review_required"
