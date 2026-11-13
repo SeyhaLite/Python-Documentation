@@ -163,7 +163,7 @@ def update_report(path: Path, summary: dict) -> None:
     )
     for category, count in summary['category_counts'].items():
         report = re.sub(
-            rf"^  - `{re.escape(category)}`: \\d+$",
+            rf"^  - `{re.escape(category)}`: \d+$",
             f"  - `{category}`: {count}", report, flags=re.MULTILINE,
         )
     report = re.sub(
@@ -171,30 +171,29 @@ def update_report(path: Path, summary: dict) -> None:
         "- `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.",
         report, flags=re.MULTILINE,
     )
-    report = re.sub(r"\\\\n- \\[ \\] Review mapping accuracy", "\\n- [ ] Review mapping accuracy", report)
     if summary.get('release_integrity_verified'):
         report = report.replace(
             "The release page advertises Sigstore metadata, but this audit did **not** independently verify the downloaded archive or its attestation. Keep that as a release gate.",
             "CI verified the official Python.org source archive SHA-256 and Sigstore identity (`hugo@python.org`, issuer `https://github.com/login/oauth`). The Git tag itself remains unsigned; the archive digest, attestation and pinned Doc blob hashes are the integrity evidence used for this inventory.",
         )
-        report = re.sub(r"^- \\[ \\] Independently verify the official source archive/Sigstore attestation\\.$",
+        report = re.sub(r"^- \[ \] Independently verify the official source archive/Sigstore attestation\.$",
             "- [x] Verify official Python.org source archive SHA-256 and Sigstore identity; the separate Git tag remains unsigned.",
             report, flags=re.MULTILINE)
     if "## 4.1 Automated metadata extraction" in report:
         report = report.split("## 4.1 Automated metadata extraction")[0].rstrip()
     report += (
-        "\\n\\n## 4.1 Automated metadata extraction\\n\\n"
-        f"- Source tree commit: `{UPSTREAM_COMMIT}`.\\n"
-        f"- RST files parsed: **{summary['rst_files']}**.\\n"
-        f"- Visible titles: **{summary['rst_titles_exact']}**; include fragments: **{summary['rst_include_fragments']}**; filename fallback: **{summary['rst_titles_fallback']}**.\\n"
-        f"- Unicode word-like tokens: **{summary['rst_word_like_tokens']:,}** (includes prose, directives, identifiers and code).\\n"
-        f"- Files with dependencies: **{summary['rst_files_with_dependencies']}**; dependency references: **{summary['dependency_edges']}**.\\n"
-        f"- Valid existing Khmer mapping: **{summary['mapped_rst_files']}** upstream RST files; unresolved references: **{len(summary['unresolved_source_refs'])}**.\\n"
-        f"- Source archive integrity: **{'PASS' if summary.get('release_integrity_verified') else 'NOT VERIFIED'}**.\\n"
+        "\n\n## 4.1 Automated metadata extraction\n\n"
+        f"- Source tree commit: `{UPSTREAM_COMMIT}`.\n"
+        f"- RST files parsed: **{summary['rst_files']}**.\n"
+        f"- Visible titles: **{summary['rst_titles_exact']}**; include fragments: **{summary['rst_include_fragments']}**; filename fallback: **{summary['rst_titles_fallback']}**.\n"
+        f"- Unicode word-like tokens: **{summary['rst_word_like_tokens']:,}** (includes prose, directives, identifiers and code).\n"
+        f"- Files with dependencies: **{summary['rst_files_with_dependencies']}**; dependency references: **{summary['dependency_edges']}**.\n"
+        f"- Valid existing Khmer mapping: **{summary['mapped_rst_files']}** upstream RST files; unresolved references: **{len(summary['unresolved_source_refs'])}**.\n"
+        f"- Source archive integrity: **{'PASS' if summary.get('release_integrity_verified') else 'NOT VERIFIED'}**.\n"
     )
-    marker = "\\n\\n## 4.1 Automated metadata extraction"
+    marker = "\n\n## 4.1 Automated metadata extraction"
     base, appendix = report.split(marker, 1)
-    section5 = "\\n## 5. Gaps and risks"
+    section5 = "\n## 5. Gaps and risks"
     if section5 in base:
         base = base.replace(section5, marker + appendix + section5, 1)
     else:
