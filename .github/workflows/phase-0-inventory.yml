@@ -1,0 +1,111 @@
+name: Phase 0 inventory and quality checks
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "source/**"
+      - "tools/**"
+      - "translation-*.csv"
+      - "PHASE-0-REPORT.md"
+      - "requirements.txt"
+      - ".readthedocs.yaml"
+      - ".github/workflows/phase-0-inventory.yml"
+permissions:
+  contents: write
+  pull-requests: read
+concurrency:
+  group: phase-0-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: false
+jobs:
+  audit:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout translation repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          fetch-depth: 1
+      - name: Set up Python for Sphinx and Sigstore
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install build and verification tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install "sigstore>=3.3"
+      - name: Download CPython 3.15.2 source and Sigstore bundle
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/cpython-source"
+          cd "$RUNNER_TEMP/cpython-source"
+          curl --fail --location --retry 3 --output Python-3.15.2.tar.xz \
+            https://www.python.org/ftp/python/3.15.2/Python-3.15.2.tar.xz
+          curl --fail --location --retry 3 --output Python-3.15.2.tar.xz.sigstore \
+            https://www.python.org/ftp/python/3.15.2/Python-3.15.2.tar.xz.sigstore
+          echo "8b5536d280142ecf6cdfe15d12a21ba1c65e300bbf7b28a8d0cdb849575797de  Python-3.15.2.tar.xz" | sha256sum --check
+      - name: Verify CPython release Sigstore identity
+        run: |
+          cd "$RUNNER_TEMP/cpython-source"
+          python -m sigstore verify identity \
+            --bundle Python-3.15.2.tar.xz.sigstore \
+            --cert-identity hugo@python.org \
+            --cert-oidc-issuer https://github.com/login/oauth \
+            Python-3.15.2.tar.xz
+      - name: Extract verified source archive
+        run: |
+          mkdir -p "$RUNNER_TEMP/cpython-3.15.2"
+          tar -xJf "$RUNNER_TEMP/cpython-source/Python-3.15.2.tar.xz" \
+            --strip-components=1 -C "$RUNNER_TEMP/cpython-3.15.2"
+      - name: Generate exact RST metadata and verify Git blob hashes
+        run: |
+          python tools/build_phase0_inventory.py \
+            --upstream-root "$RUNNER_TEMP/cpython-3.15.2" \
+            --repo-root . \
+            --require-blob-sha \
+            --release-verified
+      - name: Commit generated manifest and report to PR branch
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add translation-manifest.csv PHASE-0-REPORT.md phase0-inventory-summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m "docs(inventory): extract pinned CPython RST metadata"
+            git push origin "HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}"
+          fi
+      - name: Sphinx strict HTML build
+        run: |
+          sphinx-build -b html source "$RUNNER_TEMP/sphinx-html" -W --keep-going
+      - name: Sphinx external link check
+        run: |
+          sphinx-build -b linkcheck source "$RUNNER_TEMP/sphinx-linkcheck" -W --keep-going
+      - name: Set up Python 3.15.2 for examples
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.15.2"
+      - name: Execute example suite on Python 3.15.2
+        run: |
+          python --version
+          python tools/run_examples.py
+      - name: Check documentation contrast
+        run: python tools/check_contrast.py
+      - name: Upload Phase 0 audit outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-0-audit
+          path: |
+            PHASE-0-REPORT.md
+            translation-manifest.csv
+            translation-glossary.csv
+            phase0-inventory-summary.json
+            ${{ runner.temp }}/sphinx-html
+            ${{ runner.temp }}/sphinx-linkcheck
+          if-no-files-found: warn
+          retention-days: 14

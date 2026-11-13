@@ -53,11 +53,11 @@
    * - ២
      - :doc:`syntax_variables_types` — វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ
      - ✅ បញ្ចប់
-     - ``tutorial/introduction.rst``, ``library/stdtypes.rst``, ``reference/lexical_analysis.rst``
+     - ``tutorial/introduction.rst``, ``builtins/stdtypes.rst``, ``reference/lexical_analysis.rst``
    * - ៣
      - :doc:`strings_collections` — ខ្សែអក្សរ និងសំណុំទិន្នន័យ
      - ✅ បញ្ចប់
-     - ``tutorial/datastructures.rst``, ``tutorial/inputoutput.rst``, ``library/stdtypes.rst``
+     - ``tutorial/datastructures.rst``, ``tutorial/inputoutput.rst``, ``builtins/stdtypes.rst``
    * - ៤
      - :doc:`control_flow` — លក្ខខណ្ឌ និងរង្វិលជុំ
      - ✅ បញ្ចប់
@@ -77,7 +77,7 @@
    * - ៨
      - :doc:`exceptions` — Exceptions និងការគ្រប់គ្រងកំហុស
      - ✅ បញ្ចប់
-     - ``tutorial/errors.rst``, ``library/exceptions.rst``, ``library/contextlib.rst``
+     - ``tutorial/errors.rst``, ``builtins/exceptions.rst``, ``library/contextlib.rst``
    * - ៩
      - :doc:`classes_oop` — Classes និង OOP
      - ✅ បញ្ចប់
@@ -105,7 +105,7 @@
    * - ១៥
      - :doc:`testing_debugging` — Testing, Debugging និង Best Practices
      - ✅ បញ្ចប់
-     - ``library/unittest.rst``, ``library/doctest.rst``, ``library/pdb.rst``, ``develop/testing.rst``
+     - ``library/unittest.rst``, ``library/doctest.rst``, ``library/pdb.rst``
 
 .. warning::
 
