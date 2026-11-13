@@ -53,7 +53,7 @@
    * - ១
      - :doc:`getting_started` — ចាប់ផ្ដើម និងការដំឡើង
      - ✅ បញ្ចប់
-     - ``tutorial/appetite.rst``, ``tutorial/interpreter.rst``, ``using/unix.rst``, ``using/windows.rst``, ``using/mac.rst``
+     - ``tutorial/appetite.rst``, ``tutorial/interpreter.rst``, ``using/unix.rst``, ``using/windows.rst``, ``using/mac.rst``, ``using/cmdline.rst``
    * - ២
      - :doc:`syntax_variables_types` — វាក្យសម្ពន្ធ អថេរ និងប្រភេទទិន្នន័យ
      - ✅ បញ្ចប់
@@ -105,7 +105,7 @@
    * - ១៤
      - :doc:`virtual_environments` — Virtual Environments និង Packages
      - ✅ បញ្ចប់
-     - ``tutorial/venv.rst``, ``library/venv.rst``, ``installing/index.rst``
+     - ``tutorial/venv.rst``, ``library/venv.rst``, ``installing/index.rst``, ``using/cmdline.rst``
    * - ១៥
      - :doc:`testing_debugging` — Testing, Debugging និង Best Practices
      - ✅ បញ្ចប់
