@@ -228,12 +228,13 @@ Python Software Foundation (PSF)។ អាជ្ញាបណ្ណ PSF License v
    បើអ្នកមានចម្ងល់អំពីការប្រើប្រាស់នេះ សូមទាក់ទង
    psf-trademarks@python.org។
 
-ទ្រព្យសម្បត្តិរូបសញ្ញាដែលមានលក្ខខណ្ឌដាច់ដោយឡែក៖ ``source/_static/python-logo.svg``
-និង ``source/_static/python-favicon.ico`` ជារូបសញ្ញា/រូបតំណាង Python ផ្លូវការរបស់ PSF។
-វាមិនមែនជារូបភាពដើមរបស់គម្រោង និងមិនត្រូវបានរាប់ក្រោម MIT License ក្នុង
-``LICENSE-CODE`` ទេ។ គម្រោងប្រើរូបសញ្ញាដើមដោយមិនកែប្រែ ដើម្បីសម្គាល់ភាសា Python
-តាមគោលការណ៍ nominative use របស់ PSF។ ចំណែក ``source/_static/favicon.svg``
-និង ``khmer.css`` ជាការងារដើមរបស់គម្រោង។
+រូបសញ្ញា ``source/_static/python-logo.svg`` ជារូបសញ្ញា Python ផ្លូវការរបស់ PSF។
+វាត្រូវបានប្រើនៅ sidebar ដោយមិនកែប្រែ ហើយមានសញ្ញា ™ នៅជាប់តាមគោលការណ៍ PSF។
+ឯកសារ ``source/_static/python-favicon.ico`` ក៏ជាឯកសារ PSF ផងដែរ ប៉ុន្តែ
+Sphinx មិនប្រើវាជា favicon ទេ។ Browser favicon ប្រើរូបសញ្ញាដើមរបស់គម្រោង
+``source/_static/favicon.svg`` ដើម្បីមិនបង្ហាញ PSF logo ដោយគ្មានសញ្ញា ™។
+រូបសញ្ញា PSF ទាំងពីរមិនត្រូវបានរាប់ក្រោម MIT License ក្នុង ``LICENSE-CODE`` ទេ។
+``favicon.svg`` និង ``khmer.css`` ជាការងារដើមរបស់គម្រោង។
 
 .. _fonts:
 
