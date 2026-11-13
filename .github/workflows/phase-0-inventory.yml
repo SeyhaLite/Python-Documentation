@@ -9,6 +9,7 @@ on:
       - "translation-*.csv"
       - "PHASE-0-REPORT.md"
       - "requirements.txt"
+      - ".readthedocs.yaml"
       - ".github/workflows/phase-0-inventory.yml"
 permissions:
   contents: write
@@ -65,7 +66,8 @@ jobs:
           python tools/build_phase0_inventory.py \
             --upstream-root "$RUNNER_TEMP/cpython-3.15.2" \
             --repo-root . \
-            --require-blob-sha
+            --require-blob-sha \
+            --release-verified
       - name: Commit generated manifest and report to PR branch
         if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
         run: |
