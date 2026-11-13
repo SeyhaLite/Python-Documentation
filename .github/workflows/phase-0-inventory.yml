@@ -1,8 +1,5 @@
 name: Phase 0 inventory and quality checks
 on:
-  push:
-    branches:
-      - phase-0-inventory-3.15.2
   pull_request:
     branches:
       - main
@@ -17,7 +14,7 @@ permissions:
   contents: write
   pull-requests: read
 concurrency:
-  group: phase-0-${{ github.event.pull_request.number || github.ref }}
+  group: phase-0-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: false
 jobs:
   audit:
