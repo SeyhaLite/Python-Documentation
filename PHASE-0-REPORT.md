@@ -90,7 +90,8 @@ Build configuration observation:
 - [x] Register the existing 15-chapter source mapping for 41 matching upstream files; one obsolete reference remains unresolved.\n- [ ] Review mapping accuracy and map the remaining upstream pages.
 - [ ] Independently verify the official source archive/Sigstore attestation.
 - [ ] Human review and approval of glossary terminology.
-- [ ] Run local Sphinx HTML build with `-W --keep-going`, link checks, coverage checks and existing code-example tests.
+- [x] Read the Docs preview build for PR #3 returned a successful status (`docs/readthedocs.org:python-documentation-khmer`). This confirms the configured preview build only; `.readthedocs.yaml` still has `fail_on_warning: false`.
+- [ ] Run a local/CI strict Sphinx HTML build with `-W --keep-going`, link checks, coverage checks and existing code-example tests.
 
 ## 7. Completion status
 
