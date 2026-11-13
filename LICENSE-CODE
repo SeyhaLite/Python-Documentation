@@ -2,10 +2,16 @@ MIT License
 
 Copyright (c) 2026 SeyhaLite and contributors
 
-Applies to the site packaging in this repository only: the Sphinx
-configuration (``source/conf.py``), stylesheets (``source/_static/``),
-Jinja templates (``source/_templates/``), ``Makefile``,
-``.readthedocs.yaml``, ``requirements.txt`` and build scripts.
+Applies to the original site packaging in this repository only: the Sphinx
+configuration (``source/conf.py``), the project-authored stylesheet
+(``source/_static/khmer.css``), the project-authored favicon
+(``source/_static/favicon.svg``), Jinja templates (``source/_templates/``),
+``Makefile``, ``.readthedocs.yaml``, ``requirements.txt`` and build scripts.
+
+Explicit exclusions: ``source/_static/python-logo.svg`` and
+``source/_static/python-favicon.ico`` are Python Software Foundation marks and
+are not relicensed under this MIT notice. Remote Noto fonts are governed by
+their own SIL Open Font License; they are not included in this repository.
 
 The Khmer documentation content itself is a derivative work of the official
 Python documentation and is covered by the PSF License Version 2 — see the
