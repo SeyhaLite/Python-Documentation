@@ -94,7 +94,7 @@ Virtual Environments និង Packages
 
    $ source .venv/bin/activate
    (.venv) $ python --version
-   Python 3.15.0
+   Python 3.15.2
    (.venv) $ which python
    /home/user/my-project/.venv/bin/python
 
