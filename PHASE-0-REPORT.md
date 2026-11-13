@@ -16,7 +16,7 @@
 - XZ source archive SHA-256 listed by Python.org: `8b5536d280142ecf6cdfe15d12a21ba1c65e300bbf7b28a8d0cdb849575797de`.
 - Canonical source tree: https://github.com/python/cpython/tree/v3.15.2/Doc
 
-**Source pin:** use commit `5e58eaad7c58df58dfa8ea549c87996e01dd1077`, not a moving branch. The release page advertises Sigstore metadata, but this audit did **not** independently verify the downloaded archive or its attestation. Keep that as a release gate.
+**Source pin:** use commit `5e58eaad7c58df58dfa8ea549c87996e01dd1077`, not a moving branch. CI verified the official Python.org source archive SHA-256 and Sigstore identity (`hugo@python.org`, issuer `https://github.com/login/oauth`). The Git tag itself remains unsigned; the archive digest, attestation and pinned Doc blob hashes are the integrity evidence used for this inventory.
 
 ## 2. Upstream Doc inventory
 
@@ -63,10 +63,10 @@ Build configuration observation:
   - `generated_reference_data`: 4
   - `templates`: 9
   - `build_config`: 9
-- Exact RST titles extracted: **459 / 557**; filename fallback used for **98** files.
+- Exact visible RST titles extracted: **553 / 557**; include fragments: **3**; filename fallback: **1**.
 - `word_count` and `dependencies` populated for **557** RST files; word-like tokens: **1,784,681**; files with dependencies: **124** (701 dependency references).
-- The preliminary mapping in `source/index.rst` names 42 upstream `.rst` paths. 39 match the pinned tree directly; two legacy paths (`library/stdtypes.rst` and `library/exceptions.rst`) have been normalized to current `builtins/` paths in the manifest; one reference (`develop/testing.rst`) does not exist in the pinned `Doc/` tree and remains unresolved. The manifest now records 41 mapped upstream files against the existing 15 chapter pages. This is only a preliminary source map, not evidence that every referenced page is fully translated.
-- `translation-glossary.csv` is a starter glossary; entries remain `draft_review_required`. No term is approved. The draft for `object` was normalized to `វត្ថុ (object)` with a context note, but it still requires human review.
+- The source mapping was validated against the pinned tree: **41** upstream RST files mapped; **0** unresolved references.
+- `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.
 
 ## 5. Gaps and risks
 
@@ -98,14 +98,4 @@ Build configuration observation:
 
 **Phase 0: IN PROGRESS — source pin and complete path/SHA inventory exist; the detailed metadata and validation gates remain open.**
 
-No translation batch was started. Do not mark the project complete or close Issue #2 until the remaining Phase 0 items are reviewed and passed.
-
-## 4.1 Automated metadata extraction
-
-- Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.
-- RST pages parsed: **557**.
-- Exact titles: **540**; filename fallback: **14**.
-- Unicode word-like tokens: **1,784,681** (regex `\b[\w]+(?:['’][\w]+)*\b`; includes prose, directives, identifiers and code).
-- Files with dependencies: **124**; dependency references: **701**.
-- Valid existing Khmer mapping: **41** upstream RST files.
-- Unresolved source references: **0** (none).
+No translation batch was started. Do not mark the project complete or close Issue #2 until the remaining Phase 0 items are reviewed and passed.\n\n## 4.1 Automated metadata extraction\n\n- Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.\n- RST files parsed: **557**.\n- Visible titles: **553**; include fragments: **3**; filename fallback: **1**.\n- Unicode word-like tokens: **1,784,681** (includes prose, directives, identifiers and code).\n- Files with dependencies: **124**; dependency references: **701**.\n- Valid existing Khmer mapping: **41** upstream RST files; unresolved references: **0**.\n- Source archive integrity: **PASS**.\n
