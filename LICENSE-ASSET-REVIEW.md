@@ -24,9 +24,9 @@
 | Noto Sans Khmer / Noto Serif Khmer | Remote Google Fonts, not stored in the repository | SIL Open Font License 1.1; confirm current provider/license metadata before vendoring |
 | Sphinx / sphinx-rtd-theme / sphinx-copybutton / sphinx-sitemap | Build dependencies, installed from package indexes | Third-party package licenses; not relicensed by this repository |
 
-## Upstream visual and non-code assets
+## Upstream static assets and documentation resources
 
-**44 files — all PENDING file-level review.**
+**44 files — all PENDING file-level review.** This manifest category also includes static CSS, JavaScript, HTML, DOT source and generated diagrams; it is not limited to raster/vector images.
 
 | Upstream path | Upstream Git blob SHA-1 | Review status |
 |---|---|---|
