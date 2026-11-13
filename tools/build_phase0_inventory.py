@@ -28,7 +28,15 @@ def extract_title(text: str) -> str:
     lines = text.replace("\r\n", "\n").replace("\r", "\n").split("\n")
     for i, line in enumerate(lines):
         current = line.strip()
-        if not current or current.startswith(".. ") or current.startswith(":"):
+        if not current:
+            continue
+        module_title = re.match(r":mod:`!?([^`]+)`\s+---\s+(.+)$", current)
+        if module_title and i + 1 < len(lines):
+            underline = lines[i + 1].strip()
+            if (len(underline) >= len(current) and len(underline) >= 3
+                    and len(set(underline)) == 1 and underline[0] in HEADING_CHARS):
+                return f"{module_title.group(1)} — {module_title.group(2)}"
+        if current.startswith(".. ") or current.startswith(":"):
             continue
         if i + 2 < len(lines):
             over, title, under = lines[i].strip(), lines[i + 1].strip(), lines[i + 2].strip()
@@ -170,6 +178,7 @@ def main() -> int:
                         help="CPython source root containing Doc/")
     parser.add_argument("--repo-root", type=Path, default=Path("."))
     parser.add_argument("--require-blob-sha", action="store_true")
+    parser.add_argument("--release-verified", action="store_true", help="Set after SHA-256 and Sigstore checks pass")
     args = parser.parse_args()
     repo_root, upstream_root = args.repo_root.resolve(), args.upstream_root.resolve()
     manifest_path = repo_root / "translation-manifest.csv"
@@ -199,7 +208,11 @@ def main() -> int:
         if upstream_path.endswith(".rst"):
             text = data.decode("utf-8")
             title = extract_title(text)
-            if title:
+            if upstream_path.startswith("Doc/includes/") and not title:
+                row["title"] = "[included fragment — no standalone page title]"
+                row["title_source"] = "include_fragment"
+                row["category"] = "include_fragments"
+            elif title:
                 row["title"], row["title_source"] = title, "rst_heading"
             else:
                 row["title"] = Path(upstream_path).stem.replace("-", " ").replace("_", " ")
@@ -235,10 +248,13 @@ def main() -> int:
     write_manifest(manifest_path, fields, rows)
     summary = {
         "source_commit": UPSTREAM_COMMIT, "doc_files": len(rows), "rst_files": len(rst_paths),
-        "rst_titles_exact": len(rst_paths) - len(fallbacks), "rst_titles_fallback": len(fallbacks),
+        "rst_titles_exact": sum(1 for p in rst_paths if by_path[p].get("title_source") == "rst_heading"),
+        "rst_titles_fallback": len(fallbacks),
+        "rst_include_fragments": sum(1 for p in rst_paths if by_path[p].get("title_source") == "include_fragment"),
         "rst_title_fallback_paths": fallbacks, "rst_word_like_tokens": word_total,
         "rst_files_with_dependencies": dependency_files, "dependency_edges": dependency_edges,
         "mapped_rst_files": len(mapping), "mapped_paths": sorted(mapping),
+        "release_integrity_verified": args.release_verified,
         "unresolved_source_refs": unresolved, "missing_files": missing, "sha_mismatches": mismatches,
         "extra_doc_files": extra, "absent_doc_files": absent,
     }
