@@ -57,7 +57,7 @@ Build configuration observation:
 
 - `translation-manifest.csv` contains **669 data rows**, one for every file under the pinned upstream `Doc/` tree, with no duplicate paths and the upstream blob SHA recorded per row.
 - Categories have been corrected so they are mutually exclusive and sum to 669:
-  - `prose_pages`: 557
+  - `prose_pages`: 554
   - `code_examples`: 46
   - `images_assets`: 44
   - `generated_reference_data`: 4
@@ -67,6 +67,17 @@ Build configuration observation:
 - `word_count` and `dependencies` populated for **557** RST files; word-like tokens: **1,784,681**; files with dependencies: **124** (701 dependency references).
 - The source mapping was validated against the pinned tree: **41** upstream RST files mapped; **0** unresolved references.
 - `translation-glossary.csv` contains 21 AI-reviewed draft terms marked `ai_reviewed_pending_human`; human terminology approval remains pending.
+
+
+## 4.1 Automated metadata extraction
+
+- Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.
+- RST files parsed: **557**.
+- Visible titles: **553**; include fragments: **3**; filename fallback: **1**.
+- Unicode word-like tokens: **1,784,681** (includes prose, directives, identifiers and code).
+- Files with dependencies: **124**; dependency references: **701**.
+- Valid existing Khmer mapping: **41** upstream RST files; unresolved references: **0**.
+- Source archive integrity: **PASS**.
 
 ## 5. Gaps and risks
 
@@ -89,7 +100,7 @@ Build configuration observation:
 - [ ] Word/token counts and dependency extraction for all source pages.
 - [x] Register the existing 15-chapter source mapping for 41 matching upstream files; one obsolete reference remains unresolved.
 - [ ] Review mapping accuracy and map the remaining upstream pages.
-- [ ] Independently verify the official source archive/Sigstore attestation.
+- [x] Verify official Python.org source archive SHA-256 and Sigstore identity; the separate Git tag remains unsigned.
 - [ ] Human review and approval of glossary terminology.
 - [x] Read the Docs preview build for PR #3 returned a successful status (`docs/readthedocs.org:python-documentation-khmer`). This confirms the configured preview build only; `.readthedocs.yaml` still has `fail_on_warning: false`.
 - [ ] Run a local/CI strict Sphinx HTML build with `-W --keep-going`, link checks, coverage checks and existing code-example tests.
@@ -98,4 +109,4 @@ Build configuration observation:
 
 **Phase 0: IN PROGRESS — source pin and complete path/SHA inventory exist; the detailed metadata and validation gates remain open.**
 
-No translation batch was started. Do not mark the project complete or close Issue #2 until the remaining Phase 0 items are reviewed and passed.\n\n## 4.1 Automated metadata extraction\n\n- Source tree commit: `5e58eaad7c58df58dfa8ea549c87996e01dd1077`.\n- RST files parsed: **557**.\n- Visible titles: **553**; include fragments: **3**; filename fallback: **1**.\n- Unicode word-like tokens: **1,784,681** (includes prose, directives, identifiers and code).\n- Files with dependencies: **124**; dependency references: **701**.\n- Valid existing Khmer mapping: **41** upstream RST files; unresolved references: **0**.\n- Source archive integrity: **PASS**.\n
+No translation batch was started. Do not mark the project complete or close Issue #2 until the remaining Phase 0 items are reviewed and passed.\n\n
