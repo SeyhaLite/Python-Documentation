@@ -58,13 +58,12 @@ html_theme_options = {
     "style_nav_header_background": "#1f2328",
 }
 
-# Python logo និង favicon ផ្លូវការរបស់ PSF — ប្រើដោយ **មិនកែប្រែ**
-# (unaltered)។ PSF Trademark Usage Policy អនុញ្ញាត nominative use នៃ
-# unaltered logo សម្រាប់គោលបំណងមិនមែនពាណិជ្ជកម្ម ដើម្បីលើកកម្ពស់
-# ភាសាកម្មវិធី Python ដោយមិនចាំបាច់ការអនុញ្ញាតជាមុន។
-# សូមមើល source/license_attribution.rst សម្រាប់សេចក្ដីថ្លែងការណ៍ trademark។
+# Official PSF logo: keep it unaltered and display the required TM notice
+# beside it in the sidebar. See source/license_attribution.rst.
 html_logo = "_static/python-logo.svg"
-html_favicon = "_static/python-favicon.ico"
+# Use the project-authored SVG favicon so a PSF mark is not shown in the
+# browser tab without its accompanying trademark symbol.
+html_favicon = "_static/favicon.svg"
 logo_url = None
 
 # Edit on GitHub (តំណកែសម្រួលក្នុង breadcrumb)

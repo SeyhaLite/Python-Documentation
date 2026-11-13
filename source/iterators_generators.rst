@@ -490,6 +490,12 @@ Generator អាច **ទទួល** តម្លៃពីខាងក្រៅ�
    * - ``g.close()``
      - បញ្ចេញ ``GeneratorExit`` ខាងក្នុង · generator ត្រូវបញ្ចប់
 
+.. note::
+
+   សម្រាប់ការហៅធម្មតា គួរបញ្ជូន exception instance ទៅ ``g.throw(exc)``។
+   ទម្រង់ចាស់ ``g.throw(type[, value[, traceback]])`` ត្រូវបានសម្គាល់ថា
+   deprecated ចាប់ពី Python 3.12 ហើយអាចត្រូវដកចេញនៅកំណែអនាគត។
+
 .. important::
 
    អ្នក **ត្រូវតែ** ហៅ ``next(g)`` (ឬ ``g.send(None)``) មុន ``send()``
@@ -501,6 +507,25 @@ Generator អាច **ទទួល** តម្លៃពីខាងក្រៅ�
    ``close()`` បញ្ចេញ ``GeneratorExit`` នៅត្រង់ ``yield``។ Generator អាច
    ចាប់យកវាដើម្បីសម្អាតធនធាន ប៉ុន្តែ **មិនអាច** ``yield`` បន្ទាប់ពីនោះទេ —
    វានឹងបញ្ចេញ ``RuntimeError``។
+
+   ចាប់ពី Python 3.13 បើ generator ចាប់យក ``GeneratorExit`` ហើយ ``return``
+   តម្លៃមួយ នោះ ``g.close()`` នឹងត្រឡប់តម្លៃនោះវិញ៖
+
+   .. code-block:: pycon
+
+      >>> def closing_generator():
+      ...     try:
+      ...         yield "កំពុងដំណើរការ"
+      ...     except GeneratorExit:
+      ...         return "បានបិទរួច"
+      ...
+      >>> g = closing_generator()
+      >>> next(g)
+      'កំពុងដំណើរការ'
+      >>> g.close()
+      'បានបិទរួច'
+
+   .. versionchanged:: 3.13
 
    សម្រាប់ការសម្អាតធនធាន វិធីសាមញ្ញបំផុតគឺប្រើ ``try``/``finally`` ក្នុង
    generator៖

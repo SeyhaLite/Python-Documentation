@@ -93,6 +93,48 @@ Modules និង Packages
    បើ module កំណត់ ``__all__`` វានឹងកំណត់ថាឈ្មោះណាត្រូវបាននាំចេញ
    (មើលផ្នែក :ref:`all-variable`)។
 
+.. _lazy-imports:
+
+ការនាំចូលបែបពន្យារពេល (Lazy Imports)
+====================================
+
+ចាប់ពី Python 3.15 អ្នកអាចដាក់ពាក្យ ``lazy`` នៅមុខ ``import`` ឬ
+``from ... import`` ដើម្បីឱ្យ Python ពន្យារពេលផ្ទុក module រហូតដល់ពេល
+ប្រើឈ្មោះដែលបាននាំចូលជាលើកដំបូង។ វាជួយកាត់បន្ថយការងារនៅពេលចាប់ផ្ដើម
+កម្មវិធីធំៗដែលមិនប្រើ module ទាំងអស់រាល់លើក។
+
+.. code-block:: pycon
+
+   >>> lazy import json
+   >>> data = json.loads('{"name": "សុខា"}')
+   >>> data["name"]
+   'សុខា'
+   >>> lazy from pathlib import PurePath
+   >>> PurePath("a/b.py").name
+   'b.py'
+
+.. note::
+
+   * ``lazy`` ជា soft keyword៖ វាមានន័យពិសេសតែនៅពេលនៅមុខ import statement ប៉ុណ្ណោះ។
+   * Lazy import អាចសរសេរបានតែនៅកម្រិត module ប៉ុណ្ណោះ; មិនអាចដាក់ក្នុង function,
+     class body ឬ block ``try``/``except``/``finally`` បានទេ។
+   * មិនអាចប្រើជាមួយ ``from module import *`` ឬ ``from __future__ import ...`` បានទេ។
+   * បើ module មានបញ្ហាពេលផ្ទុក កំហុសនឹងកើតឡើងនៅពេលប្រើឈ្មោះនោះ មិនមែននៅបន្ទាត់ import ទេ។
+
+សម្រាប់ការគ្រប់គ្រងកម្រិតកម្មវិធី Python ក៏មានជម្រើស ``-X lazy_imports``
+និងអថេរបរិស្ថាន ``PYTHON_LAZY_IMPORTS`` (តម្លៃ ``normal`` ឬ ``all``)។
+អនុគមន៍ ``sys.get_lazy_imports()`` និង ``sys.set_lazy_imports()`` អាចប្រើ
+សម្រាប់ពិនិត្យ ឬកំណត់ mode នេះ។ វាជាមុខងារកម្រិតខ្ពស់ ព្រោះការពន្យារពេល
+អាចផ្លាស់ប្ដូរពេលដែល side effects និង import errors កើតឡើង។
+
+.. seealso::
+
+   `PEP 810 — Explicit lazy imports <https://peps.python.org/pep-0810/>`_
+
+.. versionadded:: 3.15
+
+----
+
 .. _import-mechanics:
 
 អ្វីកើតឡើងពេល ``import``?

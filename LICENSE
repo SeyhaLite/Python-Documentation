@@ -18,16 +18,21 @@ SUMMARY OF CHANGES
    machine translation and not a verbatim reproduction of the English text.
 2. Python syntax, keywords, function/class/module names, parameter names and
    API identifiers are deliberately left untranslated.
-3. Code examples were rewritten and executed against CPython 3.15.0 to verify
-   that they run correctly.
+3. Project code examples are tested by ``tools/run_examples.py`` on CPython
+   3.15.2. The runner executes ``python`` and ``pycon`` blocks in the lesson
+   RST files and explicitly configured ``literalinclude`` scripts. It does not
+   validate explanatory prose, static ``console`` transcripts, or every
+   platform-specific installation instruction.
 4. Scope is reduced relative to the upstream documentation: only the chapters
    listed in README.md are currently available in Khmer.
 5. Site packaging (Sphinx configuration, ``khmer.css``, templates, Khmer
    web-font loading and the light/dark theme toggle) is original work of this
    repository and is licensed separately under LICENSE-CODE.
-6. Trademarks: "Python" and the Python logo are trademarks or registered
-   trademarks of the Python Software Foundation. This project is not endorsed
-   or sponsored by the PSF. No PSF trademark is used here in a trademark sense.
+6. Trademarks: "Python" and the Python logos are trademarks or registered
+   trademarks of the Python Software Foundation. The unaltered logo is used
+   only to identify the Python programming language (nominative use), with the
+   required trademark notice. This independent project is not endorsed or
+   sponsored by the PSF.
 
 --------------------------------------------------------------------------------
 PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
@@ -76,8 +81,18 @@ PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
    bound by the terms and conditions of this License Agreement.
 
 --------------------------------------------------------------------------------
-NOTES ON OTHER LICENCES
+NOTES ON OTHER LICENCES AND ASSETS
 --------------------------------------------------------------------------------
+* Upstream CPython documentation is licensed under PSF License Version 2.
+  Starting with Python 3.8.6, upstream documentation examples, recipes, and
+  other code are additionally dual-licensed under the Zero-Clause BSD license.
+  Check the originating file and retain any applicable notices before adapting
+  upstream code. See the pinned CPython ``Doc/license.rst`` and the official
+  license page for the complete terms.
+* ``source/_static/python-logo.svg`` and ``python-favicon.ico`` are official
+  Python marks. They are not original MIT-licensed site artwork and are
+  excluded from ``LICENSE-CODE``. The project-created ``favicon.svg`` and
+  ``khmer.css`` remain part of the site code covered by ``LICENSE-CODE``.
 * The upstream CPython documentation also contains licences for included
   third-party software. See "History and License" in the official
   documentation: https://docs.python.org/3/license.html

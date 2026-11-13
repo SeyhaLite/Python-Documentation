@@ -386,6 +386,23 @@ Method សម្រាប់អាន
    >>> p.with_suffix(".md")
    PosixPath('data/reports/2026.md')
 
+**ផ្គូផ្គងផ្លូវជាមួយ ``full_match()``៖**
+
+``PurePath.full_match(pattern)`` ពិនិត្យថា path ទាំងមូលត្រូវនឹង glob pattern
+ឬអត់។ វាខុសពី ``Path.match()`` ដែលអាចផ្គូផ្គង pattern ពីផ្នែកខាងស្ដាំ។
+
+.. code-block:: pycon
+
+   >>> from pathlib import PurePath
+   >>> PurePath("a/b.py").full_match("a/*.py")
+   True
+   >>> PurePath("a/b.py").full_match("*.py")
+   False
+   >>> PurePath("/a/b/c.py").full_match("**/*.py")
+   True
+
+.. versionadded:: 3.13
+
 .. note::
 
    នៅលើ Windows ``repr()`` បង្ហាញជា ``WindowsPath(...)`` ហើយផ្លូវប្រើ
@@ -691,6 +708,14 @@ JSON គឺជាទម្រង់ស្តង់ដារសម្រាប់
    True
    >>> "HOME" in os.environ or "USERPROFILE" in os.environ
    True
+
+.. note::
+
+   ``os.scandir()`` អាចចែករំលែក iterator រវាង threads ដោយមិនធ្វើឱ្យ
+   iterator ខូច ប៉ុន្តែវាមាន race condition៖ មិនអាចដឹងជាមុនថា thread នីមួយៗ
+   នឹងទទួល entry ណាខ្លះទេ។ បើ thread មួយបិទ iterator ខណៈ thread មួយទៀត
+   កំពុងដើរ ការដើរនោះនឹងបញ្ឈប់មុនពេលអស់ធាតុ។ បើចង់បានលទ្ធផលច្បាស់លាស់
+   គួរឱ្យ thread នីមួយៗប្រើ iterator ផ្ទាល់ខ្លួន។
 
 .. list-table:: ប្រៀបធៀប ``os.path`` និង ``pathlib``
    :header-rows: 1
